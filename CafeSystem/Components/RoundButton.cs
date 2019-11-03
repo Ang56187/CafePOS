@@ -3,10 +3,11 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace CafeSystem
+namespace CafeSystem.Components
 {
     class RoundButton : Button
     {
+
         GraphicsPath GetRoundPath(RectangleF Rect, int radius)
         {
             float r2 = radius / 2f;
@@ -28,7 +29,7 @@ namespace CafeSystem
         {
             base.OnPaint(e);
             RectangleF Rect = new RectangleF(0, 0, this.Width, this.Height);
-            using (GraphicsPath GraphPath = GetRoundPath(Rect, 50))
+            using (GraphicsPath GraphPath = GetRoundPath(Rect, 40))
             {
                 this.Region = new Region(GraphPath);
                 using (Pen pen = new Pen(Color.FromArgb(246, 80, 80), 1.75f))
