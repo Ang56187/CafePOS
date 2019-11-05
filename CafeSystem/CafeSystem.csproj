@@ -59,6 +59,11 @@
     <Compile Include="Forms\CashierMenuPage.Designer.cs">
       <DependentUpon>CashierMenuPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="StardardizedNames.cs" />
     <Compile Include="Forms\SelectionPage.cs">
       <SubType>Form</SubType>
@@ -85,14 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Forms\SelectionPage.resx">
       <DependentUpon>SelectionPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,43 +105,40 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\Century Gothic.ttf" />
+    <EmbeddedResource Include="Resource\Fonts\Century Gothic.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\restaurant-128.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bill-48.png" />
+    <EmbeddedResource Include="Resource\Images\Icons\arrow-right-24.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\shopping-cart-64.png" />
+    <EmbeddedResource Include="Resource\Images\Icons\arrow-down-24.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cart-48.png" />
+    <EmbeddedResource Include="Resource\Images\Icons\bill-48.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\arrow-48.png" />
+    <EmbeddedResource Include="Resource\Images\Icons\cart-48.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\arrow-32.png" />
+    <EmbeddedResource Include="Resource\Images\Icons\search-24.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\arrow-16.png" />
+    <EmbeddedResource Include="Resource\Images\Icons\logout-24.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\arrow-down-24.png" />
+    <EmbeddedResource Include="Resource\Images\Icons\restaurant-128.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\arrow-right-24.png" />
+    <EmbeddedResource Include="Resource\Images\Icons\shopping-cart-64.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logout-24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search-24.png" />
+    <Content Include="Resource\Images\Menu Items\unavailable-image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

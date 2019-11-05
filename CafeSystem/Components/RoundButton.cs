@@ -32,7 +32,7 @@ namespace CafeSystem.Components
             using (GraphicsPath GraphPath = GetRoundPath(Rect, 40))
             {
                 this.Region = new Region(GraphPath);
-                using (Pen pen = new Pen(Color.FromArgb(246, 80, 80), 1.75f))
+                using (Pen pen = new Pen(Color.Transparent, 1.75f))
                 {
                     pen.Alignment = PenAlignment.Inset;
                     e.Graphics.DrawPath(pen, GraphPath);
