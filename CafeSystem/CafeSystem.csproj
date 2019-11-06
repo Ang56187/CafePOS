@@ -53,6 +53,9 @@
     <Compile Include="Components\CustomTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Components\TransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\CashierMenuPage.cs">
       <SubType>Form</SubType>
     </Compile>

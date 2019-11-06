@@ -57,6 +57,12 @@ namespace CafeSystem.Forms
             btnLogOut.Font = btnFont;
             txtBoxSearch.Font = txtBoxFont;
 
+            createMenuItems();
+        }
+
+        private void createMenuItems()
+        {
+
             //lets use this to dynamically load menu items
             int[] tagCollection = new int[10];
 
@@ -67,12 +73,14 @@ namespace CafeSystem.Forms
                 BorderFlowLayoutPane vFlowPanel = new BorderFlowLayoutPane();
                 vFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
                 vFlowPanel.Size = new Size(230, 340);
-                vFlowPanel.Margin = new Padding(30,30,30,30);
+                vFlowPanel.Margin = new Padding(30, 30, 30, 30);
 
                 PictureBox menuItemImg = new PictureBox();
                 menuItemImg.Size = new Size(250, 220);
-                menuItemImg.Image = resizeImage(global::CafeSystem.Properties.Resources.unavailable_image,new Size(250,220));
+                menuItemImg.Image = resizeImage(global::CafeSystem.Properties.Resources.unavailable_image, new Size(250, 220));
                 menuItemImg.Margin = new Padding(0, 0, 0, 0);
+                //add function to add to cart button when clicked
+                menuItemImg.Click += new EventHandler(menuItemImg_click);
 
                 Label itemName = new Label();
                 itemName.Font = lblFont;
@@ -87,10 +95,10 @@ namespace CafeSystem.Forms
                 itemPrice.Size = new Size(220, 30);
 
                 //adding controls of buttons of items horizontally, to be added to vFLowPanel later
-                BorderFlowLayoutPane hFlowPanel = new BorderFlowLayoutPane();
+                FlowLayoutPanel hFlowPanel = new FlowLayoutPanel();
                 hFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.LeftToRight;
                 hFlowPanel.Size = new Size(210, 45);
-                hFlowPanel.Margin = new Padding(10, 5, 0,0);
+                hFlowPanel.Margin = new Padding(10, 5, 0, 0);
 
                 RoundButton btnQty = new RoundButton();
                 btnQty.Size = new Size(60, 45);
@@ -111,6 +119,8 @@ namespace CafeSystem.Forms
                 btnAddToCart.ForeColor = Color.White;
                 btnAddToCart.Margin = new Padding(10, 0, 0, 0);
                 btnAddToCart.Text = "Add to cart";
+                //add function to add to cart button when clicked
+                btnAddToCart.Click += new EventHandler(btnAddToCart_click);
 
                 //add buttons to horizontal flow panel, to be added to vertical flow panel later
                 hFlowPanel.Controls.Add(btnQty);
@@ -125,19 +135,59 @@ namespace CafeSystem.Forms
                 //finally added everything to overall flow panel
                 flowLayoutPanelMenu.Controls.Add(vFlowPanel);
 
+     
             }
         }
+
+        private void createItemDetails()
+        {
+            TransparentPanel panelHidden = new TransparentPanel();
+            panelHidden.Size = new Size(1605,835);
+            panelHidden.Opacity = 60;
+            panelHidden.BackColor = Color.DarkGray;
+
+            Panel panelItemDetail = new Panel();
+            panelItemDetail.Size = new Size(600, 600);
+            panelItemDetail.BackColor = Color.White;
+            panelItemDetail.Paint +=  new System.Windows.Forms.PaintEventHandler(panelItemDetail_paint);
+
+            panelHidden.Controls.Add(panelItemDetail);
+
+            this.Controls.Add(panelHidden);
+            panelHidden.BringToFront();
+        }
+
+
+        private void panelItemDetail_paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, Color.DarkBlue, ButtonBorderStyle.Solid);
+
+        }
+
 
         private void treeViewMenu_AfterSelect(object sender, TreeViewEventArgs e)
         {
             TreeNode treeNode = treeViewMenu.SelectedNode;
             bool isSelected = treeViewMenu.Nodes["Node0"].Nodes["Node4"].IsSelected;
 
-
             if (isSelected)
             {
                 MessageBox.Show("Selected {0}",treeViewMenu.Name);
             }
+        }
+
+        private void menuItemImg_click(object sender, EventArgs e)
+        {
+
+            createItemDetails();
+        }
+
+        private void btnAddToCart_click(object sender, EventArgs e)
+        {
+        }
+
+        private void panelHidden_MouseClick(object sender, MouseEventArgs e)
+        {
         }
     }
 }

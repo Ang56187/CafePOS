@@ -20,7 +20,6 @@ namespace CafeSystem.Forms
 
         private PrivateFontCollection fonts = new PrivateFontCollection();
         Font btnFont;
-        Font textBoxFont;
 
         public SelectionPage()
         {
@@ -34,7 +33,6 @@ namespace CafeSystem.Forms
             AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.Century_Gothic.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
             btnFont = new Font(fonts.Families[0], 20.0F, FontStyle.Bold);
-            textBoxFont = new Font(fonts.Families[0], 20.0F);
         }
 
         private void SelectionPage_Load(object sender, EventArgs e)
