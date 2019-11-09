@@ -141,6 +141,9 @@
     <EmbeddedResource Include="Resource\Images\Icons\shopping-cart-64.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resource\Images\Icons\close-window-48.png" />
+    <None Include="Resource\Images\Icons\add-48.png" />
+    <None Include="Resource\Images\Icons\minus-48.png" />
     <Content Include="Resource\Images\Menu Items\unavailable-image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,7 +14,7 @@ namespace CafeSystem.Components
             SetStyle(ControlStyles.Opaque, true);
         }
 
-        private int opacity = 60;
+        private int opacity = 0;
         [DefaultValue(50)]
         public int Opacity
         {
