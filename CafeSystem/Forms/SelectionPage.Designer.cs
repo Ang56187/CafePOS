@@ -53,7 +53,7 @@ namespace CafeSystem.Forms
             // 
             // btnEndBusiness
             // 
-            this.btnEndBusiness.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnEndBusiness.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(156)))), ((int)(((byte)(252)))));
             this.btnEndBusiness.FlatAppearance.BorderSize = 0;
             this.btnEndBusiness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEndBusiness.ForeColor = System.Drawing.Color.White;

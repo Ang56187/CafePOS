@@ -65,7 +65,7 @@ namespace CafeSystem.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap add_48 {
             get {
-                object obj = ResourceManager.GetObject("add-48", resourceCulture);
+                object obj = ResourceManager.GetObject("add_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,29 @@ namespace CafeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_left_white_48 {
+            get {
+                object obj = ResourceManager.GetObject("arrow_left_white_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_right_24 {
             get {
                 object obj = ResourceManager.GetObject("arrow_right_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_right_white_48 {
+            get {
+                object obj = ResourceManager.GetObject("arrow_right_white_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +123,29 @@ namespace CafeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap card_48 {
+            get {
+                object obj = ResourceManager.GetObject("card_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cart_48 {
             get {
                 object obj = ResourceManager.GetObject("cart_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cash_48 {
+            get {
+                object obj = ResourceManager.GetObject("cash_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +173,16 @@ namespace CafeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap create_48 {
+            get {
+                object obj = ResourceManager.GetObject("create_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logout_24 {
             get {
                 object obj = ResourceManager.GetObject("logout_24", resourceCulture);
@@ -145,7 +195,7 @@ namespace CafeSystem.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap minus_48 {
             get {
-                object obj = ResourceManager.GetObject("minus-48", resourceCulture);
+                object obj = ResourceManager.GetObject("minus_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
