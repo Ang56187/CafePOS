@@ -28,6 +28,10 @@ namespace CafeSystem.Forms.Cashier
         {
             InitializeComponent();
 
+        }
+
+        private void ReceiptPage_Load(object sender, EventArgs e)
+        {
             //set font
             byte[] fontData = Properties.Resources.Century_Gothic;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
@@ -41,25 +45,21 @@ namespace CafeSystem.Forms.Cashier
             fontHeaderLbl = new Font(fonts.Families[0], 25.0F, FontStyle.Bold);
             fontBtn = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
 
-
-        }
-
-        private void ReceiptPage_Load(object sender, EventArgs e)
-        {
+            //set font to components
             lblPayComplete.Font = lblOrderTxt.Font = lblOrderNum.Font = fontHeaderLbl;
             btnLogOut.Font = btnNextOrder.Font = btnEndDay.Font =  fontBtn;
             lblReceivedTxt.Font = lblReceived.Font = lblTotalTxt.Font = lblTotal.Font =
                 lblChangeTxt.Font = lblChange.Font = fontLbl;
             lblNowWat.Font =  new Font(fonts.Families[0], 20.0F);
 
-            btnNextOrder.Image = resizeImage(global::CafeSystem.Properties.Resources.create_48, new Size(35, 33));
-            btnEndDay.Image = resizeImage(global::CafeSystem.Properties.Resources.bill_48, new Size(35, 33));
+            btnNextOrder.Image = ResizeImage(global::CafeSystem.Properties.Resources.create_48, new Size(35, 33));
+            btnEndDay.Image = ResizeImage(global::CafeSystem.Properties.Resources.bill_48, new Size(35, 33));
 
 
         }
 
         //for resizing images that are too big
-        public Image resizeImage(Image imgToResize, Size size)
+        public Image ResizeImage(Image imgToResize, Size size)
         {
             return (Image)(new Bitmap(imgToResize, size));
         }

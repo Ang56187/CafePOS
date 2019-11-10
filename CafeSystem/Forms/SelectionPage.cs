@@ -24,7 +24,11 @@ namespace CafeSystem.Forms
         public SelectionPage()
         {
             InitializeComponent();
+        }
 
+        private void SelectionPage_Load(object sender, EventArgs e)
+        {
+            //set font
             byte[] fontData = Properties.Resources.Century_Gothic;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
@@ -33,10 +37,8 @@ namespace CafeSystem.Forms
             AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.Century_Gothic.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
             btnFont = new Font(fonts.Families[0], 20.0F, FontStyle.Bold);
-        }
 
-        private void SelectionPage_Load(object sender, EventArgs e)
-        {
+            //set font to components
             btnMenu.Font = btnFont;
             btnEndBusiness.Font = btnFont;
         }

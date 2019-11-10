@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backend\Objects\Product.cs" />
     <Compile Include="Components\BorderFlowLayoutPane.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -179,7 +180,8 @@
     <None Include="Resource\Images\Icons\cash-48.png" />
     <None Include="Resource\Images\Icons\card-48.png" />
     <None Include="Resource\Images\Icons\create-48.png" />
-    <Content Include="Resource\Images\Menu Items\unavailable-image.jpg" />
+    <None Include="Resource\Images\Icons\cancel-48.png" />
+    <Content Include="Resource\Images\MenuItems\unavailable-image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

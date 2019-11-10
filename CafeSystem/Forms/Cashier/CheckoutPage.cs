@@ -23,12 +23,13 @@ namespace CafeSystem.Forms.Cashier
         Font fontHeaderLbl;
         Font fontBtn;
 
-
-
         public CheckoutPage()
         {
             InitializeComponent();
+        }
 
+        private void CheckoutPage_Load(object sender, EventArgs e)
+        {
             //set font
             byte[] fontData = Properties.Resources.Century_Gothic;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
@@ -42,10 +43,7 @@ namespace CafeSystem.Forms.Cashier
             fontHeaderLbl = new Font(fonts.Families[0], 25.0F, FontStyle.Bold);
             fontBtn = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
 
-        }
-
-        private void CheckoutPage_Load(object sender, EventArgs e)
-        {
+            //set font to components
             lblCheckout.Font = lblOrderTxt.Font = lblOrderNum.Font = fontHeaderLbl;
             btnCash.Font = btnCreditCard.Font = btnCancel.Font = fontBtn;
             lblSubTotalTxt.Font = lblSubTotal.Font = lblSerChargeTxt.Font = lblSerCharge.Font=
@@ -55,15 +53,17 @@ namespace CafeSystem.Forms.Cashier
 
             lblCheckout.Location = new Point((panel1.Width - lblCheckout.Width) / 2, lblCheckout.Location.Y);
 
+            btnCancel.Image = ResizeImage(global::CafeSystem.Properties.Resources.cancel_48, new Size(33, 33));
+
             for (int i = 0; i <= 20; i++)//TODO: edit this later
             {
-                add_order_item("EFFwdsadawdwopd poqwiwqpoeiwqp", 2, 32);
+                Add_order_item("EFFwdsadawdwopd poqwiwqpoeiwqp", 2, 32);
             }
 
         }
 
 
-        private void add_order_item(string name, int qty ,double price)
+        private void Add_order_item(string name, int qty ,decimal price)
         {
             Panel panelOrderItem = new Panel();
             FlowLayoutPanel flowPanelNameQty = new FlowLayoutPanel();
@@ -107,7 +107,7 @@ namespace CafeSystem.Forms.Cashier
         }
 
         //for resizing images that are too big
-        public Image resizeImage(Image imgToResize, Size size)
+        public Image ResizeImage(Image imgToResize, Size size)
         {
             return (Image)(new Bitmap(imgToResize, size));
         }

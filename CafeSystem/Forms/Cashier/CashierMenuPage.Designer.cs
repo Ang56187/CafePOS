@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node3");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node4");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node6");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node7");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Node3");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Node4");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Node6");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Node7");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierMenuPage));
             this.panelLine = new System.Windows.Forms.Panel();
             this.flowLayoutPanelMenu = new System.Windows.Forms.FlowLayoutPanel();
@@ -66,15 +66,15 @@
             this.flowPanelRadio = new System.Windows.Forms.FlowLayoutPanel();
             this.radioBtnDine = new System.Windows.Forms.RadioButton();
             this.radioBtnTake = new System.Windows.Forms.RadioButton();
-            this.btnCheckout = new CafeSystem.Components.RoundButton();
             this.treeViewMenu = new CafeSystem.Components.CustomTreeView();
             this.flowLayoutHeader = new CafeSystem.Components.BorderFlowLayoutPane();
-            this.btnCart = new System.Windows.Forms.Button();
-            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.panelSearch = new System.Windows.Forms.Panel();
-            this.btnSearch = new CafeSystem.Components.RoundButton();
             this.txtBoxSearch = new System.Windows.Forms.TextBox();
             this.transparentPanel1 = new CafeSystem.Components.TransparentPanel();
+            this.btnCart = new System.Windows.Forms.Button();
+            this.btnSearch = new CafeSystem.Components.RoundButton();
+            this.btnCheckout = new CafeSystem.Components.RoundButton();
+            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.panelCashierName.SuspendLayout();
             this.transPanelCart.SuspendLayout();
             this.flowPanelCart.SuspendLayout();
@@ -145,7 +145,6 @@
             this.flowPanelCart.Controls.Add(this.panelTaxTxt);
             this.flowPanelCart.Controls.Add(this.panel1);
             this.flowPanelCart.Controls.Add(this.flowPanelRadio);
-            this.flowPanelCart.Controls.Add(this.btnCheckout);
             this.flowPanelCart.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowPanelCart.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowPanelCart.Location = new System.Drawing.Point(1065, 0);
@@ -193,11 +192,11 @@
             // 
             // flowPanelCartItem
             // 
-            this.flowPanelCartItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.flowPanelCartItem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowPanelCartItem.AutoScroll = true;
-            this.flowPanelCartItem.Location = new System.Drawing.Point(14, 96);
+            this.flowPanelCartItem.Location = new System.Drawing.Point(23, 96);
             this.flowPanelCartItem.Name = "flowPanelCartItem";
-            this.flowPanelCartItem.Size = new System.Drawing.Size(508, 419);
+            this.flowPanelCartItem.Size = new System.Drawing.Size(490, 419);
             this.flowPanelCartItem.TabIndex = 3;
             // 
             // panelSubTotal
@@ -336,21 +335,6 @@
             this.radioBtnTake.Text = "Take away";
             this.radioBtnTake.UseVisualStyleBackColor = true;
             // 
-            // btnCheckout
-            // 
-            this.btnCheckout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnCheckout.FlatAppearance.BorderSize = 0;
-            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckout.ForeColor = System.Drawing.Color.White;
-            this.btnCheckout.Location = new System.Drawing.Point(122, 695);
-            this.btnCheckout.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(291, 40);
-            this.btnCheckout.TabIndex = 8;
-            this.btnCheckout.Text = "Checkout";
-            this.btnCheckout.UseVisualStyleBackColor = false;
-            // 
             // treeViewMenu
             // 
             this.treeViewMenu.AlternateBackColor = System.Drawing.Color.White;
@@ -365,24 +349,24 @@
             this.treeViewMenu.Location = new System.Drawing.Point(12, 88);
             this.treeViewMenu.MinimumSize = new System.Drawing.Size(100, 100);
             this.treeViewMenu.Name = "treeViewMenu";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "Node1";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "Node2";
-            treeNode3.Name = "Node3";
-            treeNode3.Text = "Node3";
-            treeNode4.Name = "Node4";
-            treeNode4.Text = "Node4";
-            treeNode5.Name = "Node5";
-            treeNode5.Text = "Node5";
-            treeNode6.Name = "Node6";
-            treeNode6.Text = "Node6";
-            treeNode7.Name = "Node7";
-            treeNode7.Text = "Node7";
-            treeNode8.Name = "Node0";
-            treeNode8.Text = "Node0";
+            treeNode9.Name = "Node1";
+            treeNode9.Text = "Node1";
+            treeNode10.Name = "Node2";
+            treeNode10.Text = "Node2";
+            treeNode11.Name = "Node3";
+            treeNode11.Text = "Node3";
+            treeNode12.Name = "Node4";
+            treeNode12.Text = "Node4";
+            treeNode13.Name = "Node5";
+            treeNode13.Text = "Node5";
+            treeNode14.Name = "Node6";
+            treeNode14.Text = "Node6";
+            treeNode15.Name = "Node7";
+            treeNode15.Text = "Node7";
+            treeNode16.Name = "Node0";
+            treeNode16.Text = "Node0";
             this.treeViewMenu.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8});
+            treeNode16});
             this.treeViewMenu.ShowLines = false;
             this.treeViewMenu.Size = new System.Drawing.Size(295, 711);
             this.treeViewMenu.TabIndex = 3;
@@ -390,14 +374,44 @@
             // 
             // flowLayoutHeader
             // 
-            this.flowLayoutHeader.Controls.Add(this.btnCart);
-            this.flowLayoutHeader.Controls.Add(this.btnLogOut);
             this.flowLayoutHeader.Controls.Add(this.panelSearch);
             this.flowLayoutHeader.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutHeader.Location = new System.Drawing.Point(330, -2);
             this.flowLayoutHeader.Name = "flowLayoutHeader";
             this.flowLayoutHeader.Size = new System.Drawing.Size(1275, 58);
             this.flowLayoutHeader.TabIndex = 7;
+            // 
+            // panelSearch
+            // 
+            this.panelSearch.BackColor = System.Drawing.Color.Transparent;
+            this.panelSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSearch.Controls.Add(this.btnSearch);
+            this.panelSearch.Controls.Add(this.txtBoxSearch);
+            this.panelSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.panelSearch.Location = new System.Drawing.Point(536, 6);
+            this.panelSearch.Margin = new System.Windows.Forms.Padding(3, 6, 60, 3);
+            this.panelSearch.Name = "panelSearch";
+            this.panelSearch.Size = new System.Drawing.Size(419, 44);
+            this.panelSearch.TabIndex = 4;
+            // 
+            // txtBoxSearch
+            // 
+            this.txtBoxSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSearch.Location = new System.Drawing.Point(1, 0);
+            this.txtBoxSearch.MinimumSize = new System.Drawing.Size(100, 47);
+            this.txtBoxSearch.Name = "txtBoxSearch";
+            this.txtBoxSearch.Size = new System.Drawing.Size(355, 23);
+            this.txtBoxSearch.TabIndex = 0;
+            // 
+            // transparentPanel1
+            // 
+            this.transparentPanel1.Location = new System.Drawing.Point(0, 0);
+            this.transparentPanel1.Name = "transparentPanel1";
+            this.transparentPanel1.Opacity = 0;
+            this.transparentPanel1.Size = new System.Drawing.Size(200, 100);
+            this.transparentPanel1.TabIndex = 0;
             // 
             // btnCart
             // 
@@ -412,6 +426,33 @@
             this.btnCart.TabIndex = 0;
             this.btnCart.UseVisualStyleBackColor = false;
             this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.Location = new System.Drawing.Point(367, 1);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(47, 39);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // btnCheckout
+            // 
+            this.btnCheckout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnCheckout.FlatAppearance.BorderSize = 0;
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckout.ForeColor = System.Drawing.Color.White;
+            this.btnCheckout.Location = new System.Drawing.Point(122, 695);
+            this.btnCheckout.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(291, 40);
+            this.btnCheckout.TabIndex = 8;
+            this.btnCheckout.Text = "Checkout";
+            this.btnCheckout.UseVisualStyleBackColor = false;
             // 
             // btnLogOut
             // 
@@ -432,50 +473,6 @@
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogOut.UseVisualStyleBackColor = false;
             // 
-            // panelSearch
-            // 
-            this.panelSearch.BackColor = System.Drawing.Color.Transparent;
-            this.panelSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSearch.Controls.Add(this.btnSearch);
-            this.panelSearch.Controls.Add(this.txtBoxSearch);
-            this.panelSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.panelSearch.Location = new System.Drawing.Point(536, 6);
-            this.panelSearch.Margin = new System.Windows.Forms.Padding(3, 6, 60, 3);
-            this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(419, 44);
-            this.panelSearch.TabIndex = 4;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(367, 1);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(47, 39);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // txtBoxSearch
-            // 
-            this.txtBoxSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSearch.Location = new System.Drawing.Point(1, 0);
-            this.txtBoxSearch.MinimumSize = new System.Drawing.Size(100, 47);
-            this.txtBoxSearch.Name = "txtBoxSearch";
-            this.txtBoxSearch.Size = new System.Drawing.Size(355, 23);
-            this.txtBoxSearch.TabIndex = 0;
-            // 
-            // transparentPanel1
-            // 
-            this.transparentPanel1.Location = new System.Drawing.Point(0, 0);
-            this.transparentPanel1.Name = "transparentPanel1";
-            this.transparentPanel1.Opacity = 0;
-            this.transparentPanel1.Size = new System.Drawing.Size(200, 100);
-            this.transparentPanel1.TabIndex = 0;
-            //
             // CashierMenuPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,7 +488,7 @@
             this.Location = new System.Drawing.Point(9, 0);
             this.Name = "CashierMenuPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
-            this.Text = StandardizedNames.form_name;
+            this.Text = "Sunway Cafe";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CashierMenuPage_Load);
             this.panelCashierName.ResumeLayout(false);

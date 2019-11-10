@@ -26,6 +26,10 @@ namespace CafeSystem.Forms.Cashier
         public PaymentPage()
         {
             InitializeComponent();
+        }
+
+        private void PaymentPage_Load(object sender, EventArgs e)
+        {
 
             //set font
             byte[] fontData = Properties.Resources.Century_Gothic;
@@ -40,11 +44,7 @@ namespace CafeSystem.Forms.Cashier
             fontHeaderLbl = new Font(fonts.Families[0], 25.0F, FontStyle.Bold);
             fontBtn = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
 
-
-        }
-
-        private void PaymentPage_Load(object sender, EventArgs e)
-        {
+            //set font to components
             lblCashPayment.Font = lblOrderTxt.Font = lblOrderNum.Font = fontHeaderLbl;
             lblPaymentTxt.Font = txtBoxAmount.Font = fontLbl;
             btnBack.Font =btnProceed.Font = fontBtn;

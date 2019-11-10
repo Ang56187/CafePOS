@@ -388,7 +388,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Image = global::CafeSystem.Properties.Resources.logout_24;
+            this.btnCancel.Image = global::CafeSystem.Properties.Resources.cancel_48;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(1241, 0);
             this.btnCancel.Name = "btnCancel";
