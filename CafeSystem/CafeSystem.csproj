@@ -47,7 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Backend\Objects\Product.cs" />
+    <Compile Include="Backend\MenuCatalogue.cs" />
+    <Compile Include="Backend\Objects\Item.cs" />
     <Compile Include="Components\BorderFlowLayoutPane.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -144,9 +145,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resource\Images\Icons\arrow-right-24.png" />
   </ItemGroup>

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CafeSystem.Components;
+using CafeSystem.Backend;
 
 namespace CafeSystem.Forms.Cashier
 {
@@ -28,7 +29,8 @@ namespace CafeSystem.Forms.Cashier
         Font fontLblMini;
         Font fontHeaderLbl;
         Font fontTextDesc;
-
+        
+        //might return to this later
         bool hidden = true ;
 
         //when click on item image, will add in item details components
@@ -59,10 +61,13 @@ namespace CafeSystem.Forms.Cashier
         Label lblTotalPrice = new Label();
         RoundButton btnAddToCart2 = new RoundButton();
 
+
+        //menu item list
+        MenuCatalogue menuList = new MenuCatalogue();
+
         public CashierMenuPage()
         {
             InitializeComponent();
-
         }
 
         private void CashierMenuPage_Load(object sender, EventArgs e)
@@ -102,7 +107,6 @@ namespace CafeSystem.Forms.Cashier
             //hide shopping cart panel upon load up unless cart btn clicked
             transPanelCart.Hide();
 
-            CreateMenuItems();
             CreateItemDetails();
 
             //TODO: config this later
@@ -122,41 +126,47 @@ namespace CafeSystem.Forms.Cashier
         //TODO: later once item info finally gathered, we insert parameters for this.
         //use linq gogo!
         private void CreateMenuItems()
-        {
-            //lets use this to dynamically load menu items
-
+        {            
+            //lets use this to dynamically load menu item
             //adding controls of menu item horizontally
             BorderFlowLayoutPane vFlowPanel = new BorderFlowLayoutPane();
+            PictureBox menuItemImg = new PictureBox();
+            Label lblItemName = new Label();
+            Label lblItemPrice = new Label();
+
+            FlowLayoutPanel hFlowPanel = new FlowLayoutPanel();
+            RoundButton btnQty = new RoundButton();
+            RoundButton btnAddToCart = new RoundButton();
+
+
+            menuItemImg.Image = ResizeImage(global::CafeSystem.Properties.Resources.unavailable_image, new Size(250, 220));
+            lblItemName.Text = "Insert name here";
+            lblItemPrice.Text = "Insert price here";
+            btnQty.Text = "100";
+
+
             vFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             vFlowPanel.Size = new Size(230, 340);
             vFlowPanel.Margin = new Padding(30, 30, 30, 30);
 
-            PictureBox menuItemImg = new PictureBox();
             menuItemImg.Size = new Size(250, 220);
-            menuItemImg.Image = ResizeImage(global::CafeSystem.Properties.Resources.unavailable_image, new Size(250, 220));
             menuItemImg.Margin = new Padding(0, 0, 0, 0);
             //add function to add to cart button when clicked
             menuItemImg.Click += new EventHandler(menuItemImg_click);
 
-            Label lblItemName = new Label();
             lblItemName.Font = fontLbl;
-            lblItemName.Text = "Insert name here";
             lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             lblItemName.Size = new Size(220, 30);
 
-            Label lblItemPrice = new Label();
             lblItemPrice.Font = fontLbl;
-            lblItemPrice.Text = "Insert price here";
             lblItemPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             lblItemPrice.Size = new Size(220, 30);
 
             //adding controls of buttons of items horizontally, to be added to vFLowPanel later
-            FlowLayoutPanel hFlowPanel = new FlowLayoutPanel();
             hFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.LeftToRight;
             hFlowPanel.Size = new Size(210, 45);
             hFlowPanel.Margin = new Padding(10, 5, 0, 0);
 
-            RoundButton btnQty = new RoundButton();
             btnQty.Size = new Size(60, 45);
             btnQty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             btnQty.FlatAppearance.BorderSize = 0;
@@ -165,9 +175,7 @@ namespace CafeSystem.Forms.Cashier
             btnQty.Enabled = false;
             btnQty.ForeColor = Color.White;
             btnQty.Margin = new Padding(0, 0, 0, 0);
-            btnQty.Text = "100";
 
-            RoundButton btnAddToCart = new RoundButton();
             btnAddToCart.Size = new Size(140, 45);
             btnAddToCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             btnAddToCart.FlatAppearance.BorderSize = 0;
@@ -311,7 +319,9 @@ namespace CafeSystem.Forms.Cashier
 
         private void ShowItemDetails()
         {
-            MessageBox.Show(Environment.CurrentDirectory);
+            //to find for file image
+            String fileLocation = Path.Combine(Environment.CurrentDirectory, "..", "..", "Resource", "Images", "MenuItems", "fries.jpg");
+
             //set item name
             lblItemName.Text = "Item name";
             txtBoxItemDesc.Text =
@@ -319,8 +329,7 @@ namespace CafeSystem.Forms.Cashier
             lblPrice.Text = "RM23.00";
             numUpDownQty.Text = "0";
             lblTotalPrice.Text = "Total price :RM23.00";
-            picBoxItem.Image = ResizeImage(global::CafeSystem.Properties.Resources.unavailable_image, new Size(400, 350));//TODO: later include image from DB
-            //global::CafeSystem.Properties.Resources.unavailable_image
+            picBoxItem.Image = ResizeImage(Image.FromFile(fileLocation), new Size(400, 350));//TODO: later include image from DB
 
             //bring pop up to front
             transPanelHidden.Show();
@@ -411,13 +420,14 @@ namespace CafeSystem.Forms.Cashier
         //////////////////////////////////////////////////////events for components///////////////////////////////////////////////////////////////////
         private void treeViewMenu_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            TreeNode treeNode = treeViewMenu.SelectedNode;
-            bool isSelected = treeViewMenu.Nodes["Node0"].Nodes["Node4"].IsSelected;
+            //TreeNode treeNode = treeViewMenu.SelectedNode;
+            //bool isSelected = treeViewMenu.Nodes["Node0"].Nodes["Node4"].IsSelected;
 
-            if (isSelected)
-            {
-                MessageBox.Show("Test",treeViewMenu.Name);
-            }
+            //if (isSelected)
+            //{
+            //    MessageBox.Show("Test",treeViewMenu.Name);
+            //}
+            //CreateMenuItems();
         }
 
         private void Delete_Cart_Item(object sender, EventArgs e)
