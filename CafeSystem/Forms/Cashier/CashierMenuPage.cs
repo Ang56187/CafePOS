@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CafeSystem.Components;
 using CafeSystem.Backend;
+using CafeSystem.Backend.Objects;
+
 
 namespace CafeSystem.Forms.Cashier
 {
@@ -29,9 +31,10 @@ namespace CafeSystem.Forms.Cashier
         Font fontLblMini;
         Font fontHeaderLbl;
         Font fontTextDesc;
-        
-        //might return to this later
-        bool hidden = true ;
+
+        //menu item list and shopping cart list
+        MenuCatalogue menuItems = new MenuCatalogue();
+        ShoppingCart cartItems = new ShoppingCart();
 
         //when click on item image, will add in item details components
         //invisible background panel behind item details
@@ -60,10 +63,6 @@ namespace CafeSystem.Forms.Cashier
         //*
         Label lblTotalPrice = new Label();
         RoundButton btnAddToCart2 = new RoundButton();
-
-
-        //menu item list
-        MenuCatalogue menuList = new MenuCatalogue();
 
         public CashierMenuPage()
         {
@@ -97,7 +96,6 @@ namespace CafeSystem.Forms.Cashier
             lblSubTotalTxt.Font = lblSubTotal.Font = lblTaxTxt.Font = lblTax.Font = lblTotalTxt.Font = lblTotal.Font
                 = radioBtnDine.Font = radioBtnTake.Font  = fontLbl;
 
-
             //add transparent background to foreground
             this.Controls.Add(transPanelHidden);
             transPanelHidden.Size = new Size(1605, 822);
@@ -125,8 +123,8 @@ namespace CafeSystem.Forms.Cashier
 
         //TODO: later once item info finally gathered, we insert parameters for this.
         //use linq gogo!
-        private void CreateMenuItems()
-        {            
+        private void CreateMenuItems(Item item)
+        {
             //lets use this to dynamically load menu item
             //adding controls of menu item horizontally
             BorderFlowLayoutPane vFlowPanel = new BorderFlowLayoutPane();
@@ -138,11 +136,14 @@ namespace CafeSystem.Forms.Cashier
             RoundButton btnQty = new RoundButton();
             RoundButton btnAddToCart = new RoundButton();
 
+            // set values from arguments
 
-            menuItemImg.Image = ResizeImage(global::CafeSystem.Properties.Resources.unavailable_image, new Size(250, 220));
-            lblItemName.Text = "Insert name here";
-            lblItemPrice.Text = "Insert price here";
-            btnQty.Text = "100";
+            //to find for file image
+            String imgLocation = Path.Combine(Environment.CurrentDirectory, "..", "..", "Resource", "Images", "MenuItems", item.Image);
+            menuItemImg.Image = ResizeImage(Image.FromFile(imgLocation), new Size(250, 220));
+            lblItemName.Text = item.Name;
+            lblItemPrice.Text = String.Format("{0:C}",item.Price);
+            btnQty.Text = item.Quantity.ToString();
 
 
             vFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -152,7 +153,12 @@ namespace CafeSystem.Forms.Cashier
             menuItemImg.Size = new Size(250, 220);
             menuItemImg.Margin = new Padding(0, 0, 0, 0);
             //add function to add to cart button when clicked
-            menuItemImg.Click += new EventHandler(menuItemImg_click);
+            menuItemImg.Click += (sender, e) =>
+            {
+                //add flow panel to middle of transparent panel
+                transPanelHidden.Controls.Add(panelItemDetail);
+                ShowItemDetails(item);
+            };
 
             lblItemName.Font = fontLbl;
             lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -172,9 +178,13 @@ namespace CafeSystem.Forms.Cashier
             btnQty.FlatAppearance.BorderSize = 0;
             btnQty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnQty.Font = fontBtnMini;
-            btnQty.Enabled = false;
+            //btnQty.Enabled = false;
             btnQty.ForeColor = Color.White;
             btnQty.Margin = new Padding(0, 0, 0, 0);
+            transPanelHidden.Click += (e, sender) =>
+            {
+                btnQty.Refresh();
+            };
 
             btnAddToCart.Size = new Size(140, 45);
             btnAddToCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -184,8 +194,12 @@ namespace CafeSystem.Forms.Cashier
             btnAddToCart.ForeColor = Color.White;
             btnAddToCart.Margin = new Padding(10, 0, 0, 0);
             btnAddToCart.Text = "Add to cart";
-            //add function to add to cart button when clicked
-            btnAddToCart.Click += new EventHandler(btnAddToCart_click);
+            //TODO: add to cart
+            btnAddToCart.Click += (sender, e) =>
+            {
+                item.Quantity += 1;
+                btnQty.Text = item.Quantity.ToString();
+            };
             //divert focus so it wont appear front of pop-up
             btnAddToCart.Click += (sender, e) => btnCart.Focus();
 
@@ -202,6 +216,7 @@ namespace CafeSystem.Forms.Cashier
             //finally added everything to overall flow panel
             flowLayoutPanelMenu.Controls.Add(vFlowPanel);
         }
+
 
         //to open popup of more details of item
         private void CreateItemDetails() //TODO: add contents to item detail pop up
@@ -317,18 +332,26 @@ namespace CafeSystem.Forms.Cashier
             panelItemDetail.Controls.Add(btnAddToCart2);
         }
 
-        private void ShowItemDetails()
+
+        //To fill in details of item at pop up
+        private void ShowItemDetails(Item item)
         {
             //to find for file image
-            String fileLocation = Path.Combine(Environment.CurrentDirectory, "..", "..", "Resource", "Images", "MenuItems", "fries.jpg");
+            String fileLocation = Path.Combine(Environment.CurrentDirectory, "..", "..", "Resource", "Images", "MenuItems", item.Image);
 
             //set item name
-            lblItemName.Text = "Item name";
-            txtBoxItemDesc.Text =
-                "Windows Forms (WinForms) is a graphical (GUI) class library included as a part of Microsoft .NET Framework or Mono Framework,[1] ";
-            lblPrice.Text = "RM23.00";
-            numUpDownQty.Text = "0";
-            lblTotalPrice.Text = "Total price :RM23.00";
+            lblItemName.Text = item.Name;
+            txtBoxItemDesc.Text = item.Description;
+            lblPrice.Text = String.Format("{0:C}",item.Price);
+
+            numUpDownQty.Value = item.Quantity;
+            numUpDownQty.ValueChanged += (e,sender) =>
+            {
+                lblTotalPrice.Text = "Total: " + (item.Price * numUpDownQty.Value);
+                item.Quantity = (int)numUpDownQty.Value;
+            };
+
+            lblTotalPrice.Text = "Total: "+ (item.Price* numUpDownQty.Value);
             picBoxItem.Image = ResizeImage(Image.FromFile(fileLocation), new Size(400, 350));//TODO: later include image from DB
 
             //bring pop up to front
@@ -336,6 +359,8 @@ namespace CafeSystem.Forms.Cashier
             transPanelHidden.BringToFront();
         }
 
+
+        //add at cart list at the side
         public void AddCartItem()
         {
             FlowLayoutPanel flowPanelCartDetail = new FlowLayoutPanel();
@@ -396,7 +421,6 @@ namespace CafeSystem.Forms.Cashier
             btnDeleteItem.Size = new Size(35, 35);
             btnDeleteItem.Margin = new Padding(65, 0, 0, 0);
             btnDeleteItem.Image = ResizeImage(global::CafeSystem.Properties.Resources.close_window_48, new Size(35, 35));
-            btnDeleteItem.Click += new EventHandler(Delete_Cart_Item);
             btnDeleteItem.Click += (sender,e) =>
             {
                 flowPanelCartItem.Controls.Remove(flowPanelCartDetail);
@@ -417,31 +441,45 @@ namespace CafeSystem.Forms.Cashier
             flowPanelCartItem.Controls.Add(flowPanelCartDetail);
         }
 
+
         //////////////////////////////////////////////////////events for components///////////////////////////////////////////////////////////////////
+        //TODO: later once shopping cart done, include cart qty to here
         private void treeViewMenu_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //TreeNode treeNode = treeViewMenu.SelectedNode;
+            flowLayoutPanelMenu.Controls.Clear();
+            TreeNode treeNode = treeViewMenu.SelectedNode;
             //bool isSelected = treeViewMenu.Nodes["Node0"].Nodes["Node4"].IsSelected;
 
-            //if (isSelected)
-            //{
-            //    MessageBox.Show("Test",treeViewMenu.Name);
-            //}
-            //CreateMenuItems();
+            //if root node selected, show by category (food, beverage)
+            if (treeNode.Parent == null)
+            {
+                var returnList =
+                        from item in menuItems.MenuList
+                        where item.Category.Equals(treeNode.Name)
+                        select item;
+
+                foreach (Item item in returnList)
+                {
+                    CreateMenuItems(item);
+                }
+
+            }
+
+            //if child node selected, show by type
+            else
+            {
+                var returnList =
+                        from item in menuItems.MenuList
+                        where item.Type.Equals(treeNode.Name)
+                        select item;
+
+                foreach (Item item in returnList)
+                {
+                    CreateMenuItems(item);
+                }
+            }
         }
 
-        private void Delete_Cart_Item(object sender, EventArgs e)
-        {
-            var theButton = (Button)sender;
-            MessageBox.Show(theButton.Name);
-        }
-
-        private void menuItemImg_click(object sender, EventArgs e)
-        {
-            //add flow panel to middle of transparent panel
-            transPanelHidden.Controls.Add(panelItemDetail);
-            ShowItemDetails();
-        }
 
         //only numbers can be accepted
         private void txtBoxQty_KeyPress(object sender, KeyPressEventArgs e)
@@ -451,10 +489,6 @@ namespace CafeSystem.Forms.Cashier
             {
                 e.Handled = true;
             }
-        }
-
-        private void btnAddToCart_click(object sender, EventArgs e)
-        {
         }
 
         private void btnCart_Click(object sender, EventArgs e)

@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierMenuPage));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node6");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node7");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Pastry");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Sides");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Food", new System.Windows.Forms.TreeNode[] {
             treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Coffee");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Tea");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Beverage", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierMenuPage));
             this.panelLine = new System.Windows.Forms.Panel();
             this.flowLayoutPanelMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.lblCashierName = new System.Windows.Forms.Label();
             this.panelCashierName = new System.Windows.Forms.Panel();
+            this.treeViewMenu = new CafeSystem.Components.CustomTreeView();
             this.flowLayoutHeader = new CafeSystem.Components.BorderFlowLayoutPane();
             this.btnCart = new System.Windows.Forms.Button();
             this.btnLogOut = new CafeSystem.Components.RoundButton();
@@ -67,7 +69,6 @@
             this.radioBtnDine = new System.Windows.Forms.RadioButton();
             this.radioBtnTake = new System.Windows.Forms.RadioButton();
             this.btnCheckout = new CafeSystem.Components.RoundButton();
-            this.treeViewMenu = new CafeSystem.Components.CustomTreeView();
             this.panelCashierName.SuspendLayout();
             this.flowLayoutHeader.SuspendLayout();
             this.panelSearch.SuspendLayout();
@@ -101,7 +102,7 @@
             this.lblCashierName.BackColor = System.Drawing.Color.Transparent;
             this.lblCashierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCashierName.ForeColor = System.Drawing.Color.White;
-            this.lblCashierName.Location = new System.Drawing.Point(13, 20);
+            this.lblCashierName.Location = new System.Drawing.Point(13, 15);
             this.lblCashierName.Name = "lblCashierName";
             this.lblCashierName.Size = new System.Drawing.Size(149, 20);
             this.lblCashierName.TabIndex = 0;
@@ -116,6 +117,40 @@
             this.panelCashierName.Name = "panelCashierName";
             this.panelCashierName.Size = new System.Drawing.Size(334, 58);
             this.panelCashierName.TabIndex = 10;
+            // 
+            // treeViewMenu
+            // 
+            this.treeViewMenu.AlternateBackColor = System.Drawing.Color.White;
+            this.treeViewMenu.BackColor = System.Drawing.Color.White;
+            this.treeViewMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewMenu.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
+            this.treeViewMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewMenu.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.treeViewMenu.HideSelection = false;
+            this.treeViewMenu.ItemHeight = 40;
+            this.treeViewMenu.LineColor = System.Drawing.Color.White;
+            this.treeViewMenu.Location = new System.Drawing.Point(12, 88);
+            this.treeViewMenu.MinimumSize = new System.Drawing.Size(100, 100);
+            this.treeViewMenu.Name = "treeViewMenu";
+            treeNode1.Name = "Pastry";
+            treeNode1.Text = "Pastry";
+            treeNode2.Name = "Sides";
+            treeNode2.Text = "Sides";
+            treeNode3.Name = "Food";
+            treeNode3.Text = "Food";
+            treeNode4.Name = "Coffee";
+            treeNode4.Text = "Coffee";
+            treeNode5.Name = "Tea";
+            treeNode5.Text = "Tea";
+            treeNode6.Name = "Beverage";
+            treeNode6.Text = "Beverage";
+            this.treeViewMenu.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode6});
+            this.treeViewMenu.ShowLines = false;
+            this.treeViewMenu.Size = new System.Drawing.Size(295, 711);
+            this.treeViewMenu.TabIndex = 3;
+            this.treeViewMenu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewMenu_AfterSelect);
             // 
             // flowLayoutHeader
             // 
@@ -203,7 +238,7 @@
             this.transPanelCart.Location = new System.Drawing.Point(2, 55);
             this.transPanelCart.Name = "transPanelCart";
             this.transPanelCart.Opacity = 0;
-            this.transPanelCart.Size = new System.Drawing.Size(1603, 776);
+            this.transPanelCart.Size = new System.Drawing.Size(1603, 782);
             this.transPanelCart.TabIndex = 12;
             this.transPanelCart.Click += new System.EventHandler(this.transPanelCart_Click);
             // 
@@ -217,11 +252,12 @@
             this.flowPanelCart.Controls.Add(this.panelTaxTxt);
             this.flowPanelCart.Controls.Add(this.panel1);
             this.flowPanelCart.Controls.Add(this.flowPanelRadio);
+            this.flowPanelCart.Controls.Add(this.btnCheckout);
             this.flowPanelCart.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowPanelCart.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowPanelCart.Location = new System.Drawing.Point(1065, 0);
             this.flowPanelCart.Name = "flowPanelCart";
-            this.flowPanelCart.Size = new System.Drawing.Size(538, 776);
+            this.flowPanelCart.Size = new System.Drawing.Size(538, 782);
             this.flowPanelCart.TabIndex = 11;
             // 
             // lblShopCart
@@ -422,49 +458,18 @@
             this.btnCheckout.Text = "Checkout";
             this.btnCheckout.UseVisualStyleBackColor = false;
             // 
-            // treeViewMenu
-            // 
-            this.treeViewMenu.AlternateBackColor = System.Drawing.Color.White;
-            this.treeViewMenu.BackColor = System.Drawing.Color.White;
-            this.treeViewMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeViewMenu.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
-            this.treeViewMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeViewMenu.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.treeViewMenu.HideSelection = false;
-            this.treeViewMenu.ItemHeight = 40;
-            this.treeViewMenu.LineColor = System.Drawing.Color.White;
-            this.treeViewMenu.Location = new System.Drawing.Point(12, 88);
-            this.treeViewMenu.MinimumSize = new System.Drawing.Size(100, 100);
-            this.treeViewMenu.Name = "treeViewMenu";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "Node1";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "Node2";
-            treeNode3.Name = "Node6";
-            treeNode3.Text = "Node6";
-            treeNode4.Name = "Node7";
-            treeNode4.Text = "Node7";
-            treeNode5.Name = "Node0";
-            treeNode5.Text = "Node0";
-            this.treeViewMenu.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            this.treeViewMenu.ShowLines = false;
-            this.treeViewMenu.Size = new System.Drawing.Size(295, 711);
-            this.treeViewMenu.TabIndex = 3;
-            this.treeViewMenu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewMenu_AfterSelect);
-            // 
             // CashierMenuPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1604, 831);
+            this.Controls.Add(this.transPanelCart);
             this.Controls.Add(this.flowLayoutPanelMenu);
             this.Controls.Add(this.treeViewMenu);
             this.Controls.Add(this.panelLine);
             this.Controls.Add(this.flowLayoutHeader);
             this.Controls.Add(this.panelCashierName);
-            this.Controls.Add(this.transPanelCart);
             this.Location = new System.Drawing.Point(9, 0);
             this.Name = "CashierMenuPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
