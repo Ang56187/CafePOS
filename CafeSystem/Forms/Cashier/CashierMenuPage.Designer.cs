@@ -241,6 +241,7 @@
             this.transPanelCart.Size = new System.Drawing.Size(1603, 782);
             this.transPanelCart.TabIndex = 12;
             this.transPanelCart.Click += new System.EventHandler(this.transPanelCart_Click);
+            this.transPanelCart.Paint += new System.Windows.Forms.PaintEventHandler(this.transPanelCart_Paint);
             // 
             // flowPanelCart
             // 
