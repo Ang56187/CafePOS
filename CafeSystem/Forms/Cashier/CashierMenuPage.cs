@@ -36,6 +36,9 @@ namespace CafeSystem.Forms.Cashier
         MenuCatalogue menuItems = new MenuCatalogue();
         ShoppingCart cartItems = new ShoppingCart();
 
+        //create list to refer back to buttons created in for loop , so it can be accesssed outside loop
+        List<Button> btnQtyList = new List<Button>();
+
         //when click on item image, will add in item details components
         //invisible background panel behind item details
         TransparentPanel transPanelHidden = new TransparentPanel();
@@ -44,20 +47,24 @@ namespace CafeSystem.Forms.Cashier
         //*first row panel
         Panel panelItemDetailHeader = new Panel();
         Button btnClose = new Button();
-        Label lblItemName = new Label();
+        Label lblItemNameDetail = new Label();
         //*
+
         Panel panelLineUnderName = new Panel();
+
         //*third row flow panel
         FlowLayoutPanel flowPanelThirdRow = new FlowLayoutPanel();
-        PictureBox picBoxItem = new PictureBox();
+        PictureBox picBoxItemDetail = new PictureBox();
         //store all descriptions components into right flow panel
         FlowLayoutPanel flowPanelDesc = new FlowLayoutPanel();
         Label lblDesc = new Label();
         Panel panelLineUnderDesc = new Panel();
         TextBox txtBoxItemDesc = new TextBox();
         //*
+
         Label lblPrice = new Label();
         Panel panelLineUnderPrice = new Panel();
+
         //* fifith row flow panel
         NumericUpDown numUpDownQty = new NumericUpDown();
         //*
@@ -128,7 +135,7 @@ namespace CafeSystem.Forms.Cashier
             //lets use this to dynamically load menu item
             //adding controls of menu item horizontally
             BorderFlowLayoutPane vFlowPanel = new BorderFlowLayoutPane();
-            PictureBox menuItemImg = new PictureBox();
+            PictureBox picBoxItem = new PictureBox();
             Label lblItemName = new Label();
             Label lblItemPrice = new Label();
 
@@ -136,11 +143,12 @@ namespace CafeSystem.Forms.Cashier
             RoundButton btnQty = new RoundButton();
             RoundButton btnAddToCart = new RoundButton();
 
-            // set values from arguments
+            btnQtyList.Add(btnQty);
 
+            // set values from arguments
             //to find for file image
             String imgLocation = Path.Combine(Environment.CurrentDirectory, "..", "..", "Resource", "Images", "MenuItems", item.Image);
-            menuItemImg.Image = ResizeImage(Image.FromFile(imgLocation), new Size(250, 220));
+            picBoxItem.Image = ResizeImage(Image.FromFile(imgLocation), new Size(250, 220));
             lblItemName.Text = item.Name;
             lblItemPrice.Text = String.Format("{0:C}",item.Price);
             btnQty.Text = item.Quantity.ToString();
@@ -150,10 +158,10 @@ namespace CafeSystem.Forms.Cashier
             vFlowPanel.Size = new Size(230, 340);
             vFlowPanel.Margin = new Padding(30, 30, 30, 30);
 
-            menuItemImg.Size = new Size(250, 220);
-            menuItemImg.Margin = new Padding(0, 0, 0, 0);
+            picBoxItem.Size = new Size(250, 220);
+            picBoxItem.Margin = new Padding(0, 0, 0, 0);
             //add function to add to cart button when clicked
-            menuItemImg.Click += (sender, e) =>
+            picBoxItem.Click += (sender, e) =>
             {
                 //add flow panel to middle of transparent panel
                 transPanelHidden.Controls.Add(panelItemDetail);
@@ -181,9 +189,16 @@ namespace CafeSystem.Forms.Cashier
             //btnQty.Enabled = false;
             btnQty.ForeColor = Color.White;
             btnQty.Margin = new Padding(0, 0, 0, 0);
-            transPanelHidden.Click += (e, sender) =>
+            btnQty.Tag = item.Name;
+            //updates the label once close the pop-up
+
+            btnClose.Click += (e, sender) =>
             {
-                btnQty.Refresh();
+                if (btnQty.Tag.Equals(lblItemNameDetail))
+                {
+                    btnQty.Text = item.Quantity.ToString();
+                    btnQty.Update();
+                }
             };
 
             btnAddToCart.Size = new Size(140, 45);
@@ -208,17 +223,20 @@ namespace CafeSystem.Forms.Cashier
             hFlowPanel.Controls.Add(btnAddToCart);
 
             //adding controls to vertical flow panel
-            vFlowPanel.Controls.Add(menuItemImg);
+            vFlowPanel.Controls.Add(picBoxItem);
             vFlowPanel.Controls.Add(lblItemName);
             vFlowPanel.Controls.Add(lblItemPrice);
             vFlowPanel.Controls.Add(hFlowPanel);
 
             //finally added everything to overall flow panel
             flowLayoutPanelMenu.Controls.Add(vFlowPanel);
+
+            //add component to their respective list
+            btnQtyList.Add(btnQty);
         }
 
 
-        //to open popup of more details of item
+        //to create popup of more details of item
         private void CreateItemDetails() //TODO: add contents to item detail pop up
         {
             //create overall flow pane
@@ -245,12 +263,12 @@ namespace CafeSystem.Forms.Cashier
             btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             btnClose.Click += new EventHandler(close_popup_click);
             //item name label
-            lblItemName.Font = fontHeaderLbl;
-            lblItemName.Size = new Size(600, 45);
-            lblItemName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            lblItemNameDetail.Font = fontHeaderLbl;
+            lblItemNameDetail.Size = new Size(600, 45);
+            lblItemNameDetail.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             //add components to first row of panel
             panelItemDetailHeader.Controls.Add(btnClose);
-            panelItemDetailHeader.Controls.Add(lblItemName);
+            panelItemDetailHeader.Controls.Add(lblItemNameDetail);
 
             //*2nd row of flow panel(add small line under item name)*
             panelLineUnderName.Size = new Size(100, 3);
@@ -260,7 +278,7 @@ namespace CafeSystem.Forms.Cashier
             //*3rd row of flow panel(flow panel that contains image and description)*
             flowPanelThirdRow.Size = new Size(970, 350);
             //item picture
-            picBoxItem.Size = new Size(400,350);
+            picBoxItemDetail.Size = new Size(400,350);
             //description part flow panel
             flowPanelDesc.Size= new Size(550, 370);
             flowPanelDesc.Margin = new Padding(6, 0, 0, 0);
@@ -289,7 +307,7 @@ namespace CafeSystem.Forms.Cashier
             flowPanelDesc.Controls.Add(panelLineUnderDesc);
             flowPanelDesc.Controls.Add(txtBoxItemDesc);            
             //add components to 3rd row flow panel
-            flowPanelThirdRow.Controls.Add(picBoxItem);
+            flowPanelThirdRow.Controls.Add(picBoxItemDetail);
             flowPanelThirdRow.Controls.Add(flowPanelDesc);
 
             //*4th row of flow panel (item price)*
@@ -340,7 +358,7 @@ namespace CafeSystem.Forms.Cashier
             String fileLocation = Path.Combine(Environment.CurrentDirectory, "..", "..", "Resource", "Images", "MenuItems", item.Image);
 
             //set item name
-            lblItemName.Text = item.Name;
+            lblItemNameDetail.Text = item.Name;
             txtBoxItemDesc.Text = item.Description;
             lblPrice.Text = String.Format("{0:C}",item.Price);
 
@@ -352,7 +370,19 @@ namespace CafeSystem.Forms.Cashier
             };
 
             lblTotalPrice.Text = "Total: "+ (item.Price* numUpDownQty.Value);
-            picBoxItem.Image = ResizeImage(Image.FromFile(fileLocation), new Size(400, 350));//TODO: later include image from DB
+            picBoxItemDetail.Image = ResizeImage(Image.FromFile(fileLocation), new Size(400, 350));//TODO: later include image from DB
+
+            transPanelHidden.Click += (e, sender) =>
+            {
+                foreach (Button btn in btnQtyList)
+                {
+                    if (btn.Tag.Equals(item.Name))
+                    {
+                        btn.Text = item.Quantity.ToString();
+                        btn.Update();
+                    }
+                }
+            };
 
             //bring pop up to front
             transPanelHidden.Show();
@@ -446,6 +476,7 @@ namespace CafeSystem.Forms.Cashier
         //TODO: later once shopping cart done, include cart qty to here
         private void treeViewMenu_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            //refreshes the flow panel menu
             flowLayoutPanelMenu.Controls.Clear();
             TreeNode treeNode = treeViewMenu.SelectedNode;
             //bool isSelected = treeViewMenu.Nodes["Node0"].Nodes["Node4"].IsSelected;
@@ -464,7 +495,6 @@ namespace CafeSystem.Forms.Cashier
                 }
 
             }
-
             //if child node selected, show by type
             else
             {
