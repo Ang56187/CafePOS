@@ -184,5 +184,8 @@
     <None Include="Resource\Images\Icons\create-48.png" />
     <None Include="Resource\Images\Icons\cancel-48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Images\Icons\finger-24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

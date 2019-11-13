@@ -96,7 +96,7 @@ namespace CafeSystem.Forms.Cashier
             fontTxtBox = new Font(fonts.Families[0], 20.0F);
             fontLbl = new Font(fonts.Families[0], 15.0F);
             fontLblMini = new Font(fonts.Families[0], 12.0F);
-            fontHeaderLbl = new Font(fonts.Families[0], 20.0F, FontStyle.Bold);
+            fontHeaderLbl = new Font(fonts.Families[0], 18.0F, FontStyle.Bold);
             fontTextDesc = new Font(fonts.Families[0], 12.0F);
 
             //set fonts to components
@@ -433,6 +433,8 @@ namespace CafeSystem.Forms.Cashier
         ////////////////////////////////////////////// create controls for cart items//////////////////////////////////////////
         private void CreateCartItem(Item item)
         {
+            UpdateLbl();
+
             //add all components for cart item
             FlowLayoutPanel flowPanelCartDetail = new FlowLayoutPanel();
 
@@ -453,9 +455,10 @@ namespace CafeSystem.Forms.Cashier
             picBoxCartItemRow1.Image = ResizeImage(Image.FromFile(fileLocation), new Size(140, 100));
 
             lblCartItemName.Text = item.Name;
-            lblItemPrice.Text = String.Format("{0:C}",item.Price);
+            lblItemPrice.Text = String.Format("{0:C}",item.Price*item.Quantity);
             numUpDownItemQty.Value = item.Quantity;
 
+            //set flow panel of overall item detail
             flowPanelCartDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             flowPanelCartDetail.Size = new Size(460,100);
 
@@ -485,6 +488,8 @@ namespace CafeSystem.Forms.Cashier
             numUpDownItemQty.ValueChanged += (e, sender) =>
             {
                 item.Quantity = (int)numUpDownItemQty.Value;
+                lblItemPrice.Text = String.Format("{0:C}", item.Price * item.Quantity);
+                UpdateLbl();
             };
 
             //add everything to col 2
@@ -508,11 +513,14 @@ namespace CafeSystem.Forms.Cashier
             {
                 item.Quantity = 0;
 
+                UpdateLbl();
+
                 //remove the NumericUoDown control for that item
                 numUpDownListCart.Remove(numUpDownItemQty);
-
-                cartItems.CartList.Remove(item);
                 flowPanelCartItem.Controls.Remove(flowPanelCartDetail);
+
+                //remove item from cart list
+                cartItems.CartList.Remove(item);
             };
 
 
@@ -592,6 +600,22 @@ namespace CafeSystem.Forms.Cashier
             }
         }
 
+        private void UpdateLbl()
+        {
+            decimal subTotal = 0;
+            decimal serTax = 0;
+            decimal total = 0;
+            foreach (Item item in cartItems.CartList)
+            {
+                subTotal += item.Price * item.Quantity;
+                serTax = subTotal * 6 / 100;
+            }
+
+            lblSubTotal.Text = String.Format("{0:C}",subTotal);
+            lblTax.Text = String.Format("{0:C}", serTax);
+            lblTotal.Text = String.Format("{0:C}",subTotal + serTax);
+        }
+
         private void UpdateMenuQty(Item itemUpdated)
         {
             //update numeric up down in item pop-up
@@ -613,7 +637,6 @@ namespace CafeSystem.Forms.Cashier
                     btn.Update();
                 }
             }
-
         }
 
         //updating button

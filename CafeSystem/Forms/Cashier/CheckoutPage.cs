@@ -40,7 +40,7 @@ namespace CafeSystem.Forms.Cashier
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
             fontLbl = new Font(fonts.Families[0], 15.0F);
-            fontHeaderLbl = new Font(fonts.Families[0], 25.0F, FontStyle.Bold);
+            fontHeaderLbl = new Font(fonts.Families[0], 20.0F, FontStyle.Bold);
             fontBtn = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
 
             //set font to components
@@ -112,5 +112,9 @@ namespace CafeSystem.Forms.Cashier
             return (Image)(new Bitmap(imgToResize, size));
         }
 
+        private void flowPanelCheckout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -31,6 +31,7 @@
             this.flowPanelCheckout = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCheckout = new System.Windows.Forms.Label();
+            this.btnCancel = new CafeSystem.Components.RoundButton();
             this.panelLine1 = new System.Windows.Forms.Panel();
             this.flowPanelOrderNo = new System.Windows.Forms.FlowLayoutPanel();
             this.lblOrderTxt = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.lblPaymentOption = new System.Windows.Forms.Label();
             this.panelLine4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnCancel = new CafeSystem.Components.RoundButton();
             this.btnCash = new CafeSystem.Components.RoundButton();
             this.btnCreditCard = new CafeSystem.Components.RoundButton();
             this.flowPanelCheckout.SuspendLayout();
@@ -89,10 +89,11 @@
             this.flowPanelCheckout.Controls.Add(this.panelLine4);
             this.flowPanelCheckout.Controls.Add(this.flowLayoutPanel1);
             this.flowPanelCheckout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanelCheckout.Location = new System.Drawing.Point(65, 11);
+            this.flowPanelCheckout.Location = new System.Drawing.Point(33, 16);
             this.flowPanelCheckout.Name = "flowPanelCheckout";
-            this.flowPanelCheckout.Size = new System.Drawing.Size(1474, 795);
+            this.flowPanelCheckout.Size = new System.Drawing.Size(1474, 794);
             this.flowPanelCheckout.TabIndex = 0;
+            this.flowPanelCheckout.Paint += new System.Windows.Forms.PaintEventHandler(this.flowPanelCheckout_Paint);
             // 
             // panel1
             // 
@@ -115,6 +116,24 @@
             this.lblCheckout.TabIndex = 0;
             this.lblCheckout.Text = "Payment checkout";
             this.lblCheckout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Image = global::CafeSystem.Properties.Resources.cancel_48;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(1237, 0);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(10, 0, 14, 0);
+            this.btnCancel.Size = new System.Drawing.Size(227, 40);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel order";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // panelLine1
             // 
@@ -381,24 +400,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(631, 45);
             this.flowLayoutPanel1.TabIndex = 13;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Image = global::CafeSystem.Properties.Resources.cancel_48;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(1241, 0);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Padding = new System.Windows.Forms.Padding(10, 0, 14, 0);
-            this.btnCancel.Size = new System.Drawing.Size(223, 40);
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel order";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            // 
             // btnCash
             // 
             this.btnCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(206)))), ((int)(((byte)(80)))));
@@ -437,7 +438,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1604, 831);
+            this.ClientSize = new System.Drawing.Size(1540, 822);
             this.Controls.Add(this.flowPanelCheckout);
             this.Name = "CheckoutPage";
             this.Text = "Sunway Cafe";

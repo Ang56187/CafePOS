@@ -74,9 +74,9 @@
             this.flowPanelComplete.Controls.Add(this.panelLine2);
             this.flowPanelComplete.Controls.Add(this.flowLayoutBtnOption);
             this.flowPanelComplete.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanelComplete.Location = new System.Drawing.Point(65, 18);
+            this.flowPanelComplete.Location = new System.Drawing.Point(12, 12);
             this.flowPanelComplete.Name = "flowPanelComplete";
-            this.flowPanelComplete.Size = new System.Drawing.Size(1474, 795);
+            this.flowPanelComplete.Size = new System.Drawing.Size(1504, 731);
             this.flowPanelComplete.TabIndex = 2;
             // 
             // panel1
@@ -85,14 +85,14 @@
             this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1464, 40);
+            this.panel1.Size = new System.Drawing.Size(1482, 43);
             this.panel1.TabIndex = 1;
             // 
             // lblPayComplete
             // 
             this.lblPayComplete.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPayComplete.AutoSize = true;
-            this.lblPayComplete.Location = new System.Drawing.Point(485, 0);
+            this.lblPayComplete.Location = new System.Drawing.Point(529, 1);
             this.lblPayComplete.MinimumSize = new System.Drawing.Size(500, 40);
             this.lblPayComplete.Name = "lblPayComplete";
             this.lblPayComplete.Size = new System.Drawing.Size(500, 40);
@@ -104,18 +104,18 @@
             // 
             this.panelLine1.BackColor = System.Drawing.Color.Silver;
             this.panelLine1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLine1.Location = new System.Drawing.Point(3, 49);
+            this.panelLine1.Location = new System.Drawing.Point(3, 52);
             this.panelLine1.Name = "panelLine1";
-            this.panelLine1.Size = new System.Drawing.Size(1464, 3);
+            this.panelLine1.Size = new System.Drawing.Size(1490, 2);
             this.panelLine1.TabIndex = 2;
             // 
             // flowPanelOrderNo
             // 
             this.flowPanelOrderNo.Controls.Add(this.lblOrderTxt);
             this.flowPanelOrderNo.Controls.Add(this.lblOrderNum);
-            this.flowPanelOrderNo.Location = new System.Drawing.Point(3, 58);
+            this.flowPanelOrderNo.Location = new System.Drawing.Point(3, 60);
             this.flowPanelOrderNo.Name = "flowPanelOrderNo";
-            this.flowPanelOrderNo.Size = new System.Drawing.Size(1464, 67);
+            this.flowPanelOrderNo.Size = new System.Drawing.Size(1490, 67);
             this.flowPanelOrderNo.TabIndex = 3;
             // 
             // lblOrderTxt
@@ -146,17 +146,17 @@
             // 
             this.panel2.Controls.Add(this.lblReceived);
             this.panel2.Controls.Add(this.lblReceivedTxt);
-            this.panel2.Location = new System.Drawing.Point(3, 148);
+            this.panel2.Location = new System.Drawing.Point(3, 150);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1464, 30);
+            this.panel2.Size = new System.Drawing.Size(1490, 30);
             this.panel2.TabIndex = 8;
             // 
             // lblReceived
             // 
             this.lblReceived.AutoSize = true;
             this.lblReceived.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblReceived.Location = new System.Drawing.Point(1264, 0);
+            this.lblReceived.Location = new System.Drawing.Point(1290, 0);
             this.lblReceived.MinimumSize = new System.Drawing.Size(200, 30);
             this.lblReceived.Name = "lblReceived";
             this.lblReceived.Size = new System.Drawing.Size(200, 30);
@@ -180,17 +180,17 @@
             // 
             this.panel4.Controls.Add(this.lblTotal);
             this.panel4.Controls.Add(this.lblTotalTxt);
-            this.panel4.Location = new System.Drawing.Point(3, 191);
+            this.panel4.Location = new System.Drawing.Point(3, 193);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1464, 30);
+            this.panel4.Size = new System.Drawing.Size(1490, 30);
             this.panel4.TabIndex = 8;
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblTotal.Location = new System.Drawing.Point(1264, 0);
+            this.lblTotal.Location = new System.Drawing.Point(1290, 0);
             this.lblTotal.MinimumSize = new System.Drawing.Size(200, 30);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(200, 30);
@@ -214,17 +214,17 @@
             // 
             this.panel3.Controls.Add(this.lblChange);
             this.panel3.Controls.Add(this.lblChangeTxt);
-            this.panel3.Location = new System.Drawing.Point(3, 234);
+            this.panel3.Location = new System.Drawing.Point(3, 236);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1464, 30);
+            this.panel3.Size = new System.Drawing.Size(1490, 30);
             this.panel3.TabIndex = 8;
             // 
             // lblChange
             // 
             this.lblChange.AutoSize = true;
             this.lblChange.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblChange.Location = new System.Drawing.Point(1264, 0);
+            this.lblChange.Location = new System.Drawing.Point(1290, 0);
             this.lblChange.MinimumSize = new System.Drawing.Size(200, 30);
             this.lblChange.Name = "lblChange";
             this.lblChange.Size = new System.Drawing.Size(200, 30);
@@ -249,10 +249,10 @@
             this.lblNowWat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNowWat.AutoSize = true;
-            this.lblNowWat.Location = new System.Drawing.Point(3, 267);
+            this.lblNowWat.Location = new System.Drawing.Point(3, 269);
             this.lblNowWat.MinimumSize = new System.Drawing.Size(0, 30);
             this.lblNowWat.Name = "lblNowWat";
-            this.lblNowWat.Size = new System.Drawing.Size(1464, 30);
+            this.lblNowWat.Size = new System.Drawing.Size(1490, 30);
             this.lblNowWat.TabIndex = 13;
             this.lblNowWat.Text = "Now what?";
             this.lblNowWat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -261,7 +261,7 @@
             // 
             this.panelLine2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelLine2.BackColor = System.Drawing.Color.Silver;
-            this.panelLine2.Location = new System.Drawing.Point(685, 300);
+            this.panelLine2.Location = new System.Drawing.Point(698, 302);
             this.panelLine2.Name = "panelLine2";
             this.panelLine2.Size = new System.Drawing.Size(100, 3);
             this.panelLine2.TabIndex = 14;
@@ -272,10 +272,10 @@
             this.flowLayoutBtnOption.Controls.Add(this.btnNextOrder);
             this.flowLayoutBtnOption.Controls.Add(this.btnEndDay);
             this.flowLayoutBtnOption.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutBtnOption.Location = new System.Drawing.Point(540, 326);
+            this.flowLayoutBtnOption.Location = new System.Drawing.Point(532, 328);
             this.flowLayoutBtnOption.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.flowLayoutBtnOption.Name = "flowLayoutBtnOption";
-            this.flowLayoutBtnOption.Size = new System.Drawing.Size(390, 154);
+            this.flowLayoutBtnOption.Size = new System.Drawing.Size(431, 154);
             this.flowLayoutBtnOption.TabIndex = 15;
             // 
             // btnLogOut
@@ -287,10 +287,10 @@
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.Image = global::CafeSystem.Properties.Resources.logout_24;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(1247, 0);
+            this.btnLogOut.Location = new System.Drawing.Point(1273, 0);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Padding = new System.Windows.Forms.Padding(10, 0, 14, 0);
-            this.btnLogOut.Size = new System.Drawing.Size(217, 40);
+            this.btnLogOut.Size = new System.Drawing.Size(209, 43);
             this.btnLogOut.TabIndex = 3;
             this.btnLogOut.Text = "Logout";
             this.btnLogOut.UseVisualStyleBackColor = false;
@@ -306,7 +306,7 @@
             this.btnNextOrder.Location = new System.Drawing.Point(3, 3);
             this.btnNextOrder.Name = "btnNextOrder";
             this.btnNextOrder.Padding = new System.Windows.Forms.Padding(10, 0, 14, 0);
-            this.btnNextOrder.Size = new System.Drawing.Size(387, 50);
+            this.btnNextOrder.Size = new System.Drawing.Size(428, 50);
             this.btnNextOrder.TabIndex = 1;
             this.btnNextOrder.Text = "Next order";
             this.btnNextOrder.UseVisualStyleBackColor = false;
@@ -323,7 +323,7 @@
             this.btnEndDay.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.btnEndDay.Name = "btnEndDay";
             this.btnEndDay.Padding = new System.Windows.Forms.Padding(10, 0, 14, 0);
-            this.btnEndDay.Size = new System.Drawing.Size(387, 50);
+            this.btnEndDay.Size = new System.Drawing.Size(428, 50);
             this.btnEndDay.TabIndex = 2;
             this.btnEndDay.Text = "End business of the day";
             this.btnEndDay.UseVisualStyleBackColor = false;
@@ -334,7 +334,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1604, 831);
+            this.ClientSize = new System.Drawing.Size(1520, 845);
             this.Controls.Add(this.flowPanelComplete);
             this.Name = "ReceiptPage";
             this.Text = "ReceiptPage";

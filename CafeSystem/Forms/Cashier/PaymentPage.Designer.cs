@@ -31,15 +31,15 @@
             this.flowPanelPayment = new System.Windows.Forms.FlowLayoutPanel();
             this.lblPaymentTxt = new System.Windows.Forms.Label();
             this.txtBoxAmount = new System.Windows.Forms.MaskedTextBox();
-            this.btnProceed = new CafeSystem.Components.RoundButton();
             this.flowPanelOrderNo = new System.Windows.Forms.FlowLayoutPanel();
             this.lblOrderTxt = new System.Windows.Forms.Label();
             this.lblOrderNum = new System.Windows.Forms.Label();
             this.panelLine1 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCashPayment = new System.Windows.Forms.Label();
-            this.btnBack = new CafeSystem.Components.RoundButton();
             this.flowPanelCheckout = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnBack = new CafeSystem.Components.RoundButton();
+            this.btnProceed = new CafeSystem.Components.RoundButton();
             this.flowPanelPayment.SuspendLayout();
             this.flowPanelOrderNo.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -78,25 +78,9 @@
             this.txtBoxAmount.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
             this.txtBoxAmount.MinimumSize = new System.Drawing.Size(499, 40);
             this.txtBoxAmount.Name = "txtBoxAmount";
-            this.txtBoxAmount.Size = new System.Drawing.Size(499, 20);
+            this.txtBoxAmount.Size = new System.Drawing.Size(499, 40);
             this.txtBoxAmount.TabIndex = 7;
             this.txtBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnProceed
-            // 
-            this.btnProceed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnProceed.FlatAppearance.BorderSize = 0;
-            this.btnProceed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProceed.ForeColor = System.Drawing.Color.White;
-            this.btnProceed.Image = global::CafeSystem.Properties.Resources.arrow_right_white_48;
-            this.btnProceed.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProceed.Location = new System.Drawing.Point(3, 213);
-            this.btnProceed.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
-            this.btnProceed.Name = "btnProceed";
-            this.btnProceed.Size = new System.Drawing.Size(499, 51);
-            this.btnProceed.TabIndex = 2;
-            this.btnProceed.Text = "Proceed";
-            this.btnProceed.UseVisualStyleBackColor = false;
             // 
             // flowPanelOrderNo
             // 
@@ -156,10 +140,24 @@
             this.lblCashPayment.Location = new System.Drawing.Point(485, 0);
             this.lblCashPayment.MinimumSize = new System.Drawing.Size(500, 40);
             this.lblCashPayment.Name = "lblCashPayment";
-            this.lblCashPayment.Size = new System.Drawing.Size(500, 40);
+            this.lblCashPayment.Size = new System.Drawing.Size(400, 32);
             this.lblCashPayment.TabIndex = 0;
             this.lblCashPayment.Text = "Cash Payment";
             this.lblCashPayment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowPanelCheckout
+            // 
+            this.flowPanelCheckout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowPanelCheckout.BackColor = System.Drawing.Color.White;
+            this.flowPanelCheckout.Controls.Add(this.panel1);
+            this.flowPanelCheckout.Controls.Add(this.panelLine1);
+            this.flowPanelCheckout.Controls.Add(this.flowPanelOrderNo);
+            this.flowPanelCheckout.Controls.Add(this.flowPanelPayment);
+            this.flowPanelCheckout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPanelCheckout.Location = new System.Drawing.Point(23, 15);
+            this.flowPanelCheckout.Name = "flowPanelCheckout";
+            this.flowPanelCheckout.Size = new System.Drawing.Size(1474, 745);
+            this.flowPanelCheckout.TabIndex = 1;
             // 
             // btnBack
             // 
@@ -178,26 +176,28 @@
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
             // 
-            // flowPanelCheckout
+            // btnProceed
             // 
-            this.flowPanelCheckout.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowPanelCheckout.BackColor = System.Drawing.Color.White;
-            this.flowPanelCheckout.Controls.Add(this.panel1);
-            this.flowPanelCheckout.Controls.Add(this.panelLine1);
-            this.flowPanelCheckout.Controls.Add(this.flowPanelOrderNo);
-            this.flowPanelCheckout.Controls.Add(this.flowPanelPayment);
-            this.flowPanelCheckout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanelCheckout.Location = new System.Drawing.Point(65, 18);
-            this.flowPanelCheckout.Name = "flowPanelCheckout";
-            this.flowPanelCheckout.Size = new System.Drawing.Size(1474, 795);
-            this.flowPanelCheckout.TabIndex = 1;
+            this.btnProceed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnProceed.FlatAppearance.BorderSize = 0;
+            this.btnProceed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProceed.ForeColor = System.Drawing.Color.White;
+            this.btnProceed.Image = global::CafeSystem.Properties.Resources.arrow_right_white_48;
+            this.btnProceed.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProceed.Location = new System.Drawing.Point(3, 213);
+            this.btnProceed.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.btnProceed.Name = "btnProceed";
+            this.btnProceed.Size = new System.Drawing.Size(499, 45);
+            this.btnProceed.TabIndex = 2;
+            this.btnProceed.Text = "Proceed";
+            this.btnProceed.UseVisualStyleBackColor = false;
             // 
             // PaymentPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1604, 831);
+            this.ClientSize = new System.Drawing.Size(1520, 825);
             this.Controls.Add(this.flowPanelCheckout);
             this.Name = "PaymentPage";
             this.Text = "Sunway Cafe";

@@ -51,7 +51,7 @@ namespace CafeSystem.Components
             if ((e.State & TreeNodeStates.Selected) != 0 && e.Node.Parent!=null)
             {
                 //ControlPaint.DrawFocusRectangle(e.Graphics, e.Bounds);
-                e.Graphics.DrawImage(global::CafeSystem.Properties.Resources.arrow_right_24, e.Bounds.Left - 20, e.Bounds.Top+10);
+                e.Graphics.DrawImage(global::CafeSystem.Properties.Resources.finger_24, e.Bounds.Left - 35, e.Bounds.Top+10);
                 TextRenderer.DrawText(e.Graphics, e.Node.Text, Font, e.Bounds, Color.White,Color.FromArgb(180,180,180));
 
             }

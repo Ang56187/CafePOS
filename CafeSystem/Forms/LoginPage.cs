@@ -59,5 +59,20 @@ namespace CafeSystem.Forms
             select_page.ShowDialog();
             this.Close(); //close previous form
         }
+
+        private void txtBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -40,8 +40,8 @@ namespace CafeSystem.Forms.Cashier
             AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.Century_Gothic.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
-            fontLbl = new Font(fonts.Families[0], 20.0F);
-            fontHeaderLbl = new Font(fonts.Families[0], 25.0F, FontStyle.Bold);
+            fontLbl = new Font(fonts.Families[0], 18.0F);
+            fontHeaderLbl = new Font(fonts.Families[0], 20.0F, FontStyle.Bold);
             fontBtn = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
 
             //set font to components

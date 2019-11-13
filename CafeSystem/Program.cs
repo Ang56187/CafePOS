@@ -16,7 +16,7 @@ namespace CafeSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Cashier.CashierMenuPage());
+            Application.Run(new Forms.SelectionPage());
 
         }
     }
