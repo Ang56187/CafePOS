@@ -100,10 +100,11 @@ namespace CafeSystem.Forms.Cashier
             fontTextDesc = new Font(fonts.Families[0], 12.0F);
 
             //set fonts to components
-            treeViewMenu.Font = new Font(fonts.Families[0], 18.0F, FontStyle.Bold); ;
+            treeViewMenu.Font = new Font(fonts.Families[0], 18.0F, FontStyle.Bold);
+            lblCashierName.Font = new Font(fonts.Families[0], 17.0F, FontStyle.Bold);
             btnLogOut.Font = btnCheckout.Font = fontBtn;
             txtBoxSearch.Font = fontTxtBox;
-            lblCashierName.Font = lblShopCart.Font = fontHeaderLbl;
+            lblShopCart.Font = fontHeaderLbl;
             lblClearItem.Font = new Font(fonts.Families[0], 12.0F,FontStyle.Underline);
             lblSubTotalTxt.Font = lblSubTotal.Font = lblTaxTxt.Font = lblTax.Font = lblTotalTxt.Font = lblTotal.Font
                 = radioBtnDine.Font = radioBtnTake.Font  = fontLbl;
@@ -407,7 +408,7 @@ namespace CafeSystem.Forms.Cashier
             {
                 //update item quantity at menu page
                 item.Quantity = (int)numUpDown.Value;
-                lblTotalPrice.Text = "Total: " + (item.Price * numUpDown.Value);
+                lblTotalPrice.Text = String.Format("Total: {0:C}",(item.Price * numUpDown.Value));
 
                 //update item quantity in cart
                 foreach (NumericUpDown upDown in numUpDownListCart)
