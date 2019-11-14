@@ -39,8 +39,6 @@ namespace CafeSystem.Forms.Cashier
 
         //create list to refer back to buttons created in for loop , so it can be accesssed outside loop
         List<Button> btnQtyList = new List<Button>();
-        List<Button> btnAddToCartList = new List<Button>();
-        List<Button> btnAddToCart2List = new List<Button>();
         List<NumericUpDown> numUpDownListPopUp = new List<NumericUpDown>();
         List<NumericUpDown> numUpDownListCart = new List<NumericUpDown>();
 
@@ -81,6 +79,19 @@ namespace CafeSystem.Forms.Cashier
             InitializeComponent();
         }
 
+        //constructor for when go back from checkout page
+        public CashierMenuPage(Object orderItem)
+        {
+
+            InitializeComponent();
+
+            if (orderItem is ShoppingCart)
+            {
+                cartItems = ((ShoppingCart)orderItem);
+            }
+
+        }
+
         private void CashierMenuPage_Load(object sender, EventArgs e)
         {
             byte[] fontData = Properties.Resources.Century_Gothic;
@@ -108,6 +119,26 @@ namespace CafeSystem.Forms.Cashier
             lblClearItem.Font = new Font(fonts.Families[0], 12.0F,FontStyle.Underline);
             lblSubTotalTxt.Font = lblSubTotal.Font = lblTaxTxt.Font = lblTax.Font = lblTotalTxt.Font = lblTotal.Font
                 = radioBtnDine.Font = radioBtnTake.Font  = fontLbl;
+
+            if (cartItems.CartList.Count() > 0)
+            {
+                //display again cart items once return from checkout page
+                foreach (Item item in cartItems.CartList)
+                {
+                    foreach (Item menuItem in menuItems.MenuList)
+                    {
+                        if (menuItem.Name.Equals(item.Name))
+                        {
+                            menuItem.Quantity = item.Quantity;
+                            UpdateMenuQty(menuItem);
+                        }
+                        else
+                            continue;
+                    }
+                    CreateCartItem(item);
+                }//end foreach
+            }
+
 
             //add transparent background to foreground
             this.Controls.Add(transPanelHidden);
@@ -434,6 +465,7 @@ namespace CafeSystem.Forms.Cashier
         ////////////////////////////////////////////// create controls for cart items//////////////////////////////////////////
         private void CreateCartItem(Item item)
         {
+            //updates subtotal/tax and total for every item added
             UpdateLbl();
 
             //add all components for cart item
@@ -577,19 +609,19 @@ namespace CafeSystem.Forms.Cashier
         }
 
 
-        //procedure of actually adding item to cart
+        //procedure of actually adding item to cart ,
+        //used at numericupdown and add to cart button in pop-up, and add to cart button at menu
         private void AddCartItem(Item addedItem)
         {
-            //MessageBox.Show(cartItems.CartList.Count.ToString());
-
-            //ensure added item must be more than 1, and there's no duplicate already in cart list
-            if (addedItem.Quantity > 0 && !cartItems.CartList.Contains(addedItem))
+            //ensure item must be 1, and there's no duplicate already in cart list
+            if (addedItem.Quantity == 1 && !cartItems.CartList.Contains(addedItem))
             {
                 //add item to cart list first
                 cartItems.CartList.Add(addedItem);
                 CreateCartItem(cartItems.CartList.Last());
             }
             else
+            //if item already exists, only modify the quantity
             {
                 foreach (Item item in cartItems.CartList)
                 {
@@ -601,6 +633,7 @@ namespace CafeSystem.Forms.Cashier
             }
         }
 
+        //updates total,tax and sub total
         private void UpdateLbl()
         {
             decimal subTotal = 0;
@@ -658,14 +691,14 @@ namespace CafeSystem.Forms.Cashier
 
         //////////////////////////////////////////////////////events for components///////////////////////////////////////////////////////////////////
 
-        //TODO: later once shopping cart done, include cart qty to here
         private void treeViewMenu_AfterSelect(object sender, TreeViewEventArgs e)
         { 
-            //clear the menu everytime select new category/type
+            //clear the numupdown in pop-up and btnQty at every menu item
             numUpDownListPopUp.Clear();
             btnQtyList.Clear();
 
             //refreshes the flow panel menu
+            //clear the menu everytime select new category/type
             flowLayoutPanelMenu.Controls.Clear();
             TreeNode treeNode = treeViewMenu.SelectedNode;
 
@@ -728,5 +761,50 @@ namespace CafeSystem.Forms.Cashier
         {
 
         }
+
+        private void lblClearItem_Click(object sender, EventArgs e)
+        {
+            //clear every controls of all items in cart list
+            flowPanelCartItem.Controls.Clear();
+            //remove every item from cart list
+            cartItems.CartList.Clear();
+
+            //reset every menu item quantity to zero
+            foreach(Item item in menuItems.MenuList)
+            {
+                item.Quantity = 0;
+            }
+
+        }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            String dineOrTakeAway = "";
+            if (! radioBtnDine.Checked && ! radioBtnTake.Checked)
+            {
+                MessageBox.Show("Please select one of the radio button.", "Error");
+            }
+            else if (cartItems.CartList.Count() <= 0)
+            {
+                MessageBox.Show("Please add at least one item to cart.", "Error");
+            }
+            else
+            {
+                if (radioBtnDine.Checked)
+                {
+                    dineOrTakeAway = radioBtnDine.Text;
+                }
+                else if (radioBtnTake.Checked)
+                {
+                    dineOrTakeAway = radioBtnTake.Text;
+                }
+                CheckoutPage checkoutPage = new CheckoutPage(cartItems,dineOrTakeAway);
+                this.Hide();
+                checkoutPage.ShowDialog();
+                this.Close(); //close previous form
+            }
+        }
+
+
     }
 }

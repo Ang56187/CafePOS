@@ -29,7 +29,6 @@ namespace CafeSystem.Forms
         }
 
 
-
         private void login_Load(object sender, EventArgs e)
         {
             //set font

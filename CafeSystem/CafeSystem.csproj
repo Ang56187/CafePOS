@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backend\MenuCatalogue.cs" />
+    <Compile Include="Backend\Objects\Cash.cs" />
     <Compile Include="Backend\Objects\Item.cs" />
+    <Compile Include="Backend\Objects\Payment.cs" />
     <Compile Include="Backend\ShoppingCart.cs" />
     <Compile Include="Components\BorderFlowLayoutPane.cs">
       <SubType>Component</SubType>

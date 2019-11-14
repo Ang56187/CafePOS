@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CafeSystem.Backend;
+using CafeSystem.Backend.Objects;
+
 
 namespace CafeSystem.Forms.Cashier
 {
@@ -23,9 +26,30 @@ namespace CafeSystem.Forms.Cashier
         Font fontHeaderLbl;
         Font fontBtn;
 
+        // passed argument from checkout page
+        ShoppingCart orderItems = new ShoppingCart();
+
+        //set total amount to be paid
+        decimal totalAmount = 0;
+
+        //test
         public PaymentPage()
         {
             InitializeComponent();
+        }
+
+        //get values from the checkoutpage
+        public PaymentPage(object checkoutList,decimal total)
+        {
+            InitializeComponent();
+
+            if (orderItems is ShoppingCart)
+            {
+                orderItems = ((ShoppingCart)checkoutList);
+            }
+
+            totalAmount = total;
+
         }
 
         private void PaymentPage_Load(object sender, EventArgs e)
@@ -45,14 +69,20 @@ namespace CafeSystem.Forms.Cashier
             fontBtn = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
 
             //set font to components
-            lblCashPayment.Font = lblOrderTxt.Font = lblOrderNum.Font = fontHeaderLbl;
-            lblPaymentTxt.Font = txtBoxAmount.Font = fontLbl;
+            lblCashPayment.Font = lblOrderTxt.Font = lblOrderNum.Font =
+                lblLeftAmountTxt.Font = lblPaymentTxt.Font = fontHeaderLbl;
+             txtBoxAmount.Font = lblLeftAmount.Font = fontLbl;
             btnBack.Font =btnProceed.Font = fontBtn;
 
+            //set image for buttons
             btnBack.Image= resizeImage(global::CafeSystem.Properties.Resources.arrow_left_white_48, new Size(33, 33));
             btnProceed.Image = resizeImage(global::CafeSystem.Properties.Resources.arrow_right_white_48, new Size(33, 33));
 
+            //set mask for text box for entering amount
             txtBoxAmount.Mask = "$999,990.00";
+
+            //set amount to string
+            lblLeftAmount.Text = totalAmount.ToString();
         }
 
 
