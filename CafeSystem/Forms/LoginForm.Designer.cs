@@ -1,6 +1,6 @@
 ﻿namespace CafeSystem.Forms
 {
-    partial class LoginPage
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace CafeSystem.Forms
 {
-    public partial class SelectionPage : Form
+    public partial class SelectionForm : Form
     {
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
@@ -21,7 +21,7 @@ namespace CafeSystem.Forms
         private PrivateFontCollection fonts = new PrivateFontCollection();
         Font btnFont;
 
-        public SelectionPage()
+        public SelectionForm()
         {
             InitializeComponent();
         }

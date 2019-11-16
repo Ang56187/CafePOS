@@ -17,7 +17,7 @@ using CafeSystem.Backend.Objects;
 
 namespace CafeSystem.Forms.Cashier
 {
-    public partial class CashierMenuPage : Form
+    public partial class CashierMenuForm : Form
     {
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
@@ -74,13 +74,13 @@ namespace CafeSystem.Forms.Cashier
         Label lblTotalPrice = new Label();
         //add to cart 2 - created at createmenuitems method
 
-        public CashierMenuPage()
+        public CashierMenuForm()
         {
             InitializeComponent();
         }
 
         //constructor for when go back from checkout page
-        public CashierMenuPage(Object orderItem)
+        public CashierMenuForm(Object orderItem)
         {
 
             InitializeComponent();
@@ -794,7 +794,7 @@ namespace CafeSystem.Forms.Cashier
                     dineOrTakeAway = radioBtnTake.Text;
                 }
 
-                CheckoutPage checkoutPage = new CheckoutPage(cartItems,dineOrTakeAway);
+                CheckoutForm checkoutPage = new CheckoutForm(cartItems,dineOrTakeAway);
                 this.Hide();
                 checkoutPage.ShowDialog();
                 this.Close(); //close previous form

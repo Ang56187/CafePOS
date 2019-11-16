@@ -13,7 +13,7 @@ using CafeSystem.Backend;
 
 namespace CafeSystem.Forms.Cashier
 {
-    public partial class CheckoutPage : Form
+    public partial class CheckoutForm : Form
     {
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
@@ -37,13 +37,13 @@ namespace CafeSystem.Forms.Cashier
         private decimal serCharge = 0;
 
         //test
-        public CheckoutPage()
+        public CheckoutForm()
         {
             InitializeComponent();
         }
 
         //constructor to receive the passed shopping cart, user identity
-        public CheckoutPage(object cartItem,String dineOrTakeAway)
+        public CheckoutForm(object cartItem,String dineOrTakeAway)
         {
             InitializeComponent();
             
@@ -174,7 +174,7 @@ namespace CafeSystem.Forms.Cashier
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            CashierMenuPage menuPage = new CashierMenuPage(orderItems);
+            CashierMenuForm menuPage = new CashierMenuForm(orderItems);
             this.Hide();
             menuPage.ShowDialog();
             this.Close(); //close previous form
@@ -182,7 +182,7 @@ namespace CafeSystem.Forms.Cashier
 
         private void btnCash_Click(object sender, EventArgs e)
         {
-            PaymentPage paymentPage = new PaymentPage(orderItems,total, dineOrTakeAway);
+            PaymentForm paymentPage = new PaymentForm(orderItems,total, dineOrTakeAway);
             this.Hide();
             paymentPage.ShowDialog();
             this.Close(); //close previous form

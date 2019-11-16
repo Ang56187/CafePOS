@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace CafeSystem.Forms
 {
-    public partial class LoginPage : Form
+    public partial class LoginForm : Form
     {
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
@@ -22,7 +22,7 @@ namespace CafeSystem.Forms
         Font btnFont;
         Font textBoxFont;
 
-        public LoginPage()
+        public LoginForm()
         {
             InitializeComponent();
 
@@ -53,7 +53,7 @@ namespace CafeSystem.Forms
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            SelectionPage select_page = new SelectionPage();
+            SelectionForm select_page = new SelectionForm();
             this.Hide();
             select_page.ShowDialog();
             this.Close(); //close previous form

@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Backend\MenuCatalogue.cs" />
     <Compile Include="Backend\Objects\Cash.cs" />
+    <Compile Include="Backend\Objects\CreditCard.cs" />
     <Compile Include="Backend\Objects\Item.cs" />
     <Compile Include="Backend\Objects\Order.cs" />
     <Compile Include="Backend\Objects\Payment.cs" />
@@ -67,11 +68,11 @@
     <Compile Include="Components\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\Cashier\CashierMenuPage.cs">
+    <Compile Include="Forms\Cashier\CashierMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Cashier\CashierMenuPage.Designer.cs">
-      <DependentUpon>CashierMenuPage.cs</DependentUpon>
+    <Compile Include="Forms\Cashier\CashierMenuForm.Designer.cs">
+      <DependentUpon>CashierMenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Cashier\CheckoutPage.cs">
       <SubType>Form</SubType>
@@ -114,8 +115,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Cashier\CashierMenuPage.resx">
-      <DependentUpon>CashierMenuPage.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Cashier\CashierMenuForm.resx">
+      <DependentUpon>CashierMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cashier\CheckoutPage.resx">
       <DependentUpon>CheckoutPage.cs</DependentUpon>

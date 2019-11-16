@@ -1,6 +1,6 @@
 ﻿namespace CafeSystem.Forms.Cashier
 {
-    partial class CashierMenuPage
+    partial class CashierMenuForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierMenuPage));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierMenuForm));
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Pastry");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Sides");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Food", new System.Windows.Forms.TreeNode[] {

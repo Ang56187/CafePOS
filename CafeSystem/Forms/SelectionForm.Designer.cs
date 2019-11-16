@@ -2,7 +2,7 @@
 
 namespace CafeSystem.Forms
 {
-    partial class SelectionPage
+    partial class SelectionForm
     {
         /// <summary>
         /// Required designer variable.

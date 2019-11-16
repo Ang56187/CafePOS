@@ -1,6 +1,6 @@
 ﻿namespace CafeSystem.Forms.Cashier
 {
-    partial class CheckoutPage
+    partial class CheckoutForm
     {
         /// <summary>
         /// Required designer variable.
