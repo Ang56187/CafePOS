@@ -27,14 +27,14 @@ namespace CafeSystem.Forms.Cashier
         Font fontTakeDine;
 
         //passed arguments from the cashier menu page
-        ShoppingCart orderItems = new ShoppingCart();
+        private ShoppingCart orderItems = new ShoppingCart();
 
         //set value to labels controls
-        String dineOrTakeAway = "";
-        decimal subTotal = 0;
-        decimal serTax = 0;
-        decimal total = 0;
-        decimal serCharge = 0;
+        private String dineOrTakeAway = "";
+        private decimal subTotal = 0;
+        private decimal serTax = 0;
+        private decimal total = 0;
+        private decimal serCharge = 0;
 
         //test
         public CheckoutPage()
@@ -115,8 +115,7 @@ namespace CafeSystem.Forms.Cashier
             }
             else if (dineOrTakeAway.Equals("Take away"))
             {
-                lblSerCharge.Hide();
-                lblSerChargeTxt.Hide();
+                panelSerCharge.Hide();
                 lblTotal.Text = String.Format("{0:C}", subTotal + serTax);
                 total = subTotal + serTax;
             }
@@ -178,6 +177,14 @@ namespace CafeSystem.Forms.Cashier
             CashierMenuPage menuPage = new CashierMenuPage(orderItems);
             this.Hide();
             menuPage.ShowDialog();
+            this.Close(); //close previous form
+        }
+
+        private void btnCash_Click(object sender, EventArgs e)
+        {
+            PaymentPage paymentPage = new PaymentPage(orderItems,total, dineOrTakeAway);
+            this.Hide();
+            paymentPage.ShowDialog();
             this.Close(); //close previous form
         }
     }

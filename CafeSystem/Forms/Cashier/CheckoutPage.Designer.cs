@@ -30,44 +30,44 @@
         {
             this.flowPanelCheckout = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTakeDine = new System.Windows.Forms.Label();
             this.lblCheckout = new System.Windows.Forms.Label();
+            this.btnCancel = new CafeSystem.Components.RoundButton();
             this.panelLine1 = new System.Windows.Forms.Panel();
             this.flowPanelOrderNo = new System.Windows.Forms.FlowLayoutPanel();
             this.lblOrderTxt = new System.Windows.Forms.Label();
             this.lblOrderNum = new System.Windows.Forms.Label();
-            this.lblTakeDine = new System.Windows.Forms.Label();
             this.flowPanelOrderItem = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLine2 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelSubTotal = new System.Windows.Forms.Panel();
             this.lblSubTotal = new System.Windows.Forms.Label();
             this.lblSubTotalTxt = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelSerCharge = new System.Windows.Forms.Panel();
             this.lblSerCharge = new System.Windows.Forms.Label();
             this.lblSerChargeTxt = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelSerTax = new System.Windows.Forms.Panel();
             this.lblSerTax = new System.Windows.Forms.Label();
             this.lblSerTaxTxt = new System.Windows.Forms.Label();
             this.panelLine3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblRound = new System.Windows.Forms.Label();
             this.lblRoundTxt = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.panelTotal = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblTotalTxt = new System.Windows.Forms.Label();
             this.lblPaymentOption = new System.Windows.Forms.Label();
             this.panelLine4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnCancel = new CafeSystem.Components.RoundButton();
             this.btnCash = new CafeSystem.Components.RoundButton();
             this.btnCreditCard = new CafeSystem.Components.RoundButton();
             this.flowPanelCheckout.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowPanelOrderNo.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panelSubTotal.SuspendLayout();
+            this.panelSerCharge.SuspendLayout();
+            this.panelSerTax.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.panelTotal.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,20 +80,20 @@
             this.flowPanelCheckout.Controls.Add(this.flowPanelOrderNo);
             this.flowPanelCheckout.Controls.Add(this.flowPanelOrderItem);
             this.flowPanelCheckout.Controls.Add(this.panelLine2);
-            this.flowPanelCheckout.Controls.Add(this.panel2);
-            this.flowPanelCheckout.Controls.Add(this.panel3);
-            this.flowPanelCheckout.Controls.Add(this.panel4);
+            this.flowPanelCheckout.Controls.Add(this.panelSubTotal);
+            this.flowPanelCheckout.Controls.Add(this.panelSerCharge);
+            this.flowPanelCheckout.Controls.Add(this.panelSerTax);
             this.flowPanelCheckout.Controls.Add(this.panelLine3);
             this.flowPanelCheckout.Controls.Add(this.panel5);
-            this.flowPanelCheckout.Controls.Add(this.panel6);
+            this.flowPanelCheckout.Controls.Add(this.panelTotal);
             this.flowPanelCheckout.Controls.Add(this.lblPaymentOption);
             this.flowPanelCheckout.Controls.Add(this.panelLine4);
             this.flowPanelCheckout.Controls.Add(this.flowLayoutPanel1);
             this.flowPanelCheckout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanelCheckout.Location = new System.Drawing.Point(31, 20);
+            this.flowPanelCheckout.Location = new System.Drawing.Point(20, 21);
             this.flowPanelCheckout.Margin = new System.Windows.Forms.Padding(4);
             this.flowPanelCheckout.Name = "flowPanelCheckout";
-            this.flowPanelCheckout.Size = new System.Drawing.Size(1965, 977);
+            this.flowPanelCheckout.Size = new System.Drawing.Size(1882, 977);
             this.flowPanelCheckout.TabIndex = 0;
             // 
             // panel1
@@ -106,6 +106,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1863, 49);
             this.panel1.TabIndex = 1;
+            // 
+            // lblTakeDine
+            // 
+            this.lblTakeDine.AutoSize = true;
+            this.lblTakeDine.Location = new System.Drawing.Point(4, 4);
+            this.lblTakeDine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTakeDine.MinimumSize = new System.Drawing.Size(400, 49);
+            this.lblTakeDine.Name = "lblTakeDine";
+            this.lblTakeDine.Size = new System.Drawing.Size(400, 49);
+            this.lblTakeDine.TabIndex = 2;
+            this.lblTakeDine.Text = "Take/Dine";
             // 
             // lblCheckout
             // 
@@ -120,6 +131,26 @@
             this.lblCheckout.TabIndex = 0;
             this.lblCheckout.Text = "Payment checkout";
             this.lblCheckout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Image = global::CafeSystem.Properties.Resources.cancel_48;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(1560, 0);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(13, 0, 19, 0);
+            this.btnCancel.Size = new System.Drawing.Size(303, 49);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel order";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panelLine1
             // 
@@ -166,17 +197,6 @@
             this.lblOrderNum.TabIndex = 1;
             this.lblOrderNum.Text = "#54343";
             // 
-            // lblTakeDine
-            // 
-            this.lblTakeDine.AutoSize = true;
-            this.lblTakeDine.Location = new System.Drawing.Point(4, 4);
-            this.lblTakeDine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTakeDine.MinimumSize = new System.Drawing.Size(400, 49);
-            this.lblTakeDine.Name = "lblTakeDine";
-            this.lblTakeDine.Size = new System.Drawing.Size(400, 49);
-            this.lblTakeDine.TabIndex = 2;
-            this.lblTakeDine.Text = "Take/Dine";
-            // 
             // flowPanelOrderItem
             // 
             this.flowPanelOrderItem.AutoScroll = true;
@@ -197,15 +217,15 @@
             this.panelLine2.Size = new System.Drawing.Size(1863, 4);
             this.panelLine2.TabIndex = 5;
             // 
-            // panel2
+            // panelSubTotal
             // 
-            this.panel2.Controls.Add(this.lblSubTotal);
-            this.panel2.Controls.Add(this.lblSubTotalTxt);
-            this.panel2.Location = new System.Drawing.Point(4, 561);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1864, 37);
-            this.panel2.TabIndex = 7;
+            this.panelSubTotal.Controls.Add(this.lblSubTotal);
+            this.panelSubTotal.Controls.Add(this.lblSubTotalTxt);
+            this.panelSubTotal.Location = new System.Drawing.Point(4, 561);
+            this.panelSubTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.panelSubTotal.Name = "panelSubTotal";
+            this.panelSubTotal.Size = new System.Drawing.Size(1864, 37);
+            this.panelSubTotal.TabIndex = 7;
             // 
             // lblSubTotal
             // 
@@ -233,15 +253,15 @@
             this.lblSubTotalTxt.Text = "Sub-total:";
             this.lblSubTotalTxt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel3
+            // panelSerCharge
             // 
-            this.panel3.Controls.Add(this.lblSerCharge);
-            this.panel3.Controls.Add(this.lblSerChargeTxt);
-            this.panel3.Location = new System.Drawing.Point(4, 606);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1864, 37);
-            this.panel3.TabIndex = 8;
+            this.panelSerCharge.Controls.Add(this.lblSerCharge);
+            this.panelSerCharge.Controls.Add(this.lblSerChargeTxt);
+            this.panelSerCharge.Location = new System.Drawing.Point(4, 606);
+            this.panelSerCharge.Margin = new System.Windows.Forms.Padding(4);
+            this.panelSerCharge.Name = "panelSerCharge";
+            this.panelSerCharge.Size = new System.Drawing.Size(1864, 37);
+            this.panelSerCharge.TabIndex = 8;
             // 
             // lblSerCharge
             // 
@@ -269,15 +289,15 @@
             this.lblSerChargeTxt.Text = "Service charge(10%):";
             this.lblSerChargeTxt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel4
+            // panelSerTax
             // 
-            this.panel4.Controls.Add(this.lblSerTax);
-            this.panel4.Controls.Add(this.lblSerTaxTxt);
-            this.panel4.Location = new System.Drawing.Point(4, 651);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1864, 37);
-            this.panel4.TabIndex = 8;
+            this.panelSerTax.Controls.Add(this.lblSerTax);
+            this.panelSerTax.Controls.Add(this.lblSerTaxTxt);
+            this.panelSerTax.Location = new System.Drawing.Point(4, 651);
+            this.panelSerTax.Margin = new System.Windows.Forms.Padding(4);
+            this.panelSerTax.Name = "panelSerTax";
+            this.panelSerTax.Size = new System.Drawing.Size(1864, 37);
+            this.panelSerTax.TabIndex = 8;
             // 
             // lblSerTax
             // 
@@ -352,15 +372,15 @@
             this.lblRoundTxt.Text = "Rounding:";
             this.lblRoundTxt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel6
+            // panelTotal
             // 
-            this.panel6.Controls.Add(this.lblTotal);
-            this.panel6.Controls.Add(this.lblTotalTxt);
-            this.panel6.Location = new System.Drawing.Point(4, 765);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1864, 49);
-            this.panel6.TabIndex = 10;
+            this.panelTotal.Controls.Add(this.lblTotal);
+            this.panelTotal.Controls.Add(this.lblTotalTxt);
+            this.panelTotal.Location = new System.Drawing.Point(4, 765);
+            this.panelTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTotal.Name = "panelTotal";
+            this.panelTotal.Size = new System.Drawing.Size(1864, 49);
+            this.panelTotal.TabIndex = 10;
             // 
             // lblTotal
             // 
@@ -423,26 +443,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(844, 55);
             this.flowLayoutPanel1.TabIndex = 13;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Image = global::CafeSystem.Properties.Resources.cancel_48;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(1560, 0);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Padding = new System.Windows.Forms.Padding(13, 0, 19, 0);
-            this.btnCancel.Size = new System.Drawing.Size(303, 49);
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel order";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // btnCash
             // 
             this.btnCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(206)))), ((int)(((byte)(80)))));
@@ -459,6 +459,7 @@
             this.btnCash.TabIndex = 0;
             this.btnCash.Text = "Cash";
             this.btnCash.UseVisualStyleBackColor = false;
+            this.btnCash.Click += new System.EventHandler(this.btnCash_Click);
             // 
             // btnCreditCard
             // 
@@ -495,16 +496,16 @@
             this.panel1.PerformLayout();
             this.flowPanelOrderNo.ResumeLayout(false);
             this.flowPanelOrderNo.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panelSubTotal.ResumeLayout(false);
+            this.panelSubTotal.PerformLayout();
+            this.panelSerCharge.ResumeLayout(false);
+            this.panelSerCharge.PerformLayout();
+            this.panelSerTax.ResumeLayout(false);
+            this.panelSerTax.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.panelTotal.ResumeLayout(false);
+            this.panelTotal.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -522,20 +523,20 @@
         private System.Windows.Forms.Label lblOrderNum;
         private System.Windows.Forms.Panel panelLine2;
         private System.Windows.Forms.FlowLayoutPanel flowPanelOrderItem;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelSubTotal;
         private System.Windows.Forms.Label lblSubTotal;
         private System.Windows.Forms.Label lblSubTotalTxt;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelSerCharge;
         private System.Windows.Forms.Label lblSerCharge;
         private System.Windows.Forms.Label lblSerChargeTxt;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelSerTax;
         private System.Windows.Forms.Label lblSerTax;
         private System.Windows.Forms.Label lblSerTaxTxt;
         private System.Windows.Forms.Panel panelLine3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lblRound;
         private System.Windows.Forms.Label lblRoundTxt;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panelTotal;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblTotalTxt;
         private System.Windows.Forms.Label lblPaymentOption;

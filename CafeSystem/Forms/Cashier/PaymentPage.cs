@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,9 +29,13 @@ namespace CafeSystem.Forms.Cashier
 
         // passed argument from checkout page
         ShoppingCart orderItems = new ShoppingCart();
+        Cash cashPay;
+        private String dineOrTakeAway;
+        private decimal serCharge;
+        private decimal serTax;
 
         //set total amount to be paid
-        decimal totalAmount = 0;
+        decimal totalAmount  = 0;
 
         //test
         public PaymentPage()
@@ -39,7 +44,7 @@ namespace CafeSystem.Forms.Cashier
         }
 
         //get values from the checkoutpage
-        public PaymentPage(object checkoutList,decimal total)
+        public PaymentPage(object checkoutList,decimal total,String dineOrTakeAway)
         {
             InitializeComponent();
 
@@ -49,6 +54,8 @@ namespace CafeSystem.Forms.Cashier
             }
 
             totalAmount = total;
+            this.dineOrTakeAway = dineOrTakeAway;
+            cashPay = new Cash(totalAmount, 0);
 
         }
 
@@ -70,27 +77,89 @@ namespace CafeSystem.Forms.Cashier
 
             //set font to components
             lblCashPayment.Font = lblOrderTxt.Font = lblOrderNum.Font =
-                lblLeftAmountTxt.Font = lblPaymentTxt.Font = fontHeaderLbl;
-             txtBoxAmount.Font = lblLeftAmount.Font = fontLbl;
+                lblTotalAmtTxt.Font = lblPaymentTxt.Font = fontHeaderLbl;
+             txtBoxAmount.Font = lblTotalAmt.Font = lblError.Font = fontLbl;
             btnBack.Font =btnProceed.Font = fontBtn;
 
             //set image for buttons
-            btnBack.Image= resizeImage(global::CafeSystem.Properties.Resources.arrow_left_white_48, new Size(33, 33));
-            btnProceed.Image = resizeImage(global::CafeSystem.Properties.Resources.arrow_right_white_48, new Size(33, 33));
-
-            //set mask for text box for entering amount
-            txtBoxAmount.Mask = "$999,990.00";
+            btnBack.Image= ResizeImage(global::CafeSystem.Properties.Resources.arrow_left_white_48, new Size(33, 33));
+            btnProceed.Image = ResizeImage(global::CafeSystem.Properties.Resources.arrow_right_white_48, new Size(33, 33));
 
             //set amount to string
-            lblLeftAmount.Text = totalAmount.ToString();
+            lblTotalAmt.Text = String.Format("{0:C}", totalAmount);
+
+            lblError.Hide();
+
         }
 
 
         //for resizing images that are too big
-        public Image resizeImage(Image imgToResize, Size size)
+        public Image ResizeImage(Image imgToResize, Size size)
         {
             return (Image)(new Bitmap(imgToResize, size));
         }
+
+        ///////////////////////////////////////////////////events for components////////////////////////////////////////////////////////////
+
+        private void txtBoxAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            decimal amount = 0;
+
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)46;//8 is backspace ,46 is .
+
+            if (e.KeyChar == (char)46 && txtBoxAmount.Text.IndexOf(".")> -1)
+            {
+                e.Handled = true;
+            }
+
+            // no dots in beginning
+            if (txtBoxAmount.Text.StartsWith("."))
+            {
+                txtBoxAmount.Text = "";
+            }
+
+        }
+
+        private void btnProceed_Click(object sender, EventArgs e)
+        {
+            decimal value = 0;
+
+            //checks if entered value can be decimal or not
+            if (decimal.TryParse(txtBoxAmount.Text, out value))
+            {
+                txtBoxAmount.Text = String.Format("{0:0.00}", value);
+                //setting paid amount
+                cashPay.PaidAmt = value;
+            }
+
+            //check if amount fully paid
+            if (cashPay.IsPaid(totalAmount))
+            {
+                lblError.Hide();
+            }
+            else
+                lblError.Show();
+                lblError.Text = "Paid amount is less than total amount.";
+        }
+
+        private void txtBoxAmount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnProceed_Click(sender, e);
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            CheckoutPage checkoutPage = new CheckoutPage(orderItems, dineOrTakeAway);
+            this.Hide();
+            checkoutPage.ShowDialog();
+            this.Close();
+        }
+
+
+
 
         //////////////////////////////////////////////////events for components///////////////////////////////////////////////////////////
     }

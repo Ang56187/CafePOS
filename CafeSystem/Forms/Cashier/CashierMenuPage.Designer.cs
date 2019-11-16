@@ -43,7 +43,6 @@
             this.lblCashierName = new System.Windows.Forms.Label();
             this.panelCashierName = new System.Windows.Forms.Panel();
             this.panelLine = new System.Windows.Forms.Panel();
-            this.transPanelCart = new CafeSystem.Components.TransparentPanel();
             this.flowPanelCart = new CafeSystem.Components.BorderFlowLayoutPane();
             this.lblShopCart = new System.Windows.Forms.Label();
             this.panelLineUnderCart = new System.Windows.Forms.Panel();
@@ -64,14 +63,12 @@
             this.radioBtnTake = new System.Windows.Forms.RadioButton();
             this.btnCheckout = new CafeSystem.Components.RoundButton();
             this.flowLayoutHeader = new CafeSystem.Components.BorderFlowLayoutPane();
-            this.btnCart = new System.Windows.Forms.Button();
             this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.btnSearch = new CafeSystem.Components.RoundButton();
             this.txtBoxSearch = new System.Windows.Forms.TextBox();
             this.treeViewMenu = new CafeSystem.Components.CustomTreeView();
             this.panelCashierName.SuspendLayout();
-            this.transPanelCart.SuspendLayout();
             this.flowPanelCart.SuspendLayout();
             this.panelSubTotal.SuspendLayout();
             this.panelTaxTxt.SuspendLayout();
@@ -84,10 +81,10 @@
             // flowLayoutPanelMenu
             // 
             this.flowLayoutPanelMenu.AutoScroll = true;
-            this.flowLayoutPanelMenu.Location = new System.Drawing.Point(400, 134);
+            this.flowLayoutPanelMenu.Location = new System.Drawing.Point(315, 114);
             this.flowLayoutPanelMenu.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanelMenu.Name = "flowLayoutPanelMenu";
-            this.flowLayoutPanelMenu.Size = new System.Drawing.Size(1647, 838);
+            this.flowLayoutPanelMenu.Size = new System.Drawing.Size(1229, 838);
             this.flowLayoutPanelMenu.TabIndex = 9;
             // 
             // lblCashierName
@@ -108,32 +105,20 @@
             // 
             this.panelCashierName.BackColor = System.Drawing.Color.DarkGray;
             this.panelCashierName.Controls.Add(this.lblCashierName);
-            this.panelCashierName.Location = new System.Drawing.Point(-1, -2);
+            this.panelCashierName.Location = new System.Drawing.Point(-1, 0);
             this.panelCashierName.Margin = new System.Windows.Forms.Padding(4);
             this.panelCashierName.Name = "panelCashierName";
-            this.panelCashierName.Size = new System.Drawing.Size(381, 71);
+            this.panelCashierName.Size = new System.Drawing.Size(421, 71);
             this.panelCashierName.TabIndex = 10;
             // 
             // panelLine
             // 
             this.panelLine.BackColor = System.Drawing.Color.Silver;
-            this.panelLine.Location = new System.Drawing.Point(377, 114);
+            this.panelLine.Location = new System.Drawing.Point(276, 111);
             this.panelLine.Margin = new System.Windows.Forms.Padding(4);
             this.panelLine.Name = "panelLine";
-            this.panelLine.Size = new System.Drawing.Size(3, 689);
+            this.panelLine.Size = new System.Drawing.Size(3, 710);
             this.panelLine.TabIndex = 13;
-            // 
-            // transPanelCart
-            // 
-            this.transPanelCart.Controls.Add(this.flowPanelCart);
-            this.transPanelCart.Location = new System.Drawing.Point(-1, 66);
-            this.transPanelCart.Margin = new System.Windows.Forms.Padding(4);
-            this.transPanelCart.Name = "transPanelCart";
-            this.transPanelCart.Opacity = 0;
-            this.transPanelCart.Size = new System.Drawing.Size(2061, 934);
-            this.transPanelCart.TabIndex = 12;
-            this.transPanelCart.Click += new System.EventHandler(this.transPanelCart_Click);
-            this.transPanelCart.Paint += new System.Windows.Forms.PaintEventHandler(this.transPanelCart_Paint);
             // 
             // flowPanelCart
             // 
@@ -149,22 +134,23 @@
             this.flowPanelCart.Controls.Add(this.btnCheckout);
             this.flowPanelCart.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowPanelCart.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanelCart.Location = new System.Drawing.Point(1344, 0);
-            this.flowPanelCart.Margin = new System.Windows.Forms.Padding(4);
+            this.flowPanelCart.Location = new System.Drawing.Point(1397, 0);
+            this.flowPanelCart.Margin = new System.Windows.Forms.Padding(4, 4, 11, 4);
             this.flowPanelCart.Name = "flowPanelCart";
-            this.flowPanelCart.Size = new System.Drawing.Size(717, 934);
+            this.flowPanelCart.Size = new System.Drawing.Size(527, 1010);
             this.flowPanelCart.TabIndex = 11;
             // 
             // lblShopCart
             // 
+            this.lblShopCart.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblShopCart.AutoSize = true;
-            this.lblShopCart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblShopCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShopCart.Location = new System.Drawing.Point(4, 12);
+            this.lblShopCart.Location = new System.Drawing.Point(6, 12);
             this.lblShopCart.Margin = new System.Windows.Forms.Padding(4, 12, 4, 0);
-            this.lblShopCart.MinimumSize = new System.Drawing.Size(707, 55);
+            this.lblShopCart.MaximumSize = new System.Drawing.Size(491, 55);
+            this.lblShopCart.MinimumSize = new System.Drawing.Size(500, 55);
             this.lblShopCart.Name = "lblShopCart";
-            this.lblShopCart.Size = new System.Drawing.Size(707, 55);
+            this.lblShopCart.Size = new System.Drawing.Size(500, 55);
             this.lblShopCart.TabIndex = 0;
             this.lblShopCart.Text = "Shopping cart";
             this.lblShopCart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -173,12 +159,12 @@
             // 
             this.panelLineUnderCart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panelLineUnderCart.BackColor = System.Drawing.Color.Silver;
-            this.panelLineUnderCart.Location = new System.Drawing.Point(91, 71);
+            this.panelLineUnderCart.Location = new System.Drawing.Point(56, 71);
             this.panelLineUnderCart.Margin = new System.Windows.Forms.Padding(4);
-            this.panelLineUnderCart.MaximumSize = new System.Drawing.Size(533, 4);
-            this.panelLineUnderCart.MinimumSize = new System.Drawing.Size(133, 4);
+            this.panelLineUnderCart.MaximumSize = new System.Drawing.Size(120, 4);
+            this.panelLineUnderCart.MinimumSize = new System.Drawing.Size(400, 4);
             this.panelLineUnderCart.Name = "panelLineUnderCart";
-            this.panelLineUnderCart.Size = new System.Drawing.Size(533, 4);
+            this.panelLineUnderCart.Size = new System.Drawing.Size(400, 4);
             this.panelLineUnderCart.TabIndex = 1;
             // 
             // lblClearItem
@@ -186,11 +172,12 @@
             this.lblClearItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblClearItem.AutoSize = true;
             this.lblClearItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClearItem.Location = new System.Drawing.Point(578, 84);
-            this.lblClearItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 0);
-            this.lblClearItem.MinimumSize = new System.Drawing.Size(133, 31);
+            this.lblClearItem.Location = new System.Drawing.Point(386, 84);
+            this.lblClearItem.Margin = new System.Windows.Forms.Padding(4, 5, 11, 0);
+            this.lblClearItem.MinimumSize = new System.Drawing.Size(109, 31);
             this.lblClearItem.Name = "lblClearItem";
-            this.lblClearItem.Size = new System.Drawing.Size(133, 31);
+            this.lblClearItem.Padding = new System.Windows.Forms.Padding(0, 0, 11, 0);
+            this.lblClearItem.Size = new System.Drawing.Size(116, 31);
             this.lblClearItem.TabIndex = 2;
             this.lblClearItem.Text = "clear items";
             this.lblClearItem.Click += new System.EventHandler(this.lblClearItem_Click);
@@ -199,10 +186,10 @@
             // 
             this.flowPanelCartItem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowPanelCartItem.AutoScroll = true;
-            this.flowPanelCartItem.Location = new System.Drawing.Point(31, 119);
+            this.flowPanelCartItem.Location = new System.Drawing.Point(4, 119);
             this.flowPanelCartItem.Margin = new System.Windows.Forms.Padding(4);
             this.flowPanelCartItem.Name = "flowPanelCartItem";
-            this.flowPanelCartItem.Size = new System.Drawing.Size(653, 507);
+            this.flowPanelCartItem.Size = new System.Drawing.Size(505, 604);
             this.flowPanelCartItem.TabIndex = 3;
             // 
             // panelSubTotal
@@ -210,23 +197,23 @@
             this.panelSubTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panelSubTotal.Controls.Add(this.lblSubTotal);
             this.panelSubTotal.Controls.Add(this.lblSubTotalTxt);
-            this.panelSubTotal.Location = new System.Drawing.Point(27, 634);
+            this.panelSubTotal.Location = new System.Drawing.Point(23, 731);
             this.panelSubTotal.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubTotal.Name = "panelSubTotal";
-            this.panelSubTotal.Size = new System.Drawing.Size(661, 43);
+            this.panelSubTotal.Size = new System.Drawing.Size(467, 30);
             this.panelSubTotal.TabIndex = 4;
             // 
             // lblSubTotal
             // 
             this.lblSubTotal.AutoSize = true;
             this.lblSubTotal.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblSubTotal.Location = new System.Drawing.Point(394, 0);
+            this.lblSubTotal.Location = new System.Drawing.Point(267, 0);
             this.lblSubTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSubTotal.MinimumSize = new System.Drawing.Size(267, 43);
+            this.lblSubTotal.MinimumSize = new System.Drawing.Size(200, 30);
             this.lblSubTotal.Name = "lblSubTotal";
-            this.lblSubTotal.Size = new System.Drawing.Size(267, 43);
+            this.lblSubTotal.Size = new System.Drawing.Size(200, 30);
             this.lblSubTotal.TabIndex = 1;
-            this.lblSubTotal.Text = "RM 12.00";
+            this.lblSubTotal.Text = "RM 0.00";
             this.lblSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblSubTotalTxt
@@ -235,9 +222,9 @@
             this.lblSubTotalTxt.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblSubTotalTxt.Location = new System.Drawing.Point(0, 0);
             this.lblSubTotalTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSubTotalTxt.MinimumSize = new System.Drawing.Size(267, 43);
+            this.lblSubTotalTxt.MinimumSize = new System.Drawing.Size(189, 30);
             this.lblSubTotalTxt.Name = "lblSubTotalTxt";
-            this.lblSubTotalTxt.Size = new System.Drawing.Size(267, 43);
+            this.lblSubTotalTxt.Size = new System.Drawing.Size(189, 30);
             this.lblSubTotalTxt.TabIndex = 0;
             this.lblSubTotalTxt.Text = "Sub-Total:";
             this.lblSubTotalTxt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -247,23 +234,23 @@
             this.panelTaxTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panelTaxTxt.Controls.Add(this.lblTax);
             this.panelTaxTxt.Controls.Add(this.lblTaxTxt);
-            this.panelTaxTxt.Location = new System.Drawing.Point(27, 685);
+            this.panelTaxTxt.Location = new System.Drawing.Point(22, 769);
             this.panelTaxTxt.Margin = new System.Windows.Forms.Padding(4);
             this.panelTaxTxt.Name = "panelTaxTxt";
-            this.panelTaxTxt.Size = new System.Drawing.Size(661, 43);
+            this.panelTaxTxt.Size = new System.Drawing.Size(469, 30);
             this.panelTaxTxt.TabIndex = 5;
             // 
             // lblTax
             // 
             this.lblTax.AutoSize = true;
             this.lblTax.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblTax.Location = new System.Drawing.Point(394, 0);
+            this.lblTax.Location = new System.Drawing.Point(269, 0);
             this.lblTax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTax.MinimumSize = new System.Drawing.Size(267, 43);
+            this.lblTax.MinimumSize = new System.Drawing.Size(200, 30);
             this.lblTax.Name = "lblTax";
-            this.lblTax.Size = new System.Drawing.Size(267, 43);
+            this.lblTax.Size = new System.Drawing.Size(200, 30);
             this.lblTax.TabIndex = 1;
-            this.lblTax.Text = "RM 12.00";
+            this.lblTax.Text = "RM 0.00";
             this.lblTax.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTaxTxt
@@ -272,9 +259,9 @@
             this.lblTaxTxt.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTaxTxt.Location = new System.Drawing.Point(0, 0);
             this.lblTaxTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTaxTxt.MinimumSize = new System.Drawing.Size(267, 43);
+            this.lblTaxTxt.MinimumSize = new System.Drawing.Size(189, 30);
             this.lblTaxTxt.Name = "lblTaxTxt";
-            this.lblTaxTxt.Size = new System.Drawing.Size(267, 43);
+            this.lblTaxTxt.Size = new System.Drawing.Size(189, 30);
             this.lblTaxTxt.TabIndex = 0;
             this.lblTaxTxt.Text = "Service tax(6%):";
             this.lblTaxTxt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -284,23 +271,23 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel1.Controls.Add(this.lblTotal);
             this.panel1.Controls.Add(this.lblTotalTxt);
-            this.panel1.Location = new System.Drawing.Point(27, 736);
+            this.panel1.Location = new System.Drawing.Point(22, 807);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(661, 43);
+            this.panel1.Size = new System.Drawing.Size(469, 30);
             this.panel1.TabIndex = 6;
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblTotal.Location = new System.Drawing.Point(394, 0);
+            this.lblTotal.Location = new System.Drawing.Point(269, 0);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotal.MinimumSize = new System.Drawing.Size(267, 43);
+            this.lblTotal.MinimumSize = new System.Drawing.Size(200, 30);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(267, 43);
+            this.lblTotal.Size = new System.Drawing.Size(200, 30);
             this.lblTotal.TabIndex = 1;
-            this.lblTotal.Text = "RM 12.00";
+            this.lblTotal.Text = "RM 0.00";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalTxt
@@ -309,9 +296,9 @@
             this.lblTotalTxt.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalTxt.Location = new System.Drawing.Point(0, 0);
             this.lblTotalTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotalTxt.MinimumSize = new System.Drawing.Size(267, 43);
+            this.lblTotalTxt.MinimumSize = new System.Drawing.Size(189, 30);
             this.lblTotalTxt.Name = "lblTotalTxt";
-            this.lblTotalTxt.Size = new System.Drawing.Size(267, 43);
+            this.lblTotalTxt.Size = new System.Drawing.Size(189, 30);
             this.lblTotalTxt.TabIndex = 0;
             this.lblTotalTxt.Text = "Total:";
             this.lblTotalTxt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -320,7 +307,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Location = new System.Drawing.Point(291, 787);
+            this.panel2.Location = new System.Drawing.Point(190, 845);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.MaximumSize = new System.Drawing.Size(67, 4);
             this.panel2.MinimumSize = new System.Drawing.Size(133, 4);
@@ -333,10 +320,10 @@
             this.flowPanelRadio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.flowPanelRadio.Controls.Add(this.radioBtnDine);
             this.flowPanelRadio.Controls.Add(this.radioBtnTake);
-            this.flowPanelRadio.Location = new System.Drawing.Point(143, 799);
+            this.flowPanelRadio.Location = new System.Drawing.Point(46, 857);
             this.flowPanelRadio.Margin = new System.Windows.Forms.Padding(4);
             this.flowPanelRadio.Name = "flowPanelRadio";
-            this.flowPanelRadio.Size = new System.Drawing.Size(429, 47);
+            this.flowPanelRadio.Size = new System.Drawing.Size(421, 59);
             this.flowPanelRadio.TabIndex = 7;
             // 
             // radioBtnDine
@@ -372,7 +359,7 @@
             this.btnCheckout.FlatAppearance.BorderSize = 0;
             this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckout.ForeColor = System.Drawing.Color.White;
-            this.btnCheckout.Location = new System.Drawing.Point(163, 856);
+            this.btnCheckout.Location = new System.Drawing.Point(62, 926);
             this.btnCheckout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(388, 49);
@@ -383,29 +370,14 @@
             // 
             // flowLayoutHeader
             // 
-            this.flowLayoutHeader.Controls.Add(this.btnCart);
             this.flowLayoutHeader.Controls.Add(this.btnLogOut);
             this.flowLayoutHeader.Controls.Add(this.panelSearch);
             this.flowLayoutHeader.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutHeader.Location = new System.Drawing.Point(377, -2);
+            this.flowLayoutHeader.Location = new System.Drawing.Point(420, 0);
             this.flowLayoutHeader.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutHeader.Name = "flowLayoutHeader";
-            this.flowLayoutHeader.Size = new System.Drawing.Size(1683, 71);
+            this.flowLayoutHeader.Size = new System.Drawing.Size(1103, 71);
             this.flowLayoutHeader.TabIndex = 7;
-            // 
-            // btnCart
-            // 
-            this.btnCart.BackColor = System.Drawing.Color.Transparent;
-            this.btnCart.FlatAppearance.BorderSize = 0;
-            this.btnCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCart.Image = ((System.Drawing.Image)(resources.GetObject("btnCart.Image")));
-            this.btnCart.Location = new System.Drawing.Point(1575, 0);
-            this.btnCart.Margin = new System.Windows.Forms.Padding(4, 0, 0, 4);
-            this.btnCart.Name = "btnCart";
-            this.btnCart.Size = new System.Drawing.Size(108, 71);
-            this.btnCart.TabIndex = 0;
-            this.btnCart.UseVisualStyleBackColor = false;
-            this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
             // 
             // btnLogOut
             // 
@@ -416,7 +388,7 @@
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(1335, 12);
+            this.btnLogOut.Location = new System.Drawing.Point(867, 12);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 12, 40, 4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 19, 0);
@@ -433,7 +405,7 @@
             this.panelSearch.Controls.Add(this.btnSearch);
             this.panelSearch.Controls.Add(this.txtBoxSearch);
             this.panelSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.panelSearch.Location = new System.Drawing.Point(693, 7);
+            this.panelSearch.Location = new System.Drawing.Point(225, 7);
             this.panelSearch.Margin = new System.Windows.Forms.Padding(4, 7, 80, 4);
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(558, 54);
@@ -495,7 +467,7 @@
             treeNode3,
             treeNode6});
             this.treeViewMenu.ShowLines = false;
-            this.treeViewMenu.Size = new System.Drawing.Size(393, 875);
+            this.treeViewMenu.Size = new System.Drawing.Size(232, 875);
             this.treeViewMenu.TabIndex = 3;
             this.treeViewMenu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewMenu_AfterSelect);
             // 
@@ -504,23 +476,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1924, 990);
+            this.ClientSize = new System.Drawing.Size(1924, 1010);
+            this.Controls.Add(this.flowPanelCart);
             this.Controls.Add(this.panelLine);
-            this.Controls.Add(this.transPanelCart);
+            this.Controls.Add(this.flowLayoutHeader);
             this.Controls.Add(this.panelCashierName);
             this.Controls.Add(this.flowLayoutPanelMenu);
-            this.Controls.Add(this.flowLayoutHeader);
             this.Controls.Add(this.treeViewMenu);
-            this.Location = new System.Drawing.Point(9, 0);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CashierMenuPage";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Sunway Cafe";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CashierMenuPage_Load);
             this.panelCashierName.ResumeLayout(false);
             this.panelCashierName.PerformLayout();
-            this.transPanelCart.ResumeLayout(false);
             this.flowPanelCart.ResumeLayout(false);
             this.flowPanelCart.PerformLayout();
             this.panelSubTotal.ResumeLayout(false);
@@ -539,7 +508,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnCart;
         private Components.RoundButton btnLogOut;
         private System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.TextBox txtBoxSearch;
@@ -548,7 +516,10 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMenu;
         private System.Windows.Forms.Label lblCashierName;
         private System.Windows.Forms.Panel panelCashierName;
+        private Components.CustomTreeView treeViewMenu;
+        private System.Windows.Forms.Panel panelLine;
         private Components.BorderFlowLayoutPane flowPanelCart;
+        private System.Windows.Forms.Label lblShopCart;
         private System.Windows.Forms.Panel panelLineUnderCart;
         private System.Windows.Forms.Label lblClearItem;
         private System.Windows.Forms.FlowLayoutPanel flowPanelCartItem;
@@ -561,14 +532,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblTotalTxt;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowPanelRadio;
         private System.Windows.Forms.RadioButton radioBtnDine;
         private System.Windows.Forms.RadioButton radioBtnTake;
         private Components.RoundButton btnCheckout;
-        private Components.TransparentPanel transPanelCart;
-        private Components.CustomTreeView treeViewMenu;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panelLine;
-        private System.Windows.Forms.Label lblShopCart;
     }
 }

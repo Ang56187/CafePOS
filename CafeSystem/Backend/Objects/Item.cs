@@ -13,8 +13,6 @@ namespace CafeSystem.Backend.Objects
 
         public Item(String name, decimal price, int qty, String description, String image, String category, String type)
         {
-            qty = 0;
-            price = 0;
             Name = name;
             Price = price;
             Quantity = qty;
@@ -22,6 +20,9 @@ namespace CafeSystem.Backend.Objects
             Image = image;
             Category = category;
             Type = type;
+
+            qty = 0;
+            price = 0;
         }
 
         public String Name { get; set; }

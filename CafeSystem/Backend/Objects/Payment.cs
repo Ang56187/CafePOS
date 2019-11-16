@@ -8,26 +8,28 @@ namespace CafeSystem.Backend.Objects
 {
     class Payment
     {
-        decimal paidAmount;
+        private decimal totalAmt;
 
 
-        public Payment(decimal paidAmt)
+        public Payment(decimal totalAmt)
         {
-            PaidAmount = paidAmt;
-            paidAmount = 0;
+            TotalAmt = totalAmt;
+            this.totalAmt = 0;
 
         }
 
-        public decimal PaidAmount
+        public decimal TotalAmt
         {
-            get { return paidAmount; }
+            get { return totalAmt; }
 
             set
             {
                 if (value >= 0)
                 {
-                    paidAmount = value;
+                    totalAmt = value;
                 }
+                else
+                    throw new ArgumentOutOfRangeException("Total amount must be 0 or more.");
             }
         }
 

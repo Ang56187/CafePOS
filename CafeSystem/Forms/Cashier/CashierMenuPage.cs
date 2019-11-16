@@ -24,13 +24,13 @@ namespace CafeSystem.Forms.Cashier
         IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
 
         private PrivateFontCollection fonts = new PrivateFontCollection();
-        Font fontBtn;
-        Font fontBtnMini;
-        Font fontTxtBox;
-        Font fontLbl;
-        Font fontLblMini;
-        Font fontHeaderLbl;
-        Font fontTextDesc;
+        private Font fontBtn;
+        private Font fontBtnMini;
+        private Font fontTxtBox;
+        private Font fontLbl;
+        private Font fontLblMini;
+        private Font fontHeaderLbl;
+        private Font fontTextDesc;
 
 
         //menu item list and shopping cart list
@@ -41,7 +41,7 @@ namespace CafeSystem.Forms.Cashier
         List<Button> btnQtyList = new List<Button>();
         List<NumericUpDown> numUpDownListPopUp = new List<NumericUpDown>();
         List<NumericUpDown> numUpDownListCart = new List<NumericUpDown>();
-
+        List<NumericUpDown> numUpDownListCartCopy = new List<NumericUpDown>();//created to avoid collection modified exception
 
         //when click on item image, will add in item details components
         //invisible background panel behind item details
@@ -106,19 +106,19 @@ namespace CafeSystem.Forms.Cashier
             fontBtnMini = new Font(fonts.Families[0], 10.0F, FontStyle.Bold);
             fontTxtBox = new Font(fonts.Families[0], 20.0F);
             fontLbl = new Font(fonts.Families[0], 15.0F);
-            fontLblMini = new Font(fonts.Families[0], 12.0F);
+            fontLblMini = new Font(fonts.Families[0], 11.0F);
             fontHeaderLbl = new Font(fonts.Families[0], 18.0F, FontStyle.Bold);
             fontTextDesc = new Font(fonts.Families[0], 12.0F);
 
             //set fonts to components
             treeViewMenu.Font = new Font(fonts.Families[0], 18.0F, FontStyle.Bold);
-            lblCashierName.Font = new Font(fonts.Families[0], 17.0F, FontStyle.Bold);
+            lblCashierName.Font = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
             btnLogOut.Font = btnCheckout.Font = fontBtn;
             txtBoxSearch.Font = fontTxtBox;
             lblShopCart.Font = fontHeaderLbl;
             lblClearItem.Font = new Font(fonts.Families[0], 12.0F,FontStyle.Underline);
             lblSubTotalTxt.Font = lblSubTotal.Font = lblTaxTxt.Font = lblTax.Font = lblTotalTxt.Font = lblTotal.Font
-                = radioBtnDine.Font = radioBtnTake.Font  = fontLbl;
+                = radioBtnDine.Font = radioBtnTake.Font  = fontLblMini;
 
             if (cartItems.CartList.Count() > 0)
             {
@@ -139,17 +139,15 @@ namespace CafeSystem.Forms.Cashier
                 }//end foreach
             }
 
-
             //add transparent background to foreground
             this.Controls.Add(transPanelHidden);
             transPanelHidden.Size = new Size(1605, 822);
             transPanelHidden.BackColor = Color.Transparent;
             transPanelHidden.Click += new EventHandler(close_popup_click);
+            transPanelHidden.Hide();
 
             CreateItemDetails();
 
-            //hide shopping cart panel upon load up unless cart btn clicked
-            transPanelCart.Hide();
 
         }
 
@@ -194,17 +192,17 @@ namespace CafeSystem.Forms.Cashier
             // set values from arguments
             //to find for file image
             String imgLocation = Path.Combine(Environment.CurrentDirectory, "..", "..", "Resource", "Images", "MenuItems", item.Image);
-            picBoxItem.Image = ResizeImage(Image.FromFile(imgLocation), new Size(250, 220));
+            picBoxItem.Image = ResizeImage(Image.FromFile(imgLocation), new Size(200, 180));
             lblItemName.Text = item.Name;
             lblItemPrice.Text = String.Format("{0:C}",item.Price);
             btnQty.Text = item.Quantity.ToString();
 
 
             vFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            vFlowPanel.Size = new Size(230, 340);
-            vFlowPanel.Margin = new Padding(30, 30, 30, 30);
+            vFlowPanel.Size = new Size(200, 300);
+            vFlowPanel.Margin = new Padding(15,4,4,4);
 
-            picBoxItem.Size = new Size(250, 220);
+            picBoxItem.Size = new Size(200, 180);
             picBoxItem.Margin = new Padding(0, 0, 0, 0);
             //add function to add to cart button when clicked
             picBoxItem.Click += (sender, e) =>
@@ -227,18 +225,18 @@ namespace CafeSystem.Forms.Cashier
 
             lblItemName.Font = fontLbl;
             lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            lblItemName.Size = new Size(220, 30);
+            lblItemName.Size = new Size(190, 30);
 
             lblItemPrice.Font = fontLbl;
             lblItemPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            lblItemPrice.Size = new Size(220, 30);
+            lblItemPrice.Size = new Size(190, 30);
 
             //adding controls of buttons of items horizontally, to be added to vFLowPanel later
             hFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.LeftToRight;
-            hFlowPanel.Size = new Size(210, 45);
-            hFlowPanel.Margin = new Padding(10, 5, 0, 0);
+            hFlowPanel.Size = new Size(190, 41);
+            hFlowPanel.Margin = new Padding(5, 5, 0, 0);
 
-            btnQty.Size = new Size(60, 45);
+            btnQty.Size = new Size(45, 40);
             btnQty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             btnQty.FlatAppearance.BorderSize = 0;
             btnQty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -261,7 +259,7 @@ namespace CafeSystem.Forms.Cashier
             //btnQty added to list to be accessed controls outside the loop
             btnQtyList.Add(btnQty);
 
-            btnAddToCart.Size = new Size(140, 45);
+            btnAddToCart.Size = new Size(130, 40);
             btnAddToCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             btnAddToCart.FlatAppearance.BorderSize = 0;
             btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -284,12 +282,13 @@ namespace CafeSystem.Forms.Cashier
                     }
                 }
 
+                //redirect focus to avoid popping up in front of pop up
+                btnSearch.Focus();
+
                 //update quantity button at menu
                 btnQty.Text = item.Quantity.ToString();
                 AddCartItem(item);
             };
-            //divert focus so it wont appear front of pop-up
-            btnAddToCart.Click += (sender, e) => btnCart.Focus();
 
             //add buttons to horizontal flow panel, to be added to vertical flow panel later
             hFlowPanel.Controls.Add(btnQty);
@@ -319,11 +318,11 @@ namespace CafeSystem.Forms.Cashier
                         numUpDown.Update();
                     }
                 }
-
                 //update the pop-up qty numUpDown
                 numUpDownQty.Value = item.Quantity;
                 AddCartItem(item);
             };
+
         }
 
 
@@ -331,10 +330,10 @@ namespace CafeSystem.Forms.Cashier
         private void CreateItemDetails() //TODO: add contents to item detail pop up
         {
             //create overall flow pane, keeps every control in pop-up
-            panelItemDetail.Size = new Size(1000, 700);
+            panelItemDetail.Size = new Size(900, 700);
             panelItemDetail.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             panelItemDetail.Location = new System.Drawing.Point(
-                (transPanelHidden.Width-panelItemDetail.Width)/2, (transPanelHidden.Height - panelItemDetail.Height) /2);//centered
+                (transPanelHidden.Width-panelItemDetail.Width)/3, (transPanelHidden.Height - panelItemDetail.Height) /3);//centered
 
             //set all rows margins
             panelItemDetailHeader.Margin = new Padding(25, 5, 0, 0);
@@ -343,7 +342,7 @@ namespace CafeSystem.Forms.Cashier
             panelLineUnderPrice.Margin = new Padding(30, 1, 0, 0);
 
             //*1st row of flow panel(contain item name and close btn)*
-            panelItemDetailHeader.Size = new Size(970, 45);
+            panelItemDetailHeader.Size = new Size(870, 45);
             //close button
             btnClose.BackColor = System.Drawing.Color.Transparent;
             btnClose.FlatAppearance.BorderSize = 0;
@@ -366,11 +365,11 @@ namespace CafeSystem.Forms.Cashier
             panelLineUnderName.Margin = new Padding(25, 1, 0, 0);
 
             //*3rd row of flow panel(flow panel that contains image and description)*
-            flowPanelThirdRow.Size = new Size(970, 350);
+            flowPanelThirdRow.Size = new Size(900, 350);
             //item picture
             picBoxItemDetail.Size = new Size(400,350);
             //description part flow panel
-            flowPanelDesc.Size= new Size(550, 370);
+            flowPanelDesc.Size= new Size(480, 370);
             flowPanelDesc.Margin = new Padding(6, 0, 0, 0);
             flowPanelDesc.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 
@@ -383,8 +382,8 @@ namespace CafeSystem.Forms.Cashier
             panelLineUnderDesc.Margin = new Padding(10, 0, 0, 0);
 
             txtBoxItemDesc.Font = fontLbl;
-            txtBoxItemDesc.MaximumSize = new Size(530, 310);
-            txtBoxItemDesc.Size = new Size(530, 310);
+            txtBoxItemDesc.MaximumSize = new Size(440, 310);
+            txtBoxItemDesc.Size = new Size(440, 310);
             txtBoxItemDesc.Margin = new Padding(10, 0, 0, 0);
             txtBoxItemDesc.BackColor = Color.White;
             txtBoxItemDesc.Multiline = true;
@@ -442,7 +441,7 @@ namespace CafeSystem.Forms.Cashier
                 lblTotalPrice.Text = String.Format("Total: {0:C}",(item.Price * numUpDown.Value));
 
                 //update item quantity in cart
-                foreach (NumericUpDown upDown in numUpDownListCart)
+                foreach (NumericUpDown upDown in numUpDownListCartCopy)
                 {
                     if (upDown.Tag.Equals(item.Name))
                     {
@@ -454,7 +453,7 @@ namespace CafeSystem.Forms.Cashier
                 AddCartItem(item);
             };
 
-            lblTotalPrice.Text = "Total: "+ (item.Price* numUpDown.Value);
+            lblTotalPrice.Text = "Total: "+ String.Format("{0:C}",(item.Price* numUpDown.Value));
 
             //bring pop up to front
             transPanelHidden.Show();
@@ -485,7 +484,7 @@ namespace CafeSystem.Forms.Cashier
             //set values of components through arguments
             //to find for file image
             String fileLocation = Path.Combine(Environment.CurrentDirectory, "..", "..", "Resource", "Images", "MenuItems", item.Image);
-            picBoxCartItemRow1.Image = ResizeImage(Image.FromFile(fileLocation), new Size(140, 100));
+            picBoxCartItemRow1.Image = ResizeImage(Image.FromFile(fileLocation), new Size(120, 80));
 
             lblCartItemName.Text = item.Name;
             lblItemPrice.Text = String.Format("{0:C}",item.Price*item.Quantity);
@@ -493,28 +492,34 @@ namespace CafeSystem.Forms.Cashier
 
             //set flow panel of overall item detail
             flowPanelCartDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            flowPanelCartDetail.Size = new Size(460,100);
+            flowPanelCartDetail.Size = new Size(350,80);
 
             //first row of flow panel (image)
-            picBoxCartItemRow1.Size = new Size(140, 100);
+            picBoxCartItemRow1.Size = new Size(120, 80);
             picBoxCartItemRow1.Margin = new Padding(0, 0, 5, 0);
 
             //second row of flow panel (name,line and qty)
-            flowPanelCartRow2.Size = new Size(200, 90);
+            flowPanelCartRow2.Size = new Size(130, 90);
             flowPanelCartRow2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            flowPanelCartRow2.Margin = new Padding(0, 0, 0, 0);
 
-            lblCartItemName.Size = new Size(200, 30);
+
+            lblCartItemName.Size = new Size(130, 30);
             lblCartItemName.Margin = new Padding(0, 0, 0, 0);
             lblCartItemName.Font = fontLblMini;
 
             panelLineUnderCartName.Size = new Size(50, 3);
             panelLineUnderCartName.BackColor = System.Drawing.Color.Silver;
 
-            numUpDownItemQty.MinimumSize = new Size(50, 20);
+            numUpDownItemQty.MinimumSize = new Size(70, 20);
+            numUpDownItemQty.MaximumSize = new Size(70, 20);
             numUpDownItemQty.Font = fontLblMini;
-            numUpDownItemQty.Margin = new Padding(5, 15, 0, 0);
+            numUpDownItemQty.Margin = new Padding(5, 5, 0, 0);
             numUpDownItemQty.Tag = item.Name;
+            //add cart to list
             numUpDownListCart.Add(numUpDownItemQty);
+            numUpDownListCartCopy.Add(numUpDownItemQty);
+
             numUpDownItemQty.KeyPress += new KeyPressEventHandler(txtBoxQty_KeyPress);
 
             //update qty from cart to menu
@@ -523,6 +528,23 @@ namespace CafeSystem.Forms.Cashier
                 item.Quantity = (int)numUpDownItemQty.Value;
                 lblItemPrice.Text = String.Format("{0:C}", item.Price * item.Quantity);
                 UpdateLbl();
+
+                if (numUpDownItemQty.Value == 0)
+                {
+                    //remove the NumericUoDown control for that item
+                    numUpDownListCart.Remove(numUpDownItemQty);
+                    flowPanelCartItem.Controls.Remove(flowPanelCartDetail);
+
+                    //remove item from cart list
+                    cartItems.CartList.Remove(item);
+
+                    //ensure it doesnt updates if pop up is visible, to ensure no bug of btn qty popping in front
+                    if (! transPanelHidden.Visible)
+                    {
+                        UpdateMenuQty(item);
+                    }
+
+                }
             };
 
             //add everything to col 2
@@ -531,15 +553,16 @@ namespace CafeSystem.Forms.Cashier
             flowPanelCartRow2.Controls.Add(numUpDownItemQty);
 
             //3rd col of panel (close button and total price)
-            flowPanelCartRow3.Size = new Size(100, 90);
+            flowPanelCartRow3.Size = new Size(90, 90);
             flowPanelCartRow3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            flowPanelCartRow3.Margin = new Padding(0, 0, 0, 0); 
 
 
             btnDeleteItem.BackColor = System.Drawing.Color.Transparent;//TODO: later add func to remove item from shopping cart list too
             btnDeleteItem.FlatAppearance.BorderSize = 0;
-            btnDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnDeleteItem.Size = new Size(35, 35);
-            btnDeleteItem.Margin = new Padding(65, 0, 0, 0);
+            btnDeleteItem.FlatStyle = FlatStyle.Flat;
+            btnDeleteItem.Size = new Size(30, 30);
+            btnDeleteItem.Margin = new Padding(60, 0, 0, 0);
             btnDeleteItem.Image = ResizeImage(global::CafeSystem.Properties.Resources.close_window_48, new Size(35, 35));
             //change quantity to 0 once deleted
             btnDeleteItem.Click += (sender,e) =>
@@ -554,10 +577,12 @@ namespace CafeSystem.Forms.Cashier
 
                 //remove item from cart list
                 cartItems.CartList.Remove(item);
+
+                UpdateMenuQty(item);
             };
 
 
-            lblItemPrice.Size = new Size(100, 50);
+            lblItemPrice.Size = new Size(90, 40);
             lblItemPrice.Font = fontLblMini;
             lblItemPrice.TextAlign = System.Drawing.ContentAlignment.BottomRight;
 
@@ -570,28 +595,6 @@ namespace CafeSystem.Forms.Cashier
             flowPanelCartDetail.Controls.Add(flowPanelCartRow3);
 
             flowPanelCartItem.Controls.Add(flowPanelCartDetail);
-
-            //where it actually update quantity at menu list, to prevent error where button will appear front of cart list
-            transPanelCart.Click += (e, sender) =>
-            {
-                if (numUpDownItemQty.Value == 0)
-                {
-                    RemoveCartItem(item, numUpDownItemQty, flowPanelCartDetail);
-                }
-                UpdateMenuQty(item);
-            };
-
-            btnCart.Click += (e, sender) =>
-            {
-                if (numUpDownItemQty.Value == 0)
-                {
-                    RemoveCartItem(item, numUpDownItemQty, flowPanelCartDetail);
-                }
-
-                if (!transPanelCart.Visible)
-                    UpdateMenuQty(item);
-            };
- 
 
         }
 
@@ -736,17 +739,6 @@ namespace CafeSystem.Forms.Cashier
 
         private void btnCart_Click(object sender, EventArgs e)
         {
-            if (! transPanelCart.Visible)
-            {
-                transPanelCart.Show();
-            }
-            else
-                transPanelCart.Hide();
-        }
-
-        private void transPanelCart_Click(object sender, EventArgs e)
-        {
-            transPanelCart.Hide();
         }
 
 
@@ -773,7 +765,10 @@ namespace CafeSystem.Forms.Cashier
             foreach(Item item in menuItems.MenuList)
             {
                 item.Quantity = 0;
+                UpdateMenuQty(item);
             }
+
+            UpdateLbl();
 
         }
 
@@ -798,6 +793,7 @@ namespace CafeSystem.Forms.Cashier
                 {
                     dineOrTakeAway = radioBtnTake.Text;
                 }
+
                 CheckoutPage checkoutPage = new CheckoutPage(cartItems,dineOrTakeAway);
                 this.Hide();
                 checkoutPage.ShowDialog();

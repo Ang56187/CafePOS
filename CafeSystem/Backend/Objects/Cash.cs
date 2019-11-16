@@ -8,19 +8,38 @@ namespace CafeSystem.Backend.Objects
 {
     class Cash : Payment
     {
-        public Cash(decimal paidAmt) : base(paidAmt)
-        {
+        //paid is here, since user might not pay exact amount to total price of items
+        private decimal paidAmt;
 
+        public Cash(decimal totalAmt,decimal paidAmt) : base(totalAmt)
+        {
+            PaidAmt = paidAmt;
+            this.paidAmt = 0;
         }
 
-        public decimal remainingAmount(decimal paidAmt,decimal totalAmt)
+
+        public decimal PaidAmt
         {
-            return totalAmt - paidAmt;
+            get { return paidAmt; }
+            set
+            {
+                if (value >= 0)
+                {
+                    paidAmt = value;
+                }
+                else
+                    throw new ArgumentOutOfRangeException("Paid amount must be 0 or more.");
+            }
         }
 
-        public bool isPaid(decimal paidAmt,decimal totalAmt)
+        public decimal RemainingAmount(decimal totalAmt)
         {
-            if (remainingAmount(paidAmt, totalAmt) <= 0)
+            return totalAmt - PaidAmt;
+        }
+
+        public bool IsPaid(decimal totalAmt)
+        {
+            if (RemainingAmount(totalAmt) <= 0)
             {
                 return true;
             }
