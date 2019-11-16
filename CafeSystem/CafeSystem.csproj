@@ -55,6 +55,7 @@
     <Compile Include="Backend\Objects\Payment.cs" />
     <Compile Include="Backend\Objects\Tax.cs" />
     <Compile Include="Backend\Objects\User.cs" />
+    <Compile Include="Backend\OrderCollection.cs" />
     <Compile Include="Backend\ShoppingCart.cs" />
     <Compile Include="Components\BorderFlowLayoutPane.cs">
       <SubType>Component</SubType>
@@ -74,23 +75,23 @@
     <Compile Include="Forms\Cashier\CashierMenuForm.Designer.cs">
       <DependentUpon>CashierMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Cashier\CheckoutPage.cs">
+    <Compile Include="Forms\Cashier\CheckoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Cashier\CheckoutPage.Designer.cs">
-      <DependentUpon>CheckoutPage.cs</DependentUpon>
+    <Compile Include="Forms\Cashier\CheckoutForm.Designer.cs">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Cashier\PaymentPage.cs">
+    <Compile Include="Forms\Cashier\PaymentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Cashier\PaymentPage.Designer.cs">
-      <DependentUpon>PaymentPage.cs</DependentUpon>
+    <Compile Include="Forms\Cashier\PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Cashier\ReceiptPage.cs">
+    <Compile Include="Forms\Cashier\ReceiptForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Cashier\ReceiptPage.Designer.cs">
-      <DependentUpon>ReceiptPage.cs</DependentUpon>
+    <Compile Include="Forms\Cashier\ReceiptForm.Designer.cs">
+      <DependentUpon>ReceiptForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -98,45 +99,45 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="StardardizedNames.cs" />
-    <Compile Include="Forms\SelectionPage.cs">
+    <Compile Include="Forms\SelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SelectionPage.Designer.cs">
-      <DependentUpon>SelectionPage.cs</DependentUpon>
+    <Compile Include="Forms\SelectionForm.Designer.cs">
+      <DependentUpon>SelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\LoginPage.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LoginPage.Designer.cs">
-      <DependentUpon>LoginPage.cs</DependentUpon>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Cashier\CashierMenuForm.resx">
       <DependentUpon>CashierMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Cashier\CheckoutPage.resx">
-      <DependentUpon>CheckoutPage.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Cashier\CheckoutForm.resx">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Cashier\PaymentPage.resx">
-      <DependentUpon>PaymentPage.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Cashier\PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Cashier\ReceiptPage.resx">
-      <DependentUpon>ReceiptPage.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Cashier\ReceiptForm.resx">
+      <DependentUpon>ReceiptForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoginPage.resx">
-      <DependentUpon>LoginPage.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SelectionPage.resx">
-      <DependentUpon>SelectionPage.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SelectionForm.resx">
+      <DependentUpon>SelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

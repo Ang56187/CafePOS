@@ -27,13 +27,16 @@ namespace CafeSystem.Forms.Cashier
         Font fontTakeDine;
 
         //passed arguments from the cashier menu page
-        private ShoppingCart orderItems = new ShoppingCart();
+        ShoppingCart cartItems = new ShoppingCart();
+        Tax tax = new Tax();
+        User user;
+
 
         //set value to labels controls
         private String dineOrTakeAway = "";
-        private decimal subTotal = 0;
+        private decimal subTotalAmount = 0;
         private decimal serTax = 0;
-        private decimal total = 0;
+        private decimal totalAmount = 0;
         private decimal serCharge = 0;
 
         //test
@@ -43,13 +46,17 @@ namespace CafeSystem.Forms.Cashier
         }
 
         //constructor to receive the passed shopping cart, user identity
-        public CheckoutForm(object cartItem,String dineOrTakeAway)
+        public CheckoutForm(object user,object cartItem,String dineOrTakeAway)
         {
             InitializeComponent();
-            
+
+            if (user is User)
+            {
+                this.user = ((User) user);
+            }
             if (cartItem is ShoppingCart)
             {
-                orderItems = ((ShoppingCart)cartItem);
+                cartItems = ((ShoppingCart)cartItem);
             }
 
             this.dineOrTakeAway = dineOrTakeAway;
@@ -91,33 +98,40 @@ namespace CafeSystem.Forms.Cashier
             btnCancel.Image = ResizeImage(global::CafeSystem.Properties.Resources.cancel_48, new Size(33, 33));
 
             //add item to order item list
-            foreach (Item item in orderItems.CartList)
+            foreach (Item item in cartItems.CartList)
             {
                 Add_order_item(item.Name, item.Quantity, item.Price);
             }
 
-            foreach (Item item in orderItems.CartList)
+            foreach (Item item in cartItems.CartList)
             {
-                subTotal += item.Price * item.Quantity;
-                serTax = subTotal * 6 / 100;
-                serCharge = subTotal * 10 / 100;
+                subTotalAmount += item.Price * item.Quantity;
+                serTax = subTotalAmount * 6 / 100;
+                serCharge = subTotalAmount * 10 / 100;
             }
 
-            lblSubTotal.Text = String.Format("{0:C}", subTotal);
+            lblSubTotal.Text = String.Format("{0:C}", subTotalAmount);
             lblSerTax.Text = String.Format("{0:C}", serTax);
             lblSerCharge.Text = String.Format("{0:C}",serCharge);
 
             //depending if dine-in or take away option selected, if take away, no service charge needed
             if (dineOrTakeAway.Equals("Dine-in"))
             {
-                lblTotal.Text = String.Format("{0:C}", subTotal + serTax + serCharge);
-                total = subTotal + serTax + serCharge;
+                lblTotal.Text = String.Format("{0:C}", subTotalAmount + serTax + serCharge);
+                totalAmount = subTotalAmount + serTax + serCharge;
+
+                //set the tax to tax object
+                tax.SerTax = serTax;
+                tax.SerCharge = serCharge;
             }
             else if (dineOrTakeAway.Equals("Take away"))
             {
                 panelSerCharge.Hide();
-                lblTotal.Text = String.Format("{0:C}", subTotal + serTax);
-                total = subTotal + serTax;
+                lblTotal.Text = String.Format("{0:C}", subTotalAmount + serTax);
+                totalAmount = subTotalAmount + serTax;
+
+                //set the tax to tax object
+                tax.SerTax = serTax;
             }
 
         }
@@ -174,7 +188,7 @@ namespace CafeSystem.Forms.Cashier
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            CashierMenuForm menuPage = new CashierMenuForm(orderItems);
+            CashierMenuForm menuPage = new CashierMenuForm(user,cartItems);
             this.Hide();
             menuPage.ShowDialog();
             this.Close(); //close previous form
@@ -182,9 +196,18 @@ namespace CafeSystem.Forms.Cashier
 
         private void btnCash_Click(object sender, EventArgs e)
         {
-            PaymentForm paymentPage = new PaymentForm(orderItems,total, dineOrTakeAway);
+            PaymentForm paymentPage = new PaymentForm(user,cartItems,totalAmount, dineOrTakeAway,tax);
             this.Hide();
             paymentPage.ShowDialog();
+            this.Close(); //close previous form
+        }
+
+        private void btnCreditCard_Click(object sender, EventArgs e)
+        {
+            CreditCard cardPayment = new CreditCard(totalAmount);
+            ReceiptForm receiptPage = new ReceiptForm(user,cartItems,totalAmount,dineOrTakeAway,cardPayment,tax);
+            this.Hide();
+            receiptPage.ShowDialog();
             this.Close(); //close previous form
         }
     }

@@ -15,7 +15,11 @@ namespace CafeSystem.Backend.Objects
         {
             TotalAmt = totalAmt;
             this.totalAmt = 0;
+        }
 
+        public Payment()
+        {
+            this.totalAmt = 0;
         }
 
         public decimal TotalAmt

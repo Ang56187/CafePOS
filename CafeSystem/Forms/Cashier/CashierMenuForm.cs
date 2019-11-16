@@ -36,6 +36,7 @@ namespace CafeSystem.Forms.Cashier
         //menu item list and shopping cart list
         MenuCatalogue menuItems = new MenuCatalogue();
         ShoppingCart cartItems = new ShoppingCart();
+        User user = new User("James","Cashier");
 
         //create list to refer back to buttons created in for loop , so it can be accesssed outside loop
         List<Button> btnQtyList = new List<Button>();
@@ -80,7 +81,7 @@ namespace CafeSystem.Forms.Cashier
         }
 
         //constructor for when go back from checkout page
-        public CashierMenuForm(Object orderItem)
+        public CashierMenuForm(object user,object orderItem)
         {
 
             InitializeComponent();
@@ -88,6 +89,10 @@ namespace CafeSystem.Forms.Cashier
             if (orderItem is ShoppingCart)
             {
                 cartItems = ((ShoppingCart)orderItem);
+            }
+            if (user is User)
+            {
+                this.user = ((User)user);
             }
 
         }
@@ -145,6 +150,9 @@ namespace CafeSystem.Forms.Cashier
             transPanelHidden.BackColor = Color.Transparent;
             transPanelHidden.Click += new EventHandler(close_popup_click);
             transPanelHidden.Hide();
+
+            //set name of cashier
+            lblCashierName.Text = user.Name;
 
             CreateItemDetails();
 
@@ -794,7 +802,7 @@ namespace CafeSystem.Forms.Cashier
                     dineOrTakeAway = radioBtnTake.Text;
                 }
 
-                CheckoutForm checkoutPage = new CheckoutForm(cartItems,dineOrTakeAway);
+                CheckoutForm checkoutPage = new CheckoutForm(user,cartItems,dineOrTakeAway);
                 this.Hide();
                 checkoutPage.ShowDialog();
                 this.Close(); //close previous form

@@ -20,6 +20,12 @@ namespace CafeSystem.Backend.Objects
 
         }
 
+        public Tax()
+        {
+            serTax = 0;
+            serCharge = 0;
+        }
+
         public decimal SerTax
         {
             get{ return serTax; }

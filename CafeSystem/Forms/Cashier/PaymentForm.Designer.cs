@@ -1,6 +1,6 @@
 ﻿namespace CafeSystem.Forms.Cashier
 {
-    partial class PaymentPage
+    partial class PaymentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -242,7 +242,7 @@
             this.flowPanelCheckout.Size = new System.Drawing.Size(1863, 917);
             this.flowPanelCheckout.TabIndex = 1;
             // 
-            // PaymentPage
+            // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -250,7 +250,7 @@
             this.ClientSize = new System.Drawing.Size(1924, 1015);
             this.Controls.Add(this.flowPanelCheckout);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "PaymentPage";
+            this.Name = "PaymentForm";
             this.Text = "Sunway Cafe";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PaymentPage_Load);

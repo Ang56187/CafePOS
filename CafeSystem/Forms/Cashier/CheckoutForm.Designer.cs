@@ -477,8 +477,9 @@
             this.btnCreditCard.TabIndex = 1;
             this.btnCreditCard.Text = "Credit card";
             this.btnCreditCard.UseVisualStyleBackColor = false;
+            this.btnCreditCard.Click += new System.EventHandler(this.btnCreditCard_Click);
             // 
-            // CheckoutPage
+            // CheckoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -486,7 +487,7 @@
             this.ClientSize = new System.Drawing.Size(1924, 1012);
             this.Controls.Add(this.flowPanelCheckout);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "CheckoutPage";
+            this.Name = "CheckoutForm";
             this.Text = "Sunway Cafe";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CheckoutPage_Load);

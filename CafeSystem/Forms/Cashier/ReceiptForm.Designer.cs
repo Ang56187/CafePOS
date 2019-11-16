@@ -1,6 +1,6 @@
 ﻿namespace CafeSystem.Forms.Cashier
 {
-    partial class ReceiptPage
+    partial class ReceiptForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReceiptForm));
             this.flowPanelComplete = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblPayComplete = new System.Windows.Forms.Label();
-            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.panelLine1 = new System.Windows.Forms.Panel();
             this.flowPanelOrderNo = new System.Windows.Forms.FlowLayoutPanel();
             this.lblOrderTxt = new System.Windows.Forms.Label();
@@ -48,8 +48,12 @@
             this.lblNowWat = new System.Windows.Forms.Label();
             this.panelLine2 = new System.Windows.Forms.Panel();
             this.flowLayoutBtnOption = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.btnNextOrder = new CafeSystem.Components.RoundButton();
             this.btnEndDay = new CafeSystem.Components.RoundButton();
+            this.btnPrintReceipt = new CafeSystem.Components.RoundButton();
+            this.printDocumentReceipt = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogReceipt = new System.Windows.Forms.PrintPreviewDialog();
             this.flowPanelComplete.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowPanelOrderNo.SuspendLayout();
@@ -74,10 +78,10 @@
             this.flowPanelComplete.Controls.Add(this.panelLine2);
             this.flowPanelComplete.Controls.Add(this.flowLayoutBtnOption);
             this.flowPanelComplete.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanelComplete.Location = new System.Drawing.Point(31, 15);
-            this.flowPanelComplete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowPanelComplete.Location = new System.Drawing.Point(52, 13);
+            this.flowPanelComplete.Margin = new System.Windows.Forms.Padding(0);
             this.flowPanelComplete.Name = "flowPanelComplete";
-            this.flowPanelComplete.Size = new System.Drawing.Size(1901, 900);
+            this.flowPanelComplete.Size = new System.Drawing.Size(1899, 900);
             this.flowPanelComplete.TabIndex = 2;
             // 
             // panel1
@@ -85,7 +89,7 @@
             this.panel1.Controls.Add(this.lblPayComplete);
             this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1891, 53);
             this.panel1.TabIndex = 1;
@@ -103,30 +107,12 @@
             this.lblPayComplete.Text = "Payment completed!";
             this.lblPayComplete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Image = global::CafeSystem.Properties.Resources.logout_24;
-            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(1612, 0);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 19, 0);
-            this.btnLogOut.Size = new System.Drawing.Size(279, 53);
-            this.btnLogOut.TabIndex = 3;
-            this.btnLogOut.Text = "Logout";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            // 
             // panelLine1
             // 
             this.panelLine1.BackColor = System.Drawing.Color.Silver;
             this.panelLine1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelLine1.Location = new System.Drawing.Point(4, 65);
-            this.panelLine1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLine1.Margin = new System.Windows.Forms.Padding(4);
             this.panelLine1.MaximumSize = new System.Drawing.Size(1891, 2);
             this.panelLine1.Name = "panelLine1";
             this.panelLine1.Size = new System.Drawing.Size(1891, 2);
@@ -137,9 +123,9 @@
             this.flowPanelOrderNo.Controls.Add(this.lblOrderTxt);
             this.flowPanelOrderNo.Controls.Add(this.lblOrderNum);
             this.flowPanelOrderNo.Location = new System.Drawing.Point(4, 75);
-            this.flowPanelOrderNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowPanelOrderNo.Margin = new System.Windows.Forms.Padding(4);
             this.flowPanelOrderNo.Name = "flowPanelOrderNo";
-            this.flowPanelOrderNo.Size = new System.Drawing.Size(1987, 82);
+            this.flowPanelOrderNo.Size = new System.Drawing.Size(1987, 83);
             this.flowPanelOrderNo.TabIndex = 3;
             // 
             // lblOrderTxt
@@ -147,9 +133,9 @@
             this.lblOrderTxt.AutoSize = true;
             this.lblOrderTxt.Location = new System.Drawing.Point(4, 0);
             this.lblOrderTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblOrderTxt.MinimumSize = new System.Drawing.Size(400, 91);
+            this.lblOrderTxt.MinimumSize = new System.Drawing.Size(400, 80);
             this.lblOrderTxt.Name = "lblOrderTxt";
-            this.lblOrderTxt.Size = new System.Drawing.Size(400, 91);
+            this.lblOrderTxt.Size = new System.Drawing.Size(400, 80);
             this.lblOrderTxt.TabIndex = 0;
             this.lblOrderTxt.Text = "Order number:";
             this.lblOrderTxt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -161,9 +147,9 @@
             this.lblOrderNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.lblOrderNum.Location = new System.Drawing.Point(412, 0);
             this.lblOrderNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblOrderNum.MinimumSize = new System.Drawing.Size(13, 91);
+            this.lblOrderNum.MinimumSize = new System.Drawing.Size(13, 80);
             this.lblOrderNum.Name = "lblOrderNum";
-            this.lblOrderNum.Size = new System.Drawing.Size(56, 91);
+            this.lblOrderNum.Size = new System.Drawing.Size(56, 80);
             this.lblOrderNum.TabIndex = 1;
             this.lblOrderNum.Text = "#54343";
             this.lblOrderNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -172,7 +158,7 @@
             // 
             this.panel2.Controls.Add(this.lblReceived);
             this.panel2.Controls.Add(this.lblReceivedTxt);
-            this.panel2.Location = new System.Drawing.Point(4, 186);
+            this.panel2.Location = new System.Drawing.Point(4, 187);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 25, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1891, 37);
@@ -208,7 +194,7 @@
             // 
             this.panel4.Controls.Add(this.lblTotal);
             this.panel4.Controls.Add(this.lblTotalTxt);
-            this.panel4.Location = new System.Drawing.Point(4, 239);
+            this.panel4.Location = new System.Drawing.Point(4, 240);
             this.panel4.Margin = new System.Windows.Forms.Padding(4, 12, 4, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1891, 37);
@@ -244,7 +230,7 @@
             // 
             this.panel3.Controls.Add(this.lblChange);
             this.panel3.Controls.Add(this.lblChangeTxt);
-            this.panel3.Location = new System.Drawing.Point(4, 292);
+            this.panel3.Location = new System.Drawing.Point(4, 293);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 12, 4, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1891, 37);
@@ -281,7 +267,7 @@
             this.lblNowWat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNowWat.AutoSize = true;
-            this.lblNowWat.Location = new System.Drawing.Point(4, 333);
+            this.lblNowWat.Location = new System.Drawing.Point(4, 334);
             this.lblNowWat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNowWat.MinimumSize = new System.Drawing.Size(1891, 37);
             this.lblNowWat.Name = "lblNowWat";
@@ -294,8 +280,8 @@
             // 
             this.panelLine2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelLine2.BackColor = System.Drawing.Color.Silver;
-            this.panelLine2.Location = new System.Drawing.Point(931, 374);
-            this.panelLine2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLine2.Location = new System.Drawing.Point(931, 375);
+            this.panelLine2.Margin = new System.Windows.Forms.Padding(4);
             this.panelLine2.Name = "panelLine2";
             this.panelLine2.Size = new System.Drawing.Size(133, 4);
             this.panelLine2.TabIndex = 14;
@@ -305,12 +291,31 @@
             this.flowLayoutBtnOption.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutBtnOption.Controls.Add(this.btnNextOrder);
             this.flowLayoutBtnOption.Controls.Add(this.btnEndDay);
+            this.flowLayoutBtnOption.Controls.Add(this.btnPrintReceipt);
             this.flowLayoutBtnOption.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutBtnOption.Location = new System.Drawing.Point(710, 407);
+            this.flowLayoutBtnOption.Location = new System.Drawing.Point(710, 408);
             this.flowLayoutBtnOption.Margin = new System.Windows.Forms.Padding(4, 25, 4, 4);
             this.flowLayoutBtnOption.Name = "flowLayoutBtnOption";
-            this.flowLayoutBtnOption.Size = new System.Drawing.Size(575, 150);
+            this.flowLayoutBtnOption.Size = new System.Drawing.Size(575, 200);
             this.flowLayoutBtnOption.TabIndex = 15;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.Image = global::CafeSystem.Properties.Resources.logout_24;
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(1650, 0);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 19, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(241, 53);
+            this.btnLogOut.TabIndex = 3;
+            this.btnLogOut.Text = "Logout";
+            this.btnLogOut.UseVisualStyleBackColor = false;
             // 
             // btnNextOrder
             // 
@@ -321,10 +326,10 @@
             this.btnNextOrder.Image = global::CafeSystem.Properties.Resources.create_48;
             this.btnNextOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNextOrder.Location = new System.Drawing.Point(4, 4);
-            this.btnNextOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNextOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnNextOrder.Name = "btnNextOrder";
             this.btnNextOrder.Padding = new System.Windows.Forms.Padding(13, 0, 19, 0);
-            this.btnNextOrder.Size = new System.Drawing.Size(571, 62);
+            this.btnNextOrder.Size = new System.Drawing.Size(571, 50);
             this.btnNextOrder.TabIndex = 1;
             this.btnNextOrder.Text = "Next order";
             this.btnNextOrder.UseVisualStyleBackColor = false;
@@ -337,16 +342,48 @@
             this.btnEndDay.ForeColor = System.Drawing.Color.White;
             this.btnEndDay.Image = global::CafeSystem.Properties.Resources.bill_48;
             this.btnEndDay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEndDay.Location = new System.Drawing.Point(4, 82);
+            this.btnEndDay.Location = new System.Drawing.Point(4, 70);
             this.btnEndDay.Margin = new System.Windows.Forms.Padding(4, 12, 4, 4);
             this.btnEndDay.Name = "btnEndDay";
             this.btnEndDay.Padding = new System.Windows.Forms.Padding(13, 0, 19, 0);
-            this.btnEndDay.Size = new System.Drawing.Size(571, 62);
+            this.btnEndDay.Size = new System.Drawing.Size(571, 50);
             this.btnEndDay.TabIndex = 2;
             this.btnEndDay.Text = "End business of the day";
             this.btnEndDay.UseVisualStyleBackColor = false;
             // 
-            // ReceiptPage
+            // btnPrintReceipt
+            // 
+            this.btnPrintReceipt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnPrintReceipt.FlatAppearance.BorderSize = 0;
+            this.btnPrintReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintReceipt.ForeColor = System.Drawing.Color.White;
+            this.btnPrintReceipt.Image = global::CafeSystem.Properties.Resources.bill_48;
+            this.btnPrintReceipt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrintReceipt.Location = new System.Drawing.Point(4, 136);
+            this.btnPrintReceipt.Margin = new System.Windows.Forms.Padding(4, 12, 4, 4);
+            this.btnPrintReceipt.Name = "btnPrintReceipt";
+            this.btnPrintReceipt.Padding = new System.Windows.Forms.Padding(13, 0, 19, 0);
+            this.btnPrintReceipt.Size = new System.Drawing.Size(571, 50);
+            this.btnPrintReceipt.TabIndex = 3;
+            this.btnPrintReceipt.Text = "Print receipt";
+            this.btnPrintReceipt.UseVisualStyleBackColor = false;
+            this.btnPrintReceipt.Click += new System.EventHandler(this.btnPrintReceipt_Click);
+            // 
+            // printDocumentReceipt
+            // 
+            this.printDocumentReceipt.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentReceipt_PrintPage);
+            // 
+            // printPreviewDialogReceipt
+            // 
+            this.printPreviewDialogReceipt.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogReceipt.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogReceipt.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogReceipt.Enabled = true;
+            this.printPreviewDialogReceipt.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogReceipt.Icon")));
+            this.printPreviewDialogReceipt.Name = "printPreviewDialogReceipt";
+            this.printPreviewDialogReceipt.Visible = false;
+            // 
+            // ReceiptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -354,8 +391,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.flowPanelComplete);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "ReceiptPage";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "ReceiptForm";
             this.Text = "ReceiptPage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ReceiptPage_Load);
@@ -400,5 +437,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutBtnOption;
         private Components.RoundButton btnNextOrder;
         private Components.RoundButton btnEndDay;
+        private Components.RoundButton btnPrintReceipt;
+        private System.Drawing.Printing.PrintDocument printDocumentReceipt;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogReceipt;
     }
 }

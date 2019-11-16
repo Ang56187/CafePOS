@@ -15,7 +15,7 @@ using CafeSystem.Backend.Objects;
 
 namespace CafeSystem.Forms.Cashier
 {
-    public partial class PaymentPage : Form
+    public partial class PaymentForm : Form
     {
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
@@ -28,35 +28,44 @@ namespace CafeSystem.Forms.Cashier
         Font fontBtn;
 
         // passed argument from checkout page
-        ShoppingCart orderItems = new ShoppingCart();
-        Cash cashPay;
+        ShoppingCart cartItems = new ShoppingCart();
+        Cash cashPayment;
+        Tax tax;
+        User user;
         private String dineOrTakeAway;
-        private decimal serCharge;
-        private decimal serTax;
 
         //set total amount to be paid
         decimal totalAmount  = 0;
 
         //test
-        public PaymentPage()
+        public PaymentForm()
         {
             InitializeComponent();
         }
 
         //get values from the checkoutpage
-        public PaymentPage(object checkoutList,decimal total,String dineOrTakeAway)
+        public PaymentForm(object user,object itemList,decimal total,String dineOrTakeAway,Object tax)
         {
             InitializeComponent();
 
-            if (orderItems is ShoppingCart)
+            if (user is User)
             {
-                orderItems = ((ShoppingCart)checkoutList);
+                this.user = ((User)user);
+            }
+            if (cartItems is ShoppingCart)
+            {
+                cartItems = ((ShoppingCart)itemList);
+            }
+            
+            if (tax is Tax)
+            {
+                this.tax = ((Tax)tax);
             }
 
             totalAmount = total;
             this.dineOrTakeAway = dineOrTakeAway;
-            cashPay = new Cash(totalAmount, 0);
 
+            cashPayment = new Cash(totalAmount, 0);
         }
 
         private void PaymentPage_Load(object sender, EventArgs e)
@@ -120,6 +129,14 @@ namespace CafeSystem.Forms.Cashier
 
         }
 
+        private void txtBoxAmount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnProceed_Click(sender, e);
+            }
+        }
+
         private void btnProceed_Click(object sender, EventArgs e)
         {
             decimal value = 0;
@@ -129,30 +146,26 @@ namespace CafeSystem.Forms.Cashier
             {
                 txtBoxAmount.Text = String.Format("{0:0.00}", value);
                 //setting paid amount
-                cashPay.PaidAmt = value;
+                cashPayment.PaidAmt = value;
             }
 
             //check if amount fully paid
-            if (cashPay.IsPaid(totalAmount))
+            if (cashPayment.IsPaid(totalAmount))
             {
                 lblError.Hide();
+                ReceiptForm receiptPage = new ReceiptForm(user,cartItems, totalAmount, dineOrTakeAway, cashPayment, tax);
+                this.Hide();
+                receiptPage.ShowDialog();
+                this.Close();
             }
             else
                 lblError.Show();
-                lblError.Text = "Paid amount is less than total amount.";
-        }
-
-        private void txtBoxAmount_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnProceed_Click(sender, e);
-            }
+            lblError.Text = "Paid amount is less than total amount.";
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            CheckoutPage checkoutPage = new CheckoutPage(orderItems, dineOrTakeAway);
+            CheckoutForm checkoutPage = new CheckoutForm(user,cartItems, dineOrTakeAway);
             this.Hide();
             checkoutPage.ShowDialog();
             this.Close();
@@ -161,6 +174,5 @@ namespace CafeSystem.Forms.Cashier
 
 
 
-        //////////////////////////////////////////////////events for components///////////////////////////////////////////////////////////
     }
 }
