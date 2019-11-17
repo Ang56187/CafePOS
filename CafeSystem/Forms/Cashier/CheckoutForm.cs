@@ -79,7 +79,7 @@ namespace CafeSystem.Forms.Cashier
             fontBtn = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
 
             //set font to components
-            lblCheckout.Font = lblOrderTxt.Font = lblOrderNum.Font = lblTotalTxt.Font = lblTotal.Font = 
+            lblCheckout.Font  = lblTotalTxt.Font = lblTotal.Font = 
                 new Font(fonts.Families[0], 20.0F, FontStyle.Bold); ;
             lblTakeDine.Font = new Font(fonts.Families[0], 20.0F, FontStyle.Underline);
 

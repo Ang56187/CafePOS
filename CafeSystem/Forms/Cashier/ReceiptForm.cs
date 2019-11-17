@@ -83,7 +83,7 @@ namespace CafeSystem.Forms.Cashier
 
 
             //save receipt as order object
-            orderDetail = new Order(orderNum, this.user, finalItemList.CartList, this.tax, this.payment);
+            orderDetail = new Order(orderNum, this.user, finalItemList.CartList, this.tax, this.payment,dineOrTakeAway);
 
             OrderCollection.orderList.Add(orderDetail);
         }
@@ -109,8 +109,11 @@ namespace CafeSystem.Forms.Cashier
             lblReceivedTxt.Font = lblReceived.Font = lblTotalTxt.Font = lblTotal.Font = lblChangeTxt.Font = lblChange.Font = fontLbl;
             lblNowWat.Font =  new Font(fonts.Families[0], 20.0F);
 
+
+            //resize the image of button
             btnNextOrder.Image = ResizeImage(global::CafeSystem.Properties.Resources.create_48, new Size(35, 33));
             btnEndDay.Image = ResizeImage(global::CafeSystem.Properties.Resources.bill_48, new Size(35, 33));
+            btnPrintReceipt.Image = ResizeImage(global::CafeSystem.Properties.Resources.printer_48, new Size(35, 33));
 
             lblTotal.Text = String.Format("{0:C}", totalAmount);
             lblReceived.Text = String.Format("{0:C}", paidAmount);
@@ -200,6 +203,16 @@ namespace CafeSystem.Forms.Cashier
             this.Hide();
             cashierPage.ShowDialog();
             this.Close();
+        }
+
+
+        private void btnEndDay_Click(object sender, EventArgs e)///TODO: changed later, for now i use this to test kitchen page
+        {
+            Kitchen.KitchenForm kitchenPage = new Kitchen.KitchenForm();
+            this.Hide();
+            kitchenPage.ShowDialog();
+            this.Close();
+
         }
     }
 }

@@ -151,6 +151,12 @@
   <data name="Century_Gothic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Fonts\Century Gothic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="checked_checkbox_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\checked-checkbox-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="check_mark_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\check-mark-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="close_window_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Icons\close-window-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,8 +172,14 @@
   <data name="minus_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Icons\minus-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="printer_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\printer-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="restaurant_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Icons\restaurant-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sandglass_white_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\sandglass-white-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="search_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Icons\search-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

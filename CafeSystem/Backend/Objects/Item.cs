@@ -20,6 +20,7 @@ namespace CafeSystem.Backend.Objects
             Image = image;
             Category = category;
             Type = type;
+            IsDone = false;
 
             qty = 0;
             price = 0;
@@ -58,6 +59,8 @@ namespace CafeSystem.Backend.Objects
 
         public String Type { get; set; }
 
+        public bool IsDone { get; set; }//check if item is done at kitchen side
+
         public decimal CalculateTotal()
         {
             return Price * Quantity;
@@ -65,7 +68,7 @@ namespace CafeSystem.Backend.Objects
 
         public override String ToString()
         {
-            return String.Format("Name: {0}     Quantity: {1}     Price: {2:C}     Total:{3:C}\n", Name, Quantity, Price,Quantity*Price);
+            return String.Format("Item Name: {0}     Quantity: {1}     Price: {2:C}     Total:{3:C}\n", Name, Quantity, Price,Quantity*Price);
         }
     }
 }

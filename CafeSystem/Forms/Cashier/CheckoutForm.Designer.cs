@@ -34,9 +34,6 @@
             this.lblCheckout = new System.Windows.Forms.Label();
             this.btnCancel = new CafeSystem.Components.RoundButton();
             this.panelLine1 = new System.Windows.Forms.Panel();
-            this.flowPanelOrderNo = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblOrderTxt = new System.Windows.Forms.Label();
-            this.lblOrderNum = new System.Windows.Forms.Label();
             this.flowPanelOrderItem = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLine2 = new System.Windows.Forms.Panel();
             this.panelSubTotal = new System.Windows.Forms.Panel();
@@ -62,7 +59,6 @@
             this.btnCreditCard = new CafeSystem.Components.RoundButton();
             this.flowPanelCheckout.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.flowPanelOrderNo.SuspendLayout();
             this.panelSubTotal.SuspendLayout();
             this.panelSerCharge.SuspendLayout();
             this.panelSerTax.SuspendLayout();
@@ -77,7 +73,6 @@
             this.flowPanelCheckout.BackColor = System.Drawing.Color.White;
             this.flowPanelCheckout.Controls.Add(this.panel1);
             this.flowPanelCheckout.Controls.Add(this.panelLine1);
-            this.flowPanelCheckout.Controls.Add(this.flowPanelOrderNo);
             this.flowPanelCheckout.Controls.Add(this.flowPanelOrderItem);
             this.flowPanelCheckout.Controls.Add(this.panelLine2);
             this.flowPanelCheckout.Controls.Add(this.panelSubTotal);
@@ -163,54 +158,20 @@
             this.panelLine1.Size = new System.Drawing.Size(1863, 4);
             this.panelLine1.TabIndex = 2;
             // 
-            // flowPanelOrderNo
-            // 
-            this.flowPanelOrderNo.Controls.Add(this.lblOrderTxt);
-            this.flowPanelOrderNo.Controls.Add(this.lblOrderNum);
-            this.flowPanelOrderNo.Location = new System.Drawing.Point(4, 73);
-            this.flowPanelOrderNo.Margin = new System.Windows.Forms.Padding(4);
-            this.flowPanelOrderNo.Name = "flowPanelOrderNo";
-            this.flowPanelOrderNo.Size = new System.Drawing.Size(1257, 83);
-            this.flowPanelOrderNo.TabIndex = 3;
-            // 
-            // lblOrderTxt
-            // 
-            this.lblOrderTxt.AutoSize = true;
-            this.lblOrderTxt.Location = new System.Drawing.Point(4, 0);
-            this.lblOrderTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblOrderTxt.MinimumSize = new System.Drawing.Size(400, 80);
-            this.lblOrderTxt.Name = "lblOrderTxt";
-            this.lblOrderTxt.Size = new System.Drawing.Size(400, 80);
-            this.lblOrderTxt.TabIndex = 0;
-            this.lblOrderTxt.Text = "Order number:";
-            // 
-            // lblOrderNum
-            // 
-            this.lblOrderNum.AutoSize = true;
-            this.lblOrderNum.BackColor = System.Drawing.Color.White;
-            this.lblOrderNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lblOrderNum.Location = new System.Drawing.Point(412, 0);
-            this.lblOrderNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblOrderNum.MinimumSize = new System.Drawing.Size(13, 80);
-            this.lblOrderNum.Name = "lblOrderNum";
-            this.lblOrderNum.Size = new System.Drawing.Size(56, 80);
-            this.lblOrderNum.TabIndex = 1;
-            this.lblOrderNum.Text = "#54343";
-            // 
             // flowPanelOrderItem
             // 
             this.flowPanelOrderItem.AutoScroll = true;
-            this.flowPanelOrderItem.Location = new System.Drawing.Point(4, 164);
+            this.flowPanelOrderItem.Location = new System.Drawing.Point(4, 73);
             this.flowPanelOrderItem.Margin = new System.Windows.Forms.Padding(4);
             this.flowPanelOrderItem.Name = "flowPanelOrderItem";
-            this.flowPanelOrderItem.Size = new System.Drawing.Size(1863, 377);
+            this.flowPanelOrderItem.Size = new System.Drawing.Size(1863, 479);
             this.flowPanelOrderItem.TabIndex = 6;
             // 
             // panelLine2
             // 
             this.panelLine2.BackColor = System.Drawing.Color.Silver;
             this.panelLine2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLine2.Location = new System.Drawing.Point(4, 549);
+            this.panelLine2.Location = new System.Drawing.Point(4, 560);
             this.panelLine2.Margin = new System.Windows.Forms.Padding(4);
             this.panelLine2.MaximumSize = new System.Drawing.Size(1863, 4);
             this.panelLine2.Name = "panelLine2";
@@ -221,7 +182,7 @@
             // 
             this.panelSubTotal.Controls.Add(this.lblSubTotal);
             this.panelSubTotal.Controls.Add(this.lblSubTotalTxt);
-            this.panelSubTotal.Location = new System.Drawing.Point(4, 561);
+            this.panelSubTotal.Location = new System.Drawing.Point(4, 572);
             this.panelSubTotal.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubTotal.Name = "panelSubTotal";
             this.panelSubTotal.Size = new System.Drawing.Size(1864, 37);
@@ -257,7 +218,7 @@
             // 
             this.panelSerCharge.Controls.Add(this.lblSerCharge);
             this.panelSerCharge.Controls.Add(this.lblSerChargeTxt);
-            this.panelSerCharge.Location = new System.Drawing.Point(4, 606);
+            this.panelSerCharge.Location = new System.Drawing.Point(4, 617);
             this.panelSerCharge.Margin = new System.Windows.Forms.Padding(4);
             this.panelSerCharge.Name = "panelSerCharge";
             this.panelSerCharge.Size = new System.Drawing.Size(1864, 37);
@@ -293,7 +254,7 @@
             // 
             this.panelSerTax.Controls.Add(this.lblSerTax);
             this.panelSerTax.Controls.Add(this.lblSerTaxTxt);
-            this.panelSerTax.Location = new System.Drawing.Point(4, 651);
+            this.panelSerTax.Location = new System.Drawing.Point(4, 662);
             this.panelSerTax.Margin = new System.Windows.Forms.Padding(4);
             this.panelSerTax.Name = "panelSerTax";
             this.panelSerTax.Size = new System.Drawing.Size(1864, 37);
@@ -329,7 +290,7 @@
             // 
             this.panelLine3.BackColor = System.Drawing.Color.Silver;
             this.panelLine3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLine3.Location = new System.Drawing.Point(4, 696);
+            this.panelLine3.Location = new System.Drawing.Point(4, 707);
             this.panelLine3.Margin = new System.Windows.Forms.Padding(4);
             this.panelLine3.MaximumSize = new System.Drawing.Size(1863, 4);
             this.panelLine3.Name = "panelLine3";
@@ -340,7 +301,7 @@
             // 
             this.panel5.Controls.Add(this.lblRound);
             this.panel5.Controls.Add(this.lblRoundTxt);
-            this.panel5.Location = new System.Drawing.Point(4, 708);
+            this.panel5.Location = new System.Drawing.Point(4, 719);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1864, 49);
@@ -376,7 +337,7 @@
             // 
             this.panelTotal.Controls.Add(this.lblTotal);
             this.panelTotal.Controls.Add(this.lblTotalTxt);
-            this.panelTotal.Location = new System.Drawing.Point(4, 765);
+            this.panelTotal.Location = new System.Drawing.Point(4, 776);
             this.panelTotal.Margin = new System.Windows.Forms.Padding(4);
             this.panelTotal.Name = "panelTotal";
             this.panelTotal.Size = new System.Drawing.Size(1864, 49);
@@ -413,7 +374,7 @@
             this.lblPaymentOption.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPaymentOption.AutoSize = true;
-            this.lblPaymentOption.Location = new System.Drawing.Point(4, 818);
+            this.lblPaymentOption.Location = new System.Drawing.Point(4, 829);
             this.lblPaymentOption.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPaymentOption.MinimumSize = new System.Drawing.Size(0, 37);
             this.lblPaymentOption.Name = "lblPaymentOption";
@@ -426,7 +387,7 @@
             // 
             this.panelLine4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelLine4.BackColor = System.Drawing.Color.Silver;
-            this.panelLine4.Location = new System.Drawing.Point(869, 859);
+            this.panelLine4.Location = new System.Drawing.Point(869, 870);
             this.panelLine4.Margin = new System.Windows.Forms.Padding(4);
             this.panelLine4.Name = "panelLine4";
             this.panelLine4.Size = new System.Drawing.Size(133, 4);
@@ -437,7 +398,7 @@
             this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutPanel1.Controls.Add(this.btnCash);
             this.flowLayoutPanel1.Controls.Add(this.btnCreditCard);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(514, 871);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(514, 882);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(844, 55);
@@ -495,8 +456,6 @@
             this.flowPanelCheckout.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.flowPanelOrderNo.ResumeLayout(false);
-            this.flowPanelOrderNo.PerformLayout();
             this.panelSubTotal.ResumeLayout(false);
             this.panelSubTotal.PerformLayout();
             this.panelSerCharge.ResumeLayout(false);
@@ -519,9 +478,6 @@
         private System.Windows.Forms.Panel panelLine1;
         private System.Windows.Forms.Panel panel1;
         private Components.RoundButton btnCancel;
-        private System.Windows.Forms.FlowLayoutPanel flowPanelOrderNo;
-        private System.Windows.Forms.Label lblOrderTxt;
-        private System.Windows.Forms.Label lblOrderNum;
         private System.Windows.Forms.Panel panelLine2;
         private System.Windows.Forms.FlowLayoutPanel flowPanelOrderItem;
         private System.Windows.Forms.Panel panelSubTotal;
