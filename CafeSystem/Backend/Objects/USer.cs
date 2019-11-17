@@ -17,5 +17,10 @@ namespace CafeSystem.Backend.Objects
         public String Name {get;set;}
         public String Position { get; set; }
 
+        public override string ToString()
+        {
+            return String.Format("Processed by: {0}", Name);
+        }
+
     }
 }

@@ -118,16 +118,19 @@ namespace CafeSystem.Forms.Cashier
             //set fonts to components
             treeViewMenu.Font = new Font(fonts.Families[0], 18.0F, FontStyle.Bold);
             lblCashierName.Font = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
-            btnLogOut.Font = btnCheckout.Font = fontBtn;
+            btnLogOut.Font = btnCheckout.Font = btnEndBusiness.Font = fontBtn;
             txtBoxSearch.Font = fontTxtBox;
             lblShopCart.Font = fontHeaderLbl;
             lblClearItem.Font = new Font(fonts.Families[0], 12.0F,FontStyle.Underline);
             lblSubTotalTxt.Font = lblSubTotal.Font = lblTaxTxt.Font = lblTax.Font = lblTotalTxt.Font = lblTotal.Font
                 = radioBtnDine.Font = radioBtnTake.Font  = fontLblMini;
 
+            //update image
+            btnEndBusiness.Image = ResizeImage(global::CafeSystem.Properties.Resources.bill_48, new Size(38, 38));
+
+            //display again cart items once return from checkout page
             if (cartItems.CartList.Count() > 0)
             {
-                //display again cart items once return from checkout page
                 foreach (Item item in cartItems.CartList)
                 {
                     foreach (Item menuItem in menuItems.MenuList)
@@ -152,7 +155,7 @@ namespace CafeSystem.Forms.Cashier
             transPanelHidden.Hide();
 
             //set name of cashier
-            lblCashierName.Text = user.Name;
+            lblCashierName.Text = "Cashier page: "+user.Name;
 
             CreateItemDetails();
 

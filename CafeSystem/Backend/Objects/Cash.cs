@@ -13,6 +13,7 @@ namespace CafeSystem.Backend.Objects
 
         public Cash(decimal totalAmt,decimal paidAmt) : base(totalAmt)
         {
+            TotalAmt = totalAmt;
             PaidAmt = paidAmt;
             this.paidAmt = 0;
         }
@@ -45,6 +46,14 @@ namespace CafeSystem.Backend.Objects
             }
             else
                 return false;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("Paid by: Cash\n" +
+                                 "Total amount:                    {0:C}\n" +
+                                 "Paid amoubt :                    {1:C}\n" +
+                                 "Change      :                    {2:C}\n", base.TotalAmt, PaidAmt,PaidAmt - TotalAmt);
         }
 
     }

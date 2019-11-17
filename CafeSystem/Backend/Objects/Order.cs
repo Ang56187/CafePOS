@@ -31,6 +31,7 @@ namespace CafeSystem.Backend.Objects
         public Tax OrderTax { get; set;} // contains properties SerTax and SerCharge(get and set), use this to get service tax/charge
         public Payment OrderPayment { get; set; } // contain properties PaidAmt and TotalAmt(get and set), use this to get paid/total amount
 
+
     }
     
 }

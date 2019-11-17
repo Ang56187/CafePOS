@@ -65,7 +65,7 @@ namespace CafeSystem.Backend.Objects
 
         public override String ToString()
         {
-            return String.Format("Name: {0} Price: {1} Quantity: {2} \n",Name,Price,Quantity);
+            return String.Format("Name: {0}     Quantity: {1}     Price: {2:C}     Total:{3:C}\n", Name, Quantity, Price,Quantity*Price);
         }
     }
 }

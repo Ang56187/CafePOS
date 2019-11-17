@@ -9,7 +9,8 @@ namespace CafeSystem.Backend
 {
     class OrderCollection
     {
-        public static List<Order> orderList { get; set; }
+
+        public static List<Order> orderList = new List<Order>();
 
     }
 }

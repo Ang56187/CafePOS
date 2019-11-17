@@ -45,10 +45,11 @@
             this.logo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.logo.ForeColor = System.Drawing.Color.White;
-            this.logo.Location = new System.Drawing.Point(660, 131);
-            this.logo.MaximumSize = new System.Drawing.Size(259, 259);
+            this.logo.Location = new System.Drawing.Point(880, 161);
+            this.logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logo.MaximumSize = new System.Drawing.Size(345, 319);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(259, 214);
+            this.logo.Size = new System.Drawing.Size(345, 263);
             this.logo.TabIndex = 0;
             this.logo.Paint += new System.Windows.Forms.PaintEventHandler(this.logo_Paint);
             // 
@@ -59,11 +60,12 @@
             this.txtBoxPassword.BackColor = System.Drawing.Color.White;
             this.txtBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxPassword.ForeColor = System.Drawing.Color.Black;
-            this.txtBoxPassword.Location = new System.Drawing.Point(660, 458);
-            this.txtBoxPassword.MaximumSize = new System.Drawing.Size(259, 40);
-            this.txtBoxPassword.MinimumSize = new System.Drawing.Size(259, 40);
+            this.txtBoxPassword.Location = new System.Drawing.Point(880, 564);
+            this.txtBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxPassword.MaximumSize = new System.Drawing.Size(344, 40);
+            this.txtBoxPassword.MinimumSize = new System.Drawing.Size(344, 40);
             this.txtBoxPassword.Name = "txtBoxPassword";
-            this.txtBoxPassword.Size = new System.Drawing.Size(259, 40);
+            this.txtBoxPassword.Size = new System.Drawing.Size(344, 46);
             this.txtBoxPassword.TabIndex = 1;
             this.txtBoxPassword.UseSystemPasswordChar = true;
             this.txtBoxPassword.TextChanged += new System.EventHandler(this.txtBoxPassword_TextChanged);
@@ -75,11 +77,12 @@
             this.txtBoxUsername.BackColor = System.Drawing.Color.White;
             this.txtBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxUsername.ForeColor = System.Drawing.Color.Black;
-            this.txtBoxUsername.Location = new System.Drawing.Point(660, 386);
-            this.txtBoxUsername.MaximumSize = new System.Drawing.Size(259, 40);
-            this.txtBoxUsername.MinimumSize = new System.Drawing.Size(259, 40);
+            this.txtBoxUsername.Location = new System.Drawing.Point(880, 475);
+            this.txtBoxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxUsername.MaximumSize = new System.Drawing.Size(344, 40);
+            this.txtBoxUsername.MinimumSize = new System.Drawing.Size(344, 40);
             this.txtBoxUsername.Name = "txtBoxUsername";
-            this.txtBoxUsername.Size = new System.Drawing.Size(259, 40);
+            this.txtBoxUsername.Size = new System.Drawing.Size(344, 46);
             this.txtBoxUsername.TabIndex = 2;
             this.txtBoxUsername.TextChanged += new System.EventHandler(this.txtBoxUsername_TextChanged);
             // 
@@ -96,27 +99,29 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(660, 546);
-            this.btnLogin.MaximumSize = new System.Drawing.Size(259, 45);
+            this.btnLogin.Location = new System.Drawing.Point(880, 672);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.MaximumSize = new System.Drawing.Size(345, 55);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(259, 45);
+            this.btnLogin.Size = new System.Drawing.Size(345, 55);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Log in";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btn_login_Click);
             // 
-            // LoginPage
+            // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1348, 825);
+            this.ClientSize = new System.Drawing.Size(1797, 1015);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtBoxUsername);
             this.Controls.Add(this.txtBoxPassword);
             this.Controls.Add(this.logo);
-            this.Name = "LoginPage";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sunway Cafe";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
