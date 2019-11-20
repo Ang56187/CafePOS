@@ -199,7 +199,7 @@ namespace CafeSystem.Forms.Cashier
 
         private void btnNextOrder_Click(object sender, EventArgs e)
         {
-            CashierMenuForm cashierPage = new CashierMenuForm();
+            CashierMenuForm cashierPage = new CashierMenuForm(user);
             this.Hide();
             cashierPage.ShowDialog();
             this.Close();
@@ -213,6 +213,14 @@ namespace CafeSystem.Forms.Cashier
             kitchenPage.ShowDialog();
             this.Close();
 
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginPage = new LoginForm();
+            this.Hide();
+            loginPage.ShowDialog();
+            this.Close();
         }
     }
 }

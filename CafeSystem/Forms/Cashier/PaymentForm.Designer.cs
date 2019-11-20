@@ -101,7 +101,7 @@
             this.txtBoxAmount.Location = new System.Drawing.Point(3, 331);
             this.txtBoxAmount.MinimumSize = new System.Drawing.Size(4, 40);
             this.txtBoxAmount.Name = "txtBoxAmount";
-            this.txtBoxAmount.Size = new System.Drawing.Size(665, 40);
+            this.txtBoxAmount.Size = new System.Drawing.Size(665, 22);
             this.txtBoxAmount.TabIndex = 10;
             this.txtBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxAmount_KeyDown);

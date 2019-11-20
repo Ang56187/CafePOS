@@ -57,6 +57,7 @@
     <Compile Include="Backend\Objects\User.cs" />
     <Compile Include="Backend\OrderCollection.cs" />
     <Compile Include="Backend\ShoppingCart.cs" />
+    <Compile Include="Backend\UserCollection.cs" />
     <Compile Include="Components\BorderFlowLayoutPane.cs">
       <SubType>Component</SubType>
     </Compile>

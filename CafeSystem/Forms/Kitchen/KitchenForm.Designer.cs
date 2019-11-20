@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KitchenForm));
             this.panelKitchenHeader = new System.Windows.Forms.Panel();
+            this.lblTotalOrder = new System.Windows.Forms.Label();
+            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.lblKitchen = new System.Windows.Forms.Label();
             this.flowPanelKitchen = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnLogOut = new CafeSystem.Components.RoundButton();
-            this.lblTotalOrder = new System.Windows.Forms.Label();
             this.panelKitchenHeader.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,42 @@
             this.panelKitchenHeader.Name = "panelKitchenHeader";
             this.panelKitchenHeader.Size = new System.Drawing.Size(1924, 65);
             this.panelKitchenHeader.TabIndex = 9;
+            // 
+            // lblTotalOrder
+            // 
+            this.lblTotalOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalOrder.AutoSize = true;
+            this.lblTotalOrder.Location = new System.Drawing.Point(901, -4);
+            this.lblTotalOrder.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.lblTotalOrder.MinimumSize = new System.Drawing.Size(100, 70);
+            this.lblTotalOrder.Name = "lblTotalOrder";
+            this.lblTotalOrder.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.lblTotalOrder.Size = new System.Drawing.Size(100, 70);
+            this.lblTotalOrder.TabIndex = 6;
+            this.lblTotalOrder.Text = "Total:";
+            this.lblTotalOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(1689, 9);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 12, 40, 4);
+            this.btnLogOut.MaximumSize = new System.Drawing.Size(221, 55);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(221, 45);
+            this.btnLogOut.TabIndex = 5;
+            this.btnLogOut.Text = "Logout";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // lblKitchen
             // 
@@ -71,41 +107,6 @@
             this.flowPanelKitchen.Name = "flowPanelKitchen";
             this.flowPanelKitchen.Size = new System.Drawing.Size(1924, 990);
             this.flowPanelKitchen.TabIndex = 10;
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
-            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(1689, 9);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 12, 40, 4);
-            this.btnLogOut.MaximumSize = new System.Drawing.Size(221, 55);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
-            this.btnLogOut.Size = new System.Drawing.Size(221, 45);
-            this.btnLogOut.TabIndex = 5;
-            this.btnLogOut.Text = "Logout";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            // 
-            // lblTotalOrder
-            // 
-            this.lblTotalOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTotalOrder.AutoSize = true;
-            this.lblTotalOrder.Location = new System.Drawing.Point(901, -4);
-            this.lblTotalOrder.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.lblTotalOrder.MinimumSize = new System.Drawing.Size(100, 70);
-            this.lblTotalOrder.Name = "lblTotalOrder";
-            this.lblTotalOrder.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.lblTotalOrder.Size = new System.Drawing.Size(100, 70);
-            this.lblTotalOrder.TabIndex = 6;
-            this.lblTotalOrder.Text = "Total:";
-            this.lblTotalOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // KitchenForm
             // 

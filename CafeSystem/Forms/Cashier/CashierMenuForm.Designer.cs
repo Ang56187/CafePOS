@@ -64,10 +64,10 @@
             this.radioBtnTake = new System.Windows.Forms.RadioButton();
             this.btnCheckout = new CafeSystem.Components.RoundButton();
             this.flowLayoutHeader = new CafeSystem.Components.BorderFlowLayoutPane();
-            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.btnSearch = new CafeSystem.Components.RoundButton();
             this.txtBoxSearch = new System.Windows.Forms.TextBox();
+            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.treeViewMenu = new CafeSystem.Components.CustomTreeView();
             this.panelCashierName.SuspendLayout();
             this.flowPanelCart.SuspendLayout();
@@ -397,24 +397,6 @@
             this.flowLayoutHeader.Size = new System.Drawing.Size(1103, 71);
             this.flowLayoutHeader.TabIndex = 7;
             // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
-            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(10, 774);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 12, 40, 4);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
-            this.btnLogOut.Size = new System.Drawing.Size(259, 68);
-            this.btnLogOut.TabIndex = 4;
-            this.btnLogOut.Text = "Logout";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            // 
             // panelSearch
             // 
             this.panelSearch.BackColor = System.Drawing.Color.Transparent;
@@ -452,6 +434,25 @@
             this.txtBoxSearch.Name = "txtBoxSearch";
             this.txtBoxSearch.Size = new System.Drawing.Size(133, 29);
             this.txtBoxSearch.TabIndex = 0;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(10, 774);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 12, 40, 4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(259, 68);
+            this.btnLogOut.TabIndex = 4;
+            this.btnLogOut.Text = "Logout";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // treeViewMenu
             // 

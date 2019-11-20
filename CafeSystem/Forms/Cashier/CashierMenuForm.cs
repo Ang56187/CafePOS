@@ -36,7 +36,7 @@ namespace CafeSystem.Forms.Cashier
         //menu item list and shopping cart list
         MenuCatalogue menuItems = new MenuCatalogue();
         ShoppingCart cartItems = new ShoppingCart();
-        User user = new User("James","Cashier");
+        User user;
 
         //create list to refer back to buttons created in for loop , so it can be accesssed outside loop
         List<Button> btnQtyList = new List<Button>();
@@ -79,6 +79,18 @@ namespace CafeSystem.Forms.Cashier
         {
             InitializeComponent();
         }
+
+        //when access login page
+        public CashierMenuForm(object user)
+        {
+            InitializeComponent();
+
+            if (user is User)
+            {
+                this.user = ((User)user);
+            }
+        }
+
 
         //constructor for when go back from checkout page
         public CashierMenuForm(object user,object orderItem)
@@ -812,6 +824,12 @@ namespace CafeSystem.Forms.Cashier
             }
         }
 
-
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginPage = new LoginForm();
+            this.Hide();
+            loginPage.ShowDialog();
+            this.Close();
+        }
     }
 }

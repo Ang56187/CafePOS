@@ -104,7 +104,7 @@ namespace CafeSystem.Forms.Kitchen
             //set text of labels
             lblTakeOrDine.Text = order.DineOrTakeAway;
             lblOrderNum.Text = "#"+order.OrderNum.ToString();
-            lblOrderTime.Text = order.OrderDate.ToString("hh:mm tt");
+            lblOrderTime.Text = order.OrderDate.ToString("hh:mm:ss tt");
             lblCashierName.Text = "Created by: "+order.OrderUser.Name;
 
 
@@ -126,7 +126,7 @@ namespace CafeSystem.Forms.Kitchen
             lblTakeOrDine.Font = fontLblBold;
 
             lblOrderNum.Size = new Size(210, 30);
-            lblOrderNum.Font = fontLbl;
+            lblOrderNum.Font = fontLblBold;
             lblOrderNum.ForeColor = Color.FromArgb(248, 80, 80);
             lblOrderNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
@@ -192,6 +192,13 @@ namespace CafeSystem.Forms.Kitchen
                 btnDone.FlatAppearance.BorderSize = 0;
                 btnDone.FlatStyle = FlatStyle.Flat;
                 btnDone.BackColor = Color.FromArgb(241, 93, 93);
+                //when login back the page, show that items that is done as green
+                if (item.IsDone)
+                {
+                    //change button color and image
+                    btnDone.BackColor = Color.FromArgb(71, 206, 80);
+                    btnDone.Image = ResizeImage(global::CafeSystem.Properties.Resources.checked_checkbox_32, new Size(30, 30));
+                }
                 btnDone.Click += (sender, e) =>
                 {
                     lblItemName.Font = fontLblComplete;
@@ -271,5 +278,12 @@ namespace CafeSystem.Forms.Kitchen
             return (Image)(new Bitmap(imgToResize, size));
         }
 
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginPage = new LoginForm();
+            this.Hide();
+            loginPage.ShowDialog();
+            this.Close();
+        }
     }
 }
