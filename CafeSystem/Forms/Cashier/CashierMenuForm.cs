@@ -831,5 +831,13 @@ namespace CafeSystem.Forms.Cashier
             loginPage.ShowDialog();
             this.Close();
         }
+
+        private void btnEndBusiness_Click(object sender, EventArgs e)
+        {
+            BusinessSummaryForm businessSumPage = new BusinessSummaryForm();
+            this.Hide();
+            businessSumPage.ShowDialog();
+            this.Close();
+        }
     }
 }

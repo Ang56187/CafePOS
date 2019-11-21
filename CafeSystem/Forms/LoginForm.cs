@@ -23,9 +23,9 @@ namespace CafeSystem.Forms
         IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
 
         private PrivateFontCollection fonts = new PrivateFontCollection();
-        Font btnFont;
-        Font textBoxFont;
-        Font errorFont;
+        Font fontBtn;
+        Font fontTxtBox;
+        Font fontError;
 
         //testing, get user collection
         UserCollection userList = new UserCollection();
@@ -51,16 +51,16 @@ namespace CafeSystem.Forms
             AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.Century_Gothic.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
-            btnFont = new Font(fonts.Families[0], 18.0F, FontStyle.Bold);
-            textBoxFont = new Font(fonts.Families[0], 18.0F);
-            errorFont = new Font(fonts.Families[0], 15.0F);
+            fontBtn = new Font(fonts.Families[0], 18.0F, FontStyle.Bold);
+            fontTxtBox = new Font(fonts.Families[0], 18.0F);
+            fontError = new Font(fonts.Families[0], 15.0F);
 
 
             //set font to components
-            btnLogin.Font = btnFont;
-            txtBoxPassword.Font = textBoxFont;
-            txtBoxUsername.Font = textBoxFont;
-            lblErrorInput.Font = errorFont;
+            btnLogin.Font = fontBtn;
+            txtBoxPassword.Font = fontTxtBox;
+            txtBoxUsername.Font = fontTxtBox;
+            lblErrorInput.Font = fontError;
 
             lblErrorInput.Hide();
 
@@ -109,20 +109,23 @@ namespace CafeSystem.Forms
                         }//end switch
                     }//end if
 
-                    if (!txtBoxUsername.Text.Equals(user.Name) && (user.Equals(lastUser)))
+                    if (user.Equals(lastUser))
                     {
-                        loginCounter -= 1;
-                        lblErrorInput.Text = "Please enter valid username . " + loginCounter+" tries left.";
-                        lblErrorInput.Show();
-                        break;
-                    }//end if else
-                    else if (!txtBoxPassword.Text.Equals(user.Name) && (user.Equals(lastUser)))
-                    {
-                        loginCounter -= 1;
-                        lblErrorInput.Text = "Please enter valid password. " + loginCounter + " tries left.";
-                        lblErrorInput.Show();
-                        break;
-                    }//end if else
+                        if (!txtBoxUsername.Text.Equals(user.Name) )
+                        {
+                            loginCounter -= 1;
+                            lblErrorInput.Text = "Please enter valid username . " + loginCounter + " tries left.";
+                            lblErrorInput.Show();
+                            break;
+                        }//end if else
+                        if (!txtBoxPassword.Text.Equals(user.Password))
+                        {
+                            loginCounter -= 1;
+                            lblErrorInput.Text = "Please enter valid password. " + loginCounter + " tries left.";
+                            lblErrorInput.Show();
+                            break;
+                        }//end if else
+                    }
 
                 }//end foreach
             }//end if

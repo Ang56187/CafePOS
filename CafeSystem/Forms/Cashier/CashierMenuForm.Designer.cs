@@ -138,6 +138,7 @@
             this.btnEndBusiness.Text = "End the day";
             this.btnEndBusiness.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEndBusiness.UseVisualStyleBackColor = false;
+            this.btnEndBusiness.Click += new System.EventHandler(this.btnEndBusiness_Click);
             // 
             // flowPanelCart
             // 
