@@ -9,8 +9,13 @@ namespace CafeSystem.Backend
 {
     class OrderCollection
     {
+        private static List<Order> orderList = new List<Order>();
 
-        public static List<Order> orderList = new List<Order>();
+        public static List<Order> OrderList
+        {
+            get { return orderList; }
+            set { orderList = value; }
+        }
 
     }
 }

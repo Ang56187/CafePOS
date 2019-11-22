@@ -35,32 +35,26 @@ namespace CafeSystem.Backend
 
         }
 
-
-        //return whole lists of items
-        public List<Item> Show_All_Item()
+        //arrange the list
+        public List<Item> TopFoodList()
         {
-            return MenuList;
+            //linq to get top sold foods first
+            var topFoodList = (from item in MenuList
+                               where item.Category == "Food"
+                               orderby item.Quantity descending
+                               select item).ToList();
+            return topFoodList;
         }
 
-        //return filtered items
-        public List<Item> Show_Category_Item(String category)
+        public List<Item> TopBeverageList()
         {
-            var returnList =
-                from item in MenuList
-                where item.Category.Equals(category)
-                select item;
+            //linq to get top sold beverage first
+            var topBeverageList = (from item in menuList
+                                   where item.Category == "Beverage"
+                                   orderby item.Quantity descending
+                                   select item).ToList();
 
-            return (List<Item>)returnList;
-        }
-
-        public List<Item> Show_Type_Item(String type)
-        {
-            var returnList =
-                from item in MenuList
-                where item.Category.Equals(type)
-                select item;
-
-            return (List<Item>)returnList;
+            return topBeverageList;
         }
 
 

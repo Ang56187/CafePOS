@@ -33,6 +33,11 @@ namespace CafeSystem.Forms
         //set counter for tries for loggin in
         private int loginCounter = 5;
 
+        //store names and passwords for validation later
+        List<String> nameList = new List<String>();
+        List<String> passList = new List<String>();
+
+
         public LoginForm()
         {
             InitializeComponent();
@@ -79,6 +84,11 @@ namespace CafeSystem.Forms
             {
                 foreach (User user in userList.UserList)
                 {
+
+                    //add pass and name of user to string
+                    nameList.Add(user.Name);
+                    passList.Add(user.Password);
+
                     if (txtBoxUsername.Text.Equals(user.Name) && txtBoxPassword.Text.Equals(user.Password))
                     {
                         switch (user.Position)
@@ -109,22 +119,33 @@ namespace CafeSystem.Forms
                         }//end switch
                     }//end if
 
+
                     if (user.Equals(lastUser))
                     {
-                        if (!txtBoxUsername.Text.Equals(user.Name) )
+                        //check in list if name or pass exists
+                        if (!nameList.Contains(txtBoxUsername.Text))
                         {
                             loginCounter -= 1;
                             lblErrorInput.Text = "Please enter valid username . " + loginCounter + " tries left.";
                             lblErrorInput.Show();
                             break;
                         }//end if else
-                        if (!txtBoxPassword.Text.Equals(user.Password))
+                        if (!passList.Contains(txtBoxPassword.Text))
                         {
                             loginCounter -= 1;
                             lblErrorInput.Text = "Please enter valid password. " + loginCounter + " tries left.";
                             lblErrorInput.Show();
                             break;
                         }//end if else
+
+                        //if both name and pass exists among users, check if both entered name and password are from different users or not
+                        if (nameList.IndexOf(txtBoxUsername.Text) != passList.IndexOf(txtBoxPassword.Text))
+                        {
+                            loginCounter -= 1;
+                            lblErrorInput.Text = "Wrong password for account. " + loginCounter + " tries left.";
+                            lblErrorInput.Show();
+                            break;
+                        }
                     }
 
                 }//end foreach

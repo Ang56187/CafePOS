@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CafeSystem
+namespace CafeSystem.Backend
 {
-    class StandardizedNames
+    class ItemCollection
     {
-        public static String formName = "Sunway Cafe";
-
     }
 }

@@ -85,7 +85,7 @@ namespace CafeSystem.Forms.Cashier
             //save receipt as order object
             orderDetail = new Order(orderNum, this.user, finalItemList.CartList, this.tax, this.payment,dineOrTakeAway);
 
-            OrderCollection.orderList.Add(orderDetail);
+            OrderCollection.OrderList.Add(orderDetail);
         }
 
         private void ReceiptPage_Load(object sender, EventArgs e)
@@ -208,9 +208,9 @@ namespace CafeSystem.Forms.Cashier
 
         private void btnEndDay_Click(object sender, EventArgs e)///TODO: changed later, for now i use this to test kitchen page
         {
-            Kitchen.KitchenForm kitchenPage = new Kitchen.KitchenForm();
+            BusinessSummaryForm busSumPage = new BusinessSummaryForm();
             this.Hide();
-            kitchenPage.ShowDialog();
+            busSumPage.ShowDialog();
             this.Close();
 
         }

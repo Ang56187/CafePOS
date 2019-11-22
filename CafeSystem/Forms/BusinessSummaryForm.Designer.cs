@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BusinessSummaryForm));
             this.panelBusinessSummary = new System.Windows.Forms.Panel();
             this.flowPanelBusinessSum = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -35,23 +36,6 @@
             this.panelLine1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelRow1 = new System.Windows.Forms.Panel();
-            this.panelRow2 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblOverallFoodTxt = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.listViewFood = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblOverallBeverageTxt = new System.Windows.Forms.Label();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.listViewBeverage = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.borderFlowLayoutPane1 = new CafeSystem.Components.BorderFlowLayoutPane();
             this.lblTopBeverage = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -102,14 +86,50 @@
             this.lblFoodName4 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblFoodQty4 = new System.Windows.Forms.Label();
+            this.panelRow2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblOverallBeverageTxt = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.listViewBeverage = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblOverallFoodTxt = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.listViewFood = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.flowPanelExtraDetail = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowPanelTotalOrder = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTotalOrder = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.lblTotalOrderTxt = new System.Windows.Forms.Label();
+            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblSerTax = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.lblSerTaxTxt = new System.Windows.Forms.Label();
+            this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblSerCharge = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.lblSerChargeTxt = new System.Windows.Forms.Label();
+            this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTotalRevenue = new System.Windows.Forms.Label();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.lblTotalRevenueTxt = new System.Windows.Forms.Label();
+            this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnClose = new CafeSystem.Components.RoundButton();
+            this.btnPrint = new CafeSystem.Components.RoundButton();
+            this.printDocumentSummary = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogSummary = new System.Windows.Forms.PrintPreviewDialog();
             this.panelBusinessSummary.SuspendLayout();
             this.flowPanelBusinessSum.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panelRow1.SuspendLayout();
-            this.panelRow2.SuspendLayout();
-            this.flowLayoutPanel10.SuspendLayout();
-            this.flowLayoutPanel11.SuspendLayout();
             this.borderFlowLayoutPane1.SuspendLayout();
             this.panel11.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
@@ -132,10 +152,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxFood3)).BeginInit();
             this.flowLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxFood4)).BeginInit();
+            this.panelRow2.SuspendLayout();
+            this.flowLayoutPanel11.SuspendLayout();
+            this.flowLayoutPanel10.SuspendLayout();
+            this.flowPanelExtraDetail.SuspendLayout();
+            this.flowPanelTotalOrder.SuspendLayout();
+            this.flowLayoutPanel12.SuspendLayout();
+            this.flowLayoutPanel13.SuspendLayout();
+            this.flowLayoutPanel14.SuspendLayout();
+            this.flowLayoutPanel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBusinessSummary
             // 
+            this.panelBusinessSummary.AutoScroll = true;
             this.panelBusinessSummary.Controls.Add(this.flowPanelBusinessSum);
             this.panelBusinessSummary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBusinessSummary.Location = new System.Drawing.Point(0, 0);
@@ -145,15 +175,18 @@
             // 
             // flowPanelBusinessSum
             // 
-            this.flowPanelBusinessSum.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowPanelBusinessSum.AutoSize = true;
             this.flowPanelBusinessSum.BackColor = System.Drawing.Color.White;
             this.flowPanelBusinessSum.Controls.Add(this.panel2);
             this.flowPanelBusinessSum.Controls.Add(this.panelLine1);
             this.flowPanelBusinessSum.Controls.Add(this.flowLayoutPanel1);
-            this.flowPanelBusinessSum.Location = new System.Drawing.Point(19, 30);
+            this.flowPanelBusinessSum.Controls.Add(this.flowPanelExtraDetail);
+            this.flowPanelBusinessSum.Controls.Add(this.flowLayoutPanel15);
+            this.flowPanelBusinessSum.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPanelBusinessSum.Location = new System.Drawing.Point(50, 0);
             this.flowPanelBusinessSum.Margin = new System.Windows.Forms.Padding(0);
             this.flowPanelBusinessSum.Name = "flowPanelBusinessSum";
-            this.flowPanelBusinessSum.Size = new System.Drawing.Size(1883, 1005);
+            this.flowPanelBusinessSum.Size = new System.Drawing.Size(1899, 1314);
             this.flowPanelBusinessSum.TabIndex = 4;
             // 
             // panel2
@@ -192,11 +225,13 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.panelRow1);
             this.flowLayoutPanel1.Controls.Add(this.panelRow2);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 74);
+            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(1876, 931);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1876, 931);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1862, 881);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // panelRow1
@@ -207,151 +242,6 @@
             this.panelRow1.Name = "panelRow1";
             this.panelRow1.Size = new System.Drawing.Size(1846, 360);
             this.panelRow1.TabIndex = 5;
-            // 
-            // panelRow2
-            // 
-            this.panelRow2.Controls.Add(this.flowLayoutPanel11);
-            this.panelRow2.Controls.Add(this.flowLayoutPanel10);
-            this.panelRow2.Location = new System.Drawing.Point(3, 396);
-            this.panelRow2.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
-            this.panelRow2.Name = "panelRow2";
-            this.panelRow2.Size = new System.Drawing.Size(1856, 482);
-            this.panelRow2.TabIndex = 6;
-            // 
-            // flowLayoutPanel10
-            // 
-            this.flowLayoutPanel10.Controls.Add(this.lblOverallFoodTxt);
-            this.flowLayoutPanel10.Controls.Add(this.panel9);
-            this.flowLayoutPanel10.Controls.Add(this.listViewFood);
-            this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(915, 482);
-            this.flowLayoutPanel10.TabIndex = 0;
-            // 
-            // lblOverallFoodTxt
-            // 
-            this.lblOverallFoodTxt.AutoSize = true;
-            this.lblOverallFoodTxt.Location = new System.Drawing.Point(20, 20);
-            this.lblOverallFoodTxt.Margin = new System.Windows.Forms.Padding(20, 0, 3, 3);
-            this.lblOverallFoodTxt.Name = "lblOverallFoodTxt";
-            this.lblOverallFoodTxt.Size = new System.Drawing.Size(115, 17);
-            this.lblOverallFoodTxt.TabIndex = 0;
-            this.lblOverallFoodTxt.Text = "Overall food sold";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.Silver;
-            this.panel9.Location = new System.Drawing.Point(30, 50);
-            this.panel9.Margin = new System.Windows.Forms.Padding(30, 10, 0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(100, 3);
-            this.panel9.TabIndex = 2;
-            // 
-            // listViewFood
-            // 
-            this.listViewFood.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.listViewFood.HideSelection = false;
-            this.listViewFood.Location = new System.Drawing.Point(3, 68);
-            this.listViewFood.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.listViewFood.Name = "listViewFood";
-            this.listViewFood.Size = new System.Drawing.Size(907, 393);
-            this.listViewFood.TabIndex = 3;
-            this.listViewFood.UseCompatibleStateImageBehavior = false;
-            this.listViewFood.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "No";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Name";
-            this.columnHeader2.Width = 310;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Price";
-            this.columnHeader3.Width = 150;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Total Quantity";
-            this.columnHeader4.Width = 150;
-            // 
-            // flowLayoutPanel11
-            // 
-            this.flowLayoutPanel11.Controls.Add(this.lblOverallBeverageTxt);
-            this.flowLayoutPanel11.Controls.Add(this.panel17);
-            this.flowLayoutPanel11.Controls.Add(this.listViewBeverage);
-            this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(941, 0);
-            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(915, 482);
-            this.flowLayoutPanel11.TabIndex = 1;
-            // 
-            // lblOverallBeverageTxt
-            // 
-            this.lblOverallBeverageTxt.AutoSize = true;
-            this.lblOverallBeverageTxt.Location = new System.Drawing.Point(20, 20);
-            this.lblOverallBeverageTxt.Margin = new System.Windows.Forms.Padding(20, 0, 3, 3);
-            this.lblOverallBeverageTxt.Name = "lblOverallBeverageTxt";
-            this.lblOverallBeverageTxt.Size = new System.Drawing.Size(147, 17);
-            this.lblOverallBeverageTxt.TabIndex = 0;
-            this.lblOverallBeverageTxt.Text = "Overall beverage sold";
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.Silver;
-            this.panel17.Location = new System.Drawing.Point(30, 50);
-            this.panel17.Margin = new System.Windows.Forms.Padding(30, 10, 0, 0);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(100, 3);
-            this.panel17.TabIndex = 2;
-            // 
-            // listViewBeverage
-            // 
-            this.listViewBeverage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewBeverage.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8});
-            this.listViewBeverage.HideSelection = false;
-            this.listViewBeverage.Location = new System.Drawing.Point(3, 68);
-            this.listViewBeverage.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.listViewBeverage.Name = "listViewBeverage";
-            this.listViewBeverage.Size = new System.Drawing.Size(907, 393);
-            this.listViewBeverage.TabIndex = 3;
-            this.listViewBeverage.UseCompatibleStateImageBehavior = false;
-            this.listViewBeverage.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "No";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Name";
-            this.columnHeader6.Width = 310;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Price";
-            this.columnHeader7.Width = 150;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Total Quantity";
-            this.columnHeader8.Width = 150;
             // 
             // borderFlowLayoutPane1
             // 
@@ -896,6 +786,401 @@
             this.lblFoodQty4.TabIndex = 9;
             this.lblFoodQty4.Text = "label2";
             // 
+            // panelRow2
+            // 
+            this.panelRow2.Controls.Add(this.flowLayoutPanel11);
+            this.panelRow2.Controls.Add(this.flowLayoutPanel10);
+            this.panelRow2.Location = new System.Drawing.Point(3, 396);
+            this.panelRow2.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.panelRow2.Name = "panelRow2";
+            this.panelRow2.Size = new System.Drawing.Size(1856, 482);
+            this.panelRow2.TabIndex = 6;
+            // 
+            // flowLayoutPanel11
+            // 
+            this.flowLayoutPanel11.Controls.Add(this.lblOverallBeverageTxt);
+            this.flowLayoutPanel11.Controls.Add(this.panel17);
+            this.flowLayoutPanel11.Controls.Add(this.listViewBeverage);
+            this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(941, 0);
+            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
+            this.flowLayoutPanel11.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(915, 482);
+            this.flowLayoutPanel11.TabIndex = 1;
+            // 
+            // lblOverallBeverageTxt
+            // 
+            this.lblOverallBeverageTxt.AutoSize = true;
+            this.lblOverallBeverageTxt.Location = new System.Drawing.Point(20, 20);
+            this.lblOverallBeverageTxt.Margin = new System.Windows.Forms.Padding(20, 0, 3, 3);
+            this.lblOverallBeverageTxt.Name = "lblOverallBeverageTxt";
+            this.lblOverallBeverageTxt.Size = new System.Drawing.Size(147, 17);
+            this.lblOverallBeverageTxt.TabIndex = 0;
+            this.lblOverallBeverageTxt.Text = "Overall beverage sold";
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.Silver;
+            this.panel17.Location = new System.Drawing.Point(30, 50);
+            this.panel17.Margin = new System.Windows.Forms.Padding(30, 10, 0, 0);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(100, 3);
+            this.panel17.TabIndex = 2;
+            // 
+            // listViewBeverage
+            // 
+            this.listViewBeverage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewBeverage.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            this.listViewBeverage.HideSelection = false;
+            this.listViewBeverage.Location = new System.Drawing.Point(3, 68);
+            this.listViewBeverage.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.listViewBeverage.Name = "listViewBeverage";
+            this.listViewBeverage.Size = new System.Drawing.Size(907, 393);
+            this.listViewBeverage.TabIndex = 3;
+            this.listViewBeverage.UseCompatibleStateImageBehavior = false;
+            this.listViewBeverage.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "No";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Name";
+            this.columnHeader6.Width = 310;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Price";
+            this.columnHeader7.Width = 150;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Total Quantity";
+            this.columnHeader8.Width = 150;
+            // 
+            // flowLayoutPanel10
+            // 
+            this.flowLayoutPanel10.Controls.Add(this.lblOverallFoodTxt);
+            this.flowLayoutPanel10.Controls.Add(this.panel9);
+            this.flowLayoutPanel10.Controls.Add(this.listViewFood);
+            this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
+            this.flowLayoutPanel10.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(915, 482);
+            this.flowLayoutPanel10.TabIndex = 0;
+            // 
+            // lblOverallFoodTxt
+            // 
+            this.lblOverallFoodTxt.AutoSize = true;
+            this.lblOverallFoodTxt.Location = new System.Drawing.Point(20, 20);
+            this.lblOverallFoodTxt.Margin = new System.Windows.Forms.Padding(20, 0, 3, 3);
+            this.lblOverallFoodTxt.Name = "lblOverallFoodTxt";
+            this.lblOverallFoodTxt.Size = new System.Drawing.Size(115, 17);
+            this.lblOverallFoodTxt.TabIndex = 0;
+            this.lblOverallFoodTxt.Text = "Overall food sold";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Silver;
+            this.panel9.Location = new System.Drawing.Point(30, 50);
+            this.panel9.Margin = new System.Windows.Forms.Padding(30, 10, 0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(100, 3);
+            this.panel9.TabIndex = 2;
+            // 
+            // listViewFood
+            // 
+            this.listViewFood.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listViewFood.HideSelection = false;
+            this.listViewFood.Location = new System.Drawing.Point(3, 68);
+            this.listViewFood.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.listViewFood.Name = "listViewFood";
+            this.listViewFood.Size = new System.Drawing.Size(907, 393);
+            this.listViewFood.TabIndex = 3;
+            this.listViewFood.UseCompatibleStateImageBehavior = false;
+            this.listViewFood.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "No";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Name";
+            this.columnHeader2.Width = 310;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Price";
+            this.columnHeader3.Width = 150;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Total Quantity";
+            this.columnHeader4.Width = 150;
+            // 
+            // flowPanelExtraDetail
+            // 
+            this.flowPanelExtraDetail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowPanelExtraDetail.AutoScroll = true;
+            this.flowPanelExtraDetail.Controls.Add(this.flowPanelTotalOrder);
+            this.flowPanelExtraDetail.Controls.Add(this.flowLayoutPanel12);
+            this.flowPanelExtraDetail.Controls.Add(this.flowLayoutPanel13);
+            this.flowPanelExtraDetail.Controls.Add(this.flowLayoutPanel14);
+            this.flowPanelExtraDetail.Location = new System.Drawing.Point(167, 978);
+            this.flowPanelExtraDetail.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
+            this.flowPanelExtraDetail.Name = "flowPanelExtraDetail";
+            this.flowPanelExtraDetail.Size = new System.Drawing.Size(1564, 174);
+            this.flowPanelExtraDetail.TabIndex = 4;
+            // 
+            // flowPanelTotalOrder
+            // 
+            this.flowPanelTotalOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(123)))), ((int)(((byte)(45)))));
+            this.flowPanelTotalOrder.Controls.Add(this.lblTotalOrder);
+            this.flowPanelTotalOrder.Controls.Add(this.panel18);
+            this.flowPanelTotalOrder.Controls.Add(this.lblTotalOrderTxt);
+            this.flowPanelTotalOrder.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPanelTotalOrder.Location = new System.Drawing.Point(10, 3);
+            this.flowPanelTotalOrder.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.flowPanelTotalOrder.Name = "flowPanelTotalOrder";
+            this.flowPanelTotalOrder.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
+            this.flowPanelTotalOrder.Size = new System.Drawing.Size(354, 147);
+            this.flowPanelTotalOrder.TabIndex = 0;
+            // 
+            // lblTotalOrder
+            // 
+            this.lblTotalOrder.AutoSize = true;
+            this.lblTotalOrder.ForeColor = System.Drawing.Color.White;
+            this.lblTotalOrder.Location = new System.Drawing.Point(23, 20);
+            this.lblTotalOrder.Name = "lblTotalOrder";
+            this.lblTotalOrder.Size = new System.Drawing.Size(46, 17);
+            this.lblTotalOrder.TabIndex = 0;
+            this.lblTotalOrder.Text = "label1";
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.White;
+            this.panel18.Location = new System.Drawing.Point(20, 47);
+            this.panel18.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(100, 3);
+            this.panel18.TabIndex = 9;
+            // 
+            // lblTotalOrderTxt
+            // 
+            this.lblTotalOrderTxt.AutoSize = true;
+            this.lblTotalOrderTxt.ForeColor = System.Drawing.Color.White;
+            this.lblTotalOrderTxt.Location = new System.Drawing.Point(23, 60);
+            this.lblTotalOrderTxt.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblTotalOrderTxt.Name = "lblTotalOrderTxt";
+            this.lblTotalOrderTxt.Size = new System.Drawing.Size(117, 17);
+            this.lblTotalOrderTxt.TabIndex = 10;
+            this.lblTotalOrderTxt.Text = "Total order made";
+            // 
+            // flowLayoutPanel12
+            // 
+            this.flowLayoutPanel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(140)))), ((int)(((byte)(20)))));
+            this.flowLayoutPanel12.Controls.Add(this.lblSerTax);
+            this.flowLayoutPanel12.Controls.Add(this.panel19);
+            this.flowLayoutPanel12.Controls.Add(this.lblSerTaxTxt);
+            this.flowLayoutPanel12.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel12.Location = new System.Drawing.Point(397, 3);
+            this.flowLayoutPanel12.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
+            this.flowLayoutPanel12.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
+            this.flowLayoutPanel12.Size = new System.Drawing.Size(354, 147);
+            this.flowLayoutPanel12.TabIndex = 1;
+            // 
+            // lblSerTax
+            // 
+            this.lblSerTax.AutoSize = true;
+            this.lblSerTax.ForeColor = System.Drawing.Color.White;
+            this.lblSerTax.Location = new System.Drawing.Point(23, 20);
+            this.lblSerTax.Name = "lblSerTax";
+            this.lblSerTax.Size = new System.Drawing.Size(46, 17);
+            this.lblSerTax.TabIndex = 1;
+            this.lblSerTax.Text = "label2";
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.White;
+            this.panel19.Location = new System.Drawing.Point(20, 47);
+            this.panel19.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(100, 3);
+            this.panel19.TabIndex = 10;
+            // 
+            // lblSerTaxTxt
+            // 
+            this.lblSerTaxTxt.AutoSize = true;
+            this.lblSerTaxTxt.ForeColor = System.Drawing.Color.White;
+            this.lblSerTaxTxt.Location = new System.Drawing.Point(23, 60);
+            this.lblSerTaxTxt.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblSerTaxTxt.Name = "lblSerTaxTxt";
+            this.lblSerTaxTxt.Size = new System.Drawing.Size(111, 17);
+            this.lblSerTaxTxt.TabIndex = 11;
+            this.lblSerTaxTxt.Text = "Total service tax";
+            // 
+            // flowLayoutPanel13
+            // 
+            this.flowLayoutPanel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(103)))), ((int)(((byte)(213)))));
+            this.flowLayoutPanel13.Controls.Add(this.lblSerCharge);
+            this.flowLayoutPanel13.Controls.Add(this.panel20);
+            this.flowLayoutPanel13.Controls.Add(this.lblSerChargeTxt);
+            this.flowLayoutPanel13.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel13.Location = new System.Drawing.Point(784, 3);
+            this.flowLayoutPanel13.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.flowLayoutPanel13.Name = "flowLayoutPanel13";
+            this.flowLayoutPanel13.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
+            this.flowLayoutPanel13.Size = new System.Drawing.Size(354, 147);
+            this.flowLayoutPanel13.TabIndex = 2;
+            // 
+            // lblSerCharge
+            // 
+            this.lblSerCharge.AutoSize = true;
+            this.lblSerCharge.ForeColor = System.Drawing.Color.White;
+            this.lblSerCharge.Location = new System.Drawing.Point(23, 20);
+            this.lblSerCharge.Name = "lblSerCharge";
+            this.lblSerCharge.Size = new System.Drawing.Size(46, 17);
+            this.lblSerCharge.TabIndex = 2;
+            this.lblSerCharge.Text = "label3";
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.White;
+            this.panel20.Location = new System.Drawing.Point(20, 47);
+            this.panel20.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(100, 3);
+            this.panel20.TabIndex = 10;
+            // 
+            // lblSerChargeTxt
+            // 
+            this.lblSerChargeTxt.AutoSize = true;
+            this.lblSerChargeTxt.ForeColor = System.Drawing.Color.White;
+            this.lblSerChargeTxt.Location = new System.Drawing.Point(23, 60);
+            this.lblSerChargeTxt.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblSerChargeTxt.Name = "lblSerChargeTxt";
+            this.lblSerChargeTxt.Size = new System.Drawing.Size(137, 17);
+            this.lblSerChargeTxt.TabIndex = 11;
+            this.lblSerChargeTxt.Text = "Total service charge";
+            // 
+            // flowLayoutPanel14
+            // 
+            this.flowLayoutPanel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.flowLayoutPanel14.Controls.Add(this.lblTotalRevenue);
+            this.flowLayoutPanel14.Controls.Add(this.panel21);
+            this.flowLayoutPanel14.Controls.Add(this.lblTotalRevenueTxt);
+            this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel14.Location = new System.Drawing.Point(1171, 3);
+            this.flowLayoutPanel14.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.flowLayoutPanel14.Name = "flowLayoutPanel14";
+            this.flowLayoutPanel14.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
+            this.flowLayoutPanel14.Size = new System.Drawing.Size(354, 147);
+            this.flowLayoutPanel14.TabIndex = 3;
+            // 
+            // lblTotalRevenue
+            // 
+            this.lblTotalRevenue.AutoSize = true;
+            this.lblTotalRevenue.ForeColor = System.Drawing.Color.White;
+            this.lblTotalRevenue.Location = new System.Drawing.Point(23, 20);
+            this.lblTotalRevenue.Name = "lblTotalRevenue";
+            this.lblTotalRevenue.Size = new System.Drawing.Size(46, 17);
+            this.lblTotalRevenue.TabIndex = 2;
+            this.lblTotalRevenue.Text = "label4";
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.White;
+            this.panel21.Location = new System.Drawing.Point(20, 47);
+            this.panel21.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(100, 3);
+            this.panel21.TabIndex = 10;
+            // 
+            // lblTotalRevenueTxt
+            // 
+            this.lblTotalRevenueTxt.AutoSize = true;
+            this.lblTotalRevenueTxt.ForeColor = System.Drawing.Color.White;
+            this.lblTotalRevenueTxt.Location = new System.Drawing.Point(23, 60);
+            this.lblTotalRevenueTxt.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblTotalRevenueTxt.Name = "lblTotalRevenueTxt";
+            this.lblTotalRevenueTxt.Size = new System.Drawing.Size(96, 17);
+            this.lblTotalRevenueTxt.TabIndex = 12;
+            this.lblTotalRevenueTxt.Text = "Total revenue";
+            // 
+            // flowLayoutPanel15
+            // 
+            this.flowLayoutPanel15.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel15.Controls.Add(this.btnClose);
+            this.flowLayoutPanel15.Controls.Add(this.btnPrint);
+            this.flowLayoutPanel15.Location = new System.Drawing.Point(686, 1175);
+            this.flowLayoutPanel15.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
+            this.flowLayoutPanel15.Name = "flowLayoutPanel15";
+            this.flowLayoutPanel15.Size = new System.Drawing.Size(527, 59);
+            this.flowLayoutPanel15.TabIndex = 5;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::CafeSystem.Properties.Resources.cancel_48;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(3, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnClose.Size = new System.Drawing.Size(234, 53);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Image = global::CafeSystem.Properties.Resources.printer_48;
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(280, 3);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnPrint.Size = new System.Drawing.Size(234, 53);
+            this.btnPrint.TabIndex = 1;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // printDocumentSummary
+            // 
+            this.printDocumentSummary.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentSummary_PrintPage);
+            // 
+            // printPreviewDialogSummary
+            // 
+            this.printPreviewDialogSummary.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogSummary.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogSummary.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogSummary.Enabled = true;
+            this.printPreviewDialogSummary.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogSummary.Icon")));
+            this.printPreviewDialogSummary.Name = "printPreviewDialogSummary";
+            this.printPreviewDialogSummary.Visible = false;
+            // 
             // BusinessSummaryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -904,19 +1189,16 @@
             this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.panelBusinessSummary);
             this.Name = "BusinessSummaryForm";
-            this.Text = "BusinessSummaryForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BusinessSummaryForm_Load);
             this.panelBusinessSummary.ResumeLayout(false);
+            this.panelBusinessSummary.PerformLayout();
             this.flowPanelBusinessSum.ResumeLayout(false);
+            this.flowPanelBusinessSum.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panelRow1.ResumeLayout(false);
-            this.panelRow2.ResumeLayout(false);
-            this.flowLayoutPanel10.ResumeLayout(false);
-            this.flowLayoutPanel10.PerformLayout();
-            this.flowLayoutPanel11.ResumeLayout(false);
-            this.flowLayoutPanel11.PerformLayout();
             this.borderFlowLayoutPane1.ResumeLayout(false);
             this.borderFlowLayoutPane1.PerformLayout();
             this.panel11.ResumeLayout(false);
@@ -949,6 +1231,21 @@
             this.flowLayoutPanel9.ResumeLayout(false);
             this.flowLayoutPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxFood4)).EndInit();
+            this.panelRow2.ResumeLayout(false);
+            this.flowLayoutPanel11.ResumeLayout(false);
+            this.flowLayoutPanel11.PerformLayout();
+            this.flowLayoutPanel10.ResumeLayout(false);
+            this.flowLayoutPanel10.PerformLayout();
+            this.flowPanelExtraDetail.ResumeLayout(false);
+            this.flowPanelTotalOrder.ResumeLayout(false);
+            this.flowPanelTotalOrder.PerformLayout();
+            this.flowLayoutPanel12.ResumeLayout(false);
+            this.flowLayoutPanel12.PerformLayout();
+            this.flowLayoutPanel13.ResumeLayout(false);
+            this.flowLayoutPanel13.PerformLayout();
+            this.flowLayoutPanel14.ResumeLayout(false);
+            this.flowLayoutPanel14.PerformLayout();
+            this.flowLayoutPanel15.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1029,5 +1326,27 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.FlowLayoutPanel flowPanelExtraDetail;
+        private System.Windows.Forms.FlowLayoutPanel flowPanelTotalOrder;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel12;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel13;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel14;
+        private System.Windows.Forms.Label lblTotalOrder;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Label lblTotalOrderTxt;
+        private System.Windows.Forms.Label lblSerTax;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Label lblSerTaxTxt;
+        private System.Windows.Forms.Label lblSerCharge;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Label lblSerChargeTxt;
+        private System.Windows.Forms.Label lblTotalRevenue;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Label lblTotalRevenueTxt;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel15;
+        private Components.RoundButton btnClose;
+        private Components.RoundButton btnPrint;
+        private System.Drawing.Printing.PrintDocument printDocumentSummary;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogSummary;
     }
 }
