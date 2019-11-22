@@ -41,7 +41,6 @@ namespace CafeSystem.Forms
         public LoginForm()
         {
             InitializeComponent();
-
         }
 
 
@@ -167,7 +166,6 @@ namespace CafeSystem.Forms
 
         private void txtBoxPassword_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void logo_Paint(object sender, PaintEventArgs e)

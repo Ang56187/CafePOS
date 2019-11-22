@@ -27,7 +27,7 @@ namespace CafeSystem.Forms.Cashier
         Font fontBtn;
 
         //later create order number, but for now we hard code it...
-        private String orderNum = "232342";
+        private String orderNum = "#"+Guid.NewGuid().ToString();
 
         //create and save order made
         Order orderDetail;
@@ -83,7 +83,7 @@ namespace CafeSystem.Forms.Cashier
 
 
             //save receipt as order object
-            orderDetail = new Order(orderNum, this.user, finalItemList.CartList, this.tax, this.payment,dineOrTakeAway);
+            orderDetail = new Order(orderNum, this.user.Name, finalItemList.CartList, this.tax, this.payment,dineOrTakeAway);
 
             OrderCollection.OrderList.Add(orderDetail);
         }
@@ -108,6 +108,9 @@ namespace CafeSystem.Forms.Cashier
             btnLogOut.Font = btnNextOrder.Font = btnEndDay.Font = btnPrintReceipt.Font =  fontBtn;
             lblReceivedTxt.Font = lblReceived.Font = lblTotalTxt.Font = lblTotal.Font = lblChangeTxt.Font = lblChange.Font = fontLbl;
             lblNowWat.Font =  new Font(fonts.Families[0], 20.0F);
+
+            //set order number at label
+            lblOrderNum.Text = orderNum;
 
 
             //resize the image of button
@@ -192,7 +195,7 @@ namespace CafeSystem.Forms.Cashier
             e.Graphics.DrawString(orderDetail.OrderPayment.ToString(), printFont, Brushes.Black, new PointF(10, 70 + (counter * printFont.GetHeight(e.Graphics))));
             counter += 4;
 
-            e.Graphics.DrawString(orderDetail.OrderUser.ToString(), printFont, Brushes.Black, new PointF(10, 100 + (counter * printFont.GetHeight(e.Graphics))));
+            e.Graphics.DrawString("Processed by : " + orderDetail.OrderUserName, printFont, Brushes.Black, new PointF(10, 100 + (counter * printFont.GetHeight(e.Graphics))));
             counter += 1;
 
         }

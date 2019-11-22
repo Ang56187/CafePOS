@@ -105,7 +105,7 @@ namespace CafeSystem.Forms.Kitchen
             lblTakeOrDine.Text = order.DineOrTakeAway;
             lblOrderNum.Text = "#"+order.OrderNum.ToString();
             lblOrderTime.Text = order.OrderDate.ToString("hh:mm:ss tt");
-            lblCashierName.Text = "Created by: "+order.OrderUser.Name;
+            lblCashierName.Text = "Created by: "+order.OrderUserName;
 
 
             //set settings for controls

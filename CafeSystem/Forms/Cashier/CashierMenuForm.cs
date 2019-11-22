@@ -293,15 +293,18 @@ namespace CafeSystem.Forms.Cashier
             //TODO: add to cart
             btnAddToCart.Click += (sender, e) =>
             {
-                item.Quantity += 1;
-
-                //update item quantity in cart
-                foreach (NumericUpDown numUpDown in numUpDownListCart)
+                if (item.Quantity <= 100)
                 {
-                    if (numUpDown.Tag.Equals(item.Name))
+                    item.Quantity += 1;
+
+                    //update item quantity in cart
+                    foreach (NumericUpDown numUpDown in numUpDownListCart)
                     {
-                        numUpDown.Value = item.Quantity;
-                        numUpDown.Update();
+                        if (numUpDown.Tag.Equals(item.Name))
+                        {
+                            numUpDown.Value = item.Quantity;
+                            numUpDown.Update();
+                        }
                     }
                 }
 
@@ -330,20 +333,23 @@ namespace CafeSystem.Forms.Cashier
             //add to cart button at pop up
             btnAddToCart2.Click += (sender, e) =>
             {
-                item.Quantity += 1;
-
-                //update item quantity in cart
-                foreach (NumericUpDown numUpDown in numUpDownListCart)
+                if (item.Quantity <= 100)
                 {
-                    if (numUpDown.Tag.Equals(item.Name))
+                    item.Quantity += 1;
+
+                    //update item quantity in cart
+                    foreach (NumericUpDown numUpDown in numUpDownListCart)
                     {
-                        numUpDown.Value = item.Quantity;
-                        numUpDown.Update();
+                        if (numUpDown.Tag.Equals(item.Name))
+                        {
+                            numUpDown.Value = item.Quantity;
+                            numUpDown.Update();
+                        }
                     }
+                    //update the pop-up qty numUpDown
+                    numUpDownQty.Value = item.Quantity;
+                    AddCartItem(item);
                 }
-                //update the pop-up qty numUpDown
-                numUpDownQty.Value = item.Quantity;
-                AddCartItem(item);
             };
 
         }

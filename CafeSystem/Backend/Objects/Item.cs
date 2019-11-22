@@ -28,6 +28,22 @@ namespace CafeSystem.Backend.Objects
             price = 0;
         }
 
+        //for database 
+        public Item(String name, decimal price, decimal cost, String description, String image, String category, String type)
+        {
+            Name = name;
+            Price = price;
+            Cost = cost;
+            Description = description;
+            Image = image;
+            Category = category;
+            Type = type;
+            IsDone = false;
+
+            Quantity = 0;
+            price = 0;
+        }
+
         public String Name { get; set; }
 
         public decimal Price 
