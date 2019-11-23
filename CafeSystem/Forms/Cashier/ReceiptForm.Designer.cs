@@ -32,6 +32,7 @@
             this.flowPanelComplete = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblPayComplete = new System.Windows.Forms.Label();
+            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.panelLine1 = new System.Windows.Forms.Panel();
             this.flowPanelOrderNo = new System.Windows.Forms.FlowLayoutPanel();
             this.lblOrderTxt = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.lblNowWat = new System.Windows.Forms.Label();
             this.panelLine2 = new System.Windows.Forms.Panel();
             this.flowLayoutBtnOption = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.btnNextOrder = new CafeSystem.Components.RoundButton();
             this.btnEndDay = new CafeSystem.Components.RoundButton();
             this.btnPrintReceipt = new CafeSystem.Components.RoundButton();
@@ -106,6 +106,25 @@
             this.lblPayComplete.TabIndex = 0;
             this.lblPayComplete.Text = "Payment completed!";
             this.lblPayComplete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.Image = global::CafeSystem.Properties.Resources.logout_24;
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(1650, 0);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 19, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(241, 53);
+            this.btnLogOut.TabIndex = 3;
+            this.btnLogOut.Text = "Logout";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // panelLine1
             // 
@@ -299,24 +318,6 @@
             this.flowLayoutBtnOption.Size = new System.Drawing.Size(575, 200);
             this.flowLayoutBtnOption.TabIndex = 15;
             // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Image = global::CafeSystem.Properties.Resources.logout_24;
-            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(1650, 0);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 19, 0);
-            this.btnLogOut.Size = new System.Drawing.Size(241, 53);
-            this.btnLogOut.TabIndex = 3;
-            this.btnLogOut.Text = "Logout";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            // 
             // btnNextOrder
             // 
             this.btnNextOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(206)))), ((int)(((byte)(80)))));
@@ -333,6 +334,7 @@
             this.btnNextOrder.TabIndex = 1;
             this.btnNextOrder.Text = "Next order";
             this.btnNextOrder.UseVisualStyleBackColor = false;
+            this.btnNextOrder.Click += new System.EventHandler(this.btnNextOrder_Click);
             // 
             // btnEndDay
             // 
@@ -350,6 +352,7 @@
             this.btnEndDay.TabIndex = 2;
             this.btnEndDay.Text = "End business of the day";
             this.btnEndDay.UseVisualStyleBackColor = false;
+            this.btnEndDay.Click += new System.EventHandler(this.btnEndDay_Click);
             // 
             // btnPrintReceipt
             // 
@@ -357,7 +360,7 @@
             this.btnPrintReceipt.FlatAppearance.BorderSize = 0;
             this.btnPrintReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintReceipt.ForeColor = System.Drawing.Color.White;
-            this.btnPrintReceipt.Image = global::CafeSystem.Properties.Resources.bill_48;
+            this.btnPrintReceipt.Image = global::CafeSystem.Properties.Resources.printer_48;
             this.btnPrintReceipt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrintReceipt.Location = new System.Drawing.Point(4, 136);
             this.btnPrintReceipt.Margin = new System.Windows.Forms.Padding(4, 12, 4, 4);
@@ -393,7 +396,7 @@
             this.Controls.Add(this.flowPanelComplete);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReceiptForm";
-            this.Text = "ReceiptPage";
+            this.Text = "Sunway Cafe";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ReceiptPage_Load);
             this.flowPanelComplete.ResumeLayout(false);

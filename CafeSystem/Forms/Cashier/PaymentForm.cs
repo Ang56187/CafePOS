@@ -85,7 +85,7 @@ namespace CafeSystem.Forms.Cashier
             fontBtn = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
 
             //set font to components
-            lblCashPayment.Font = lblOrderTxt.Font = lblOrderNum.Font =
+            lblCashPayment.Font =
                 lblTotalAmtTxt.Font = lblPaymentTxt.Font = fontHeaderLbl;
              txtBoxAmount.Font = lblTotalAmt.Font = lblError.Font = fontLbl;
             btnBack.Font =btnProceed.Font = fontBtn;

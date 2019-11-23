@@ -12,12 +12,20 @@ namespace CafeSystem.Backend.Objects
 
         public CreditCard(decimal totalAmt): base(totalAmt)
         {
+            TotalAmt = totalAmt;
             paidAmt = totalAmt;
         }
 
         public decimal PaidAmt
         {
             get { return paidAmt; }
+        }
+
+        public override string ToString()
+        {
+            return String.Format("Paid by: Credit Card\n" +
+                                 "Total amount:                    {0:C}\n" +
+                                 "Paid amount :                    {1:C}\n\n", base.TotalAmt,PaidAmt);
         }
     }
 }

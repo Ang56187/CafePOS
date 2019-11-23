@@ -79,14 +79,14 @@ namespace CafeSystem.Forms.Cashier
             fontBtn = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
 
             //set font to components
-            lblCheckout.Font = lblOrderTxt.Font = lblOrderNum.Font = lblTotalTxt.Font = lblTotal.Font = 
+            lblCheckout.Font  = lblTotalTxt.Font = lblTotal.Font = 
                 new Font(fonts.Families[0], 20.0F, FontStyle.Bold); ;
             lblTakeDine.Font = new Font(fonts.Families[0], 20.0F, FontStyle.Underline);
 
             btnCash.Font = btnCreditCard.Font = btnCancel.Font = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
 
             lblSubTotalTxt.Font = lblSubTotal.Font = lblSerChargeTxt.Font = lblSerCharge.Font=
-            lblSerTaxTxt.Font = lblSerTax.Font =lblRound.Font = lblRoundTxt.Font = lblPaymentOption.Font = new Font(fonts.Families[0], 15.0F);
+            lblSerTaxTxt.Font = lblSerTax.Font = lblPaymentOption.Font = new Font(fonts.Families[0], 15.0F);
 
             //set label the text of either take away of dining in
             lblTakeDine.Text = dineOrTakeAway;

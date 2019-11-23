@@ -36,7 +36,7 @@ namespace CafeSystem.Forms.Cashier
         //menu item list and shopping cart list
         MenuCatalogue menuItems = new MenuCatalogue();
         ShoppingCart cartItems = new ShoppingCart();
-        User user = new User("James","Cashier");
+        User user;
 
         //create list to refer back to buttons created in for loop , so it can be accesssed outside loop
         List<Button> btnQtyList = new List<Button>();
@@ -80,6 +80,18 @@ namespace CafeSystem.Forms.Cashier
             InitializeComponent();
         }
 
+        //constructor when access login page
+        public CashierMenuForm(object user)
+        {
+            InitializeComponent();
+
+            if (user is User)
+            {
+                this.user = ((User)user);
+            }
+        }
+
+
         //constructor for when go back from checkout page
         public CashierMenuForm(object user,object orderItem)
         {
@@ -118,16 +130,19 @@ namespace CafeSystem.Forms.Cashier
             //set fonts to components
             treeViewMenu.Font = new Font(fonts.Families[0], 18.0F, FontStyle.Bold);
             lblCashierName.Font = new Font(fonts.Families[0], 15.0F, FontStyle.Bold);
-            btnLogOut.Font = btnCheckout.Font = fontBtn;
+            btnLogOut.Font = btnCheckout.Font = btnEndBusiness.Font = fontBtn;
             txtBoxSearch.Font = fontTxtBox;
             lblShopCart.Font = fontHeaderLbl;
             lblClearItem.Font = new Font(fonts.Families[0], 12.0F,FontStyle.Underline);
             lblSubTotalTxt.Font = lblSubTotal.Font = lblTaxTxt.Font = lblTax.Font = lblTotalTxt.Font = lblTotal.Font
                 = radioBtnDine.Font = radioBtnTake.Font  = fontLblMini;
 
+            //update image
+            btnEndBusiness.Image = ResizeImage(global::CafeSystem.Properties.Resources.bill_48, new Size(38, 38));
+
+            //display again cart items once return from checkout page
             if (cartItems.CartList.Count() > 0)
             {
-                //display again cart items once return from checkout page
                 foreach (Item item in cartItems.CartList)
                 {
                     foreach (Item menuItem in menuItems.MenuList)
@@ -152,8 +167,12 @@ namespace CafeSystem.Forms.Cashier
             transPanelHidden.Hide();
 
             //set name of cashier
-            lblCashierName.Text = user.Name;
+            lblCashierName.Text = "Cashier page: "+user.Name;
 
+            //ensure tree view always expanded
+            treeViewMenu.ExpandAll();
+
+            //create all items in menu flow panel
             CreateItemDetails();
 
 
@@ -278,17 +297,20 @@ namespace CafeSystem.Forms.Cashier
             //TODO: add to cart
             btnAddToCart.Click += (sender, e) =>
             {
-                item.Quantity += 1;
-
-                //update item quantity in cart
-                foreach (NumericUpDown numUpDown in numUpDownListCart)
-                {
-                    if (numUpDown.Tag.Equals(item.Name))
+                    if (item.Quantity <= 99)
                     {
-                        numUpDown.Value = item.Quantity;
-                        numUpDown.Update();
+                        item.Quantity += 1;
                     }
-                }
+                    //update item quantity in cart
+                    foreach (NumericUpDown numUpDown in numUpDownListCart)
+                    {
+                        if (numUpDown.Tag.Equals(item.Name))
+                        {
+                            numUpDown.Value = item.Quantity;
+                            numUpDown.Update();
+                        }
+                    }
+                
 
                 //redirect focus to avoid popping up in front of pop up
                 btnSearch.Focus();
@@ -315,20 +337,24 @@ namespace CafeSystem.Forms.Cashier
             //add to cart button at pop up
             btnAddToCart2.Click += (sender, e) =>
             {
-                item.Quantity += 1;
 
+                if (item.Quantity <= 99)
+                {
+                    item.Quantity += 1;
+                }
                 //update item quantity in cart
                 foreach (NumericUpDown numUpDown in numUpDownListCart)
-                {
-                    if (numUpDown.Tag.Equals(item.Name))
                     {
-                        numUpDown.Value = item.Quantity;
-                        numUpDown.Update();
+                        if (numUpDown.Tag.Equals(item.Name))
+                        {
+                            numUpDown.Value = item.Quantity;
+                            numUpDown.Update();
+                        }
                     }
-                }
-                //update the pop-up qty numUpDown
-                numUpDownQty.Value = item.Quantity;
-                AddCartItem(item);
+                    //update the pop-up qty numUpDown
+                    numUpDownQty.Value = item.Quantity;
+                    AddCartItem(item);
+
             };
 
         }
@@ -535,6 +561,7 @@ namespace CafeSystem.Forms.Cashier
             {
                 item.Quantity = (int)numUpDownItemQty.Value;
                 lblItemPrice.Text = String.Format("{0:C}", item.Price * item.Quantity);
+                UpdateMenuQty(item);
                 UpdateLbl();
 
                 if (numUpDownItemQty.Value == 0)
@@ -546,11 +573,7 @@ namespace CafeSystem.Forms.Cashier
                     //remove item from cart list
                     cartItems.CartList.Remove(item);
 
-                    //ensure it doesnt updates if pop up is visible, to ensure no bug of btn qty popping in front
-                    if (! transPanelHidden.Visible)
-                    {
-                        UpdateMenuQty(item);
-                    }
+                    UpdateMenuQty(item);
 
                 }
             };
@@ -809,6 +832,25 @@ namespace CafeSystem.Forms.Cashier
             }
         }
 
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginPage = new LoginForm();
+            this.Hide();
+            loginPage.ShowDialog();
+            this.Close();
+        }
 
+        private void btnEndBusiness_Click(object sender, EventArgs e)
+        {
+            BusinessSummaryForm businessSumPage = new BusinessSummaryForm();
+            this.Hide();
+            businessSumPage.ShowDialog();
+            this.Close();
+        }
+
+        private void treeViewMenu_BeforeCollapse(object sender, TreeViewCancelEventArgs e)
+        {
+            e.Cancel = true;
+        }
     }
 }

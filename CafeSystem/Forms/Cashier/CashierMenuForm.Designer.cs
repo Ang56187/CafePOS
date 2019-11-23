@@ -43,6 +43,7 @@
             this.lblCashierName = new System.Windows.Forms.Label();
             this.panelCashierName = new System.Windows.Forms.Panel();
             this.panelLine = new System.Windows.Forms.Panel();
+            this.btnEndBusiness = new CafeSystem.Components.RoundButton();
             this.flowPanelCart = new CafeSystem.Components.BorderFlowLayoutPane();
             this.lblShopCart = new System.Windows.Forms.Label();
             this.panelLineUnderCart = new System.Windows.Forms.Panel();
@@ -63,10 +64,10 @@
             this.radioBtnTake = new System.Windows.Forms.RadioButton();
             this.btnCheckout = new CafeSystem.Components.RoundButton();
             this.flowLayoutHeader = new CafeSystem.Components.BorderFlowLayoutPane();
-            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.btnSearch = new CafeSystem.Components.RoundButton();
             this.txtBoxSearch = new System.Windows.Forms.TextBox();
+            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.treeViewMenu = new CafeSystem.Components.CustomTreeView();
             this.panelCashierName.SuspendLayout();
             this.flowPanelCart.SuspendLayout();
@@ -117,8 +118,27 @@
             this.panelLine.Location = new System.Drawing.Point(276, 111);
             this.panelLine.Margin = new System.Windows.Forms.Padding(4);
             this.panelLine.Name = "panelLine";
-            this.panelLine.Size = new System.Drawing.Size(3, 710);
+            this.panelLine.Size = new System.Drawing.Size(3, 800);
             this.panelLine.TabIndex = 13;
+            // 
+            // btnEndBusiness
+            // 
+            this.btnEndBusiness.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(156)))), ((int)(((byte)(252)))));
+            this.btnEndBusiness.FlatAppearance.BorderSize = 0;
+            this.btnEndBusiness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEndBusiness.ForeColor = System.Drawing.Color.White;
+            this.btnEndBusiness.Image = global::CafeSystem.Properties.Resources.bill_48;
+            this.btnEndBusiness.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEndBusiness.Location = new System.Drawing.Point(10, 850);
+            this.btnEndBusiness.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEndBusiness.Name = "btnEndBusiness";
+            this.btnEndBusiness.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnEndBusiness.Size = new System.Drawing.Size(259, 65);
+            this.btnEndBusiness.TabIndex = 14;
+            this.btnEndBusiness.Text = "End the day";
+            this.btnEndBusiness.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEndBusiness.UseVisualStyleBackColor = false;
+            this.btnEndBusiness.Click += new System.EventHandler(this.btnEndBusiness_Click);
             // 
             // flowPanelCart
             // 
@@ -370,7 +390,6 @@
             // 
             // flowLayoutHeader
             // 
-            this.flowLayoutHeader.Controls.Add(this.btnLogOut);
             this.flowLayoutHeader.Controls.Add(this.panelSearch);
             this.flowLayoutHeader.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutHeader.Location = new System.Drawing.Point(420, 0);
@@ -379,25 +398,6 @@
             this.flowLayoutHeader.Size = new System.Drawing.Size(1103, 71);
             this.flowLayoutHeader.TabIndex = 7;
             // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
-            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(867, 12);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 12, 40, 4);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 19, 0);
-            this.btnLogOut.Size = new System.Drawing.Size(196, 49);
-            this.btnLogOut.TabIndex = 4;
-            this.btnLogOut.Text = "Logout";
-            this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            // 
             // panelSearch
             // 
             this.panelSearch.BackColor = System.Drawing.Color.Transparent;
@@ -405,7 +405,7 @@
             this.panelSearch.Controls.Add(this.btnSearch);
             this.panelSearch.Controls.Add(this.txtBoxSearch);
             this.panelSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.panelSearch.Location = new System.Drawing.Point(225, 7);
+            this.panelSearch.Location = new System.Drawing.Point(465, 7);
             this.panelSearch.Margin = new System.Windows.Forms.Padding(4, 7, 80, 4);
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(558, 54);
@@ -435,6 +435,25 @@
             this.txtBoxSearch.Name = "txtBoxSearch";
             this.txtBoxSearch.Size = new System.Drawing.Size(133, 29);
             this.txtBoxSearch.TabIndex = 0;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(10, 774);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 12, 40, 4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(259, 68);
+            this.btnLogOut.TabIndex = 4;
+            this.btnLogOut.Text = "Logout";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // treeViewMenu
             // 
@@ -467,16 +486,19 @@
             treeNode3,
             treeNode6});
             this.treeViewMenu.ShowLines = false;
-            this.treeViewMenu.Size = new System.Drawing.Size(232, 875);
+            this.treeViewMenu.Size = new System.Drawing.Size(232, 490);
             this.treeViewMenu.TabIndex = 3;
+            this.treeViewMenu.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeViewMenu_BeforeCollapse);
             this.treeViewMenu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewMenu_AfterSelect);
             // 
-            // CashierMenuPage
+            // CashierMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1924, 1010);
+            this.Controls.Add(this.btnLogOut);
+            this.Controls.Add(this.btnEndBusiness);
             this.Controls.Add(this.flowPanelCart);
             this.Controls.Add(this.panelLine);
             this.Controls.Add(this.flowLayoutHeader);
@@ -484,7 +506,7 @@
             this.Controls.Add(this.flowLayoutPanelMenu);
             this.Controls.Add(this.treeViewMenu);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "CashierMenuPage";
+            this.Name = "CashierMenuForm";
             this.Text = "Sunway Cafe";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CashierMenuPage_Load);
@@ -537,5 +559,6 @@
         private System.Windows.Forms.RadioButton radioBtnDine;
         private System.Windows.Forms.RadioButton radioBtnTake;
         private Components.RoundButton btnCheckout;
+        private Components.RoundButton btnEndBusiness;
     }
 }

@@ -35,16 +35,12 @@
             this.txtBoxAmount = new System.Windows.Forms.TextBox();
             this.lblError = new System.Windows.Forms.Label();
             this.btnProceed = new CafeSystem.Components.RoundButton();
-            this.flowPanelOrderNo = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblOrderTxt = new System.Windows.Forms.Label();
-            this.lblOrderNum = new System.Windows.Forms.Label();
             this.panelLine1 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCashPayment = new System.Windows.Forms.Label();
             this.btnBack = new CafeSystem.Components.RoundButton();
             this.flowPanelCheckout = new System.Windows.Forms.FlowLayoutPanel();
             this.flowPanelPayment.SuspendLayout();
-            this.flowPanelOrderNo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowPanelCheckout.SuspendLayout();
             this.SuspendLayout();
@@ -59,16 +55,17 @@
             this.flowPanelPayment.Controls.Add(this.txtBoxAmount);
             this.flowPanelPayment.Controls.Add(this.lblError);
             this.flowPanelPayment.Controls.Add(this.btnProceed);
-            this.flowPanelPayment.Location = new System.Drawing.Point(597, 163);
+            this.flowPanelPayment.Location = new System.Drawing.Point(597, 73);
             this.flowPanelPayment.Margin = new System.Windows.Forms.Padding(4);
             this.flowPanelPayment.Name = "flowPanelPayment";
-            this.flowPanelPayment.Size = new System.Drawing.Size(676, 492);
+            this.flowPanelPayment.Size = new System.Drawing.Size(676, 578);
             this.flowPanelPayment.TabIndex = 6;
             // 
             // lblTotalAmtTxt
             // 
             this.lblTotalAmtTxt.AutoSize = true;
-            this.lblTotalAmtTxt.Location = new System.Drawing.Point(3, 0);
+            this.lblTotalAmtTxt.Location = new System.Drawing.Point(3, 100);
+            this.lblTotalAmtTxt.Margin = new System.Windows.Forms.Padding(3, 100, 3, 0);
             this.lblTotalAmtTxt.MinimumSize = new System.Drawing.Size(665, 62);
             this.lblTotalAmtTxt.Name = "lblTotalAmtTxt";
             this.lblTotalAmtTxt.Size = new System.Drawing.Size(665, 62);
@@ -79,7 +76,7 @@
             // lblTotalAmt
             // 
             this.lblTotalAmt.AutoSize = true;
-            this.lblTotalAmt.Location = new System.Drawing.Point(3, 62);
+            this.lblTotalAmt.Location = new System.Drawing.Point(3, 162);
             this.lblTotalAmt.MinimumSize = new System.Drawing.Size(665, 69);
             this.lblTotalAmt.Name = "lblTotalAmt";
             this.lblTotalAmt.Size = new System.Drawing.Size(665, 69);
@@ -90,7 +87,7 @@
             // lblPaymentTxt
             // 
             this.lblPaymentTxt.AutoSize = true;
-            this.lblPaymentTxt.Location = new System.Drawing.Point(4, 166);
+            this.lblPaymentTxt.Location = new System.Drawing.Point(4, 266);
             this.lblPaymentTxt.Margin = new System.Windows.Forms.Padding(4, 35, 4, 0);
             this.lblPaymentTxt.MinimumSize = new System.Drawing.Size(665, 62);
             this.lblPaymentTxt.Name = "lblPaymentTxt";
@@ -101,7 +98,7 @@
             // 
             // txtBoxAmount
             // 
-            this.txtBoxAmount.Location = new System.Drawing.Point(3, 231);
+            this.txtBoxAmount.Location = new System.Drawing.Point(3, 331);
             this.txtBoxAmount.MinimumSize = new System.Drawing.Size(4, 40);
             this.txtBoxAmount.Name = "txtBoxAmount";
             this.txtBoxAmount.Size = new System.Drawing.Size(665, 22);
@@ -114,7 +111,7 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(3, 274);
+            this.lblError.Location = new System.Drawing.Point(3, 374);
             this.lblError.MinimumSize = new System.Drawing.Size(665, 40);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(665, 40);
@@ -130,7 +127,7 @@
             this.btnProceed.ForeColor = System.Drawing.Color.White;
             this.btnProceed.Image = global::CafeSystem.Properties.Resources.arrow_right_white_48;
             this.btnProceed.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProceed.Location = new System.Drawing.Point(4, 324);
+            this.btnProceed.Location = new System.Drawing.Point(4, 424);
             this.btnProceed.Margin = new System.Windows.Forms.Padding(4, 10, 4, 4);
             this.btnProceed.Name = "btnProceed";
             this.btnProceed.Size = new System.Drawing.Size(665, 55);
@@ -138,42 +135,6 @@
             this.btnProceed.Text = "Proceed";
             this.btnProceed.UseVisualStyleBackColor = false;
             this.btnProceed.Click += new System.EventHandler(this.btnProceed_Click);
-            // 
-            // flowPanelOrderNo
-            // 
-            this.flowPanelOrderNo.Controls.Add(this.lblOrderTxt);
-            this.flowPanelOrderNo.Controls.Add(this.lblOrderNum);
-            this.flowPanelOrderNo.Location = new System.Drawing.Point(4, 73);
-            this.flowPanelOrderNo.Margin = new System.Windows.Forms.Padding(4);
-            this.flowPanelOrderNo.Name = "flowPanelOrderNo";
-            this.flowPanelOrderNo.Size = new System.Drawing.Size(1140, 82);
-            this.flowPanelOrderNo.TabIndex = 3;
-            // 
-            // lblOrderTxt
-            // 
-            this.lblOrderTxt.AutoSize = true;
-            this.lblOrderTxt.Location = new System.Drawing.Point(4, 0);
-            this.lblOrderTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblOrderTxt.MinimumSize = new System.Drawing.Size(400, 91);
-            this.lblOrderTxt.Name = "lblOrderTxt";
-            this.lblOrderTxt.Size = new System.Drawing.Size(400, 91);
-            this.lblOrderTxt.TabIndex = 0;
-            this.lblOrderTxt.Text = "Order number:";
-            this.lblOrderTxt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblOrderNum
-            // 
-            this.lblOrderNum.AutoSize = true;
-            this.lblOrderNum.BackColor = System.Drawing.Color.White;
-            this.lblOrderNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lblOrderNum.Location = new System.Drawing.Point(412, 0);
-            this.lblOrderNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblOrderNum.MinimumSize = new System.Drawing.Size(13, 91);
-            this.lblOrderNum.Name = "lblOrderNum";
-            this.lblOrderNum.Size = new System.Drawing.Size(56, 91);
-            this.lblOrderNum.TabIndex = 1;
-            this.lblOrderNum.Text = "#54343";
-            this.lblOrderNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelLine1
             // 
@@ -233,7 +194,6 @@
             this.flowPanelCheckout.BackColor = System.Drawing.Color.White;
             this.flowPanelCheckout.Controls.Add(this.panel1);
             this.flowPanelCheckout.Controls.Add(this.panelLine1);
-            this.flowPanelCheckout.Controls.Add(this.flowPanelOrderNo);
             this.flowPanelCheckout.Controls.Add(this.flowPanelPayment);
             this.flowPanelCheckout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowPanelCheckout.Location = new System.Drawing.Point(31, 18);
@@ -256,8 +216,6 @@
             this.Load += new System.EventHandler(this.PaymentPage_Load);
             this.flowPanelPayment.ResumeLayout(false);
             this.flowPanelPayment.PerformLayout();
-            this.flowPanelOrderNo.ResumeLayout(false);
-            this.flowPanelOrderNo.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowPanelCheckout.ResumeLayout(false);
@@ -269,9 +227,6 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowPanelPayment;
         private System.Windows.Forms.Label lblPaymentTxt;
-        private System.Windows.Forms.FlowLayoutPanel flowPanelOrderNo;
-        private System.Windows.Forms.Label lblOrderTxt;
-        private System.Windows.Forms.Label lblOrderNum;
         private System.Windows.Forms.Panel panelLine1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblCashPayment;

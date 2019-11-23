@@ -14,9 +14,10 @@ namespace CafeSystem
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Cashier.CashierMenuForm());
+            Application.Run(new Forms.LoginForm());
 
         }
     }
