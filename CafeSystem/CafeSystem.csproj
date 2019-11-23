@@ -57,6 +57,11 @@
     <Compile Include="Backend\Objects\User.cs" />
     <Compile Include="Backend\OrderCollection.cs" />
     <Compile Include="Backend\ShoppingCart.cs" />
+    <Compile Include="CafePOSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CafePOSDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Components\BorderFlowLayoutPane.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -68,6 +73,12 @@
     </Compile>
     <Compile Include="Components\TransparentPanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ProductAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ProductAddForm.Designer.cs">
+      <DependentUpon>ProductAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Cashier\CashierMenuForm.cs">
       <SubType>Form</SubType>
@@ -122,6 +133,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Admin\ProductAddForm.resx">
+      <DependentUpon>ProductAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cashier\CashierMenuForm.resx">
       <DependentUpon>CashierMenuForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +162,17 @@
     <EmbeddedResource Include="Forms\SelectionForm.resx">
       <DependentUpon>SelectionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CafePOSDataSet.xsc">
+      <DependentUpon>CafePOSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CafePOSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CafePOSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CafePOSDataSet.xss">
+      <DependentUpon>CafePOSDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -215,5 +240,6 @@
   <ItemGroup>
     <None Include="Resource\Images\Icons\printer-48.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
