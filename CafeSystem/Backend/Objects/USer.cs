@@ -8,6 +8,14 @@ namespace CafeSystem.Backend.Objects
 {
     class User
     {
+        //testing purpose
+        public User(String name, String password,String position)
+        {
+            Name = name;
+            Password = password;
+            Position = position;
+        }
+
         public User(String name, String position)
         {
             Name = name;
@@ -16,6 +24,8 @@ namespace CafeSystem.Backend.Objects
 
         public String Name {get;set;}
         public String Position { get; set; }
+
+        public String Password { get; set; }
 
         public override string ToString()
         {

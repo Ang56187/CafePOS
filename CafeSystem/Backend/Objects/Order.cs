@@ -1,4 +1,7 @@
 ﻿using System;
+using System;
+using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +13,14 @@ namespace CafeSystem.Backend.Objects
     {
         DateTime orderDate;
 
-        public Order(String orderNum, User orderUser, List<Item> orderItems , Tax orderTax, Payment orderPayment,String dineOrTakeAway)
+        public Order(String orderNum, String orderUserName, List<Item> orderItems , Tax orderTax, Payment orderPayment,String dineOrTakeAway)
         {
             //set based on current time
             OrderDate = DateTime.Now;
 
 
             OrderNum = orderNum;
-            OrderUser = orderUser;
+            OrderUserName = orderUserName;
             OrderItems = orderItems;
             OrderTax = orderTax;
             OrderPayment = orderPayment;
@@ -29,7 +32,7 @@ namespace CafeSystem.Backend.Objects
 
         //can get the values from the properties
         public String OrderNum { get; set; }
-        public User OrderUser { get; set; }//contain properties Name and Position(get and set)
+        public String OrderUserName { get; set; }//contain properties Name and Position(get and set)
         public List<Item> OrderItems { get; set; }
         public DateTime OrderDate { get; }
         public Tax OrderTax { get; set;} // contains properties SerTax and SerCharge(get and set), use this to get service tax/charge

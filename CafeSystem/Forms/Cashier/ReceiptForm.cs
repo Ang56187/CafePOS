@@ -26,8 +26,8 @@ namespace CafeSystem.Forms.Cashier
         Font fontHeaderLbl;
         Font fontBtn;
 
-        //later create order number, but for now we hard code it...
-        private String orderNum = "232342";
+        //generate order id
+        private String orderNum = String.Format("{0:0000}{1}", OrderCollection.OrderList.Count()+1, DateTime.Now.ToString("hhss"));
 
         //create and save order made
         Order orderDetail;
@@ -83,9 +83,9 @@ namespace CafeSystem.Forms.Cashier
 
 
             //save receipt as order object
-            orderDetail = new Order(orderNum, this.user, finalItemList.CartList, this.tax, this.payment,dineOrTakeAway);
+            orderDetail = new Order(orderNum, this.user.Name, finalItemList.CartList, this.tax, this.payment,dineOrTakeAway);
 
-            OrderCollection.orderList.Add(orderDetail);
+            OrderCollection.OrderList.Add(orderDetail);
         }
 
         private void ReceiptPage_Load(object sender, EventArgs e)
@@ -108,6 +108,9 @@ namespace CafeSystem.Forms.Cashier
             btnLogOut.Font = btnNextOrder.Font = btnEndDay.Font = btnPrintReceipt.Font =  fontBtn;
             lblReceivedTxt.Font = lblReceived.Font = lblTotalTxt.Font = lblTotal.Font = lblChangeTxt.Font = lblChange.Font = fontLbl;
             lblNowWat.Font =  new Font(fonts.Families[0], 20.0F);
+
+            //set order number at label
+            lblOrderNum.Text = "#"+orderNum;
 
 
             //resize the image of button
@@ -192,14 +195,14 @@ namespace CafeSystem.Forms.Cashier
             e.Graphics.DrawString(orderDetail.OrderPayment.ToString(), printFont, Brushes.Black, new PointF(10, 70 + (counter * printFont.GetHeight(e.Graphics))));
             counter += 4;
 
-            e.Graphics.DrawString(orderDetail.OrderUser.ToString(), printFont, Brushes.Black, new PointF(10, 100 + (counter * printFont.GetHeight(e.Graphics))));
+            e.Graphics.DrawString("Processed by : " + orderDetail.OrderUserName, printFont, Brushes.Black, new PointF(10, 100 + (counter * printFont.GetHeight(e.Graphics))));
             counter += 1;
 
         }
 
         private void btnNextOrder_Click(object sender, EventArgs e)
         {
-            CashierMenuForm cashierPage = new CashierMenuForm();
+            CashierMenuForm cashierPage = new CashierMenuForm(user);
             this.Hide();
             cashierPage.ShowDialog();
             this.Close();
@@ -208,11 +211,19 @@ namespace CafeSystem.Forms.Cashier
 
         private void btnEndDay_Click(object sender, EventArgs e)///TODO: changed later, for now i use this to test kitchen page
         {
-            Kitchen.KitchenForm kitchenPage = new Kitchen.KitchenForm();
+            BusinessSummaryForm busSumPage = new BusinessSummaryForm();
             this.Hide();
-            kitchenPage.ShowDialog();
+            busSumPage.ShowDialog();
             this.Close();
 
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginPage = new LoginForm();
+            this.Hide();
+            loginPage.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -52,7 +52,7 @@ namespace CafeSystem.Backend.Objects
         {
             return String.Format("Paid by: Cash\n" +
                                  "Total amount:                    {0:C}\n" +
-                                 "Paid amoubt :                    {1:C}\n" +
+                                 "Paid amount :                    {1:C}\n" +
                                  "Change      :                    {2:C}\n", base.TotalAmt, PaidAmt,PaidAmt - TotalAmt);
         }
 
