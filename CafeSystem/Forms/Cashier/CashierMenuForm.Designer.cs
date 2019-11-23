@@ -488,6 +488,7 @@
             this.treeViewMenu.ShowLines = false;
             this.treeViewMenu.Size = new System.Drawing.Size(232, 490);
             this.treeViewMenu.TabIndex = 3;
+            this.treeViewMenu.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeViewMenu_BeforeCollapse);
             this.treeViewMenu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewMenu_AfterSelect);
             // 
             // CashierMenuForm

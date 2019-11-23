@@ -80,7 +80,7 @@ namespace CafeSystem.Forms.Cashier
             InitializeComponent();
         }
 
-        //when access login page
+        //constructor when access login page
         public CashierMenuForm(object user)
         {
             InitializeComponent();
@@ -169,6 +169,10 @@ namespace CafeSystem.Forms.Cashier
             //set name of cashier
             lblCashierName.Text = "Cashier page: "+user.Name;
 
+            //ensure tree view always expanded
+            treeViewMenu.ExpandAll();
+
+            //create all items in menu flow panel
             CreateItemDetails();
 
 
@@ -842,6 +846,11 @@ namespace CafeSystem.Forms.Cashier
             this.Hide();
             businessSumPage.ShowDialog();
             this.Close();
+        }
+
+        private void treeViewMenu_BeforeCollapse(object sender, TreeViewCancelEventArgs e)
+        {
+            e.Cancel = true;
         }
     }
 }
