@@ -26,8 +26,8 @@ namespace CafeSystem.Forms.Cashier
         Font fontHeaderLbl;
         Font fontBtn;
 
-        //later create order number, but for now we hard code it...
-        private String orderNum = "#"+Guid.NewGuid().ToString();
+        //generate order id
+        private String orderNum = String.Format("{0:0000}{1}", OrderCollection.OrderList.Count()+1, DateTime.Now.ToString("hhss"));
 
         //create and save order made
         Order orderDetail;
@@ -110,7 +110,7 @@ namespace CafeSystem.Forms.Cashier
             lblNowWat.Font =  new Font(fonts.Families[0], 20.0F);
 
             //set order number at label
-            lblOrderNum.Text = orderNum;
+            lblOrderNum.Text = "#"+orderNum;
 
 
             //resize the image of button

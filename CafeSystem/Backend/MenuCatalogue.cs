@@ -18,7 +18,6 @@ namespace CafeSystem.Backend
 
         public MenuCatalogue()
         {
-            //test
             String fileLocation = System.IO.Path.Combine(Environment.CurrentDirectory, "..", "..", "Database", "posDB.db");
 
             string connStr = "Data Source=" + fileLocation + ";Version=3;Synchronous=Off;UTF8Encoding=True;";

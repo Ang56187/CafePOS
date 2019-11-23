@@ -198,6 +198,9 @@ namespace CafeSystem.Forms.Kitchen
                     //change button color and image
                     btnDone.BackColor = Color.FromArgb(71, 206, 80);
                     btnDone.Image = ResizeImage(global::CafeSystem.Properties.Resources.checked_checkbox_32, new Size(30, 30));
+
+                    lblItemName.Font = fontLblComplete;
+
                 }
                 btnDone.Click += (sender, e) =>
                 {
@@ -224,7 +227,13 @@ namespace CafeSystem.Forms.Kitchen
                     };
 
                 lblItemName.MinimumSize = new Size(100, 40);
-                lblItemName.Font = fontLblMini;
+
+                if (item.IsDone)
+                    lblItemName.Font = fontLblComplete;
+                else
+                    lblItemName.Font = fontLblMini;
+                
+
                 lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                 lblItemName.AutoSize = true;
 
