@@ -41,13 +41,13 @@ namespace CafeSystem.Backend
 
             while (sqlite_datareader.Read())
             {
-                String name = sqlite_datareader.GetString(0);
-                decimal price = sqlite_datareader.GetDecimal(1);
-                decimal cost = sqlite_datareader.GetDecimal(2);
-                String description = sqlite_datareader.GetString(3);
-                String image = sqlite_datareader.GetString(4);
-                String category = sqlite_datareader.GetString(5);
-                String type = sqlite_datareader.GetString(6);
+                String name = sqlite_datareader.GetString(1);
+                decimal price = sqlite_datareader.GetDecimal(2);
+                decimal cost = sqlite_datareader.GetDecimal(3);
+                String description = sqlite_datareader.GetString(4);
+                String image = sqlite_datareader.GetString(5);
+                String category = sqlite_datareader.GetString(6);
+                String type = sqlite_datareader.GetString(7);
 
                 MenuList.Add(new Item(name, price, cost, description, image, category, type));
 
