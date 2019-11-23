@@ -1,9 +1,7 @@
-﻿using System;
+﻿using CafeSystem.Backend.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CafeSystem.Backend.Objects;
 
 namespace CafeSystem.Backend
 {

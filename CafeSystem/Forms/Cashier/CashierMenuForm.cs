@@ -293,10 +293,10 @@ namespace CafeSystem.Forms.Cashier
             //TODO: add to cart
             btnAddToCart.Click += (sender, e) =>
             {
-                if (item.Quantity <= 100)
-                {
-                    item.Quantity += 1;
-
+                    if (item.Quantity <= 99)
+                    {
+                        item.Quantity += 1;
+                    }
                     //update item quantity in cart
                     foreach (NumericUpDown numUpDown in numUpDownListCart)
                     {
@@ -306,7 +306,7 @@ namespace CafeSystem.Forms.Cashier
                             numUpDown.Update();
                         }
                     }
-                }
+                
 
                 //redirect focus to avoid popping up in front of pop up
                 btnSearch.Focus();
@@ -333,12 +333,13 @@ namespace CafeSystem.Forms.Cashier
             //add to cart button at pop up
             btnAddToCart2.Click += (sender, e) =>
             {
-                if (item.Quantity <= 100)
+
+                if (item.Quantity <= 99)
                 {
                     item.Quantity += 1;
-
-                    //update item quantity in cart
-                    foreach (NumericUpDown numUpDown in numUpDownListCart)
+                }
+                //update item quantity in cart
+                foreach (NumericUpDown numUpDown in numUpDownListCart)
                     {
                         if (numUpDown.Tag.Equals(item.Name))
                         {
@@ -349,7 +350,7 @@ namespace CafeSystem.Forms.Cashier
                     //update the pop-up qty numUpDown
                     numUpDownQty.Value = item.Quantity;
                     AddCartItem(item);
-                }
+
             };
 
         }
@@ -556,6 +557,7 @@ namespace CafeSystem.Forms.Cashier
             {
                 item.Quantity = (int)numUpDownItemQty.Value;
                 lblItemPrice.Text = String.Format("{0:C}", item.Price * item.Quantity);
+                UpdateMenuQty(item);
                 UpdateLbl();
 
                 if (numUpDownItemQty.Value == 0)
@@ -567,11 +569,7 @@ namespace CafeSystem.Forms.Cashier
                     //remove item from cart list
                     cartItems.CartList.Remove(item);
 
-                    //ensure it doesnt updates if pop up is visible, to ensure no bug of btn qty popping in front
-                    if (! transPanelHidden.Visible)
-                    {
-                        UpdateMenuQty(item);
-                    }
+                    UpdateMenuQty(item);
 
                 }
             };
