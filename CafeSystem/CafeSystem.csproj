@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backend\DailyOrderSummary.cs" />
+    <Compile Include="Backend\Database.cs" />
     <Compile Include="Backend\MenuCatalogue.cs" />
     <Compile Include="Backend\Objects\Cash.cs" />
     <Compile Include="Backend\Objects\CreditCard.cs" />
@@ -89,6 +90,12 @@
     </Compile>
     <Compile Include="Components\TransparentPanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ProductAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ProductAddForm.Designer.cs">
+      <DependentUpon>ProductAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\BusinessSummaryForm.cs">
       <SubType>Form</SubType>
@@ -149,6 +156,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Admin\ProductAddForm.resx">
+      <DependentUpon>ProductAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BusinessSummaryForm.resx">
       <DependentUpon>BusinessSummaryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +256,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resource\Images\Icons\printer-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

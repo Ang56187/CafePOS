@@ -7,6 +7,10 @@ namespace CafeSystem.Backend
 {
     class MenuCatalogue
     {
+
+        //handle database conn
+        Database db = new Database();
+
         List<Item> menuList = new List<Item>();
 
         public List<Item> MenuList {
@@ -16,44 +20,30 @@ namespace CafeSystem.Backend
 
         public MenuCatalogue()
         {
-            String fileLocation = System.IO.Path.Combine(Environment.CurrentDirectory, "..", "..", "Database", "posDB.db");
+            db.openDBConnection();
+            db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
+            db.Sqlite_cmd.CommandText = "SELECT * FROM item";
 
-            string connStr = "Data Source=" + fileLocation + ";Version=3;Synchronous=Off;UTF8Encoding=True;";
+            db.Sqlite_datareader = db.Sqlite_cmd.ExecuteReader();//reads the database
 
-            System.Data.SQLite.SQLiteConnection sqlConn = null;
-            sqlConn = new System.Data.SQLite.SQLiteConnection(connStr);
-            try
+
+            while (db.Sqlite_datareader.Read())
             {
-                sqlConn.Open();
-            }
-            catch (Exception ei)
-            {
-            }
-
-            System.Data.SQLite.SQLiteDataReader sqlite_datareader;
-            System.Data.SQLite.SQLiteCommand sqlite_cmd;
-
-            sqlite_cmd = sqlConn.CreateCommand();//ask database what to query
-            sqlite_cmd.CommandText = "SELECT * FROM item";
-
-            sqlite_datareader = sqlite_cmd.ExecuteReader();//reads the database
-
-
-            while (sqlite_datareader.Read())
-            {
-                String name = sqlite_datareader.GetString(1);
-                decimal price = sqlite_datareader.GetDecimal(2);
-                decimal cost = sqlite_datareader.GetDecimal(3);
-                String description = sqlite_datareader.GetString(4);
-                String image = sqlite_datareader.GetString(5);
-                String category = sqlite_datareader.GetString(6);
-                String type = sqlite_datareader.GetString(7);
+                String name = db.Sqlite_datareader.GetString(1);
+                decimal price = db.Sqlite_datareader.GetDecimal(2);
+                decimal cost = db.Sqlite_datareader.GetDecimal(3);
+                String description = db.Sqlite_datareader.GetString(4);
+                String image = db.Sqlite_datareader.GetString(5);
+                String category = db.Sqlite_datareader.GetString(6);
+                String type = db.Sqlite_datareader.GetString(7);
 
                 MenuList.Add(new Item(name, price, cost, description, image, category, type));
 
-            }
 
-            sqlConn.Close();
+            }
+            db.closeDBConnection();
+
+            
 
             //hard code items first in the mean time
             //MenuList.Add(new Item("Latte", 13.00M,5.00M,  "efewfsfsdfsefsdf", "latte.jpg", "Beverage", "Coffee"));

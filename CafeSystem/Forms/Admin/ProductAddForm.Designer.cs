@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("User");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Product");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Stock");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Order");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Product");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Stock");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Order");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductAddForm));
             this.lblAdminName = new System.Windows.Forms.Label();
             this.pnlAdminName = new System.Windows.Forms.Panel();
@@ -43,25 +42,11 @@
             this.lblUserTable = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgProduct = new System.Windows.Forms.DataGridView();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cafePOSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cafePOSDataSet = new CafeSystem.CafePOSDataSet();
-            this.productTableAdapter = new CafeSystem.CafePOSDataSetTableAdapters.productTableAdapter();
             this.btnAddProduct = new CafeSystem.Components.RoundButton();
-            this.productidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productimgDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.productdesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgEditColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dtgDeleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlAdminName.SuspendLayout();
             this.pnlAdminNavContainer.SuspendLayout();
             this.pnlAdminTopContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafePOSDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafePOSDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAdminName
@@ -118,19 +103,19 @@
             this.tvAdminNav.Margin = new System.Windows.Forms.Padding(4);
             this.tvAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
             this.tvAdminNav.Name = "tvAdminNav";
-            treeNode21.Name = "user";
-            treeNode21.Text = "User";
-            treeNode22.Name = "product";
-            treeNode22.Text = "Product";
-            treeNode23.Name = "stock";
-            treeNode23.Text = "Stock";
-            treeNode24.Name = "order";
-            treeNode24.Text = "Order";
+            treeNode1.Name = "user";
+            treeNode1.Text = "User";
+            treeNode2.Name = "product";
+            treeNode2.Text = "Product";
+            treeNode3.Name = "stock";
+            treeNode3.Text = "Stock";
+            treeNode4.Name = "order";
+            treeNode4.Text = "Order";
             this.tvAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
             this.tvAdminNav.ShowLines = false;
             this.tvAdminNav.Size = new System.Drawing.Size(275, 951);
             this.tvAdminNav.TabIndex = 3;
@@ -186,42 +171,13 @@
             // dtgProduct
             // 
             this.dtgProduct.AllowUserToOrderColumns = true;
-            this.dtgProduct.AutoGenerateColumns = false;
             this.dtgProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productidDataGridViewTextBoxColumn,
-            this.productnameDataGridViewTextBoxColumn,
-            this.productpriceDataGridViewTextBoxColumn,
-            this.productimgDataGridViewImageColumn,
-            this.productdesDataGridViewTextBoxColumn,
-            this.dtgEditColumn,
-            this.dtgDeleteColumn});
-            this.dtgProduct.DataSource = this.productBindingSource;
             this.dtgProduct.Location = new System.Drawing.Point(335, 194);
             this.dtgProduct.Name = "dtgProduct";
             this.dtgProduct.RowTemplate.Height = 24;
             this.dtgProduct.Size = new System.Drawing.Size(1507, 776);
             this.dtgProduct.TabIndex = 20;
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "product";
-            this.productBindingSource.DataSource = this.cafePOSDataSetBindingSource;
-            // 
-            // cafePOSDataSetBindingSource
-            // 
-            this.cafePOSDataSetBindingSource.DataSource = this.cafePOSDataSet;
-            this.cafePOSDataSetBindingSource.Position = 0;
-            // 
-            // cafePOSDataSet
-            // 
-            this.cafePOSDataSet.DataSetName = "CafePOSDataSet";
-            this.cafePOSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productTableAdapter
-            // 
-            this.productTableAdapter.ClearBeforeFill = true;
             // 
             // btnAddProduct
             // 
@@ -240,52 +196,6 @@
             this.btnAddProduct.TabIndex = 19;
             this.btnAddProduct.Text = "Add Product";
             this.btnAddProduct.UseVisualStyleBackColor = false;
-            // 
-            // productidDataGridViewTextBoxColumn
-            // 
-            this.productidDataGridViewTextBoxColumn.DataPropertyName = "product_id";
-            this.productidDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.productidDataGridViewTextBoxColumn.Name = "productidDataGridViewTextBoxColumn";
-            // 
-            // productnameDataGridViewTextBoxColumn
-            // 
-            this.productnameDataGridViewTextBoxColumn.DataPropertyName = "product_name";
-            this.productnameDataGridViewTextBoxColumn.HeaderText = "Product Name";
-            this.productnameDataGridViewTextBoxColumn.Name = "productnameDataGridViewTextBoxColumn";
-            // 
-            // productpriceDataGridViewTextBoxColumn
-            // 
-            this.productpriceDataGridViewTextBoxColumn.DataPropertyName = "product_price";
-            this.productpriceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.productpriceDataGridViewTextBoxColumn.Name = "productpriceDataGridViewTextBoxColumn";
-            // 
-            // productimgDataGridViewImageColumn
-            // 
-            this.productimgDataGridViewImageColumn.DataPropertyName = "product_img";
-            this.productimgDataGridViewImageColumn.HeaderText = "Thumbnails";
-            this.productimgDataGridViewImageColumn.Name = "productimgDataGridViewImageColumn";
-            // 
-            // productdesDataGridViewTextBoxColumn
-            // 
-            this.productdesDataGridViewTextBoxColumn.DataPropertyName = "product_des";
-            this.productdesDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.productdesDataGridViewTextBoxColumn.Name = "productdesDataGridViewTextBoxColumn";
-            // 
-            // dtgEditColumn
-            // 
-            this.dtgEditColumn.HeaderText = "";
-            this.dtgEditColumn.Name = "dtgEditColumn";
-            this.dtgEditColumn.ReadOnly = true;
-            this.dtgEditColumn.Text = "Edit";
-            this.dtgEditColumn.UseColumnTextForButtonValue = true;
-            // 
-            // dtgDeleteColumn
-            // 
-            this.dtgDeleteColumn.HeaderText = "";
-            this.dtgDeleteColumn.Name = "dtgDeleteColumn";
-            this.dtgDeleteColumn.ReadOnly = true;
-            this.dtgDeleteColumn.Text = "Delete";
-            this.dtgDeleteColumn.UseColumnTextForButtonValue = true;
             // 
             // ProductAddForm
             // 
@@ -309,9 +219,6 @@
             this.pnlAdminNavContainer.ResumeLayout(false);
             this.pnlAdminTopContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafePOSDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafePOSDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,16 +235,5 @@
         private System.Windows.Forms.Panel panel1;
         private Components.RoundButton btnAddProduct;
         private System.Windows.Forms.DataGridView dtgProduct;
-        private System.Windows.Forms.BindingSource cafePOSDataSetBindingSource;
-        private CafePOSDataSet cafePOSDataSet;
-        private System.Windows.Forms.BindingSource productBindingSource;
-        private CafePOSDataSetTableAdapters.productTableAdapter productTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productpriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn productimgDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productdesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn dtgEditColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn dtgDeleteColumn;
     }
 }

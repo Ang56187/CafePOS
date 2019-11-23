@@ -37,6 +37,8 @@ namespace CafeSystem.Forms
         List<String> nameList = new List<String>();
         List<String> passList = new List<String>();
 
+        Database db = new Database();
+
 
         public LoginForm()
         {
@@ -46,6 +48,8 @@ namespace CafeSystem.Forms
 
         private void login_Load(object sender, EventArgs e)
         {
+            db.openDBConnection();
+
             //set font
             byte[] fontData = Properties.Resources.Century_Gothic;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);

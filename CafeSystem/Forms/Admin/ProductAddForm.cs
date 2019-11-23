@@ -51,8 +51,6 @@ namespace CafeSystem.Forms.Admin
 
         private void ProductAddForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cafePOSDataSet.product' table. You can move, or remove it, as needed.
-            this.productTableAdapter.Fill(this.cafePOSDataSet.product);
 
             //set autosize mode
             dtgProduct.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -70,5 +68,6 @@ namespace CafeSystem.Forms.Admin
                 dtgProduct.Columns[i].Width = colw;
             }
         }
+        
     }
 }
