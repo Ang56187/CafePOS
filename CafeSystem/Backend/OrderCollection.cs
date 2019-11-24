@@ -13,12 +13,18 @@ namespace CafeSystem.Backend
        // private static List<Order> orderList = new List<Order>();
 
         //for getting all rows in purchase_order table first
-        private static List<Order> orderList = new List<Order>();
+        private List<Order> orderList = new List<Order>();
+        private Database db = new Database();
 
 
-        Database db = new Database();
+        public OrderCollection()
+        {
+            GetFromOrderTable();
+        }
 
-        public static List<Order> OrderList
+
+
+        public List<Order> OrderList
         {
             get { return orderList; }
             set { orderList = value; }
@@ -26,10 +32,6 @@ namespace CafeSystem.Backend
 
         public void GetFromOrderTable()
         {
-            decimal serTax=0;
-            decimal serCharge=0;
-            decimal subTotal=0;
-            decimal totalAmt=0;
 
             db.OpenDBConnection();
             db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
@@ -52,6 +54,11 @@ namespace CafeSystem.Backend
             //loops through order one by one to add the item
             foreach (Order order in OrderList)
             {
+                decimal serTax = 0;
+                decimal serCharge = 0;
+                decimal subTotal = 0;
+                decimal totalAmt = 0;
+
                 db.Sqlite_cmd.Dispose();
 
                 //get user name of order
@@ -109,6 +116,7 @@ namespace CafeSystem.Backend
 
                 //set the tax
                 serTax = subTotal * 6 / 100;
+
                 if (order.DineOrTakeAway.Equals("Dine-in"))
                 {
                     serCharge = subTotal * 10 / 100;
@@ -119,7 +127,7 @@ namespace CafeSystem.Backend
 
                 //set up paid amount
                 totalAmt = subTotal + order.OrderTax.SerTax + order.OrderTax.SerCharge;
-                order.OrderPayment = new Payment(totalAmt);
+                order.OrderPayment = new Payment();
                 order.OrderPayment.TotalAmt = totalAmt;
 
             }//end order foreach

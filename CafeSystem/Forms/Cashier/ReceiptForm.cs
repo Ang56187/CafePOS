@@ -26,11 +26,14 @@ namespace CafeSystem.Forms.Cashier
         Font fontHeaderLbl;
         Font fontBtn;
 
-        //generate order id
-        private String orderNum = String.Format("{0:0000}{1}", OrderCollection.OrderList.Count()+1, DateTime.Now.ToString("mmss"));
+        //get the orders from DB
+        OrderCollection orderList = new OrderCollection();
 
         //create and save order made
         Order orderDetail;
+
+        //set the order num in constructor
+        String orderNum = "";
 
         //get arguments from form constructors
         ShoppingCart finalItemList = new ShoppingCart();
@@ -50,6 +53,9 @@ namespace CafeSystem.Forms.Cashier
         public ReceiptForm(object user,object itemList, decimal total, String dineOrTakeAway,Object payment,object tax)
         {
             InitializeComponent();
+
+            //generate order id
+            orderNum = String.Format("{0:0000}{1}", orderList.OrderList.Count() + 1, DateTime.Now.ToString("mmss"));
 
             if (user is User)
             {
@@ -81,11 +87,10 @@ namespace CafeSystem.Forms.Cashier
             totalAmount = total;
             this.dineOrTakeAway = dineOrTakeAway;
 
-
             //save receipt as order object
             orderDetail = new Order(orderNum, this.user.Name, finalItemList.CartList, this.tax, this.payment,dineOrTakeAway);
-
-            //OrderCollection.OrderList.Add(orderDetail);
+            //add to database
+            orderDetail.AddToOrderTable();
         }
 
         private void ReceiptPage_Load(object sender, EventArgs e)
