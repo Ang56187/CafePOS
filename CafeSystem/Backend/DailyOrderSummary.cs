@@ -9,7 +9,7 @@ namespace CafeSystem.Backend
 {
     class DailyOrderSummary
     {
-        List<Order> orderList = OrderCollection.OrderList;
+        List<Order> orderList = new OrderCollection().OrderList;
 
         //count the total orders made today
         List<Order> orderListToday = new List<Order>();

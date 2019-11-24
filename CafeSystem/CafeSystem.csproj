@@ -162,6 +162,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resource\Images\Icons\coffee-white-128.png" />
     <EmbeddedResource Include="Forms\Admin\ProductAddForm.resx">
       <DependentUpon>ProductAddForm.cs</DependentUpon>
     </EmbeddedResource>

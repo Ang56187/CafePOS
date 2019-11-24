@@ -1189,6 +1189,7 @@
             this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.panelBusinessSummary);
             this.Name = "BusinessSummaryForm";
+            this.Text = StandardizedNames.FormName;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BusinessSummaryForm_Load);
             this.panelBusinessSummary.ResumeLayout(false);

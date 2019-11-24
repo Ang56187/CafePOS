@@ -507,7 +507,7 @@
             this.Controls.Add(this.treeViewMenu);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CashierMenuForm";
-            this.Text = "Sunway Cafe";
+            this.Text = StandardizedNames.FormName;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CashierMenuPage_Load);
             this.panelCashierName.ResumeLayout(false);

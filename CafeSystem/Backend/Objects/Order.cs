@@ -30,8 +30,6 @@ namespace CafeSystem.Backend.Objects
             DineOrTakeAway = dineOrTakeAway;
 
             IsDone = false;
-
-            AddToOrderTable();
         }
 
         //used to get orders from DB

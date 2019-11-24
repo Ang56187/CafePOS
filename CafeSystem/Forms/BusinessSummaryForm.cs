@@ -42,7 +42,7 @@ namespace CafeSystem.Forms
 
 
         //get the orders created
-        List<Order> orderList = OrderCollection.OrderList;
+        List<Order> orderList = new OrderCollection().OrderList;
 
         //get summary of details of todays orders created
         DailyOrderSummary orderSummary = new DailyOrderSummary();

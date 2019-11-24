@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.logo = new System.Windows.Forms.Panel();
+            this.lblLogo = new System.Windows.Forms.Label();
+            this.picBoxLogo = new System.Windows.Forms.PictureBox();
             this.txtBoxPassword = new System.Windows.Forms.TextBox();
             this.txtBoxUsername = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -39,6 +41,8 @@
             this.tablePaneLogin = new System.Windows.Forms.TableLayoutPanel();
             this.btnLogin = new CafeSystem.Components.RoundButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.logo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
             this.tablePaneLogin.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +52,8 @@
             this.logo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.logo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.logo.Controls.Add(this.lblLogo);
+            this.logo.Controls.Add(this.picBoxLogo);
             this.logo.ForeColor = System.Drawing.Color.White;
             this.logo.Location = new System.Drawing.Point(328, 24);
             this.logo.Margin = new System.Windows.Forms.Padding(4);
@@ -56,6 +62,26 @@
             this.logo.Size = new System.Drawing.Size(345, 263);
             this.logo.TabIndex = 0;
             this.logo.Paint += new System.Windows.Forms.PaintEventHandler(this.logo_Paint);
+            // 
+            // lblLogo
+            // 
+            this.lblLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblLogo.AutoSize = true;
+            this.lblLogo.Location = new System.Drawing.Point(52, 186);
+            this.lblLogo.Name = "lblLogo";
+            this.lblLogo.Size = new System.Drawing.Size(88, 17);
+            this.lblLogo.TabIndex = 1;
+            this.lblLogo.Text = "Sunway cafe";
+            // 
+            // picBoxLogo
+            // 
+            this.picBoxLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.picBoxLogo.Image = global::CafeSystem.Properties.Resources.coffee_white_128;
+            this.picBoxLogo.Location = new System.Drawing.Point(109, 42);
+            this.picBoxLogo.Name = "picBoxLogo";
+            this.picBoxLogo.Size = new System.Drawing.Size(130, 119);
+            this.picBoxLogo.TabIndex = 0;
+            this.picBoxLogo.TabStop = false;
             // 
             // txtBoxPassword
             // 
@@ -171,6 +197,9 @@
             this.Text = "Sunway Cafe";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.login_Load);
+            this.logo.ResumeLayout(false);
+            this.logo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
             this.tablePaneLogin.ResumeLayout(false);
             this.tablePaneLogin.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -190,6 +219,8 @@
         private System.Windows.Forms.Label lblErrorInput;
         private System.Windows.Forms.TableLayoutPanel tablePaneLogin;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblLogo;
+        private System.Windows.Forms.PictureBox picBoxLogo;
     }
 }
 

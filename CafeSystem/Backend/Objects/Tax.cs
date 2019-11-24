@@ -59,7 +59,7 @@ namespace CafeSystem.Backend.Objects
             if (SerCharge > 0)
             {
                 return String.Format("Service Tax:                    {0:C}\n" +
-                                     "Service Charge:                 {0:C}\n", SerTax, SerCharge);
+                                     "Service Charge:                 {1:C}\n", SerTax, SerCharge);
             }
             else
                 return String.Format("Service Tax:                    {0:C}", SerTax);

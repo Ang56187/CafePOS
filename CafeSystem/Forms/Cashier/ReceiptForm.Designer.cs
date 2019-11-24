@@ -396,7 +396,7 @@
             this.Controls.Add(this.flowPanelComplete);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReceiptForm";
-            this.Text = "Sunway Cafe";
+            this.Text = StandardizedNames.FormName;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ReceiptPage_Load);
             this.flowPanelComplete.ResumeLayout(false);
