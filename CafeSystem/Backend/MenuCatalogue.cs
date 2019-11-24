@@ -20,7 +20,7 @@ namespace CafeSystem.Backend
 
         public MenuCatalogue()
         {
-            db.openDBConnection();
+            db.OpenDBConnection();
             db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
             db.Sqlite_cmd.CommandText = "SELECT * FROM item";
 
@@ -39,11 +39,9 @@ namespace CafeSystem.Backend
 
                 MenuList.Add(new Item(name, price, cost, description, image, category, type));
 
-
             }
-            db.closeDBConnection();
 
-            
+            db.CloseDBConnection();
 
             //hard code items first in the mean time
             //MenuList.Add(new Item("Latte", 13.00M,5.00M,  "efewfsfsdfsefsdf", "latte.jpg", "Beverage", "Coffee"));

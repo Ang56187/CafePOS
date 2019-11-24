@@ -220,12 +220,11 @@ namespace CafeSystem.Forms
         {
             for (int i = 0; i <= 3; i++)
             {
-                lblNameList[i].Text = itemList[i].Name;
+                lblNameList[i].Text = i+1 + ". " + itemList[i].Name;
                 lblQtyList[i].Text = itemList[i].Quantity.ToString() + " sold";
             }
 
         }
-
 
         private void SetImage(String imageURL, PictureBox picBox)
         {

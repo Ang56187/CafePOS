@@ -31,10 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KitchenForm));
             this.panelKitchenHeader = new System.Windows.Forms.Panel();
             this.lblTotalOrder = new System.Windows.Forms.Label();
-            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.lblKitchen = new System.Windows.Forms.Label();
             this.flowPanelKitchen = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.panelKitchenHeader.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelKitchenHeader
@@ -63,6 +65,41 @@
             this.lblTotalOrder.Text = "Total:";
             this.lblTotalOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lblKitchen
+            // 
+            this.lblKitchen.AutoSize = true;
+            this.lblKitchen.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblKitchen.Location = new System.Drawing.Point(0, 0);
+            this.lblKitchen.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.lblKitchen.MinimumSize = new System.Drawing.Size(100, 70);
+            this.lblKitchen.Name = "lblKitchen";
+            this.lblKitchen.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.lblKitchen.Size = new System.Drawing.Size(121, 70);
+            this.lblKitchen.TabIndex = 0;
+            this.lblKitchen.Text = "Kitchen page";
+            this.lblKitchen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowPanelKitchen
+            // 
+            this.flowPanelKitchen.AutoSize = true;
+            this.flowPanelKitchen.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPanelKitchen.Location = new System.Drawing.Point(0, 23);
+            this.flowPanelKitchen.MaximumSize = new System.Drawing.Size(2200, 2000);
+            this.flowPanelKitchen.MinimumSize = new System.Drawing.Size(1940, 900);
+            this.flowPanelKitchen.Name = "flowPanelKitchen";
+            this.flowPanelKitchen.Size = new System.Drawing.Size(1940, 990);
+            this.flowPanelKitchen.TabIndex = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.flowPanelKitchen);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 65);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1924, 990);
+            this.panel1.TabIndex = 11;
+            // 
             // btnLogOut
             // 
             this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -85,36 +122,13 @@
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-            // lblKitchen
-            // 
-            this.lblKitchen.AutoSize = true;
-            this.lblKitchen.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblKitchen.Location = new System.Drawing.Point(0, 0);
-            this.lblKitchen.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.lblKitchen.MinimumSize = new System.Drawing.Size(100, 70);
-            this.lblKitchen.Name = "lblKitchen";
-            this.lblKitchen.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.lblKitchen.Size = new System.Drawing.Size(121, 70);
-            this.lblKitchen.TabIndex = 0;
-            this.lblKitchen.Text = "Kitchen page";
-            this.lblKitchen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // flowPanelKitchen
-            // 
-            this.flowPanelKitchen.AutoScroll = true;
-            this.flowPanelKitchen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowPanelKitchen.Location = new System.Drawing.Point(0, 65);
-            this.flowPanelKitchen.Name = "flowPanelKitchen";
-            this.flowPanelKitchen.Size = new System.Drawing.Size(1924, 990);
-            this.flowPanelKitchen.TabIndex = 10;
-            // 
             // KitchenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
-            this.Controls.Add(this.flowPanelKitchen);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelKitchenHeader);
             this.Name = "KitchenForm";
             this.Text = "KitchenForm";
@@ -122,6 +136,8 @@
             this.Load += new System.EventHandler(this.KitchenForm_Load);
             this.panelKitchenHeader.ResumeLayout(false);
             this.panelKitchenHeader.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -133,5 +149,6 @@
         private Components.RoundButton btnLogOut;
         private System.Windows.Forms.FlowLayoutPanel flowPanelKitchen;
         private System.Windows.Forms.Label lblTotalOrder;
+        private System.Windows.Forms.Panel panel1;
     }
 }
