@@ -37,6 +37,8 @@ namespace CafeSystem.Forms.Kitchen
         //get the order list
         List<Order> orderList = OrderCollection.OrderList;
 
+        Database db = new Database();
+
         public KitchenForm()
         {
             InitializeComponent();
@@ -70,12 +72,9 @@ namespace CafeSystem.Forms.Kitchen
                 if (!order.IsDone)
                 {
                     numOfOrders += 1;
-                }
-
-                if (!order.IsDone)
-                {
                     CreateOrder(order);
                 }
+
             }
 
             lblTotalOrder.Text = "Total: " + numOfOrders;
@@ -154,6 +153,16 @@ namespace CafeSystem.Forms.Kitchen
 
                 numOfOrders -= 1;
                 lblTotalOrder.Text = "Total: " + numOfOrders;
+
+                //updates the DB
+                db.OpenDBConnection();
+
+                db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
+                db.Sqlite_cmd.CommandText = "update purchase_order set is_completed = 1 where id = @orderId";
+                db.Sqlite_cmd.Parameters.AddWithValue("@orderId", order.OrderID);
+                db.Sqlite_cmd.ExecuteNonQuery();
+
+                db.CloseDBConnection();
             };
 
             flowPaneOrderNum.Controls.Add(lblTakeOrDine);
@@ -221,6 +230,17 @@ namespace CafeSystem.Forms.Kitchen
 
                         numOfOrders -= 1;
                         lblTotalOrder.Text = "Total: " + numOfOrders;
+
+                        //updates the DB
+                        db.OpenDBConnection();
+
+                        db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
+                        db.Sqlite_cmd.CommandText = "update purchase_order set is_completed = 1 where id = @orderId";
+                        db.Sqlite_cmd.Parameters.AddWithValue("@orderId",order.OrderID);
+                        db.Sqlite_cmd.ExecuteNonQuery();
+
+                        db.CloseDBConnection();
+
                     }
 
 

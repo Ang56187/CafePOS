@@ -81,11 +81,13 @@
             // 
             // flowPanelKitchen
             // 
-            this.flowPanelKitchen.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowPanelKitchen.Location = new System.Drawing.Point(0, 0);
-            this.flowPanelKitchen.MaximumSize = new System.Drawing.Size(1882, 0);
+            this.flowPanelKitchen.AutoSize = true;
+            this.flowPanelKitchen.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPanelKitchen.Location = new System.Drawing.Point(0, 23);
+            this.flowPanelKitchen.MaximumSize = new System.Drawing.Size(2200, 2000);
+            this.flowPanelKitchen.MinimumSize = new System.Drawing.Size(1940, 900);
             this.flowPanelKitchen.Name = "flowPanelKitchen";
-            this.flowPanelKitchen.Size = new System.Drawing.Size(1882, 990);
+            this.flowPanelKitchen.Size = new System.Drawing.Size(1940, 990);
             this.flowPanelKitchen.TabIndex = 10;
             // 
             // panel1
@@ -135,6 +137,7 @@
             this.panelKitchenHeader.ResumeLayout(false);
             this.panelKitchenHeader.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
