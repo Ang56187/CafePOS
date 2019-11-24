@@ -91,11 +91,11 @@
     <Compile Include="Components\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\ProductAddForm.cs">
+    <Compile Include="Forms\Admin\ProductViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\ProductAddForm.Designer.cs">
-      <DependentUpon>ProductAddForm.cs</DependentUpon>
+    <Compile Include="Forms\Admin\ProductViewForm.Designer.cs">
+      <DependentUpon>ProductViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\BusinessSummaryForm.cs">
       <SubType>Form</SubType>
@@ -156,8 +156,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Admin\ProductAddForm.resx">
-      <DependentUpon>ProductAddForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Admin\ProductViewForm.resx">
+      <DependentUpon>ProductViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BusinessSummaryForm.resx">
       <DependentUpon>BusinessSummaryForm.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace CafeSystem.Forms.Admin
 {
-    partial class ProductAddForm
+    partial class ProductViewForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Product");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Stock");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Order");
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductAddForm));
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("User");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Product");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Stock");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Order");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductViewForm));
             this.lblAdminName = new System.Windows.Forms.Label();
             this.pnlAdminName = new System.Windows.Forms.Panel();
             this.pnlAdminNavContainer = new System.Windows.Forms.Panel();
@@ -43,6 +43,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgProduct = new System.Windows.Forms.DataGridView();
             this.btnAddProduct = new CafeSystem.Components.RoundButton();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colBtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlAdminName.SuspendLayout();
             this.pnlAdminNavContainer.SuspendLayout();
             this.pnlAdminTopContainer.SuspendLayout();
@@ -103,19 +108,19 @@
             this.tvAdminNav.Margin = new System.Windows.Forms.Padding(4);
             this.tvAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
             this.tvAdminNav.Name = "tvAdminNav";
-            treeNode1.Name = "user";
-            treeNode1.Text = "User";
-            treeNode2.Name = "product";
-            treeNode2.Text = "Product";
-            treeNode3.Name = "stock";
-            treeNode3.Text = "Stock";
-            treeNode4.Name = "order";
-            treeNode4.Text = "Order";
+            treeNode5.Name = "user";
+            treeNode5.Text = "User";
+            treeNode6.Name = "product";
+            treeNode6.Text = "Product";
+            treeNode7.Name = "stock";
+            treeNode7.Text = "Stock";
+            treeNode8.Name = "order";
+            treeNode8.Text = "Order";
             this.tvAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.tvAdminNav.ShowLines = false;
             this.tvAdminNav.Size = new System.Drawing.Size(275, 951);
             this.tvAdminNav.TabIndex = 3;
@@ -173,6 +178,12 @@
             this.dtgProduct.AllowUserToOrderColumns = true;
             this.dtgProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colProductName,
+            this.colProductPrice,
+            this.colProductStock,
+            this.colBtnEdit,
+            this.colBtnDelete});
             this.dtgProduct.Location = new System.Drawing.Point(335, 194);
             this.dtgProduct.Name = "dtgProduct";
             this.dtgProduct.RowTemplate.Height = 24;
@@ -196,6 +207,40 @@
             this.btnAddProduct.TabIndex = 19;
             this.btnAddProduct.Text = "Add Product";
             this.btnAddProduct.UseVisualStyleBackColor = false;
+            // 
+            // colProductName
+            // 
+            this.colProductName.HeaderText = "Name";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
+            // 
+            // colProductPrice
+            // 
+            this.colProductPrice.HeaderText = "Price";
+            this.colProductPrice.Name = "colProductPrice";
+            this.colProductPrice.ReadOnly = true;
+            // 
+            // colProductStock
+            // 
+            this.colProductStock.HeaderText = "Current Stock";
+            this.colProductStock.Name = "colProductStock";
+            this.colProductStock.ReadOnly = true;
+            // 
+            // colBtnEdit
+            // 
+            this.colBtnEdit.HeaderText = "";
+            this.colBtnEdit.Name = "colBtnEdit";
+            this.colBtnEdit.ReadOnly = true;
+            this.colBtnEdit.Text = "Edit";
+            this.colBtnEdit.UseColumnTextForButtonValue = true;
+            // 
+            // colBtnDelete
+            // 
+            this.colBtnDelete.HeaderText = "";
+            this.colBtnDelete.Name = "colBtnDelete";
+            this.colBtnDelete.ReadOnly = true;
+            this.colBtnDelete.Text = "Delete";
+            this.colBtnDelete.UseColumnTextForButtonValue = true;
             // 
             // ProductAddForm
             // 
@@ -235,5 +280,10 @@
         private System.Windows.Forms.Panel panel1;
         private Components.RoundButton btnAddProduct;
         private System.Windows.Forms.DataGridView dtgProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductStock;
+        private System.Windows.Forms.DataGridViewButtonColumn colBtnEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn colBtnDelete;
     }
 }

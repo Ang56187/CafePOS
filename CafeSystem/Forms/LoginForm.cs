@@ -54,6 +54,7 @@ namespace CafeSystem.Forms
             OrderCollection orderCol = new OrderCollection();
             orderCol.GetFromOrderTable();
 
+
             //set font
             byte[] fontData = Properties.Resources.Century_Gothic;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);

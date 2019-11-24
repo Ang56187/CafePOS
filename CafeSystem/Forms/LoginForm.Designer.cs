@@ -86,7 +86,7 @@
             this.txtBoxUsername.MinimumSize = new System.Drawing.Size(344, 40);
             this.txtBoxUsername.Name = "txtBoxUsername";
             this.txtBoxUsername.Size = new System.Drawing.Size(344, 40);
-            this.txtBoxUsername.TabIndex = 2;
+            this.txtBoxUsername.TabIndex = 0;
             this.txtBoxUsername.TextChanged += new System.EventHandler(this.txtBoxUsername_TextChanged);
             this.txtBoxUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxUsername_KeyDown);
             // 
