@@ -44,6 +44,14 @@ namespace CafeSystem.Backend.Objects
             price = 0;
         }
 
+        //for dataabse (ORDER_PRODUCT)
+        public Item(int id,int qty)
+        {
+            ItemID = id;
+            Quantity = qty;
+            IsDone = false;
+        }
+
         public String Name { get; set; }
 
         public decimal Price 
@@ -90,6 +98,8 @@ namespace CafeSystem.Backend.Objects
         public String Type { get; set; }
 
         public bool IsDone { get; set; }//check if item is done at kitchen side
+
+        public int ItemID { get; set; }//for database querying
 
         public decimal CalculateTotal()
         {

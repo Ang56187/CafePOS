@@ -8,8 +8,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,7 +50,9 @@ namespace CafeSystem.Forms
 
         private void login_Load(object sender, EventArgs e)
         {
-            db.openDBConnection();
+            //loads all order as soon as start up
+            OrderCollection orderCol = new OrderCollection();
+            orderCol.GetFromOrderTable();
 
             //set font
             byte[] fontData = Properties.Resources.Century_Gothic;
@@ -77,22 +81,81 @@ namespace CafeSystem.Forms
         }
 
 
+        //for password decryption
+        public string GenerateEncryptionKey()
+        {
+            string EncryptionKey = string.Empty;
+
+            Random Robj = new Random();
+            int Rnumber = Robj.Next();
+            EncryptionKey = "LetMeIn";
+
+            return EncryptionKey;
+        }
+
+        public string Decrypt(string cipherText, string EncryptionKey)
+        {
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                }
+            }
+            return cipherText;
+        }
+
+        public string Encrypt(string clearText, string EncryptionKey)
+        {
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    clearText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return clearText;
+        }
+
+
         private void btn_login_Click(object sender, EventArgs e)
         {
             User lastUser = userList.UserList.Last();
 
             lblErrorInput.Hide();
 
+            String decryptedPass;
+            String encryptedPass = Encrypt(txtBoxPassword.Text, GenerateEncryptionKey());
+
             if (!txtBoxUsername.Text.Equals("") || !txtBoxPassword.Text.Equals(""))
             {
                 foreach (User user in userList.UserList)
                 {
+                    decryptedPass = Decrypt(user.Password, GenerateEncryptionKey()) ;
 
                     //add pass and name of user to string
                     nameList.Add(user.Name);
                     passList.Add(user.Password);
 
-                    if (txtBoxUsername.Text.Equals(user.Name) && txtBoxPassword.Text.Equals(user.Password))
+                    if (txtBoxUsername.Text.Equals(user.Name) && txtBoxPassword.Text.Equals(decryptedPass))
                     {
                         switch (user.Position)
                         {
@@ -133,7 +196,7 @@ namespace CafeSystem.Forms
                             lblErrorInput.Show();
                             break;
                         }//end if else
-                        if (!passList.Contains(txtBoxPassword.Text))
+                        if (!passList.Contains(encryptedPass))
                         {
                             loginCounter -= 1;
                             lblErrorInput.Text = "Please enter valid password. " + loginCounter + " tries left.";

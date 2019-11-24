@@ -561,7 +561,6 @@ namespace CafeSystem.Forms.Cashier
             {
                 item.Quantity = (int)numUpDownItemQty.Value;
                 lblItemPrice.Text = String.Format("{0:C}", item.Price * item.Quantity);
-                UpdateMenuQty(item);
                 UpdateLbl();
 
                 if (numUpDownItemQty.Value == 0)
@@ -573,7 +572,11 @@ namespace CafeSystem.Forms.Cashier
                     //remove item from cart list
                     cartItems.CartList.Remove(item);
 
-                    UpdateMenuQty(item);
+                    //ensure it doesnt updates if pop up is visible, to ensure no bug of btn qty popping in front
+                    if (!transPanelHidden.Visible)
+                    {
+                        UpdateMenuQty(item);
+                    }
 
                 }
             };

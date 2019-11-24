@@ -15,7 +15,7 @@ namespace CafeSystem.Backend
 
         public SQLiteCommand Sqlite_cmd { get; set; }
 
-        public void openDBConnection()
+        public void OpenDBConnection()
         {
             String fileLocation = System.IO.Path.Combine(Environment.CurrentDirectory, "..", "..", "Database", "posDB.db");
 
@@ -26,7 +26,6 @@ namespace CafeSystem.Backend
             try
             {
                 SqlConn.Open();
-                MessageBox.Show("DB Connected!");
             }
             catch (Exception ei)
             {
@@ -34,10 +33,9 @@ namespace CafeSystem.Backend
 
         }
 
-        public void closeDBConnection()
+        public void CloseDBConnection()
         {
             SqlConn.Close();
-            MessageBox.Show("DB Closed!");
         }
 
 

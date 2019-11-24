@@ -27,7 +27,7 @@ namespace CafeSystem.Forms.Cashier
         Font fontBtn;
 
         //generate order id
-        private String orderNum = String.Format("{0:0000}{1}", OrderCollection.OrderList.Count()+1, DateTime.Now.ToString("hhss"));
+        private String orderNum = String.Format("{0:0000}{1}", OrderCollection.OrderList.Count()+1, DateTime.Now.ToString("mmss"));
 
         //create and save order made
         Order orderDetail;
@@ -85,11 +85,12 @@ namespace CafeSystem.Forms.Cashier
             //save receipt as order object
             orderDetail = new Order(orderNum, this.user.Name, finalItemList.CartList, this.tax, this.payment,dineOrTakeAway);
 
-            OrderCollection.OrderList.Add(orderDetail);
+            //OrderCollection.OrderList.Add(orderDetail);
         }
 
         private void ReceiptPage_Load(object sender, EventArgs e)
         {
+
             //set font
             byte[] fontData = Properties.Resources.Century_Gothic;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
