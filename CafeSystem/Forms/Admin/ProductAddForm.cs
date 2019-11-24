@@ -17,20 +17,20 @@ using CafeSystem.Backend.Objects;
 
 namespace CafeSystem.Forms.Admin
 {
-    public partial class ProductViewForm : Form
+    public partial class ProductAddForm : Form
     {
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
         IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
 
         private PrivateFontCollection fonts = new PrivateFontCollection();
-        User user = new User("Rocky","Admin");
-        
+        User user = new User("Rocky", "Admin");
+
         MenuCatalogue menuItems = new MenuCatalogue();
 
         Database db = new Database();
 
-        public ProductViewForm()
+        public ProductAddForm()
         {
             InitializeComponent();
         }
@@ -41,8 +41,8 @@ namespace CafeSystem.Forms.Admin
         //////////////////////////////////////////////////////events for components///////////////////////////////////////////////////////////////////
 
         private void treeViewAdminNav_AfterSelect(object sender, TreeViewEventArgs e)
-        { 
-            
+        {
+
             TreeNode treeNode = tvAdminNav.SelectedNode;
 
             //if root node selected
@@ -52,7 +52,17 @@ namespace CafeSystem.Forms.Admin
             }
         }
 
-        private void ProductViewForm_Load(object sender, EventArgs e)
+        private void ProductAddForm_OnPaint(object sender, EventArgs e)
+        {
+            System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
+            System.Drawing.Graphics formGraphics;
+            formGraphics = this.CreateGraphics();
+            formGraphics.FillRectangle(myBrush, new Rectangle(0, 0, 200, 300));
+            myBrush.Dispose();
+            formGraphics.Dispose();
+        }
+
+        private void ProductAddForm_Load(object sender, EventArgs e)
         {
             db.OpenDBConnection();
 
@@ -62,42 +72,16 @@ namespace CafeSystem.Forms.Admin
                 "JOIN stock ON stock_item.stock_id = stock.id " +
                 "GROUP BY item.id, item.name";
 
-            db.Sqlite_datareader = db.Sqlite_cmd.ExecuteReader();//reads the database
-            dtgProduct.Columns[1].DefaultCellStyle.Format = "c";
-
-            while (db.Sqlite_datareader.Read())
-            {
-                dtgProduct.Rows.Add(new object[] {
-                db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("name")),  // column name
-                db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("price")),
-                db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("min(stock.stock_quantity)"))
-                });
-            }
-
-
-            //set autosize mode
-            dtgProduct.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dtgProduct.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dtgProduct.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-            //datagrid has calculated it's widths so we can store them
-            for (int i = 0; i <= dtgProduct.Columns.Count - 1; i++)
-            {
-                //store autosized widths
-                int colw = dtgProduct.Columns[i].Width;
-                //remove autosizing
-                dtgProduct.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                //set width to calculated by autosize
-                dtgProduct.Columns[i].Width = colw;
-            }
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            ProductAddForm addProductPage = new ProductAddForm();
-            this.Hide();
-            addProductPage.ShowDialog();
-            this.Close(); //close previous form
+            System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
+            System.Drawing.Graphics formGraphics;
+            formGraphics = this.CreateGraphics();
+            formGraphics.FillRectangle(myBrush, new Rectangle(0, 0, 200, 300));
+            myBrush.Dispose();
+            formGraphics.Dispose();
         }
     }
 }

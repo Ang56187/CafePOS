@@ -1,6 +1,6 @@
 ﻿namespace CafeSystem.Forms.Admin
 {
-    partial class ProductViewForm
+    partial class ProductAddForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,6 @@
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Product");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Stock");
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Order");
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductViewForm));
             this.lblAdminName = new System.Windows.Forms.Label();
             this.pnlAdminName = new System.Windows.Forms.Panel();
             this.pnlAdminNavContainer = new System.Windows.Forms.Panel();
@@ -41,17 +40,11 @@
             this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.lblProductTable = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dtgProduct = new System.Windows.Forms.DataGridView();
-            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colBtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAddProduct = new CafeSystem.Components.RoundButton();
+            this.lblBreadcrumb = new System.Windows.Forms.Label();
             this.pnlAdminName.SuspendLayout();
             this.pnlAdminNavContainer.SuspendLayout();
             this.pnlAdminTopContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAdminName
@@ -144,7 +137,6 @@
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogOut.Location = new System.Drawing.Point(1439, 5);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 10, 20, 4);
@@ -173,57 +165,6 @@
             this.panel1.Size = new System.Drawing.Size(60, 5);
             this.panel1.TabIndex = 18;
             // 
-            // dtgProduct
-            // 
-            this.dtgProduct.AllowUserToOrderColumns = true;
-            this.dtgProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colProductName,
-            this.colProductPrice,
-            this.colProductStock,
-            this.colBtnEdit,
-            this.colBtnDelete});
-            this.dtgProduct.Location = new System.Drawing.Point(335, 194);
-            this.dtgProduct.Name = "dtgProduct";
-            this.dtgProduct.RowTemplate.Height = 24;
-            this.dtgProduct.Size = new System.Drawing.Size(1507, 776);
-            this.dtgProduct.TabIndex = 20;
-            // 
-            // colProductName
-            // 
-            this.colProductName.HeaderText = "Name";
-            this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
-            // 
-            // colProductPrice
-            // 
-            this.colProductPrice.HeaderText = "Price";
-            this.colProductPrice.Name = "colProductPrice";
-            this.colProductPrice.ReadOnly = true;
-            // 
-            // colProductStock
-            // 
-            this.colProductStock.HeaderText = "Current Stock";
-            this.colProductStock.Name = "colProductStock";
-            this.colProductStock.ReadOnly = true;
-            // 
-            // colBtnEdit
-            // 
-            this.colBtnEdit.HeaderText = "";
-            this.colBtnEdit.Name = "colBtnEdit";
-            this.colBtnEdit.ReadOnly = true;
-            this.colBtnEdit.Text = "Edit";
-            this.colBtnEdit.UseColumnTextForButtonValue = true;
-            // 
-            // colBtnDelete
-            // 
-            this.colBtnDelete.HeaderText = "";
-            this.colBtnDelete.Name = "colBtnDelete";
-            this.colBtnDelete.ReadOnly = true;
-            this.colBtnDelete.Text = "Delete";
-            this.colBtnDelete.UseColumnTextForButtonValue = true;
-            // 
             // btnAddProduct
             // 
             this.btnAddProduct.AutoSize = true;
@@ -243,28 +184,37 @@
             this.btnAddProduct.UseVisualStyleBackColor = false;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
-            // ProductViewForm
+            // lblBreadcrumb
+            // 
+            this.lblBreadcrumb.AutoSize = true;
+            this.lblBreadcrumb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBreadcrumb.Location = new System.Drawing.Point(472, 73);
+            this.lblBreadcrumb.Name = "lblBreadcrumb";
+            this.lblBreadcrumb.Size = new System.Drawing.Size(28, 29);
+            this.lblBreadcrumb.TabIndex = 20;
+            this.lblBreadcrumb.Text = ">";
+            // 
+            // ProductAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1924, 1010);
-            this.Controls.Add(this.dtgProduct);
+            this.Controls.Add(this.lblBreadcrumb);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblProductTable);
             this.Controls.Add(this.pnlAdminTopContainer);
             this.Controls.Add(this.pnlAdminNavContainer);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ProductViewForm";
+            this.Name = "ProductAddForm";
             this.Text = "Sunway Cafe (Admin)";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.ProductViewForm_Load);
+            this.Load += new System.EventHandler(this.ProductAddForm_Load);
             this.pnlAdminName.ResumeLayout(false);
             this.pnlAdminName.PerformLayout();
             this.pnlAdminNavContainer.ResumeLayout(false);
             this.pnlAdminTopContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,11 +230,6 @@
         private System.Windows.Forms.Label lblProductTable;
         private System.Windows.Forms.Panel panel1;
         private Components.RoundButton btnAddProduct;
-        private System.Windows.Forms.DataGridView dtgProduct;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProductPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProductStock;
-        private System.Windows.Forms.DataGridViewButtonColumn colBtnEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn colBtnDelete;
+        private System.Windows.Forms.Label lblBreadcrumb;
     }
 }
