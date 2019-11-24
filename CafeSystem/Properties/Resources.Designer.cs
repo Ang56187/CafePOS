@@ -203,6 +203,16 @@ namespace CafeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coffee_white_128 {
+            get {
+                object obj = ResourceManager.GetObject("coffee_white_128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap create_48 {
             get {
                 object obj = ResourceManager.GetObject("create_48", resourceCulture);

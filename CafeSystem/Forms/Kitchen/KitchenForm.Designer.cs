@@ -131,7 +131,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelKitchenHeader);
             this.Name = "KitchenForm";
-            this.Text = "KitchenForm";
+            this.Text = StandardizedNames.FormName;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.KitchenForm_Load);
             this.panelKitchenHeader.ResumeLayout(false);

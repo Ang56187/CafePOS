@@ -35,13 +35,14 @@ namespace CafeSystem.Forms.Kitchen
         List<FlowLayoutPanel> flowPanelOrderList = new List<FlowLayoutPanel>();
 
         //get the order list
-        List<Order> orderList = new OrderCollection().OrderList;
+        List<Order> orderList;
 
         Database db = new Database();
 
         public KitchenForm()
         {
             InitializeComponent();
+            orderList = new OrderCollection().OrderList;
         }
 
         private void KitchenForm_Load(object sender, EventArgs e)

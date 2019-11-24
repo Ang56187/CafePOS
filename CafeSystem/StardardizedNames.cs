@@ -8,7 +8,14 @@ namespace CafeSystem
 {
     class StandardizedNames
     {
-        public static String formName = "Sunway Cafe";
+        private static String formName = "Sunway Cafe";
+
+        public static String FormName
+        {
+            get { return formName; }
+        }
+
+
 
     }
 }

@@ -28,9 +28,12 @@ namespace CafeSystem.Forms
         Font fontBtn;
         Font fontTxtBox;
         Font fontError;
+        Font fontLogo;
 
         //testing, get user collection
         UserCollection userList = new UserCollection();
+
+        //gets orders from kitchen and pass to kitchen
 
         //set counter for tries for loggin in
         private int loginCounter = 5;
@@ -46,6 +49,7 @@ namespace CafeSystem.Forms
         {
             InitializeComponent();
         }
+
 
 
         private void login_Load(object sender, EventArgs e)
@@ -65,7 +69,11 @@ namespace CafeSystem.Forms
 
             fontBtn = new Font(fonts.Families[0], 18.0F, FontStyle.Bold);
             fontTxtBox = new Font(fonts.Families[0], 18.0F);
+            fontLogo = new Font(fonts.Families[0], 20.0F);
             fontError = new Font(fonts.Families[0], 15.0F);
+
+            //set pic box
+            picBoxLogo.Image = ResizeImage(global::CafeSystem.Properties.Resources.coffee_white_128, new Size(90, 90));
 
 
             //set font to components
@@ -73,11 +81,21 @@ namespace CafeSystem.Forms
             txtBoxPassword.Font = fontTxtBox;
             txtBoxUsername.Font = fontTxtBox;
             lblErrorInput.Font = fontError;
+            lblLogo.Font = fontLogo;
 
             lblErrorInput.Hide();
 
             //center controls
             tablePaneLogin.Left = (this.ClientSize.Width - tablePaneLogin.Width) / 2;
+        }
+
+
+
+        //for resizing images that are too big
+        private Image ResizeImage(Image imgToResize, Size size)
+        {
+
+            return (Image)(new Bitmap(imgToResize, size));
         }
 
 
