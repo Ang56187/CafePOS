@@ -33,14 +33,14 @@ namespace CafeSystem.Backend.Objects
             }
         }
 
-        public decimal RemainingAmount(decimal totalAmt)
+        public decimal RemainingAmount()
         {
-            return totalAmt - PaidAmt;
+            return base.TotalAmt - PaidAmt;
         }
 
-        public bool IsPaid(decimal totalAmt)
+        public bool IsPaid()
         {
-            if (RemainingAmount(totalAmt) <= 0)
+            if (RemainingAmount() <= 0)
             {
                 return true;
             }

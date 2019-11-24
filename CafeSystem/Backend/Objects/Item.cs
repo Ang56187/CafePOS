@@ -13,20 +13,23 @@ namespace CafeSystem.Backend.Objects
         //additional
         decimal cost;
 
-        public Item(String name, decimal price, int qty, String description, String image, String category, String type)
-        {
-            Name = name;
-            Price = price;
-            Quantity = qty;
-            Description = description;
-            Image = image;
-            Category = category;
-            Type = type;
-            IsDone = false;
 
-            qty = 0;
-            price = 0;
-        }
+        //dont need it anymore
+        //public Item(String name, decimal price, int qty, String description, String image, String category, String type)
+        //{
+        //    Name = name;
+        //    Price = price;
+        //    Quantity = qty;
+        //    Description = description;
+        //    Image = image;
+        //    Category = category;
+        //    Type = type;
+        //    IsDone = false;
+
+        //    qty = 0;
+        //    price = 0;
+        //}
+
 
         //for database 
         public Item(String name, decimal price, decimal cost, String description, String image, String category, String type)

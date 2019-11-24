@@ -150,7 +150,7 @@ namespace CafeSystem.Forms.Cashier
             }
 
             //check if amount fully paid
-            if (cashPayment.IsPaid(totalAmount))
+            if (cashPayment.IsPaid())
             {
                 lblError.Hide();
                 ReceiptForm receiptPage = new ReceiptForm(user,cartItems, totalAmount, dineOrTakeAway, cashPayment, tax);
