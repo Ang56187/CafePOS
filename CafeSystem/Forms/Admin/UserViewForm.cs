@@ -102,13 +102,15 @@ namespace CafeSystem.Forms.Admin
             {
                 if (MessageBox.Show("Do you want to delete this row ?", "Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    dtgUser.Rows.RemoveAt(dtgUser.SelectedRows[0].Index);
-                    //db.Sqlite_adapter.Update(sTable);
+                    int selectedrowindex = dtgUser.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dtgUser.Rows[selectedrowindex];
+                    int rowID = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                    dtgUser.Rows.RemoveAt(dtgUser.SelectedCells[0].RowIndex);
+                    db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
+                    db.Sqlite_cmd.CommandText = "DELETE FROM user WHERE id = " + rowID;
+
+                    db.Sqlite_datareader = db.Sqlite_cmd.ExecuteReader();//reads the database
                 }
-                //int selectedrowindex = dtgUser.SelectedCells[0].RowIndex;
-                //DataGridViewRow selectedRow = dtgUser.Rows[selectedrowindex];
-                //string a = Convert.ToString(selectedRow.Cells["ID"].Value);
-                //MessageBox.Show(a);
             }
         }
     }

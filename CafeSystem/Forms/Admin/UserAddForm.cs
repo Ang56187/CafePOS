@@ -117,6 +117,7 @@ namespace CafeSystem.Forms.Admin
                     "VALUES('"+ username + "', '" + password + "', '" + position + "')";
                 db.Sqlite_datareader = db.Sqlite_cmd.ExecuteReader();//reads the database
                 db.Sqlite_cmd.Dispose();
+                db.CloseDBConnection();
 
                 UserViewForm viewUserPage = new UserViewForm();
                 this.Hide();
