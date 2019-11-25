@@ -28,6 +28,9 @@ namespace CafeSystem.Forms.Admin
 
         Database db = new Database();
 
+        //add combobox to this list
+        List<ComboBox> cboIngredientList = new List<ComboBox>();
+
         public ProductAddForm()
         {
             InitializeComponent();
@@ -63,6 +66,9 @@ namespace CafeSystem.Forms.Admin
             db.OpenDBConnection();
 
             picItem.AllowDrop = true;
+
+            //add current combobox of ingredient to list
+            cboIngredientList.Add(cboIngredient);
         }
 
         private void lblProductTable_Click(object sender, EventArgs e)
@@ -151,5 +157,56 @@ namespace CafeSystem.Forms.Admin
             }
         }
 
+        private void btnAddIngredient_Click(object sender, EventArgs e)
+        {
+            FlowLayoutPanel flowPanelCbo = new FlowLayoutPanel();
+            //flowPanelCbo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            flowPanelCbo.AutoSize = true;
+            flowPanelCbo.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            flowPanelCbo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            flowPanelCbo.Margin = new Padding(3, 0, 0, 0);
+            flowPanelCbo.MinimumSize = new Size(120, 55);
+
+
+            //combobox
+            ComboBox cboIngredientNew = new ComboBox();
+            cboIngredientNew.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cboIngredientNew.Anchor = System.Windows.Forms.AnchorStyles.None;
+            cboIngredientNew.MinimumSize = new System.Drawing.Size(250, 33);
+            cboIngredientNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            cboIngredientNew.Margin = new Padding(0, 0, 0, 0);
+
+
+            //remove button
+            Button btnRemoveIngredient = new Button();
+            btnRemoveIngredient.Text = "Remove";
+            btnRemoveIngredient.Margin = new Padding(0, 0, 0, 0);
+            //btnRemoveIngredient.BackColor = Color.FromArgb(248, 80, 80);
+            btnRemoveIngredient.Click += (s, n) =>
+            {
+                flowPaneIngredientInner.Controls.Remove(flowPanelCbo);
+                cboIngredientList.Remove(cboIngredientNew);
+
+                if (cboIngredientList.Count() <= 2)
+                {
+                    btnAddIngredient.Show();
+                }
+            };
+
+            cboIngredientList.Add(cboIngredientNew);
+
+            //add to the combobox flow panel itself
+            flowPanelCbo.Controls.Add(btnRemoveIngredient);
+            flowPanelCbo.Controls.Add(cboIngredientNew);
+
+            //add to the flow pane outside
+            flowPaneIngredientInner.Controls.Add(flowPanelCbo);
+
+            if (cboIngredientList.Count() == 3)
+            {
+                btnAddIngredient.Hide();
+            }
+
+        }
     }
 }
