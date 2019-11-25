@@ -39,7 +39,8 @@ namespace CafeSystem.Backend.Objects
 
         public override string ToString()
         {
-            return String.Format("Total amount:                    {0:C}" ,TotalAmt);
+            return String.Format("Total amount:                    {0:C}", TotalAmt);
 
         }
+    }
 }

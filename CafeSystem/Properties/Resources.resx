@@ -118,38 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="add_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\add-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow_down_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\arrow-down-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow_left_white_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\arrow-left-white-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow_right_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\arrow-right-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow_right_white_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\arrow-right-white-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bill_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\bill-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cancel_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\cancel-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="card_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\card-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cart_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\cart-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cash_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\cash-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Century_Gothic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Fonts\Century Gothic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="create_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\create-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checked_checkbox_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Icons\checked-checkbox-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,40 +127,73 @@
   <data name="check_mark_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Icons\check-mark-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close_window_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\close-window-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\add-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="coffee_white_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\coffee-white-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arrow_right_white_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\arrow-right-white-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="create_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\create-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="card_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\card-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="finger_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\finger-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cash_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\cash-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logout_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\logout-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minus_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\minus-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="printer_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\printer-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="restaurant_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\restaurant-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sandglass_white_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\sandglass-white-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\Images\Icons\search-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bill_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\bill-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="shopping_cart_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\Icons\shopping-cart-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow_right_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\arrow-right-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coffee_white_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\coffee-white-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="restaurant_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\restaurant-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancel_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\cancel-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\search-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="printer_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\printer-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logout_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\logout-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_left_white_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\arrow-left-white-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="unavailable_image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resource\Images\MenuItems\unavailable-image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cart_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\cart-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minus_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\minus-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="finger_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\finger-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_down_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\arrow-down-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sandglass_white_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\sandglass-white-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Century_Gothic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Fonts\Century Gothic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="close_window_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Icons\close-window-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="image_upload" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\Images\Admin\image_upload.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
