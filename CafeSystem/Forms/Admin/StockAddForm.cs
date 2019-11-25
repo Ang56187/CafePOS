@@ -76,11 +76,20 @@ namespace CafeSystem.Forms.Admin
         {
             String stockName = txtStockName.Text;
             decimal stockQty = numUpDownStockQty.Value;
-            decimal stockPrice = Convert.ToDecimal(txtStockCost.Text);
+
+            decimal stockPrice = 0;
+            decimal value = 0;
+            if (decimal.TryParse(txtStockCost.Text, out value))
+            {
+                txtStockCost.Text = String.Format("{0:0.00}", value);
+                //setting paid amount
+                stockPrice = value;
+            }
+
             String supplierLink = txtSupplierLink.Text;
             DateTime dateTime = DateTime.Now;
 
-            if ((!stockName.Equals("")) && (stockQty != 0) && (stockPrice != 0) && (!supplierLink.Equals(""))){
+            if ((!stockName.Equals("")) && (stockQty > 0) && (stockPrice>0) && (!supplierLink.Equals(""))){
                 db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
                 db.Sqlite_cmd.CommandText = "INSERT INTO stock (stock_name,stock_quantity,stock_cost,supplier_link,last_restock_date) " +
                     "VALUES('"+ stockName + "', " + stockQty + ", " + stockPrice + ",'"+ supplierLink + "','"+ dateTime.ToString("yyyy-MM-dd HH:mm:ss") +"')";
