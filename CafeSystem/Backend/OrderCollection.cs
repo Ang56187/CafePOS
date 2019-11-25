@@ -92,7 +92,7 @@ namespace CafeSystem.Backend
                     db.Sqlite_cmd.Dispose();
 
                     db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
-                    db.Sqlite_cmd.CommandText = "select name,price,cost,description,image,category,type " +
+                    db.Sqlite_cmd.CommandText = "select name,price,description,image,category,type " +
                         "from item inner join order_product " +
                         "on item.id = "+item.ItemID;
                     db.Sqlite_datareader = db.Sqlite_cmd.ExecuteReader();
@@ -100,11 +100,10 @@ namespace CafeSystem.Backend
                     {
                         item.Name = db.Sqlite_datareader.GetString(0);
                         item.Price = db.Sqlite_datareader.GetDecimal(1);
-                        item.Cost = db.Sqlite_datareader.GetDecimal(2);
-                        item.Description = db.Sqlite_datareader.GetString(3);
-                        item.Image = db.Sqlite_datareader.GetString(4);
-                        item.Category = db.Sqlite_datareader.GetString(5);
-                        item.Type = db.Sqlite_datareader.GetString(6);
+                        item.Description = db.Sqlite_datareader.GetString(2);
+                        item.Image = db.Sqlite_datareader.GetString(3);
+                        item.Category = db.Sqlite_datareader.GetString(4);
+                        item.Type = db.Sqlite_datareader.GetString(5);
                     }
 
                     subTotal += item.Price*item.Quantity;

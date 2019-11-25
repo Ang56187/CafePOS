@@ -31,13 +31,12 @@ namespace CafeSystem.Backend
             {
                 String name = db.Sqlite_datareader.GetString(1);
                 decimal price = db.Sqlite_datareader.GetDecimal(2);
-                decimal cost = db.Sqlite_datareader.GetDecimal(3);
-                String description = db.Sqlite_datareader.GetString(4);
-                String image = db.Sqlite_datareader.GetString(5);
-                String category = db.Sqlite_datareader.GetString(6);
-                String type = db.Sqlite_datareader.GetString(7);
+                String description = db.Sqlite_datareader.GetString(3);
+                String image = db.Sqlite_datareader.GetString(4);
+                String category = db.Sqlite_datareader.GetString(5);
+                String type = db.Sqlite_datareader.GetString(6);
 
-                MenuList.Add(new Item(name, price, cost, description, image, category, type));
+                MenuList.Add(new Item(name, price, description, image, category, type));
 
             }
 
