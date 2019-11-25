@@ -29,31 +29,34 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("User");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Product");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Stock");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Order");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("User");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Product");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Stock");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Order");
             this.lblAdminName = new System.Windows.Forms.Label();
             this.pnlAdminName = new System.Windows.Forms.Panel();
             this.pnlAdminNavContainer = new System.Windows.Forms.Panel();
             this.treeViewAdminNav = new CafeSystem.Components.CustomTreeView();
             this.pnlAdminTopContainer = new System.Windows.Forms.Panel();
             this.btnLogOut = new CafeSystem.Components.RoundButton();
-            this.lblUserTable = new System.Windows.Forms.Label();
+            this.lblStockTable = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblBreadcrumb = new System.Windows.Forms.Label();
-            this.lblAddUser = new System.Windows.Forms.Label();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.lblItemName = new System.Windows.Forms.Label();
+            this.lblAddStock = new System.Windows.Forms.Label();
+            this.txtStockName = new System.Windows.Forms.TextBox();
+            this.lblStockName = new System.Windows.Forms.Label();
             this.btnAdd = new CafeSystem.Components.RoundButton();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblStockQty = new System.Windows.Forms.Label();
             this.lblPosition = new System.Windows.Forms.Label();
-            this.cboPosition = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lblSupplierLink = new System.Windows.Forms.Label();
+            this.numUpDownStockQty = new System.Windows.Forms.NumericUpDown();
+            this.txtStockCost = new System.Windows.Forms.TextBox();
+            this.txtSupplierLink = new System.Windows.Forms.TextBox();
             this.pnlAdminName.SuspendLayout();
             this.pnlAdminNavContainer.SuspendLayout();
             this.pnlAdminTopContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownStockQty)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAdminName
@@ -110,19 +113,19 @@
             this.treeViewAdminNav.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
             this.treeViewAdminNav.Name = "treeViewAdminNav";
-            treeNode5.Name = "nodeUser";
-            treeNode5.Text = "User";
-            treeNode6.Name = "nodeProduct";
-            treeNode6.Text = "Product";
-            treeNode7.Name = "nodeStock";
-            treeNode7.Text = "Stock";
-            treeNode8.Name = "nodeOrder";
-            treeNode8.Text = "Order";
+            treeNode9.Name = "nodeUser";
+            treeNode9.Text = "User";
+            treeNode10.Name = "nodeProduct";
+            treeNode10.Text = "Product";
+            treeNode11.Name = "nodeStock";
+            treeNode11.Text = "Stock";
+            treeNode12.Name = "nodeOrder";
+            treeNode12.Text = "Order";
             this.treeViewAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12});
             this.treeViewAdminNav.ShowLines = false;
             this.treeViewAdminNav.Size = new System.Drawing.Size(275, 951);
             this.treeViewAdminNav.TabIndex = 3;
@@ -158,17 +161,17 @@
             this.btnLogOut.Text = "Logout";
             this.btnLogOut.UseVisualStyleBackColor = false;
             // 
-            // lblUserTable
+            // lblStockTable
             // 
-            this.lblUserTable.AutoSize = true;
-            this.lblUserTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblUserTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserTable.Location = new System.Drawing.Point(283, 73);
-            this.lblUserTable.Name = "lblUserTable";
-            this.lblUserTable.Size = new System.Drawing.Size(146, 29);
-            this.lblUserTable.TabIndex = 17;
-            this.lblUserTable.Text = "User Table";
-            this.lblUserTable.Click += new System.EventHandler(this.lblUserTable_Click);
+            this.lblStockTable.AutoSize = true;
+            this.lblStockTable.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblStockTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockTable.Location = new System.Drawing.Point(283, 73);
+            this.lblStockTable.Name = "lblStockTable";
+            this.lblStockTable.Size = new System.Drawing.Size(158, 29);
+            this.lblStockTable.TabIndex = 17;
+            this.lblStockTable.Text = "Stock Table";
+            this.lblStockTable.Click += new System.EventHandler(this.lblStockTable_Click);
             // 
             // panel1
             // 
@@ -182,40 +185,40 @@
             // 
             this.lblBreadcrumb.AutoSize = true;
             this.lblBreadcrumb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBreadcrumb.Location = new System.Drawing.Point(435, 73);
+            this.lblBreadcrumb.Location = new System.Drawing.Point(447, 73);
             this.lblBreadcrumb.Name = "lblBreadcrumb";
             this.lblBreadcrumb.Size = new System.Drawing.Size(28, 29);
             this.lblBreadcrumb.TabIndex = 20;
             this.lblBreadcrumb.Text = ">";
             // 
-            // lblAddUser
+            // lblAddStock
             // 
-            this.lblAddUser.AutoSize = true;
-            this.lblAddUser.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddUser.Location = new System.Drawing.Point(469, 73);
-            this.lblAddUser.Name = "lblAddUser";
-            this.lblAddUser.Size = new System.Drawing.Size(126, 29);
-            this.lblAddUser.TabIndex = 21;
-            this.lblAddUser.Text = "Add User";
+            this.lblAddStock.AutoSize = true;
+            this.lblAddStock.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblAddStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddStock.Location = new System.Drawing.Point(469, 73);
+            this.lblAddStock.Name = "lblAddStock";
+            this.lblAddStock.Size = new System.Drawing.Size(138, 29);
+            this.lblAddStock.TabIndex = 21;
+            this.lblAddStock.Text = "Add Stock";
             // 
-            // txtUserName
+            // txtStockName
             // 
-            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(328, 166);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(592, 30);
-            this.txtUserName.TabIndex = 22;
+            this.txtStockName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStockName.Location = new System.Drawing.Point(328, 166);
+            this.txtStockName.Name = "txtStockName";
+            this.txtStockName.Size = new System.Drawing.Size(592, 30);
+            this.txtStockName.TabIndex = 22;
             // 
-            // lblItemName
+            // lblStockName
             // 
-            this.lblItemName.AutoSize = true;
-            this.lblItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemName.Location = new System.Drawing.Point(323, 138);
-            this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(110, 25);
-            this.lblItemName.TabIndex = 23;
-            this.lblItemName.Text = "User Name";
+            this.lblStockName.AutoSize = true;
+            this.lblStockName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockName.Location = new System.Drawing.Point(323, 138);
+            this.lblStockName.Name = "lblStockName";
+            this.lblStockName.Size = new System.Drawing.Size(119, 25);
+            this.lblStockName.TabIndex = 23;
+            this.lblStockName.Text = "Stock Name";
             // 
             // btnAdd
             // 
@@ -227,7 +230,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(328, 497);
+            this.btnAdd.Location = new System.Drawing.Point(328, 578);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 10, 20, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
@@ -237,24 +240,15 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // lblPassword
+            // lblStockQty
             // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(323, 230);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(98, 25);
-            this.lblPassword.TabIndex = 28;
-            this.lblPassword.Text = "Password";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(328, 258);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(592, 30);
-            this.txtPassword.TabIndex = 27;
-            this.txtPassword.UseSystemPasswordChar = true;
+            this.lblStockQty.AutoSize = true;
+            this.lblStockQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockQty.Location = new System.Drawing.Point(323, 230);
+            this.lblStockQty.Name = "lblStockQty";
+            this.lblStockQty.Size = new System.Drawing.Size(135, 25);
+            this.lblStockQty.TabIndex = 28;
+            this.lblStockQty.Text = "Stock quantity";
             // 
             // lblPosition
             // 
@@ -262,23 +256,9 @@
             this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPosition.Location = new System.Drawing.Point(323, 330);
             this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(81, 25);
+            this.lblPosition.Size = new System.Drawing.Size(103, 25);
             this.lblPosition.TabIndex = 30;
-            this.lblPosition.Text = "Position";
-            // 
-            // cboPosition
-            // 
-            this.cboPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboPosition.FormattingEnabled = true;
-            this.cboPosition.Items.AddRange(new object[] {
-            "Cashier",
-            "Kitchen",
-            "Admin"});
-            this.cboPosition.Location = new System.Drawing.Point(328, 358);
-            this.cboPosition.Name = "cboPosition";
-            this.cboPosition.Size = new System.Drawing.Size(592, 33);
-            this.cboPosition.TabIndex = 31;
+            this.lblPosition.Text = "Stock cost";
             // 
             // contextMenuStrip1
             // 
@@ -286,27 +266,64 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // UserAddForm
+            // lblSupplierLink
+            // 
+            this.lblSupplierLink.AutoSize = true;
+            this.lblSupplierLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSupplierLink.Location = new System.Drawing.Point(323, 453);
+            this.lblSupplierLink.Name = "lblSupplierLink";
+            this.lblSupplierLink.Size = new System.Drawing.Size(118, 25);
+            this.lblSupplierLink.TabIndex = 32;
+            this.lblSupplierLink.Text = "Supplier link";
+            this.lblSupplierLink.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numUpDownStockQty
+            // 
+            this.numUpDownStockQty.Location = new System.Drawing.Point(328, 268);
+            this.numUpDownStockQty.Name = "numUpDownStockQty";
+            this.numUpDownStockQty.Size = new System.Drawing.Size(120, 22);
+            this.numUpDownStockQty.TabIndex = 33;
+            // 
+            // txtStockCost
+            // 
+            this.txtStockCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStockCost.Location = new System.Drawing.Point(328, 369);
+            this.txtStockCost.Name = "txtStockCost";
+            this.txtStockCost.Size = new System.Drawing.Size(592, 30);
+            this.txtStockCost.TabIndex = 34;
+            this.txtStockCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockCost_KeyPress);
+            // 
+            // txtSupplierLink
+            // 
+            this.txtSupplierLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupplierLink.Location = new System.Drawing.Point(328, 492);
+            this.txtSupplierLink.Name = "txtSupplierLink";
+            this.txtSupplierLink.Size = new System.Drawing.Size(592, 30);
+            this.txtSupplierLink.TabIndex = 35;
+            // 
+            // StockAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1924, 1010);
-            this.Controls.Add(this.cboPosition);
+            this.Controls.Add(this.txtSupplierLink);
+            this.Controls.Add(this.txtStockCost);
+            this.Controls.Add(this.numUpDownStockQty);
+            this.Controls.Add(this.lblSupplierLink);
             this.Controls.Add(this.lblPosition);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.lblStockQty);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lblItemName);
-            this.Controls.Add(this.txtUserName);
-            this.Controls.Add(this.lblAddUser);
+            this.Controls.Add(this.lblStockName);
+            this.Controls.Add(this.txtStockName);
+            this.Controls.Add(this.lblAddStock);
             this.Controls.Add(this.lblBreadcrumb);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lblUserTable);
+            this.Controls.Add(this.lblStockTable);
             this.Controls.Add(this.pnlAdminTopContainer);
             this.Controls.Add(this.pnlAdminNavContainer);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "UserAddForm";
+            this.Name = "StockAddForm";
             this.Text = "Sunway Cafe (Admin)";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UserAddForm_Load);
@@ -314,6 +331,7 @@
             this.pnlAdminName.PerformLayout();
             this.pnlAdminNavContainer.ResumeLayout(false);
             this.pnlAdminTopContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownStockQty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,17 +344,19 @@
         private Components.CustomTreeView treeViewAdminNav;
         private System.Windows.Forms.Panel pnlAdminNavContainer;
         private System.Windows.Forms.Panel pnlAdminTopContainer;
-        private System.Windows.Forms.Label lblUserTable;
+        private System.Windows.Forms.Label lblStockTable;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblBreadcrumb;
-        private System.Windows.Forms.Label lblAddUser;
-        private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.Label lblItemName;
+        private System.Windows.Forms.Label lblAddStock;
+        private System.Windows.Forms.TextBox txtStockName;
+        private System.Windows.Forms.Label lblStockName;
         private Components.RoundButton btnAdd;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblStockQty;
         private System.Windows.Forms.Label lblPosition;
-        private System.Windows.Forms.ComboBox cboPosition;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label lblSupplierLink;
+        private System.Windows.Forms.NumericUpDown numUpDownStockQty;
+        private System.Windows.Forms.TextBox txtStockCost;
+        private System.Windows.Forms.TextBox txtSupplierLink;
     }
 }

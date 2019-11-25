@@ -1,5 +1,6 @@
 ﻿using CafeSystem.Backend;
 using CafeSystem.Backend.Objects;
+using CafeSystem.Forms.Admin;
 using CafeSystem.Forms.Cashier;
 using CafeSystem.Forms.Kitchen;
 using System;
@@ -191,6 +192,14 @@ namespace CafeSystem.Forms
                                     KitchenForm kitchenPage = new KitchenForm();
                                     this.Hide();
                                     kitchenPage.ShowDialog();
+                                    this.Close(); //close previous form
+                                    break;
+                                }
+                            case "Admin":
+                                {
+                                    ProductViewForm productPage = new ProductViewForm();
+                                    this.Hide();
+                                    productPage.ShowDialog();
                                     this.Close(); //close previous form
                                     break;
                                 }

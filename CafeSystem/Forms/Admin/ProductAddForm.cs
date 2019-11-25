@@ -61,6 +61,13 @@ namespace CafeSystem.Forms.Admin
                 viewUserPage.ShowDialog();
                 this.Close(); //close previous form
             }
+            else if (treeNode.Name.Equals("nodeStock") && !(this.Name.Equals("StockViewForm")))
+            {
+                StockViewForm viewStockPage = new StockViewForm();
+                this.Hide();
+                viewStockPage.ShowDialog();
+                this.Close(); //close previous form
+            }
         }
 
         private void ProductAddForm_Load(object sender, EventArgs e)
