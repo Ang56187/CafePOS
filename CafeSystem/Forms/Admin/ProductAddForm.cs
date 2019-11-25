@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using CafeSystem.Components;
 using CafeSystem.Backend;
 using CafeSystem.Backend.Objects;
-
+using System.Drawing.Imaging;
 
 namespace CafeSystem.Forms.Admin
 {
@@ -30,6 +30,8 @@ namespace CafeSystem.Forms.Admin
 
         //add combobox to this list
         List<ComboBox> cboIngredientList = new List<ComboBox>();
+
+        String itemImagePath = "";
 
         public ProductAddForm()
         {
@@ -118,16 +120,17 @@ namespace CafeSystem.Forms.Admin
             {
                 //Set text
                 string fileName = getFileName(file);
-                lblFileName.Text = fileName.ToUpper();
+                lblFileName.Text = fileName;
 
                 //Set Image
                 picItem.BackgroundImage = Image.FromFile(file);
+                itemImagePath = fileName;
             }
         }
         //Get File name
         private string getFileName(string path)
         {
-            return Path.GetFileNameWithoutExtension(path);
+            return Path.GetFileName(path);
         }
 
         private void picItem_Click(object sender, EventArgs e)
@@ -142,20 +145,10 @@ namespace CafeSystem.Forms.Admin
                 picItem.BackgroundImage = new Bitmap(open.FileName);
                 // image file path  
                 lblFileName.Text = open.SafeFileName;
+                itemImagePath = open.SafeFileName;
             }
         }
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            decimal value = 0;
 
-            //checks if entered value can be decimal or not
-            if (decimal.TryParse(txtPrice.Text, out value))
-            {
-                txtPrice.Text = String.Format("{0:0.00}", value);
-                //setting price amount
-                //procduct.PaidAmt = value;
-            }
-        }
 
         private void btnAddIngredient_Click(object sender, EventArgs e)
         {
@@ -208,5 +201,36 @@ namespace CafeSystem.Forms.Admin
             }
 
         }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            decimal value = 0;
+
+            //checks if entered value can be decimal or not
+            if (decimal.TryParse(txtPrice.Text, out value))
+            {
+                txtPrice.Text = String.Format("{0:0.00}", value);
+                //setting price amount
+                //procduct.PaidAmt = value;
+            }
+
+
+            try
+            {
+                string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+                picItem.BackgroundImage.Save(Path.GetFullPath(Path.Combine(RunningPath, @"..\..\Resource\Images\MenuItems\")) + itemImagePath, ImageFormat.Png);
+                //    Bitmap bmp = new Bitmap(itemImagePath);
+
+                //bmp.Save(Path.GetFullPath(Path.Combine(RunningPath, @"..\..\Resource\Images\MenuItems")));
+                MessageBox.Show(Path.GetFullPath(Path.Combine(RunningPath, @"..\..\Resource\Images\MenuItems\")) + itemImagePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+    //ProductViewForm viewProductPage = new ProductViewForm();
+    //this.Hide();
+    //viewProductPage.ShowDialog();
+    //this.Close(); //close previous form
+}
     }
 }
