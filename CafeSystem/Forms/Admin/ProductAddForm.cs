@@ -78,6 +78,7 @@ namespace CafeSystem.Forms.Admin
 
             //add current combobox of ingredient to list
             cboIngredientList.Add(cboIngredient);
+            getIngredient(cboIngredient);
         }
 
         private void lblProductTable_Click(object sender, EventArgs e)
@@ -156,6 +157,34 @@ namespace CafeSystem.Forms.Admin
             }
         }
 
+        private class ComboboxItem
+        {
+            public string text { get; set; }
+            public int value { get; set; }
+
+            public override string ToString()
+            {
+                return text;
+            }
+        }
+
+        private void getIngredient(ComboBox comboBox)
+        {
+            db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
+            db.Sqlite_cmd.CommandText = "SELECT * FROM stock WHERE stock_quantity > 1";
+
+            db.Sqlite_datareader = db.Sqlite_cmd.ExecuteReader();//reads the database
+
+            
+            while (db.Sqlite_datareader.Read())
+            {
+                ComboboxItem ingredientItem = new ComboboxItem();
+                ingredientItem.value = Convert.ToInt32(db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("id")));
+                ingredientItem.text = db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("stock_name")).ToString();
+                comboBox.Items.Add(ingredientItem);
+            }
+            db.Sqlite_cmd.Dispose();
+        }
 
         private void btnAddIngredient_Click(object sender, EventArgs e)
         {
@@ -166,8 +195,7 @@ namespace CafeSystem.Forms.Admin
             flowPanelCbo.Anchor = System.Windows.Forms.AnchorStyles.None;
             flowPanelCbo.Margin = new Padding(3, 0, 0, 0);
             flowPanelCbo.MinimumSize = new Size(120, 55);
-
-
+            
             //combobox
             ComboBox cboIngredientNew = new ComboBox();
             cboIngredientNew.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -175,7 +203,7 @@ namespace CafeSystem.Forms.Admin
             cboIngredientNew.MinimumSize = new System.Drawing.Size(250, 33);
             cboIngredientNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             cboIngredientNew.Margin = new Padding(0, 0, 0, 0);
-
+            getIngredient(cboIngredientNew);
 
             //remove button
             Button btnRemoveIngredient = new Button();
@@ -208,8 +236,23 @@ namespace CafeSystem.Forms.Admin
             }
 
         }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string itemName = txtItemName.Text;
+            decimal price = 0;
+            string category = "Food";
+            string type = cboCategory.Text;
+            int ingredients = (cboIngredient.SelectedItem as ComboboxItem).value;
+            string description = txtDescription.Text;
+
+            if (rdoFood.Checked)
+            {
+                category = "Food";
+            }else if (rdoBeverage.Checked)
+            {
+                category = "Beverage";
+            }
             decimal value = 0;
 
             //checks if entered value can be decimal or not
@@ -217,27 +260,76 @@ namespace CafeSystem.Forms.Admin
             {
                 txtPrice.Text = String.Format("{0:0.00}", value);
                 //setting price amount
-                //procduct.PaidAmt = value;
+                price = Math.Round(value, 2);
             }
-
-
-            try
+            if ((itemName != "") && (price != 0) && (category != "") && (type != "") && (ingredients != 0) && (itemImagePath != ""))
             {
-                string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
-                picItem.BackgroundImage.Save(Path.GetFullPath(Path.Combine(RunningPath, @"..\..\Resource\Images\MenuItems\")) + itemImagePath, ImageFormat.Png);
-                //    Bitmap bmp = new Bitmap(itemImagePath);
+                try
+                {
+                    string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+                    picItem.BackgroundImage.Save(Path.GetFullPath(Path.Combine(RunningPath, @"..\..\Resource\Images\MenuItems\")) + itemImagePath, ImageFormat.Png);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
-                //bmp.Save(Path.GetFullPath(Path.Combine(RunningPath, @"..\..\Resource\Images\MenuItems")));
-                MessageBox.Show(Path.GetFullPath(Path.Combine(RunningPath, @"..\..\Resource\Images\MenuItems\")) + itemImagePath);
+                db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
+                db.Sqlite_cmd.CommandText = "INSERT INTO item (name, price, description, image, category, type) " +
+                    "VALUES('" + itemName + "', '" + price + "', '" + description + "', '" + itemImagePath + "', '" + category + "', '" + type + "')";
+                db.Sqlite_datareader = db.Sqlite_cmd.ExecuteReader();//reads the database
+                db.Sqlite_cmd.Dispose();
+                db.CloseDBConnection();
+
+                ProductViewForm viewProductPage = new ProductViewForm();
+                this.Hide();
+                viewProductPage.ShowDialog();
+                this.Close(); //close previous form
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                if (itemName == "")
+                {
+                    MessageBox.Show("Please fill in item name");
+                }
+                if (price == 0)
+                {
+                    MessageBox.Show("Please fill in price");
+                }
+                if (category == "")
+                {
+                    MessageBox.Show("Please select a category");
+                }
+                if (type == "")
+                {
+                    MessageBox.Show("Please select a type");
+                }
+                if (ingredients == 0)
+                {
+                    MessageBox.Show("Please select an ingredients");
+                }
+                if (itemImagePath == "")
+                {
+                    MessageBox.Show("Please upload a picture");
+                }
             }
-    //ProductViewForm viewProductPage = new ProductViewForm();
-    //this.Hide();
-    //viewProductPage.ShowDialog();
-    //this.Close(); //close previous form
+
 }
+
+        private void rdoBeverage_CheckedChanged(object sender, EventArgs e)
+        {
+            cboCategory.Items.Clear();
+            cboCategory.Items.AddRange(new object[] {
+            "Coffee",
+            "Tea"});
+        }
+
+        private void rdoFood_CheckedChanged(object sender, EventArgs e)
+        {
+            cboCategory.Items.Clear();
+            cboCategory.Items.AddRange(new object[] {
+            "Pastry",
+            "Sides"});
+        }
     }
 }

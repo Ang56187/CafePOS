@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("User");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Product");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Stock");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Order");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Product");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Stock");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Order");
             this.lblAdminName = new System.Windows.Forms.Label();
             this.pnlAdminName = new System.Windows.Forms.Panel();
             this.pnlAdminNavContainer = new System.Windows.Forms.Panel();
@@ -124,23 +124,23 @@
             this.treeViewAdminNav.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
             this.treeViewAdminNav.Name = "treeViewAdminNav";
-            treeNode9.Name = "nodeUser";
-            treeNode9.Text = "User";
-            treeNode10.Name = "nodeProduct";
-            treeNode10.Text = "Product";
-            treeNode11.Name = "nodeStock";
-            treeNode11.Text = "Stock";
-            treeNode12.Name = "nodeOrder";
-            treeNode12.Text = "Order";
+            treeNode1.Name = "nodeUser";
+            treeNode1.Text = "User";
+            treeNode2.Name = "nodeProduct";
+            treeNode2.Text = "Product";
+            treeNode3.Name = "nodeStock";
+            treeNode3.Text = "Stock";
+            treeNode4.Name = "nodeOrder";
+            treeNode4.Text = "Order";
             this.treeViewAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
             this.treeViewAdminNav.ShowLines = false;
             this.treeViewAdminNav.Size = new System.Drawing.Size(275, 951);
             this.treeViewAdminNav.TabIndex = 3;
@@ -266,6 +266,7 @@
             // rdoFood
             // 
             this.rdoFood.AutoSize = true;
+            this.rdoFood.Checked = true;
             this.rdoFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoFood.Location = new System.Drawing.Point(347, 274);
             this.rdoFood.Name = "rdoFood";
@@ -274,6 +275,7 @@
             this.rdoFood.TabStop = true;
             this.rdoFood.Text = "Food";
             this.rdoFood.UseVisualStyleBackColor = true;
+            this.rdoFood.CheckedChanged += new System.EventHandler(this.rdoFood_CheckedChanged);
             // 
             // rdoBeverage
             // 
@@ -283,16 +285,19 @@
             this.rdoBeverage.Name = "rdoBeverage";
             this.rdoBeverage.Size = new System.Drawing.Size(91, 22);
             this.rdoBeverage.TabIndex = 30;
-            this.rdoBeverage.TabStop = true;
             this.rdoBeverage.Text = "Beverage";
             this.rdoBeverage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rdoBeverage.UseVisualStyleBackColor = true;
+            this.rdoBeverage.CheckedChanged += new System.EventHandler(this.rdoBeverage_CheckedChanged);
             // 
             // cboCategory
             // 
             this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Items.AddRange(new object[] {
+            "Pastry",
+            "Sides"});
             this.cboCategory.Location = new System.Drawing.Point(328, 302);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(592, 33);

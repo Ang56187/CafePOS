@@ -135,9 +135,6 @@ namespace CafeSystem.Forms.Admin
             {
                 MessageBox.Show("Please Do Not Leave Any Empty Box");
             }
-
-            
-
         }
     }
 }

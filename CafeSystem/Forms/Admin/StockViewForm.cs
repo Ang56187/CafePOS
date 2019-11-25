@@ -62,7 +62,7 @@ namespace CafeSystem.Forms.Admin
             }
         }
 
-        private void ProductViewForm_Load(object sender, EventArgs e)
+        private void StockViewForm_Load(object sender, EventArgs e)
         {
             db.OpenDBConnection();
 
@@ -73,7 +73,7 @@ namespace CafeSystem.Forms.Admin
 
             while (db.Sqlite_datareader.Read())
             {
-                dtgOrder.Rows.Add(new object[] {
+                dtgStock.Rows.Add(new object[] {
                 db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("id")),
                 db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("stock_name")), 
                 db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("stock_quantity")),  
