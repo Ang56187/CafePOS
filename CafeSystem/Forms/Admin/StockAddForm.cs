@@ -56,6 +56,13 @@ namespace CafeSystem.Forms.Admin
                 viewUserPage.ShowDialog();
                 this.Close(); //close previous form
             }
+            else if (treeNode.Name.Equals("nodeStock") && !(this.Name.Equals("StockViewForm")))
+            {
+                StockViewForm viewStockPage = new StockViewForm();
+                this.Hide();
+                viewStockPage.ShowDialog();
+                this.Close(); //close previous form
+            }
         }
 
         private void UserAddForm_Load(object sender, EventArgs e)
@@ -64,73 +71,58 @@ namespace CafeSystem.Forms.Admin
 
         }
 
-        private void lblUserTable_Click(object sender, EventArgs e)
-        {
-            UserViewForm userViewPage = new UserViewForm();
-            this.Hide();
-            userViewPage.ShowDialog();
-            this.Close(); //close previous form
-        }
-
-        //for password decryption
-        public string GenerateEncryptionKey()
-        {
-            string EncryptionKey = string.Empty;
-
-            Random Robj = new Random();
-            int Rnumber = Robj.Next();
-            EncryptionKey = "LetMeIn";
-
-            return EncryptionKey;
-        }
-
-        public string Encrypt(string clearText, string EncryptionKey)
-        {
-            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
-            using (Aes encryptor = Aes.Create())
-            {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
-                encryptor.Key = pdb.GetBytes(32);
-                encryptor.IV = pdb.GetBytes(16);
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-                    {
-                        cs.Write(clearBytes, 0, clearBytes.Length);
-                        cs.Close();
-                    }
-                    clearText = Convert.ToBase64String(ms.ToArray());
-                }
-            }
-            return clearText;
-        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string username = txtUserName.Text;
-            string password = Encrypt(txtPassword.Text, GenerateEncryptionKey());
-            string position = cboPosition.Text;
+            String stockName = txtStockName.Text;
+            decimal stockQty = numUpDownStockQty.Value;
+            decimal stockPrice = Convert.ToDecimal(txtStockCost.Text);
+            String supplierLink = txtSupplierLink.Text;
+            DateTime dateTime = DateTime.Now;
 
-            if ((username != "") && (password != "") && (position != "")){
+            if ((!stockName.Equals("")) && (stockQty != 0) && (stockPrice != 0) && (!supplierLink.Equals(""))){
                 db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
-                db.Sqlite_cmd.CommandText = "INSERT INTO user (user_name, user_password, user_role) " +
-                    "VALUES('"+ username + "', '" + password + "', '" + position + "')";
+                db.Sqlite_cmd.CommandText = "INSERT INTO stock (stock_name,stock_quantity,stock_cost,supplier_link,last_restock_date) " +
+                    "VALUES('"+ stockName + "', " + stockQty + ", " + stockPrice + ",'"+ supplierLink + "','"+ dateTime.ToString("yyyy-MM-dd HH:mm:ss") +"')";
                 db.Sqlite_datareader = db.Sqlite_cmd.ExecuteReader();//reads the database
                 db.Sqlite_cmd.Dispose();
                 db.CloseDBConnection();
 
-                UserViewForm viewUserPage = new UserViewForm();
+                StockViewForm stockViewPage = new StockViewForm();
                 this.Hide();
-                viewUserPage.ShowDialog();
+                stockViewPage.ShowDialog();
                 this.Close(); //close previous form
             }
             else
             {
                 MessageBox.Show("Please Do Not Leave Any Empty Box");
             }
+        }
 
-            
+        private void lblStockTable_Click(object sender, EventArgs e)
+        {
+            StockViewForm stockViewPage = new StockViewForm();
+            this.Hide();
+            stockViewPage.ShowDialog();
+            this.Close();
+        }
 
+        private void txtStockCost_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            decimal amount = 0;
+
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)46;//8 is backspace ,46 is .
+
+            if (e.KeyChar == (char)46 && txtStockCost.Text.IndexOf(".") > -1)
+            {
+                e.Handled = true;
+            }
+
+            // no dots in beginning
+            if (txtStockCost.Text.StartsWith("."))
+            {
+                txtStockCost.Text = "";
+            }
         }
     }
 }

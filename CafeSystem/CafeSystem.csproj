@@ -91,6 +91,18 @@
     <Compile Include="Components\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Forms\Admin\StockAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\StockAddForm.Designer.cs">
+      <DependentUpon>StockAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\StockViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\StockViewForm.Designer.cs">
+      <DependentUpon>StockViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\UserAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +190,12 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
     <None Include="Resource\Images\Icons\coffee-white-128.png" />
+    <EmbeddedResource Include="Forms\Admin\StockAddForm.resx">
+      <DependentUpon>StockAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\StockViewForm.resx">
+      <DependentUpon>StockViewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\UserAddForm.resx">
       <DependentUpon>UserAddForm.cs</DependentUpon>
     </EmbeddedResource>
