@@ -92,23 +92,23 @@ namespace CafeSystem.Forms.Admin
             this.Close(); //close previous form
         }
 
-        private void dtgOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var buttonGrid = (DataGridView)sender;
 
             if (buttonGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0 && e.ColumnIndex == 6) //When selected edit button
+                e.RowIndex >= 0 && e.ColumnIndex == 5) //When selected edit button
             {
-                int selectedrowindex = dtgOrder.SelectedCells[0].RowIndex;
+                int selectedrowindex = dtgStock.SelectedCells[0].RowIndex;
 
-                DataGridViewRow selectedRow = dtgOrder.Rows[selectedrowindex];
+                DataGridViewRow selectedRow = dtgStock.Rows[selectedrowindex];
                 string id = Convert.ToString(selectedRow.Cells["ID"].Value);
-                string name  =Convert.ToString(selectedRow.Cells["stock_name"].Value);
+                string name = Convert.ToString(selectedRow.Cells["stock_name"].Value);
                 int qty = Convert.ToInt32(selectedRow.Cells["stock_quantity"].Value);
                 decimal cost = Convert.ToDecimal(selectedRow.Cells["stock_cost"].Value);
                 string supplierLink = Convert.ToString(selectedRow.Cells["supplier_link"].Value);
 
-                StockEditForm stockEditPage = new StockEditForm(id,name,qty,cost,supplierLink);
+                StockEditForm stockEditPage = new StockEditForm(id, name, qty, cost, supplierLink);
                 this.Hide();
                 stockEditPage.ShowDialog();
                 this.Close();

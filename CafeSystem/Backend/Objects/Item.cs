@@ -32,11 +32,10 @@ namespace CafeSystem.Backend.Objects
 
 
         //for database 
-        public Item(String name, decimal price, decimal cost, String description, String image, String category, String type)
+        public Item(String name, decimal price, String description, String image, String category, String type)
         {
             Name = name;
             Price = price;
-            Cost = cost;
             Description = description;
             Image = image;
             Category = category;

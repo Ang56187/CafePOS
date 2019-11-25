@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Product");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Stock");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Order");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("User");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Product");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Stock");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Order");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockViewForm));
             this.lblAdminName = new System.Windows.Forms.Label();
             this.pnlAdminName = new System.Windows.Forms.Panel();
@@ -42,12 +42,14 @@
             this.lblUserTable = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgStock = new System.Windows.Forms.DataGridView();
+            this.btnAddUser = new CafeSystem.Components.RoundButton();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUserRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier_link = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colBtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnAddUser = new CafeSystem.Components.RoundButton();
             this.pnlAdminName.SuspendLayout();
             this.pnlAdminNavContainer.SuspendLayout();
             this.pnlAdminTopContainer.SuspendLayout();
@@ -109,19 +111,19 @@
             this.treeViewAdminNav.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
             this.treeViewAdminNav.Name = "treeViewAdminNav";
-            treeNode1.Name = "nodeUser";
-            treeNode1.Text = "User";
-            treeNode2.Name = "nodeProduct";
-            treeNode2.Text = "Product";
-            treeNode3.Name = "nodeStock";
-            treeNode3.Text = "Stock";
-            treeNode4.Name = "nodeOrder";
-            treeNode4.Text = "Order";
+            treeNode17.Name = "nodeUser";
+            treeNode17.Text = "User";
+            treeNode18.Name = "nodeProduct";
+            treeNode18.Text = "Product";
+            treeNode19.Name = "nodeStock";
+            treeNode19.Text = "Stock";
+            treeNode20.Name = "nodeOrder";
+            treeNode20.Text = "Order";
             this.treeViewAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode17,
+            treeNode18,
+            treeNode19,
+            treeNode20});
             this.treeViewAdminNav.ShowLines = false;
             this.treeViewAdminNav.Size = new System.Drawing.Size(275, 951);
             this.treeViewAdminNav.TabIndex = 3;
@@ -183,55 +185,19 @@
             this.dtgStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.colUserName,
-            this.colUserRole,
+            this.stock_name,
+            this.stock_quantity,
+            this.stock_cost,
+            this.supplier_link,
             this.colBtnEdit,
             this.colBtnDelete});
             this.dtgStock.Location = new System.Drawing.Point(335, 194);
             this.dtgStock.Name = "dtgStock";
+            this.dtgStock.RowHeadersWidth = 51;
             this.dtgStock.RowTemplate.Height = 24;
             this.dtgStock.Size = new System.Drawing.Size(1507, 776);
             this.dtgStock.TabIndex = 20;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ID.Frozen = true;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // colUserName
-            // 
-            this.colUserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colUserName.Frozen = true;
-            this.colUserName.HeaderText = "Name";
-            this.colUserName.Name = "colUserName";
-            this.colUserName.ReadOnly = true;
-            this.colUserName.Width = 366;
-            // 
-            // colUserRole
-            // 
-            this.colUserRole.HeaderText = "Role";
-            this.colUserRole.Name = "colUserRole";
-            this.colUserRole.ReadOnly = true;
-            // 
-            // colBtnEdit
-            // 
-            this.colBtnEdit.HeaderText = "";
-            this.colBtnEdit.Name = "colBtnEdit";
-            this.colBtnEdit.ReadOnly = true;
-            this.colBtnEdit.Text = "Edit";
-            this.colBtnEdit.UseColumnTextForButtonValue = true;
-            // 
-            // colBtnDelete
-            // 
-            this.colBtnDelete.HeaderText = "";
-            this.colBtnDelete.Name = "colBtnDelete";
-            this.colBtnDelete.ReadOnly = true;
-            this.colBtnDelete.Text = "Delete";
-            this.colBtnDelete.UseColumnTextForButtonValue = true;
+            this.dtgStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgStock_CellContentClick);
             // 
             // btnAddUser
             // 
@@ -249,9 +215,67 @@
             this.btnAddUser.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
             this.btnAddUser.Size = new System.Drawing.Size(168, 46);
             this.btnAddUser.TabIndex = 19;
-            this.btnAddUser.Text = "Add User";
+            this.btnAddUser.Text = "Add Stock";
             this.btnAddUser.UseVisualStyleBackColor = false;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddProduct_Click);
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 125;
+            // 
+            // stock_name
+            // 
+            this.stock_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.stock_name.Frozen = true;
+            this.stock_name.HeaderText = "Stock name";
+            this.stock_name.MinimumWidth = 6;
+            this.stock_name.Name = "stock_name";
+            this.stock_name.ReadOnly = true;
+            this.stock_name.Width = 366;
+            // 
+            // stock_quantity
+            // 
+            this.stock_quantity.HeaderText = "Stock quantity";
+            this.stock_quantity.MinimumWidth = 6;
+            this.stock_quantity.Name = "stock_quantity";
+            this.stock_quantity.ReadOnly = true;
+            // 
+            // stock_cost
+            // 
+            this.stock_cost.HeaderText = "Stock cost";
+            this.stock_cost.MinimumWidth = 6;
+            this.stock_cost.Name = "stock_cost";
+            // 
+            // supplier_link
+            // 
+            this.supplier_link.HeaderText = "Supplier link";
+            this.supplier_link.MinimumWidth = 6;
+            this.supplier_link.Name = "supplier_link";
+            // 
+            // colBtnEdit
+            // 
+            this.colBtnEdit.HeaderText = "";
+            this.colBtnEdit.MinimumWidth = 6;
+            this.colBtnEdit.Name = "colBtnEdit";
+            this.colBtnEdit.ReadOnly = true;
+            this.colBtnEdit.Text = "Edit";
+            this.colBtnEdit.UseColumnTextForButtonValue = true;
+            // 
+            // colBtnDelete
+            // 
+            this.colBtnDelete.HeaderText = "";
+            this.colBtnDelete.MinimumWidth = 6;
+            this.colBtnDelete.Name = "colBtnDelete";
+            this.colBtnDelete.ReadOnly = true;
+            this.colBtnDelete.Text = "Delete";
+            this.colBtnDelete.UseColumnTextForButtonValue = true;
             // 
             // StockViewForm
             // 
@@ -292,8 +316,10 @@
         private System.Windows.Forms.DataGridView dtgStock;
         private Components.CustomTreeView treeViewAdminNav;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUserRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock_quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock_cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplier_link;
         private System.Windows.Forms.DataGridViewButtonColumn colBtnEdit;
         private System.Windows.Forms.DataGridViewButtonColumn colBtnDelete;
     }
