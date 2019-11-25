@@ -35,7 +35,9 @@
             this.lblAdminName = new System.Windows.Forms.Label();
             this.pnlAdminName = new System.Windows.Forms.Panel();
             this.pnlAdminNavContainer = new System.Windows.Forms.Panel();
+            this.treeViewAdminNav = new CafeSystem.Components.CustomTreeView();
             this.pnlAdminTopContainer = new System.Windows.Forms.Panel();
+            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.lblProductTable = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblBreadcrumb = new System.Windows.Forms.Label();
@@ -57,8 +59,6 @@
             this.picItem = new System.Windows.Forms.PictureBox();
             this.btnAddIngredient = new CafeSystem.Components.RoundButton();
             this.btnAdd = new CafeSystem.Components.RoundButton();
-            this.btnLogOut = new CafeSystem.Components.RoundButton();
-            this.treeViewAdminNav = new CafeSystem.Components.CustomTreeView();
             this.pnlAdminName.SuspendLayout();
             this.pnlAdminNavContainer.SuspendLayout();
             this.pnlAdminTopContainer.SuspendLayout();
@@ -103,6 +103,42 @@
             this.pnlAdminNavContainer.Size = new System.Drawing.Size(276, 1010);
             this.pnlAdminNavContainer.TabIndex = 15;
             // 
+            // treeViewAdminNav
+            // 
+            this.treeViewAdminNav.AlternateBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.treeViewAdminNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.treeViewAdminNav.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewAdminNav.Cursor = System.Windows.Forms.Cursors.Default;
+            this.treeViewAdminNav.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeViewAdminNav.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
+            this.treeViewAdminNav.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewAdminNav.ForeColor = System.Drawing.Color.White;
+            this.treeViewAdminNav.HideSelection = false;
+            this.treeViewAdminNav.ItemHeight = 40;
+            this.treeViewAdminNav.LineColor = System.Drawing.Color.White;
+            this.treeViewAdminNav.Location = new System.Drawing.Point(0, 57);
+            this.treeViewAdminNav.Margin = new System.Windows.Forms.Padding(4);
+            this.treeViewAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
+            this.treeViewAdminNav.Name = "treeViewAdminNav";
+            treeNode1.Name = "nodeUser";
+            treeNode1.Text = "User";
+            treeNode2.Name = "nodeProduct";
+            treeNode2.Text = "Product";
+            treeNode3.Name = "nodeStock";
+            treeNode3.Text = "Stock";
+            treeNode4.Name = "nodeOrder";
+            treeNode4.Text = "Order";
+            this.treeViewAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
+            this.treeViewAdminNav.ShowLines = false;
+            this.treeViewAdminNav.Size = new System.Drawing.Size(275, 951);
+            this.treeViewAdminNav.TabIndex = 3;
+            this.treeViewAdminNav.TabStop = false;
+            this.treeViewAdminNav.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewAdminNav_AfterSelect);
+            // 
             // pnlAdminTopContainer
             // 
             this.pnlAdminTopContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -112,6 +148,24 @@
             this.pnlAdminTopContainer.Name = "pnlAdminTopContainer";
             this.pnlAdminTopContainer.Size = new System.Drawing.Size(1648, 58);
             this.pnlAdminTopContainer.TabIndex = 16;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(1439, 5);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 10, 20, 4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(187, 46);
+            this.btnLogOut.TabIndex = 4;
+            this.btnLogOut.Text = "Logout";
+            this.btnLogOut.UseVisualStyleBackColor = false;
             // 
             // lblProductTable
             // 

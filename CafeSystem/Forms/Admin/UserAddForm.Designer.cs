@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Product");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Stock");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Order");
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("User");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Product");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Stock");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Order");
             this.lblAdminName = new System.Windows.Forms.Label();
             this.pnlAdminName = new System.Windows.Forms.Panel();
             this.pnlAdminNavContainer = new System.Windows.Forms.Panel();
@@ -49,6 +50,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblPosition = new System.Windows.Forms.Label();
             this.cboPosition = new System.Windows.Forms.ComboBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pnlAdminName.SuspendLayout();
             this.pnlAdminNavContainer.SuspendLayout();
             this.pnlAdminTopContainer.SuspendLayout();
@@ -108,19 +110,19 @@
             this.treeViewAdminNav.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
             this.treeViewAdminNav.Name = "treeViewAdminNav";
-            treeNode1.Name = "nodeUser";
-            treeNode1.Text = "User";
-            treeNode2.Name = "nodeProduct";
-            treeNode2.Text = "Product";
-            treeNode3.Name = "nodeStock";
-            treeNode3.Text = "Stock";
-            treeNode4.Name = "nodeOrder";
-            treeNode4.Text = "Order";
+            treeNode5.Name = "nodeUser";
+            treeNode5.Text = "User";
+            treeNode6.Name = "nodeProduct";
+            treeNode6.Text = "Product";
+            treeNode7.Name = "nodeStock";
+            treeNode7.Text = "Stock";
+            treeNode8.Name = "nodeOrder";
+            treeNode8.Text = "Order";
             this.treeViewAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.treeViewAdminNav.ShowLines = false;
             this.treeViewAdminNav.Size = new System.Drawing.Size(275, 951);
             this.treeViewAdminNav.TabIndex = 3;
@@ -252,6 +254,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(592, 30);
             this.txtPassword.TabIndex = 27;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // lblPosition
             // 
@@ -276,6 +279,12 @@
             this.cboPosition.Name = "cboPosition";
             this.cboPosition.Size = new System.Drawing.Size(592, 33);
             this.cboPosition.TabIndex = 31;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // UserAddForm
             // 
@@ -328,5 +337,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.ComboBox cboPosition;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

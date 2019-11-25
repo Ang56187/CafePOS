@@ -42,14 +42,14 @@ namespace CafeSystem.Forms.Admin
         {
             TreeNode treeNode = treeViewAdminNav.SelectedNode;
 
-            if (treeNode.Name.Equals("nodeProduct"))
+            if (treeNode.Name.Equals("nodeProduct") && !(this.Name.Equals("ProductViewForm")))
             {
                 ProductViewForm viewProductPage = new ProductViewForm();
                 this.Hide();
                 viewProductPage.ShowDialog();
                 this.Close(); //close previous form
             }
-            else if (treeNode.Name.Equals("nodeUser"))
+            else if (treeNode.Name.Equals("nodeUser") && !(this.Name.Equals("UserViewForm")))
             {
                 UserViewForm viewUserPage = new UserViewForm();
                 this.Hide();

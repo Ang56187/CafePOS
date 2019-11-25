@@ -17,7 +17,7 @@ namespace CafeSystem
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Admin.ProductViewForm());
+            Application.Run(new Forms.Admin.UserViewForm());
 
         }
     }
