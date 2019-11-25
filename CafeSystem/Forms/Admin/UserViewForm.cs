@@ -88,15 +88,27 @@ namespace CafeSystem.Forms.Admin
 
         private void dtgUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var btnEdit = (DataGridView)sender;
+            var buttonGrid = (DataGridView)sender;
 
-            if (btnEdit.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0 && e.ColumnIndex == 3)
+            if (buttonGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0 && e.ColumnIndex == 3) //When selected edit button
             {
                 int selectedrowindex = dtgUser.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dtgUser.Rows[selectedrowindex];
-                //string a = Convert.ToString(selectedRow.Cells["enter column name"].Value);
-                MessageBox.Show(selectedrowindex.ToString());
+                string a = Convert.ToString(selectedRow.Cells["ID"].Value);
+                MessageBox.Show(a);
+            } else if (buttonGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0 && e.ColumnIndex == 4) //When selected delete button
+            {
+                if (MessageBox.Show("Do you want to delete this row ?", "Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    dtgUser.Rows.RemoveAt(dtgUser.SelectedRows[0].Index);
+                    //db.Sqlite_adapter.Update(sTable);
+                }
+                //int selectedrowindex = dtgUser.SelectedCells[0].RowIndex;
+                //DataGridViewRow selectedRow = dtgUser.Rows[selectedrowindex];
+                //string a = Convert.ToString(selectedRow.Cells["ID"].Value);
+                //MessageBox.Show(a);
             }
         }
     }
