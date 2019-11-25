@@ -115,6 +115,12 @@
     <Compile Include="Forms\Admin\ProductAddForm.Designer.cs">
       <DependentUpon>ProductAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\StockEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\StockEditForm.Designer.cs">
+      <DependentUpon>StockEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\UserViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\ProductAddForm.resx">
       <DependentUpon>ProductAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\StockEditForm.resx">
+      <DependentUpon>StockEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\UserViewForm.resx">
       <DependentUpon>UserViewForm.cs</DependentUpon>

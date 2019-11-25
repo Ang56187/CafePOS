@@ -85,7 +85,6 @@ namespace CafeSystem.Forms.Admin
                 //setting paid amount
                 stockPrice = value;
             }
-
             String supplierLink = txtSupplierLink.Text;
             DateTime dateTime = DateTime.Now;
 
