@@ -119,7 +119,7 @@ namespace CafeSystem.Forms
                 {
                     foreach (Item item in menuList.MenuList)
                     {
-                        if (orderItem.Name.Equals(item.Name))
+                        if (orderItem.Name.Equals(item.Name) && (order.OrderDate.Date == DateTime.Today.Date))
                         {
                             item.Quantity += orderItem.Quantity;
                         }
@@ -182,6 +182,7 @@ namespace CafeSystem.Forms
                     menuList.TopFoodList()[i].Name,
                     String.Format("{0:C}",menuList.TopFoodList()[i].Price),
                     menuList.TopFoodList()[i].Quantity.ToString()});
+
                 listViewFood.Items.Add(listItem);
             }
 
@@ -191,6 +192,7 @@ namespace CafeSystem.Forms
                     menuList.TopBeverageList()[i].Name,
                     String.Format("{0:C}",menuList.TopBeverageList()[i].Price),
                     menuList.TopBeverageList()[i].Quantity.ToString()});
+
                 listViewBeverage.Items.Add(listItem);
             }
 
@@ -209,9 +211,12 @@ namespace CafeSystem.Forms
         {
             for (int i = 0; i <= 3; i++)
             {
-                //String imageName = topFoodList.AsEnumerable().ElementAt(1).Image;//if kept the enumerable class type
-                String imageName = itemList[i].Image;
-                SetImage(imageName, picBoxList[i]);
+                if (itemList[i].Quantity >= 1)
+                {
+                    //String imageName = topFoodList.AsEnumerable().ElementAt(1).Image;//if kept the enumerable class type
+                    String imageName = itemList[i].Image;
+                    SetImage(imageName, picBoxList[i]);
+                }
             }
 
         }
@@ -220,8 +225,16 @@ namespace CafeSystem.Forms
         {
             for (int i = 0; i <= 3; i++)
             {
-                lblNameList[i].Text = i+1 + ". " + itemList[i].Name;
-                lblQtyList[i].Text = itemList[i].Quantity.ToString() + " sold";
+                if (itemList[i].Quantity >= 1)
+                {
+                    lblNameList[i].Text = i + 1 + ". " + itemList[i].Name;
+                    lblQtyList[i].Text = itemList[i].Quantity.ToString() + " sold";
+                }
+                else
+                {
+                    lblNameList[i].Text = i + 1 + ". " + "None";
+                    lblQtyList[i].Text = itemList[i].Quantity.ToString() + " sold";
+                }
             }
 
         }
@@ -253,6 +266,10 @@ namespace CafeSystem.Forms
         {
             Font printFont = new Font("Arial", 12);
 
+            int overallFoodCounter = 0;
+            int overallBeverageCounter = 0;
+
+
             int counter = 3;
 
             float linesPerPage = 0;
@@ -261,7 +278,6 @@ namespace CafeSystem.Forms
 
             float centerMargin = e.MarginBounds.Width / 2;
             float topMargin = e.MarginBounds.Top;
-
 
 
             float thirdRowlineYPos = 50 + (3 * printFont.GetHeight(e.Graphics));
@@ -286,7 +302,8 @@ namespace CafeSystem.Forms
             //row 3 onwards (for listing items ordered in descending order(by quantity)) //foods
             foreach (Item item in menuList.TopFoodList())
             {
-                e.Graphics.DrawString(item.ToString(), printFont, Brushes.Black, new PointF(10, 40 + (counter * printFont.GetHeight(e.Graphics))));
+                overallFoodCounter += 1;
+                e.Graphics.DrawString(overallFoodCounter+".  "+item.ToString(), printFont, Brushes.Black, new PointF(10, 40 + (counter * printFont.GetHeight(e.Graphics))));
                 counter += 1;//increment to next row
             }
 
@@ -300,7 +317,8 @@ namespace CafeSystem.Forms
 
             foreach (Item item in menuList.TopBeverageList())
             {
-                e.Graphics.DrawString(item.ToString(), printFont, Brushes.Black, new PointF(10, 45 + (counter * printFont.GetHeight(e.Graphics))));
+                overallBeverageCounter += 1;
+                e.Graphics.DrawString(overallBeverageCounter + ".  "+item.ToString(), printFont, Brushes.Black, new PointF(10, 45 + (counter * printFont.GetHeight(e.Graphics))));
                 counter += 1;//increment to next row
             }
 
