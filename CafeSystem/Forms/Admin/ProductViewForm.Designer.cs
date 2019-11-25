@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("User");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Product");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Stock");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Order");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductViewForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Product");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Stock");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Order");
             this.lblAdminName = new System.Windows.Forms.Label();
             this.pnlAdminName = new System.Windows.Forms.Panel();
             this.pnlAdminNavContainer = new System.Windows.Forms.Panel();
+            this.treeViewAdminNav = new CafeSystem.Components.CustomTreeView();
             this.pnlAdminTopContainer = new System.Windows.Forms.Panel();
+            this.btnLogOut = new CafeSystem.Components.RoundButton();
             this.lblProductTable = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgProduct = new System.Windows.Forms.DataGridView();
+            this.btnAddProduct = new CafeSystem.Components.RoundButton();
+            this.itemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBtnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colBtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnAddProduct = new CafeSystem.Components.RoundButton();
-            this.btnLogOut = new CafeSystem.Components.RoundButton();
-            this.treeViewAdminNav = new CafeSystem.Components.CustomTreeView();
             this.pnlAdminName.SuspendLayout();
             this.pnlAdminNavContainer.SuspendLayout();
             this.pnlAdminTopContainer.SuspendLayout();
@@ -92,6 +93,41 @@
             this.pnlAdminNavContainer.Size = new System.Drawing.Size(276, 1010);
             this.pnlAdminNavContainer.TabIndex = 15;
             // 
+            // treeViewAdminNav
+            // 
+            this.treeViewAdminNav.AlternateBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.treeViewAdminNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.treeViewAdminNav.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewAdminNav.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeViewAdminNav.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
+            this.treeViewAdminNav.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewAdminNav.ForeColor = System.Drawing.Color.White;
+            this.treeViewAdminNav.HideSelection = false;
+            this.treeViewAdminNav.ItemHeight = 40;
+            this.treeViewAdminNav.LineColor = System.Drawing.Color.White;
+            this.treeViewAdminNav.Location = new System.Drawing.Point(0, 57);
+            this.treeViewAdminNav.Margin = new System.Windows.Forms.Padding(4);
+            this.treeViewAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
+            this.treeViewAdminNav.Name = "treeViewAdminNav";
+            treeNode5.Name = "nodeUser";
+            treeNode5.Text = "User";
+            treeNode6.Name = "nodeProduct";
+            treeNode6.Text = "Product";
+            treeNode7.Name = "nodeStock";
+            treeNode7.Text = "Stock";
+            treeNode8.Name = "nodeOrder";
+            treeNode8.Text = "Order";
+            this.treeViewAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
+            this.treeViewAdminNav.ShowLines = false;
+            this.treeViewAdminNav.Size = new System.Drawing.Size(275, 951);
+            this.treeViewAdminNav.TabIndex = 3;
+            this.treeViewAdminNav.TabStop = false;
+            this.treeViewAdminNav.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewAdminNav_AfterSelect);
+            // 
             // pnlAdminTopContainer
             // 
             this.pnlAdminTopContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -101,6 +137,25 @@
             this.pnlAdminTopContainer.Name = "pnlAdminTopContainer";
             this.pnlAdminTopContainer.Size = new System.Drawing.Size(1648, 58);
             this.pnlAdminTopContainer.TabIndex = 16;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(1439, 5);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 10, 20, 4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(187, 46);
+            this.btnLogOut.TabIndex = 4;
+            this.btnLogOut.Text = "Logout";
+            this.btnLogOut.UseVisualStyleBackColor = false;
             // 
             // lblProductTable
             // 
@@ -126,6 +181,7 @@
             this.dtgProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.itemID,
             this.colProductName,
             this.colProductPrice,
             this.colProductStock,
@@ -136,12 +192,44 @@
             this.dtgProduct.RowTemplate.Height = 24;
             this.dtgProduct.Size = new System.Drawing.Size(1507, 776);
             this.dtgProduct.TabIndex = 20;
+            this.dtgProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProduct_CellContentClick);
+            // 
+            // btnAddProduct
+            // 
+            this.btnAddProduct.AutoSize = true;
+            this.btnAddProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnAddProduct.FlatAppearance.BorderSize = 0;
+            this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddProduct.ForeColor = System.Drawing.Color.White;
+            this.btnAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddProduct.Location = new System.Drawing.Point(283, 123);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(4, 10, 20, 4);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
+            this.btnAddProduct.Size = new System.Drawing.Size(168, 46);
+            this.btnAddProduct.TabIndex = 19;
+            this.btnAddProduct.Text = "Add Product";
+            this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
+            // 
+            // itemID
+            // 
+            this.itemID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.itemID.Frozen = true;
+            this.itemID.HeaderText = "ID";
+            this.itemID.Name = "itemID";
+            this.itemID.ReadOnly = true;
+            this.itemID.Visible = false;
             // 
             // colProductName
             // 
+            this.colProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colProductName.Frozen = true;
             this.colProductName.HeaderText = "Name";
             this.colProductName.Name = "colProductName";
             this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 293;
             // 
             // colProductPrice
             // 
@@ -170,79 +258,6 @@
             this.colBtnDelete.ReadOnly = true;
             this.colBtnDelete.Text = "Delete";
             this.colBtnDelete.UseColumnTextForButtonValue = true;
-            // 
-            // btnAddProduct
-            // 
-            this.btnAddProduct.AutoSize = true;
-            this.btnAddProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnAddProduct.FlatAppearance.BorderSize = 0;
-            this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProduct.ForeColor = System.Drawing.Color.White;
-            this.btnAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddProduct.Location = new System.Drawing.Point(283, 123);
-            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(4, 10, 20, 4);
-            this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
-            this.btnAddProduct.Size = new System.Drawing.Size(168, 46);
-            this.btnAddProduct.TabIndex = 19;
-            this.btnAddProduct.Text = "Add Product";
-            this.btnAddProduct.UseVisualStyleBackColor = false;
-            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
-            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(1439, 5);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 10, 20, 4);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
-            this.btnLogOut.Size = new System.Drawing.Size(187, 46);
-            this.btnLogOut.TabIndex = 4;
-            this.btnLogOut.Text = "Logout";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            // 
-            // treeViewAdminNav
-            // 
-            this.treeViewAdminNav.AlternateBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.treeViewAdminNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.treeViewAdminNav.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeViewAdminNav.Dock = System.Windows.Forms.DockStyle.Left;
-            this.treeViewAdminNav.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
-            this.treeViewAdminNav.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeViewAdminNav.ForeColor = System.Drawing.Color.White;
-            this.treeViewAdminNav.HideSelection = false;
-            this.treeViewAdminNav.ItemHeight = 40;
-            this.treeViewAdminNav.LineColor = System.Drawing.Color.White;
-            this.treeViewAdminNav.Location = new System.Drawing.Point(0, 57);
-            this.treeViewAdminNav.Margin = new System.Windows.Forms.Padding(4);
-            this.treeViewAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
-            this.treeViewAdminNav.Name = "treeViewAdminNav";
-            treeNode1.Name = "nodeUser";
-            treeNode1.Text = "User";
-            treeNode2.Name = "nodeProduct";
-            treeNode2.Text = "Product";
-            treeNode3.Name = "nodeStock";
-            treeNode3.Text = "Stock";
-            treeNode4.Name = "nodeOrder";
-            treeNode4.Text = "Order";
-            this.treeViewAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
-            this.treeViewAdminNav.ShowLines = false;
-            this.treeViewAdminNav.Size = new System.Drawing.Size(275, 951);
-            this.treeViewAdminNav.TabIndex = 3;
-            this.treeViewAdminNav.TabStop = false;
-            this.treeViewAdminNav.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewAdminNav_AfterSelect);
             // 
             // ProductViewForm
             // 
@@ -282,6 +297,7 @@
         private System.Windows.Forms.Panel panel1;
         private Components.RoundButton btnAddProduct;
         private System.Windows.Forms.DataGridView dtgProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductStock;

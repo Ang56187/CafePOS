@@ -70,17 +70,18 @@ namespace CafeSystem.Forms.Admin
             db.OpenDBConnection();
 
             db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
-            db.Sqlite_cmd.CommandText = "SELECT item.name, item.price, min(stock.stock_quantity) FROM item " +
+            db.Sqlite_cmd.CommandText = "SELECT item.id, item.name, item.price, min(stock.stock_quantity) FROM item " +
                 "JOIN stock_item ON item.id = stock_item.item_id " +
                 "JOIN stock ON stock_item.stock_id = stock.id " +
                 "GROUP BY item.id, item.name";
 
             db.Sqlite_datareader = db.Sqlite_cmd.ExecuteReader();//reads the database
-            dtgProduct.Columns[1].DefaultCellStyle.Format = "c";
+            dtgProduct.Columns[2].DefaultCellStyle.Format = "c";
 
             while (db.Sqlite_datareader.Read())
             {
                 dtgProduct.Rows.Add(new object[] {
+                    db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("id")),
                 db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("name")),  // column name
                 db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("price")),
                 db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("min(stock.stock_quantity)"))
@@ -111,6 +112,35 @@ namespace CafeSystem.Forms.Admin
             this.Hide();
             addProductPage.ShowDialog();
             this.Close(); //close previous form
+        }
+
+        private void dtgProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var buttonGrid = (DataGridView)sender;
+
+            if (buttonGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0 && e.ColumnIndex == 3) //When selected edit button
+            {
+                int selectedrowindex = dtgProduct.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dtgProduct.Rows[selectedrowindex];
+                string a = Convert.ToString(selectedRow.Cells["ID"].Value);
+                MessageBox.Show(a);
+            }
+            else if (buttonGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+              e.RowIndex >= 0 && e.ColumnIndex == 5) //When selected delete button
+            {
+                if (MessageBox.Show("Do you want to delete this row ?", "Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    int selectedrowindex = dtgProduct.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dtgProduct.Rows[selectedrowindex];
+                    int rowID = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                    dtgProduct.Rows.RemoveAt(dtgProduct.SelectedCells[0].RowIndex);
+                    db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
+                    db.Sqlite_cmd.CommandText = "DELETE FROM item WHERE id = " + rowID;
+
+                    db.Sqlite_datareader = db.Sqlite_cmd.ExecuteReader();//reads the database
+                }
+            }
         }
     }
 }

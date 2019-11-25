@@ -25,8 +25,6 @@ namespace CafeSystem.Forms.Admin
 
         private PrivateFontCollection fonts = new PrivateFontCollection();
         User user = new User("Rocky","Admin");
-        
-        MenuCatalogue menuItems = new MenuCatalogue();
 
         Database db = new Database();
 
@@ -97,16 +95,9 @@ namespace CafeSystem.Forms.Admin
         {
             var buttonGrid = (DataGridView)sender;
 
-            if (buttonGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0 && e.ColumnIndex == 3) //When selected edit button
-            {
-                int selectedrowindex = dtgUser.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dtgUser.Rows[selectedrowindex];
-                string a = Convert.ToString(selectedRow.Cells["ID"].Value);
-                MessageBox.Show(a);
-            } else if (buttonGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0 && e.ColumnIndex == 4) //When selected delete button
-            {
+             if (buttonGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0 && e.ColumnIndex == 3) //When selected delete button
+             {
                 if (MessageBox.Show("Do you want to delete this row ?", "Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     int selectedrowindex = dtgUser.SelectedCells[0].RowIndex;
@@ -118,7 +109,7 @@ namespace CafeSystem.Forms.Admin
 
                     db.Sqlite_datareader = db.Sqlite_cmd.ExecuteReader();//reads the database
                 }
-            }
+             }
         }
     }
 }
