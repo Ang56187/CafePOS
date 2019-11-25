@@ -248,12 +248,13 @@
             // 
             // cboIngredient
             // 
+            this.cboIngredient.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboIngredient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboIngredient.FormattingEnabled = true;
-            this.cboIngredient.Location = new System.Drawing.Point(328, 399);
+            this.cboIngredient.Location = new System.Drawing.Point(3, 3);
             this.cboIngredient.Name = "cboIngredient";
-            this.cboIngredient.Size = new System.Drawing.Size(341, 33);
+            this.cboIngredient.Size = new System.Drawing.Size(344, 33);
             this.cboIngredient.TabIndex = 35;
             // 
             // lblItemImage
@@ -318,14 +319,15 @@
             this.btnAddIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddIngredient.ForeColor = System.Drawing.Color.White;
             this.btnAddIngredient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddIngredient.Location = new System.Drawing.Point(704, 391);
-            this.btnAddIngredient.Margin = new System.Windows.Forms.Padding(4, 10, 20, 4);
+            this.btnAddIngredient.Location = new System.Drawing.Point(366, 4);
+            this.btnAddIngredient.Margin = new System.Windows.Forms.Padding(10, 4, 10, 4);
             this.btnAddIngredient.Name = "btnAddIngredient";
             this.btnAddIngredient.Padding = new System.Windows.Forms.Padding(13, 0, 13, 2);
             this.btnAddIngredient.Size = new System.Drawing.Size(214, 42);
             this.btnAddIngredient.TabIndex = 40;
             this.btnAddIngredient.Text = "Add More Ingredient";
             this.btnAddIngredient.UseVisualStyleBackColor = false;
+            this.btnAddIngredient.Click += new System.EventHandler(this.btnAddIngredient_Click);
             // 
             // btnAdd
             // 
@@ -346,59 +348,25 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnLogOut
+            // flowPaneIngredientInner
             // 
-            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(1439, 5);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 10, 20, 4);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Padding = new System.Windows.Forms.Padding(13, 0, 3, 0);
-            this.btnLogOut.Size = new System.Drawing.Size(187, 46);
-            this.btnLogOut.TabIndex = 4;
-            this.btnLogOut.Text = "Logout";
-            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.flowPaneIngredientInner.AutoSize = true;
+            this.flowPaneIngredientInner.Controls.Add(this.cboIngredient);
+            this.flowPaneIngredientInner.Location = new System.Drawing.Point(3, 3);
+            this.flowPaneIngredientInner.Name = "flowPaneIngredientInner";
+            this.flowPaneIngredientInner.Size = new System.Drawing.Size(350, 39);
+            this.flowPaneIngredientInner.TabIndex = 43;
             // 
-            // treeViewAdminNav
+            // flowPanelIngredientOuter
             // 
-            this.treeViewAdminNav.AlternateBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.treeViewAdminNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.treeViewAdminNav.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeViewAdminNav.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.treeViewAdminNav.Dock = System.Windows.Forms.DockStyle.Left;
-            this.treeViewAdminNav.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
-            this.treeViewAdminNav.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeViewAdminNav.ForeColor = System.Drawing.Color.White;
-            this.treeViewAdminNav.HideSelection = false;
-            this.treeViewAdminNav.ItemHeight = 40;
-            this.treeViewAdminNav.LineColor = System.Drawing.Color.White;
-            this.treeViewAdminNav.Location = new System.Drawing.Point(0, 57);
-            this.treeViewAdminNav.Margin = new System.Windows.Forms.Padding(4);
-            this.treeViewAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
-            this.treeViewAdminNav.Name = "treeViewAdminNav";
-            treeNode1.Name = "nodeUser";
-            treeNode1.Text = "User";
-            treeNode2.Name = "nodeProduct";
-            treeNode2.Text = "Product";
-            treeNode3.Name = "nodeStock";
-            treeNode3.Text = "Stock";
-            treeNode4.Name = "nodeOrder";
-            treeNode4.Text = "Order";
-            this.treeViewAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
-            this.treeViewAdminNav.ShowLines = false;
-            this.treeViewAdminNav.Size = new System.Drawing.Size(275, 951);
-            this.treeViewAdminNav.TabIndex = 3;
-            this.treeViewAdminNav.TabStop = false;
-            this.treeViewAdminNav.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewAdminNav_AfterSelect);
+            this.flowPanelIngredientOuter.AutoSize = true;
+            this.flowPanelIngredientOuter.Controls.Add(this.flowPaneIngredientInner);
+            this.flowPanelIngredientOuter.Controls.Add(this.btnAddIngredient);
+            this.flowPanelIngredientOuter.Location = new System.Drawing.Point(328, 400);
+            this.flowPanelIngredientOuter.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.flowPanelIngredientOuter.Name = "flowPanelIngredientOuter";
+            this.flowPanelIngredientOuter.Size = new System.Drawing.Size(631, 50);
+            this.flowPanelIngredientOuter.TabIndex = 44;
             // 
             // ProductAddForm
             // 
@@ -406,13 +374,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1924, 1010);
+            this.Controls.Add(this.flowPanelIngredientOuter);
             this.Controls.Add(this.picItem);
             this.Controls.Add(this.lblFileName);
-            this.Controls.Add(this.btnAddIngredient);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblItemImage);
-            this.Controls.Add(this.cboIngredient);
             this.Controls.Add(this.lblIngredient);
             this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.rdoBeverage);
@@ -439,6 +406,9 @@
             this.pnlAdminNavContainer.ResumeLayout(false);
             this.pnlAdminTopContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picItem)).EndInit();
+            this.flowPaneIngredientInner.ResumeLayout(false);
+            this.flowPanelIngredientOuter.ResumeLayout(false);
+            this.flowPanelIngredientOuter.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -472,5 +442,7 @@
         private Components.RoundButton btnAddIngredient;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.PictureBox picItem;
+        private System.Windows.Forms.FlowLayoutPanel flowPaneIngredientInner;
+        private System.Windows.Forms.FlowLayoutPanel flowPanelIngredientOuter;
     }
 }
