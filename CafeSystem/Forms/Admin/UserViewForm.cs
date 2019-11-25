@@ -71,6 +71,7 @@ namespace CafeSystem.Forms.Admin
             while (db.Sqlite_datareader.Read())
             {
                 dtgUser.Rows.Add(new object[] {
+                db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("id")),
                 db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("user_name")),  // column name
                 db.Sqlite_datareader.GetValue(db.Sqlite_datareader.GetOrdinal("user_role"))
                 });
@@ -83,6 +84,20 @@ namespace CafeSystem.Forms.Admin
             this.Hide();
             addUserPage.ShowDialog();
             this.Close(); //close previous form
+        }
+
+        private void dtgUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var btnEdit = (DataGridView)sender;
+
+            if (btnEdit.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0 && e.ColumnIndex == 3)
+            {
+                int selectedrowindex = dtgUser.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dtgUser.Rows[selectedrowindex];
+                //string a = Convert.ToString(selectedRow.Cells["enter column name"].Value);
+                MessageBox.Show(selectedrowindex.ToString());
+            }
         }
     }
 }

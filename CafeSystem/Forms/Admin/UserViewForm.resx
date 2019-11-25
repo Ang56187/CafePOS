@@ -129,6 +129,9 @@
         OPPkm3Pfwzvg8ERDq/LSfgEMVvtEY3YAh0IOiR5IvaZhTy2qQhTtAGSC7zmb4ak6AAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="colUserName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

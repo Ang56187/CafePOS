@@ -11,6 +11,8 @@ namespace CafeSystem.Backend
 
         public SQLiteCommand Sqlite_cmd { get; set; }
 
+        public SQLiteDataAdapter Sqlite_adapter { get; set; }
+
         public void OpenDBConnection()
         {
             String fileLocation = System.IO.Path.Combine(Environment.CurrentDirectory, "..", "..", "Database", "posDB.db");
