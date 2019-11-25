@@ -40,7 +40,7 @@ namespace CafeSystem.Forms.Admin
 
         private void treeViewAdminNav_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            TreeNode treeNode = treeViewAdminNav.SelectedNode;
+            TreeNode treeNode = e.Node;
 
             if (treeNode.Name.Equals("nodeProduct"))
             {

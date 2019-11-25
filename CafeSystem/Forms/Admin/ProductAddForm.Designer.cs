@@ -397,6 +397,7 @@
             this.treeViewAdminNav.ShowLines = false;
             this.treeViewAdminNav.Size = new System.Drawing.Size(275, 951);
             this.treeViewAdminNav.TabIndex = 3;
+            this.treeViewAdminNav.TabStop = false;
             this.treeViewAdminNav.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewAdminNav_AfterSelect);
             // 
             // ProductAddForm
