@@ -48,19 +48,17 @@
             this.rdoFood = new System.Windows.Forms.RadioButton();
             this.rdoBeverage = new System.Windows.Forms.RadioButton();
             this.cboCategory = new System.Windows.Forms.ComboBox();
-            this.lblStock = new System.Windows.Forms.Label();
-            this.txtStock = new System.Windows.Forms.TextBox();
             this.lblIngredient = new System.Windows.Forms.Label();
             this.cboIngredient = new System.Windows.Forms.ComboBox();
             this.lblItemImage = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblFileName = new System.Windows.Forms.Label();
+            this.picItem = new System.Windows.Forms.PictureBox();
             this.btnAddIngredient = new CafeSystem.Components.RoundButton();
             this.btnAdd = new CafeSystem.Components.RoundButton();
             this.btnLogOut = new CafeSystem.Components.RoundButton();
-            this.tvAdminNav = new CafeSystem.Components.CustomTreeView();
-            this.picItem = new System.Windows.Forms.PictureBox();
+            this.treeViewAdminNav = new CafeSystem.Components.CustomTreeView();
             this.pnlAdminName.SuspendLayout();
             this.pnlAdminNavContainer.SuspendLayout();
             this.pnlAdminTopContainer.SuspendLayout();
@@ -97,7 +95,7 @@
             // 
             this.pnlAdminNavContainer.BackColor = System.Drawing.Color.White;
             this.pnlAdminNavContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlAdminNavContainer.Controls.Add(this.tvAdminNav);
+            this.pnlAdminNavContainer.Controls.Add(this.treeViewAdminNav);
             this.pnlAdminNavContainer.Controls.Add(this.pnlAdminName);
             this.pnlAdminNavContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlAdminNavContainer.Location = new System.Drawing.Point(0, 0);
@@ -230,31 +228,13 @@
             // 
             // cboCategory
             // 
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategory.FormattingEnabled = true;
             this.cboCategory.Location = new System.Drawing.Point(328, 302);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(592, 33);
             this.cboCategory.TabIndex = 31;
-            // 
-            // lblStock
-            // 
-            this.lblStock.AutoSize = true;
-            this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStock.Location = new System.Drawing.Point(990, 274);
-            this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(62, 25);
-            this.lblStock.TabIndex = 33;
-            this.lblStock.Text = "Stock";
-            // 
-            // txtStock
-            // 
-            this.txtStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStock.Location = new System.Drawing.Point(995, 302);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(155, 30);
-            this.txtStock.TabIndex = 32;
-            this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
             // lblIngredient
             // 
@@ -268,6 +248,7 @@
             // 
             // cboIngredient
             // 
+            this.cboIngredient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboIngredient.FormattingEnabled = true;
             this.cboIngredient.Location = new System.Drawing.Point(328, 399);
@@ -312,6 +293,21 @@
             this.lblFileName.TabIndex = 42;
             this.lblFileName.Text = "No file chosen";
             // 
+            // picItem
+            // 
+            this.picItem.BackgroundImage = global::CafeSystem.Properties.Resources.image_upload;
+            this.picItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picItem.ErrorImage = null;
+            this.picItem.Location = new System.Drawing.Point(328, 529);
+            this.picItem.Name = "picItem";
+            this.picItem.Size = new System.Drawing.Size(341, 273);
+            this.picItem.TabIndex = 0;
+            this.picItem.TabStop = false;
+            this.picItem.Click += new System.EventHandler(this.picItem_Click);
+            this.picItem.DragDrop += new System.Windows.Forms.DragEventHandler(this.picItem_DragDrop);
+            this.picItem.DragEnter += new System.Windows.Forms.DragEventHandler(this.picItem_DragEnter);
+            // 
             // btnAddIngredient
             // 
             this.btnAddIngredient.AutoSize = true;
@@ -326,9 +322,9 @@
             this.btnAddIngredient.Margin = new System.Windows.Forms.Padding(4, 10, 20, 4);
             this.btnAddIngredient.Name = "btnAddIngredient";
             this.btnAddIngredient.Padding = new System.Windows.Forms.Padding(13, 0, 13, 2);
-            this.btnAddIngredient.Size = new System.Drawing.Size(166, 42);
+            this.btnAddIngredient.Size = new System.Drawing.Size(214, 42);
             this.btnAddIngredient.TabIndex = 40;
-            this.btnAddIngredient.Text = "Add Ingredient";
+            this.btnAddIngredient.Text = "Add More Ingredient";
             this.btnAddIngredient.UseVisualStyleBackColor = false;
             // 
             // btnAdd
@@ -368,54 +364,40 @@
             this.btnLogOut.Text = "Logout";
             this.btnLogOut.UseVisualStyleBackColor = false;
             // 
-            // tvAdminNav
+            // treeViewAdminNav
             // 
-            this.tvAdminNav.AlternateBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.tvAdminNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.tvAdminNav.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tvAdminNav.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tvAdminNav.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
-            this.tvAdminNav.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tvAdminNav.ForeColor = System.Drawing.Color.White;
-            this.tvAdminNav.HideSelection = false;
-            this.tvAdminNav.ItemHeight = 40;
-            this.tvAdminNav.LineColor = System.Drawing.Color.White;
-            this.tvAdminNav.Location = new System.Drawing.Point(0, 57);
-            this.tvAdminNav.Margin = new System.Windows.Forms.Padding(4);
-            this.tvAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
-            this.tvAdminNav.Name = "tvAdminNav";
-            treeNode1.Name = "user";
+            this.treeViewAdminNav.AlternateBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.treeViewAdminNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.treeViewAdminNav.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewAdminNav.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.treeViewAdminNav.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeViewAdminNav.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
+            this.treeViewAdminNav.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewAdminNav.ForeColor = System.Drawing.Color.White;
+            this.treeViewAdminNav.HideSelection = false;
+            this.treeViewAdminNav.ItemHeight = 40;
+            this.treeViewAdminNav.LineColor = System.Drawing.Color.White;
+            this.treeViewAdminNav.Location = new System.Drawing.Point(0, 57);
+            this.treeViewAdminNav.Margin = new System.Windows.Forms.Padding(4);
+            this.treeViewAdminNav.MinimumSize = new System.Drawing.Size(133, 123);
+            this.treeViewAdminNav.Name = "treeViewAdminNav";
+            treeNode1.Name = "nodeUser";
             treeNode1.Text = "User";
-            treeNode2.Name = "product";
+            treeNode2.Name = "nodeProduct";
             treeNode2.Text = "Product";
-            treeNode3.Name = "stock";
+            treeNode3.Name = "nodeStock";
             treeNode3.Text = "Stock";
-            treeNode4.Name = "order";
+            treeNode4.Name = "nodeOrder";
             treeNode4.Text = "Order";
-            this.tvAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            this.treeViewAdminNav.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3,
             treeNode4});
-            this.tvAdminNav.ShowLines = false;
-            this.tvAdminNav.Size = new System.Drawing.Size(275, 951);
-            this.tvAdminNav.TabIndex = 3;
-            this.tvAdminNav.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewAdminNav_AfterSelect);
-            // 
-            // picItem
-            // 
-            this.picItem.BackgroundImage = global::CafeSystem.Properties.Resources.image_upload;
-            this.picItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picItem.ErrorImage = null;
-            this.picItem.Location = new System.Drawing.Point(328, 529);
-            this.picItem.Name = "picItem";
-            this.picItem.Size = new System.Drawing.Size(341, 273);
-            this.picItem.TabIndex = 0;
-            this.picItem.TabStop = false;
-            this.picItem.Click += new System.EventHandler(this.picItem_Click);
-            this.picItem.DragDrop += new System.Windows.Forms.DragEventHandler(this.picItem_DragDrop);
-            this.picItem.DragEnter += new System.Windows.Forms.DragEventHandler(this.picItem_DragEnter);
+            this.treeViewAdminNav.ShowLines = false;
+            this.treeViewAdminNav.Size = new System.Drawing.Size(275, 951);
+            this.treeViewAdminNav.TabIndex = 3;
+            this.treeViewAdminNav.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewAdminNav_AfterSelect);
             // 
             // ProductAddForm
             // 
@@ -431,8 +413,6 @@
             this.Controls.Add(this.lblItemImage);
             this.Controls.Add(this.cboIngredient);
             this.Controls.Add(this.lblIngredient);
-            this.Controls.Add(this.lblStock);
-            this.Controls.Add(this.txtStock);
             this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.rdoBeverage);
             this.Controls.Add(this.rdoFood);
@@ -467,7 +447,7 @@
         private Components.RoundButton btnLogOut;
         private System.Windows.Forms.Label lblAdminName;
         private System.Windows.Forms.Panel pnlAdminName;
-        private Components.CustomTreeView tvAdminNav;
+        private Components.CustomTreeView treeViewAdminNav;
         private System.Windows.Forms.Panel pnlAdminNavContainer;
         private System.Windows.Forms.Panel pnlAdminTopContainer;
         private System.Windows.Forms.Label lblProductTable;
@@ -483,8 +463,6 @@
         private System.Windows.Forms.RadioButton rdoFood;
         private System.Windows.Forms.RadioButton rdoBeverage;
         private System.Windows.Forms.ComboBox cboCategory;
-        private System.Windows.Forms.Label lblStock;
-        private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Label lblIngredient;
         private System.Windows.Forms.ComboBox cboIngredient;
         private System.Windows.Forms.Label lblItemImage;

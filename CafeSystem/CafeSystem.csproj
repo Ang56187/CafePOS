@@ -91,11 +91,23 @@
     <Compile Include="Components\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Forms\Admin\UserAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\UserAddForm.Designer.cs">
+      <DependentUpon>UserAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\ProductAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Admin\ProductAddForm.Designer.cs">
       <DependentUpon>ProductAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\UserViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\UserViewForm.Designer.cs">
+      <DependentUpon>UserViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Admin\ProductViewForm.cs">
       <SubType>Form</SubType>
@@ -166,8 +178,14 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
     <None Include="Resource\Images\Icons\coffee-white-128.png" />
+    <EmbeddedResource Include="Forms\Admin\UserAddForm.resx">
+      <DependentUpon>UserAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\ProductAddForm.resx">
       <DependentUpon>ProductAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\UserViewForm.resx">
+      <DependentUpon>UserViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\ProductViewForm.resx">
       <DependentUpon>ProductViewForm.cs</DependentUpon>

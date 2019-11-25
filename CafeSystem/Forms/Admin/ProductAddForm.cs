@@ -26,8 +26,6 @@ namespace CafeSystem.Forms.Admin
         private PrivateFontCollection fonts = new PrivateFontCollection();
         User user = new User("Rocky", "Admin");
 
-        MenuCatalogue menuItems = new MenuCatalogue();
-
         Database db = new Database();
 
         public ProductAddForm()
@@ -42,47 +40,29 @@ namespace CafeSystem.Forms.Admin
 
         private void treeViewAdminNav_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            TreeNode treeNode = treeViewAdminNav.SelectedNode;
 
-            TreeNode treeNode = tvAdminNav.SelectedNode;
-
-            //if root node selected
-            if (treeNode.Parent == null)
+            if (treeNode.Name.Equals("nodeProduct"))
             {
-
+                ProductViewForm viewProductPage = new ProductViewForm();
+                this.Hide();
+                viewProductPage.ShowDialog();
+                this.Close(); //close previous form
             }
-        }
-
-        private void ProductAddForm_OnPaint(object sender, EventArgs e)
-        {
-            System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
-            System.Drawing.Graphics formGraphics;
-            formGraphics = this.CreateGraphics();
-            formGraphics.FillRectangle(myBrush, new Rectangle(0, 0, 200, 300));
-            myBrush.Dispose();
-            formGraphics.Dispose();
+            else if (treeNode.Name.Equals("nodeUser"))
+            {
+                UserViewForm viewUserPage = new UserViewForm();
+                this.Hide();
+                viewUserPage.ShowDialog();
+                this.Close(); //close previous form
+            }
         }
 
         private void ProductAddForm_Load(object sender, EventArgs e)
         {
             db.OpenDBConnection();
 
-            db.Sqlite_cmd = db.SqlConn.CreateCommand();//ask database what to query
-            db.Sqlite_cmd.CommandText = "SELECT item.name, item.price, min(stock.stock_quantity) FROM item " +
-                "JOIN stock_item ON item.id = stock_item.item_id " +
-                "JOIN stock ON stock_item.stock_id = stock.id " +
-                "GROUP BY item.id, item.name";
-
             picItem.AllowDrop = true;
-        }
-
-        private void btnAddProduct_Click(object sender, EventArgs e)
-        {
-            System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
-            System.Drawing.Graphics formGraphics;
-            formGraphics = this.CreateGraphics();
-            formGraphics.FillRectangle(myBrush, new Rectangle(0, 0, 200, 300));
-            myBrush.Dispose();
-            formGraphics.Dispose();
         }
 
         private void lblProductTable_Click(object sender, EventArgs e)
@@ -108,24 +88,6 @@ namespace CafeSystem.Forms.Admin
             if (txtPrice.Text.StartsWith("."))
             {
                 txtPrice.Text = "";
-            }
-        }
-
-        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            decimal amount = 0;
-
-            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)46;//8 is backspace ,46 is .
-
-            if (e.KeyChar == (char)46 && txtStock.Text.IndexOf(".") > -1)
-            {
-                e.Handled = true;
-            }
-
-            // no dots in beginning
-            if (txtStock.Text.StartsWith("."))
-            {
-                txtStock.Text = "";
             }
         }
 
